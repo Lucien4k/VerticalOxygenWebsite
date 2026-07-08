@@ -52,8 +52,9 @@ export const Route = createFileRoute("/")({
 function Index() {
   return (
     <div className="min-h-screen bg-background">
-      {/* Hero with background video + floating transparent nav bars */}
-      <section className="relative min-h-[92vh] overflow-hidden">
+      {/* Sticky-reveal hero: pins while the next section slides up over it */}
+      <div className="relative" style={{ height: "100vh" }}>
+      <section className="sticky-hero relative overflow-hidden">
         {/* Background video */}
         <video
           className="hero-video absolute inset-0 h-full w-full object-cover"
@@ -164,14 +165,14 @@ function Index() {
         </div>
 
         {/* Hero content */}
-        <div className="relative mx-auto flex min-h-[92vh] max-w-6xl items-center px-6 pt-40 pb-16 md:pt-44">
+        <div className="relative mx-auto flex h-full max-w-6xl items-center px-6 pt-40 pb-16 md:pt-44">
           <div className="max-w-2xl">
             <div className="reveal-fade is-visible">
               <p className="mb-4 text-xs font-semibold uppercase tracking-[0.3em] text-terra-light">
                 Custom Living Walls
               </p>
-              <h1 className="font-serif text-5xl leading-[1.05] font-light text-cream md:text-6xl lg:text-7xl">
-                Living works of art
+              <h1 className="display-heading text-5xl leading-[1.02] font-light text-cream md:text-7xl lg:text-8xl">
+                Living <em>works</em> of art
               </h1>
               <p className="mt-6 max-w-xl text-lg leading-relaxed text-cream/90">
                 We couple beauty with simplicity to create healthy, living works of art.
@@ -201,23 +202,40 @@ function Index() {
           </div>
         </div>
       </section>
+      </div>
 
-      {/* Selected Work — real project gallery */}
-      <section id="work" className="relative overflow-hidden">
+      {/* Everything below scrolls up over the sticky hero */}
+      <div className="relative z-10 bg-background">
+
+      {/* Selected Work — dark, premium gallery with floating cutouts */}
+      <section id="work" className="relative overflow-hidden bg-charcoal text-cream">
+        {/* Decorative floating "cutout" plants — soft-masked so they read as transparent */}
+        <img
+          src={pothosCascade.url}
+          alt=""
+          aria-hidden
+          className="mask-fade-radial pointer-events-none absolute -top-16 -left-24 h-[420px] w-[420px] rotate-[-8deg] object-cover opacity-40 md:h-[560px] md:w-[560px]"
+        />
+        <img
+          src={spiderPothos.url}
+          alt=""
+          aria-hidden
+          className="mask-fade-radial pointer-events-none absolute top-1/3 -right-32 h-[520px] w-[520px] rotate-[12deg] object-cover opacity-30 md:h-[640px] md:w-[640px]"
+        />
         <div className="mx-auto max-w-7xl px-6 py-24 md:py-36">
           <div className="mb-20 grid gap-10 md:grid-cols-12 md:items-end">
             <Reveal className="md:col-span-7">
-              <p className="mb-4 text-xs font-semibold uppercase tracking-[0.3em] text-primary">
+              <p className="mb-4 text-xs font-semibold uppercase tracking-[0.3em] text-terra-light">
                 Selected Work
               </p>
               <WordsReveal
                 as="h2"
-                text="Real walls, real spaces."
-                className="font-serif text-4xl font-light leading-[1.05] text-foreground md:text-6xl lg:text-7xl"
+                text="Real walls. Real spaces."
+                className="display-heading text-5xl leading-[1] text-cream md:text-7xl lg:text-8xl"
               />
             </Reveal>
             <Reveal delay={200} className="md:col-span-5">
-              <p className="text-muted-foreground md:text-lg">
+              <p className="text-cream/70 md:text-lg">
                 A glimpse into recent installations — from clinic receptions and
                 corporate lobbies to residential stairwells and outdoor courtyards.
               </p>
@@ -225,22 +243,22 @@ function Index() {
           </div>
 
           {/* Row 1 — three tall staggered portraits with parallax */}
-          <div className="grid gap-6 md:grid-cols-3 md:gap-10">
+          <div className="relative grid gap-6 md:grid-cols-3 md:gap-10">
             <Reveal className="md:mt-16">
               <Parallax strength={80}>
-                <figure className="tilt-card overflow-hidden rounded-3xl bg-card shadow-lg">
+                <figure className="tilt-card overflow-hidden rounded-3xl bg-forest/40 shadow-2xl ring-1 ring-cream/10">
                   <img
                     src={higherHealth.url}
                     alt="Curved tropical living wall filled with bromeliads and ferns in a wellness clinic"
                     loading="lazy"
                     className="aspect-[3/4] w-full object-cover"
                   />
-                  <figcaption className="flex items-end justify-between gap-4 p-5">
+                  <figcaption className="flex items-end justify-between gap-4 bg-charcoal/60 p-5 backdrop-blur-sm">
                     <div>
-                      <p className="font-serif text-xl text-foreground">Higher Health</p>
-                      <p className="text-xs uppercase tracking-widest text-muted-foreground">Wellness clinic · Curved wall</p>
+                      <p className="font-serif text-xl italic text-cream">Higher Health</p>
+                      <p className="text-xs uppercase tracking-widest text-cream/60">Wellness clinic · Curved wall</p>
                     </div>
-                    <span className="text-xs text-muted-foreground">01</span>
+                    <span className="text-xs text-cream/50">01</span>
                   </figcaption>
                 </figure>
               </Parallax>
@@ -248,19 +266,19 @@ function Index() {
 
             <Reveal delay={150}>
               <Parallax strength={30}>
-                <figure className="tilt-card overflow-hidden rounded-3xl bg-card shadow-lg">
+                <figure className="tilt-card overflow-hidden rounded-3xl bg-forest/40 shadow-2xl ring-1 ring-cream/10">
                   <img
                     src={tallJungleWall.url}
                     alt="Two-story tropical wall in a warm residential stairwell"
                     loading="lazy"
                     className="aspect-[3/4] w-full object-cover"
                   />
-                  <figcaption className="flex items-end justify-between gap-4 p-5">
+                  <figcaption className="flex items-end justify-between gap-4 bg-charcoal/60 p-5 backdrop-blur-sm">
                     <div>
-                      <p className="font-serif text-xl text-foreground">The Berezan Residence</p>
-                      <p className="text-xs uppercase tracking-widest text-muted-foreground">Residential · Two-story</p>
+                      <p className="font-serif text-xl italic text-cream">The Berezan Residence</p>
+                      <p className="text-xs uppercase tracking-widest text-cream/60">Residential · Two-story</p>
                     </div>
-                    <span className="text-xs text-muted-foreground">02</span>
+                    <span className="text-xs text-cream/50">02</span>
                   </figcaption>
                 </figure>
               </Parallax>
@@ -268,19 +286,19 @@ function Index() {
 
             <Reveal delay={300}>
               <Parallax strength={100}>
-                <figure className="tilt-card overflow-hidden rounded-3xl bg-card shadow-lg md:mt-24">
+                <figure className="tilt-card overflow-hidden rounded-3xl bg-forest/40 shadow-2xl ring-1 ring-cream/10 md:mt-24">
                   <img
                     src={fullCircle2Calgary.url}
                     alt="Framed floor-to-ceiling living wall with dramatic uplighting"
                     loading="lazy"
                     className="aspect-[3/4] w-full object-cover"
                   />
-                  <figcaption className="flex items-end justify-between gap-4 p-5">
+                  <figcaption className="flex items-end justify-between gap-4 bg-charcoal/60 p-5 backdrop-blur-sm">
                     <div>
-                      <p className="font-serif text-xl text-foreground">Full Circle · Calgary</p>
-                      <p className="text-xs uppercase tracking-widest text-muted-foreground">Clinic · Framed panel</p>
+                      <p className="font-serif text-xl italic text-cream">Full Circle · Calgary</p>
+                      <p className="text-xs uppercase tracking-widest text-cream/60">Clinic · Framed panel</p>
                     </div>
-                    <span className="text-xs text-muted-foreground">03</span>
+                    <span className="text-xs text-cream/50">03</span>
                   </figcaption>
                 </figure>
               </Parallax>
@@ -288,22 +306,22 @@ function Index() {
           </div>
 
           {/* Row 2 — big feature + right stack */}
-          <div className="mt-24 grid gap-6 md:mt-40 md:grid-cols-5 md:gap-10">
+          <div className="relative mt-24 grid gap-6 md:mt-40 md:grid-cols-5 md:gap-10">
             <Reveal className="md:col-span-3">
               <Parallax strength={50}>
-                <figure className="tilt-card overflow-hidden rounded-3xl bg-card shadow-lg">
+                <figure className="tilt-card overflow-hidden rounded-3xl bg-forest/40 shadow-2xl ring-1 ring-cream/10">
                   <img
                     src={iffWall.url}
                     alt="Large office living wall in tonal greens against white paneling"
                     loading="lazy"
                     className="aspect-[4/3] w-full object-cover"
                   />
-                  <figcaption className="flex items-end justify-between gap-4 p-6">
+                  <figcaption className="flex items-end justify-between gap-4 bg-charcoal/60 p-6 backdrop-blur-sm">
                     <div>
-                      <p className="font-serif text-2xl text-foreground">IFF Headquarters</p>
-                      <p className="text-xs uppercase tracking-widest text-muted-foreground">Corporate · Tonal greens</p>
+                      <p className="font-serif text-2xl italic text-cream">IFF Headquarters</p>
+                      <p className="text-xs uppercase tracking-widest text-cream/60">Corporate · Tonal greens</p>
                     </div>
-                    <span className="text-xs text-muted-foreground">04</span>
+                    <span className="text-xs text-cream/50">04</span>
                   </figcaption>
                 </figure>
               </Parallax>
@@ -312,38 +330,38 @@ function Index() {
             <div className="grid gap-6 md:col-span-2 md:gap-10">
               <Reveal delay={150}>
                 <Parallax strength={40}>
-                  <figure className="tilt-card overflow-hidden rounded-3xl bg-card shadow-lg">
+                  <figure className="tilt-card overflow-hidden rounded-3xl bg-forest/40 shadow-2xl ring-1 ring-cream/10">
                     <img
                       src={fullCircleCalgary.url}
                       alt="Colourful living wall with anthuriums and snake plants at a Calgary clinic reception"
                       loading="lazy"
                       className="aspect-[5/4] w-full object-cover"
                     />
-                    <figcaption className="flex items-end justify-between gap-4 p-5">
+                    <figcaption className="flex items-end justify-between gap-4 bg-charcoal/60 p-5 backdrop-blur-sm">
                       <div>
-                        <p className="font-serif text-xl text-foreground">Full Circle · Reception</p>
-                        <p className="text-xs uppercase tracking-widest text-muted-foreground">Clinic · Anthuriums</p>
+                        <p className="font-serif text-xl italic text-cream">Full Circle · Reception</p>
+                        <p className="text-xs uppercase tracking-widest text-cream/60">Clinic · Anthuriums</p>
                       </div>
-                      <span className="text-xs text-muted-foreground">05</span>
+                      <span className="text-xs text-cream/50">05</span>
                     </figcaption>
                   </figure>
                 </Parallax>
               </Reveal>
               <Reveal delay={300}>
                 <Parallax strength={80}>
-                  <figure className="tilt-card overflow-hidden rounded-3xl bg-card shadow-lg">
+                  <figure className="tilt-card overflow-hidden rounded-3xl bg-forest/40 shadow-2xl ring-1 ring-cream/10">
                     <img
                       src={curvedTropical.url}
                       alt="Curved tropical living wall with bromeliads and cascading ferns"
                       loading="lazy"
                       className="aspect-[5/4] w-full object-cover"
                     />
-                    <figcaption className="flex items-end justify-between gap-4 p-5">
+                    <figcaption className="flex items-end justify-between gap-4 bg-charcoal/60 p-5 backdrop-blur-sm">
                       <div>
-                        <p className="font-serif text-xl text-foreground">Wellness Studio</p>
-                        <p className="text-xs uppercase tracking-widest text-muted-foreground">Curved · Bromeliads</p>
+                        <p className="font-serif text-xl italic text-cream">Wellness Studio</p>
+                        <p className="text-xs uppercase tracking-widest text-cream/60">Curved · Bromeliads</p>
                       </div>
-                      <span className="text-xs text-muted-foreground">06</span>
+                      <span className="text-xs text-cream/50">06</span>
                     </figcaption>
                   </figure>
                 </Parallax>
@@ -353,12 +371,12 @@ function Index() {
         </div>
 
         {/* Continuous marquee — more work at a glance */}
-        <div className="border-y border-border/60 bg-card/60 py-10">
+        <div className="relative border-y border-cream/10 bg-charcoal/80 py-10">
           <div className="mb-6 flex items-center justify-between px-6 md:px-10">
-            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-primary">
+            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-terra-light">
               More installations
             </p>
-            <p className="hidden text-xs uppercase tracking-widest text-muted-foreground md:block">
+            <p className="hidden text-xs uppercase tracking-widest text-cream/50 md:block">
               Hover to pause
             </p>
           </div>
@@ -408,14 +426,20 @@ function Index() {
                 ))}
             </div>
             {/* edge fades */}
-            <div className="pointer-events-none absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-background to-transparent md:w-32" aria-hidden />
-            <div className="pointer-events-none absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-background to-transparent md:w-32" aria-hidden />
+            <div className="pointer-events-none absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-charcoal to-transparent md:w-32" aria-hidden />
+            <div className="pointer-events-none absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-charcoal to-transparent md:w-32" aria-hidden />
           </div>
         </div>
       </section>
 
       {/* Locations Map */}
-      <section id="locations" className="bg-card">
+      <section id="locations" className="relative overflow-hidden bg-card">
+        <img
+          src={sedumBloom.url}
+          alt=""
+          aria-hidden
+          className="mask-fade-radial pointer-events-none absolute -top-24 right-[-6rem] h-[380px] w-[380px] object-cover opacity-40 md:h-[520px] md:w-[520px]"
+        />
         <div className="mx-auto max-w-7xl px-6 py-24 md:py-32">
           <Reveal>
             <div className="mb-14 max-w-2xl">
@@ -424,12 +448,12 @@ function Index() {
               </p>
               <WordsReveal
                 as="h2"
-                text="Living walls, all over the world."
-                className="font-serif text-4xl font-light leading-[1.05] text-foreground md:text-5xl"
+                text="Living walls, coast to coast."
+                className="display-heading text-4xl leading-[1.05] text-foreground md:text-6xl"
               />
               <p className="mt-4 text-muted-foreground">
-                Hover any pin to see the installation — from Vancouver lofts to Tokyo cafés
-                and Sydney harbourside restaurants.
+                Hover any pin to see the installation — from Vancouver lofts to
+                Halifax lobbies, Yellowknife to St. John's.
               </p>
             </div>
           </Reveal>
@@ -441,6 +465,12 @@ function Index() {
 
       {/* Video Showcase — walls in motion */}
       <section id="motion" className="relative overflow-hidden bg-forest text-cream">
+        <img
+          src={tropicalDense.url}
+          alt=""
+          aria-hidden
+          className="mask-fade-radial pointer-events-none absolute -bottom-24 -left-24 h-[420px] w-[420px] object-cover opacity-30 md:h-[560px] md:w-[560px]"
+        />
         <div className="mx-auto max-w-7xl px-6 py-24 md:py-32">
           <div className="mb-14 grid gap-10 md:grid-cols-12 md:items-end">
             <Reveal className="md:col-span-7">
@@ -450,7 +480,7 @@ function Index() {
               <WordsReveal
                 as="h2"
                 text="Living, breathing installations."
-                className="font-serif text-4xl font-light leading-[1.05] text-cream md:text-6xl"
+                className="display-heading text-4xl leading-[1.02] text-cream md:text-7xl"
               />
             </Reveal>
             <Reveal delay={200} className="md:col-span-5">
@@ -496,7 +526,13 @@ function Index() {
       </section>
 
       {/* Philosophy / About */}
-      <section id="about" className="relative">
+      <section id="about" className="relative overflow-hidden bg-background">
+        <img
+          src={mosaicBase.url}
+          alt=""
+          aria-hidden
+          className="mask-fade-radial pointer-events-none absolute -top-20 -right-24 h-[380px] w-[380px] object-cover opacity-30 md:h-[520px] md:w-[520px]"
+        />
         <div className="mx-auto max-w-7xl px-6 py-20 md:py-28">
           <div className="grid gap-12 lg:grid-cols-2 lg:items-center lg:gap-20">
             <Reveal variant="scale" className="overflow-hidden rounded-3xl">
@@ -516,7 +552,7 @@ function Index() {
               <WordsReveal
                 as="h2"
                 text="Beauty with simplicity."
-                className="font-serif text-4xl font-light leading-[1.05] text-foreground md:text-5xl"
+                className="display-heading text-4xl leading-[1.02] text-foreground md:text-6xl"
               />
               <div className="mt-8 space-y-5 text-base leading-relaxed text-muted-foreground">
                 <p>
@@ -537,26 +573,32 @@ function Index() {
 
       {/* CTA */}
       {/* Quote Form */}
-      <section id="quote" className="relative mx-auto max-w-7xl px-6 py-20 md:py-28">
-        <div className="grid gap-12 lg:grid-cols-5 lg:gap-16">
+      <section id="quote" className="relative overflow-hidden bg-forest text-cream">
+        <img
+          src={pothosCascade.url}
+          alt=""
+          aria-hidden
+          className="mask-fade-radial pointer-events-none absolute -top-24 -right-24 h-[380px] w-[380px] object-cover opacity-25 md:h-[520px] md:w-[520px]"
+        />
+        <div className="mx-auto grid max-w-7xl gap-12 px-6 py-20 md:py-28 lg:grid-cols-5 lg:gap-16">
           <Reveal className="lg:col-span-2">
-            <p className="mb-4 text-sm font-semibold uppercase tracking-widest text-primary">
+            <p className="mb-4 text-sm font-semibold uppercase tracking-widest text-terra-light">
               Request a Quote
             </p>
-            <h2 className="font-serif text-3xl font-light text-foreground md:text-4xl lg:text-5xl">
-              Ready to bring your wall to life?
+            <h2 className="display-heading text-4xl text-cream md:text-5xl lg:text-6xl">
+              Ready to bring your wall to <em>life?</em>
             </h2>
-            <p className="mt-6 text-muted-foreground">
+            <p className="mt-6 text-cream/75">
               Tell us about your space and share a few photos if you have them. 
               We'll get back to you within 1–2 business days with a tailored proposal.
             </p>
-            <div className="mt-8 space-y-3 text-sm text-muted-foreground">
-              <a href="tel:+15551234567" className="flex items-center gap-3 hover:text-primary">
-                <Phone className="h-4 w-4 text-primary" aria-hidden />
+            <div className="mt-8 space-y-3 text-sm text-cream/75">
+              <a href="tel:+15551234567" className="flex items-center gap-3 hover:text-cream">
+                <Phone className="h-4 w-4 text-terra-light" aria-hidden />
                 (555) 123-4567
               </a>
-              <a href="mailto:verticaloxygen@gmail.com" className="flex items-center gap-3 hover:text-primary">
-                <Mail className="h-4 w-4 text-primary" aria-hidden />
+              <a href="mailto:verticaloxygen@gmail.com" className="flex items-center gap-3 hover:text-cream">
+                <Mail className="h-4 w-4 text-terra-light" aria-hidden />
                 verticaloxygen@gmail.com
               </a>
             </div>
@@ -568,16 +610,17 @@ function Index() {
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-border">
+      <footer className="border-t border-cream/10 bg-charcoal text-cream">
         <div className="mx-auto max-w-7xl px-6 py-10">
           <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
-            <p className="font-serif text-lg text-foreground">Vertical Oxygen</p>
-            <p className="text-sm text-muted-foreground">
-              Custom living walls crafted with care.
+            <p className="font-serif text-lg italic text-cream">Vertical Oxygen</p>
+            <p className="text-sm text-cream/60">
+              Custom living walls.
             </p>
           </div>
         </div>
       </footer>
+      </div>
     </div>
   );
 }
