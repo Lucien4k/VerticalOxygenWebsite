@@ -38,6 +38,9 @@ import cutoutCoaldale from "../assets/cutouts/coaldale-wall.png.asset.json";
 import cutoutWallA from "../assets/cutouts/wall-a.png.asset.json";
 import cutoutWallB from "../assets/cutouts/wall-b.png.asset.json";
 import cutoutWallC from "../assets/cutouts/wall-c.png.asset.json";
+import diagramAquaponic from "../assets/diagrams/aquaponic-wall-diagram.jpg.asset.json";
+import diagramHydroponic from "../assets/diagrams/hydroponic-wall-diagram.jpg.asset.json";
+import diagramSoil from "../assets/diagrams/soil-based-wall-diagram.jpg.asset.json";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -575,6 +578,48 @@ function Index() {
 
       {/* CTA */}
       {/* Quote Form */}
+      {/* Types of Living Walls — diagrams */}
+      <section id="wall-types" className="relative overflow-hidden bg-cream text-charcoal">
+        <div className="mx-auto max-w-7xl px-6 py-20 md:py-28">
+          <Reveal>
+            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.3em] text-primary">
+              Types of Plant Walls
+            </p>
+            <WordsReveal
+              as="h2"
+              text="We work with three types of living walls."
+              className="display-heading max-w-3xl text-4xl leading-[1.02] text-charcoal md:text-5xl"
+            />
+            <p className="mt-6 max-w-2xl text-base leading-relaxed text-charcoal/70">
+              Each type of living wall has specific applications but is extremely versatile
+              and provides endless possibilities. We take the time to understand your
+              environment and build you a wall that will beautify and detoxify interior spaces.
+            </p>
+          </Reveal>
+
+          <div className="mt-14 grid gap-8 md:grid-cols-3">
+            {[
+              { title: "Aquaponic", src: diagramAquaponic.url, desc: "Plants and tilapia share one closed loop — fish waste feeds the wall, roots clean the water." },
+              { title: "Hydroponic", src: diagramHydroponic.url, desc: "Soilless growing on recycled moisture mats — lightweight, low-maintenance, self-watering." },
+              { title: "Soil-Based", src: diagramSoil.url, desc: "Traditional pocket construction with soil and irrigation — lush, textured, endlessly plantable." },
+            ].map((d, i) => (
+              <Reveal key={d.title} delay={i * 120} className="group flex flex-col rounded-3xl bg-background p-6 shadow-sm ring-1 ring-charcoal/5 transition-shadow hover:shadow-xl">
+                <div className="flex items-center justify-center overflow-hidden rounded-2xl bg-white p-4">
+                  <img
+                    src={d.src}
+                    alt={`${d.title} living wall diagram`}
+                    className="h-72 w-auto object-contain transition-transform duration-500 group-hover:scale-105"
+                    loading="lazy"
+                  />
+                </div>
+                <h3 className="mt-6 font-serif text-2xl text-charcoal">{d.title} Wall</h3>
+                <p className="mt-2 text-sm leading-relaxed text-charcoal/70">{d.desc}</p>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section id="quote" className="relative overflow-hidden bg-forest text-cream">
         <img
           src={cutoutCoaldale.url}
