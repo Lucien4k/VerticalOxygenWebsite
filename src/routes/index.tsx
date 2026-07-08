@@ -24,6 +24,8 @@ import { QuoteForm } from "@/components/QuoteForm";
 import { Reveal } from "@/components/Reveal";
 import { LocationsMap } from "@/components/LocationsMap";
 import { NavMenu } from "@/components/NavMenu";
+import { Parallax } from "@/components/Parallax";
+import { WordsReveal } from "@/components/WordsReveal";
 
 export const Route = createFileRoute("/")({
   component: Index,
