@@ -244,7 +244,7 @@ function Index() {
           <div className="relative grid gap-6 md:grid-cols-3 md:gap-10">
             <Reveal className="md:mt-16">
               <Parallax strength={80}>
-                <figure className="tilt-card overflow-hidden rounded-3xl bg-forest/40 shadow-2xl ring-1 ring-cream/10">
+                <figure className="tilt-card overflow-hidden rounded-3xl bg-charcoal/50 shadow-2xl ring-1 ring-cream/10">
                   <img
                     src={higherHealth.url}
                     alt="Curved tropical living wall filled with bromeliads and ferns in a wellness clinic"
@@ -264,7 +264,7 @@ function Index() {
 
             <Reveal delay={150}>
               <Parallax strength={30}>
-                <figure className="tilt-card overflow-hidden rounded-3xl bg-forest/40 shadow-2xl ring-1 ring-cream/10">
+                <figure className="tilt-card overflow-hidden rounded-3xl bg-charcoal/50 shadow-2xl ring-1 ring-cream/10">
                   <img
                     src={tallJungleWall.url}
                     alt="Two-story tropical wall in a warm residential stairwell"
@@ -284,7 +284,7 @@ function Index() {
 
             <Reveal delay={300}>
               <Parallax strength={100}>
-                <figure className="tilt-card overflow-hidden rounded-3xl bg-forest/40 shadow-2xl ring-1 ring-cream/10 md:mt-24">
+                <figure className="tilt-card overflow-hidden rounded-3xl bg-charcoal/50 shadow-2xl ring-1 ring-cream/10 md:mt-24">
                   <img
                     src={fullCircle2Calgary.url}
                     alt="Framed floor-to-ceiling living wall with dramatic uplighting"
@@ -307,7 +307,7 @@ function Index() {
           <div className="relative mt-24 grid gap-6 md:mt-40 md:grid-cols-5 md:gap-10">
             <Reveal className="md:col-span-3">
               <Parallax strength={50}>
-                <figure className="tilt-card overflow-hidden rounded-3xl bg-forest/40 shadow-2xl ring-1 ring-cream/10">
+                <figure className="tilt-card overflow-hidden rounded-3xl bg-charcoal/50 shadow-2xl ring-1 ring-cream/10">
                   <img
                     src={iffWall.url}
                     alt="Large office living wall in tonal greens against white paneling"
@@ -328,7 +328,7 @@ function Index() {
             <div className="grid gap-6 md:col-span-2 md:gap-10">
               <Reveal delay={150}>
                 <Parallax strength={40}>
-                  <figure className="tilt-card overflow-hidden rounded-3xl bg-forest/40 shadow-2xl ring-1 ring-cream/10">
+                  <figure className="tilt-card overflow-hidden rounded-3xl bg-charcoal/50 shadow-2xl ring-1 ring-cream/10">
                     <img
                       src={fullCircleCalgary.url}
                       alt="Colourful living wall with anthuriums and snake plants at a Calgary clinic reception"
@@ -347,7 +347,7 @@ function Index() {
               </Reveal>
               <Reveal delay={300}>
                 <Parallax strength={80}>
-                  <figure className="tilt-card overflow-hidden rounded-3xl bg-forest/40 shadow-2xl ring-1 ring-cream/10">
+                  <figure className="tilt-card overflow-hidden rounded-3xl bg-charcoal/50 shadow-2xl ring-1 ring-cream/10">
                     <img
                       src={curvedTropical.url}
                       alt="Curved tropical living wall with bromeliads and cascading ferns"
