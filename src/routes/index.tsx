@@ -3,6 +3,8 @@ import heroImage from "../assets/hero-living-wall.jpg";
 import featurePlants from "../assets/feature-plants.jpg";
 import featureOffice from "../assets/feature-office.jpg";
 import featureCraft from "../assets/feature-craft.jpg";
+import { Phone, Mail, MapPin, Leaf } from "lucide-react";
+import { QuoteForm } from "@/components/QuoteForm";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -21,6 +23,36 @@ export const Route = createFileRoute("/")({
 function Index() {
   return (
     <div className="min-h-screen bg-background">
+      {/* Utility Top Bar */}
+      <div className="hidden bg-forest text-cream md:block">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-2 text-xs">
+          <div className="flex items-center gap-6">
+            <a href="tel:+15551234567" className="flex items-center gap-1.5 transition-opacity hover:opacity-80">
+              <Phone className="h-3.5 w-3.5" aria-hidden />
+              <span>(555) 123-4567</span>
+            </a>
+            <a href="mailto:hello@verticaloxygen.com" className="flex items-center gap-1.5 transition-opacity hover:opacity-80">
+              <Mail className="h-3.5 w-3.5" aria-hidden />
+              <span>hello@verticaloxygen.com</span>
+            </a>
+            <span className="flex items-center gap-1.5 opacity-90">
+              <MapPin className="h-3.5 w-3.5" aria-hidden />
+              <span>Serving your area</span>
+            </span>
+            <span className="flex items-center gap-1.5 opacity-90">
+              <Leaf className="h-3.5 w-3.5" aria-hidden />
+              <span>Living &amp; moss walls</span>
+            </span>
+          </div>
+          <a
+            href="#quote"
+            className="rounded-sm bg-terra-light px-3 py-1 font-semibold uppercase tracking-wider text-charcoal transition-colors hover:bg-cream"
+          >
+            Request a Quote
+          </a>
+        </div>
+      </div>
+
       {/* Navigation */}
       <nav className="sticky top-0 z-50 bg-background/80 backdrop-blur-md">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5">
@@ -34,51 +66,63 @@ function Index() {
             <a href="#process" className="text-foreground transition-colors hover:text-primary">
               Process
             </a>
-            <a href="#contact" className="text-foreground transition-colors hover:text-primary">
+            <a href="#quote" className="text-foreground transition-colors hover:text-primary">
               Contact
+            </a>
+            <a
+              href="#quote"
+              className="rounded-md bg-primary px-4 py-2 text-primary-foreground transition-colors hover:bg-primary/90"
+            >
+              Get a Quote
             </a>
           </div>
         </div>
       </nav>
 
-      {/* Hero */}
-      <section className="relative mx-auto max-w-7xl px-6 pt-16 pb-12 md:pt-24 md:pb-16">
-        <div className="grid gap-12 lg:grid-cols-2 lg:items-center lg:gap-16">
-          <div className="max-w-xl">
+      {/* Hero with background video */}
+      <section className="relative overflow-hidden">
+        {/* Background video — replace src with your own uploaded video */}
+        <video
+          className="absolute inset-0 h-full w-full object-cover"
+          autoPlay
+          muted
+          loop
+          playsInline
+          poster={heroImage}
+        >
+          {/* TODO: replace with your uploaded video */}
+          <source
+            src="https://cdn.coverr.co/videos/coverr-tropical-leaves-swaying-in-the-wind-4863/1080p.mp4"
+            type="video/mp4"
+          />
+        </video>
+        <div className="absolute inset-0 bg-gradient-to-b from-charcoal/70 via-charcoal/50 to-charcoal/80" aria-hidden />
+        <div className="relative mx-auto max-w-7xl px-6 py-24 md:py-36 lg:py-44">
+          <div className="max-w-2xl">
             <p className="mb-4 text-sm font-semibold uppercase tracking-widest text-primary">
               Living Walls
             </p>
-            <h1 className="font-serif text-5xl leading-[1.1] font-light text-foreground md:text-6xl lg:text-7xl">
+            <h1 className="font-serif text-5xl leading-[1.1] font-light text-cream md:text-6xl lg:text-7xl">
               Living works of art
             </h1>
-            <p className="mt-6 text-lg leading-relaxed text-muted-foreground">
+            <p className="mt-6 max-w-xl text-lg leading-relaxed text-cream/90">
               We couple beauty with simplicity to create healthy, living works of art. 
               Each wall is custom made to satisfy your dreams.
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
               <a
-                href="#contact"
+                href="#quote"
                 className="inline-flex items-center justify-center rounded-md bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-all hover:bg-primary/90"
               >
                 Start Your Wall
               </a>
               <a
                 href="#about"
-                className="inline-flex items-center justify-center rounded-md border border-border bg-transparent px-6 py-3 text-sm font-semibold text-foreground transition-all hover:bg-accent"
+                className="inline-flex items-center justify-center rounded-md border border-cream/40 bg-transparent px-6 py-3 text-sm font-semibold text-cream transition-all hover:bg-cream/10"
               >
                 Learn More
               </a>
             </div>
-          </div>
-          <div className="relative overflow-hidden rounded-xl">
-            <img
-              src={heroImage}
-              alt="A lush vertical living wall in a modern interior with terracotta pots and tropical plants"
-              width={1280}
-              height={768}
-              className="h-auto w-full object-cover"
-              loading="eager"
-            />
           </div>
         </div>
       </section>
@@ -184,20 +228,34 @@ function Index() {
       </section>
 
       {/* CTA */}
-      <section id="contact" className="relative mx-auto max-w-7xl px-6 py-20 md:py-28">
-        <div className="rounded-2xl bg-forest px-8 py-16 text-center md:px-16 md:py-24">
-          <h2 className="font-serif text-3xl font-light text-cream md:text-4xl lg:text-5xl">
-            Ready to bring your wall to life?
-          </h2>
-          <p className="mx-auto mt-4 max-w-lg text-cream/80">
-            Let's talk about your space, your vision, and the living art we can create together.
-          </p>
-          <a
-            href="mailto:hello@verticaloxygen.com"
-            className="mt-8 inline-flex items-center justify-center rounded-md bg-cream px-8 py-3.5 text-sm font-semibold text-forest transition-all hover:bg-cream/90"
-          >
-            Get in Touch
-          </a>
+      {/* Quote Form */}
+      <section id="quote" className="relative mx-auto max-w-7xl px-6 py-20 md:py-28">
+        <div className="grid gap-12 lg:grid-cols-5 lg:gap-16">
+          <div className="lg:col-span-2">
+            <p className="mb-4 text-sm font-semibold uppercase tracking-widest text-primary">
+              Request a Quote
+            </p>
+            <h2 className="font-serif text-3xl font-light text-foreground md:text-4xl lg:text-5xl">
+              Ready to bring your wall to life?
+            </h2>
+            <p className="mt-6 text-muted-foreground">
+              Tell us about your space and share a few photos if you have them. 
+              We'll get back to you within 1–2 business days with a tailored proposal.
+            </p>
+            <div className="mt-8 space-y-3 text-sm text-muted-foreground">
+              <a href="tel:+15551234567" className="flex items-center gap-3 hover:text-primary">
+                <Phone className="h-4 w-4 text-primary" aria-hidden />
+                (555) 123-4567
+              </a>
+              <a href="mailto:hello@verticaloxygen.com" className="flex items-center gap-3 hover:text-primary">
+                <Mail className="h-4 w-4 text-primary" aria-hidden />
+                hello@verticaloxygen.com
+              </a>
+            </div>
+          </div>
+          <div className="rounded-2xl bg-card p-6 md:p-10 lg:col-span-3">
+            <QuoteForm />
+          </div>
         </div>
       </section>
 
