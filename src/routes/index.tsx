@@ -34,6 +34,10 @@ import masloVideo from "../assets/videos/maslo_home.mp4.asset.json";
 import masloPoster from "../assets/videos/maslo_home.jpg.asset.json";
 import coaldaleVideo from "../assets/videos/coaldale_alberta.mp4.asset.json";
 import coaldalePoster from "../assets/videos/coaldale_alberta.jpg.asset.json";
+import cutoutCoaldale from "../assets/cutouts/coaldale-wall.png.asset.json";
+import cutoutWallA from "../assets/cutouts/wall-a.png.asset.json";
+import cutoutWallB from "../assets/cutouts/wall-b.png.asset.json";
+import cutoutWallC from "../assets/cutouts/wall-c.png.asset.json";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -209,16 +213,16 @@ function Index() {
       <section id="work" className="relative overflow-hidden bg-forest text-cream">
         {/* Decorative floating "cutout" plants — soft-masked so they read as transparent */}
         <img
-          src={pothosCascade.url}
+          src={cutoutCoaldale.url}
           alt=""
           aria-hidden
-          className="mask-fade-radial pointer-events-none absolute -top-16 -left-24 h-[420px] w-[420px] rotate-[-8deg] object-cover opacity-40 md:h-[560px] md:w-[560px]"
+          className="pointer-events-none absolute -top-16 -left-24 h-[420px] w-[560px] rotate-[-6deg] object-contain opacity-70 md:h-[560px] md:w-[760px]"
         />
         <img
-          src={spiderPothos.url}
+          src={cutoutWallB.url}
           alt=""
           aria-hidden
-          className="mask-fade-radial pointer-events-none absolute top-1/3 -right-32 h-[520px] w-[520px] rotate-[12deg] object-cover opacity-30 md:h-[640px] md:w-[640px]"
+          className="pointer-events-none absolute top-1/4 -right-40 h-[560px] w-[400px] rotate-[8deg] object-contain opacity-55 md:h-[720px] md:w-[520px]"
         />
         <div className="mx-auto max-w-7xl px-6 py-24 md:py-36">
           <div className="mb-20 grid gap-10 md:grid-cols-12 md:items-end">
@@ -433,10 +437,10 @@ function Index() {
       {/* Locations Map */}
       <section id="locations" className="relative overflow-hidden bg-card">
         <img
-          src={sedumBloom.url}
+          src={cutoutWallC.url}
           alt=""
           aria-hidden
-          className="mask-fade-radial pointer-events-none absolute -top-24 right-[-6rem] h-[380px] w-[380px] object-cover opacity-40 md:h-[520px] md:w-[520px]"
+          className="pointer-events-none absolute -top-24 right-[-6rem] h-[380px] w-[380px] object-contain opacity-60 md:h-[520px] md:w-[520px]"
         />
         <div className="mx-auto max-w-7xl px-6 py-24 md:py-32">
           <Reveal>
@@ -464,10 +468,10 @@ function Index() {
       {/* Video Showcase — walls in motion */}
       <section id="motion" className="relative overflow-hidden bg-forest text-cream">
         <img
-          src={tropicalDense.url}
+          src={cutoutWallA.url}
           alt=""
           aria-hidden
-          className="mask-fade-radial pointer-events-none absolute -bottom-24 -left-24 h-[420px] w-[420px] object-cover opacity-30 md:h-[560px] md:w-[560px]"
+          className="pointer-events-none absolute -bottom-24 -left-32 h-[420px] w-[600px] object-contain opacity-55 md:h-[560px] md:w-[800px]"
         />
         <div className="mx-auto max-w-7xl px-6 py-24 md:py-32">
           <div className="mb-14 grid gap-10 md:grid-cols-12 md:items-end">
@@ -526,10 +530,10 @@ function Index() {
       {/* Philosophy / About */}
       <section id="about" className="relative overflow-hidden bg-background">
         <img
-          src={mosaicBase.url}
+          src={cutoutWallB.url}
           alt=""
           aria-hidden
-          className="mask-fade-radial pointer-events-none absolute -top-20 -right-24 h-[380px] w-[380px] object-cover opacity-30 md:h-[520px] md:w-[520px]"
+          className="pointer-events-none absolute -top-20 -right-24 h-[420px] w-[320px] object-contain opacity-55 md:h-[560px] md:w-[420px]"
         />
         <div className="mx-auto max-w-7xl px-6 py-20 md:py-28">
           <div className="grid gap-12 lg:grid-cols-2 lg:items-center lg:gap-20">
@@ -573,10 +577,10 @@ function Index() {
       {/* Quote Form */}
       <section id="quote" className="relative overflow-hidden bg-forest text-cream">
         <img
-          src={pothosCascade.url}
+          src={cutoutCoaldale.url}
           alt=""
           aria-hidden
-          className="mask-fade-radial pointer-events-none absolute -top-24 -right-24 h-[380px] w-[380px] object-cover opacity-25 md:h-[520px] md:w-[520px]"
+          className="pointer-events-none absolute -top-24 -right-24 h-[380px] w-[500px] object-contain opacity-55 md:h-[500px] md:w-[680px]"
         />
         <div className="mx-auto grid max-w-7xl gap-12 px-6 py-20 md:py-28 lg:grid-cols-5 lg:gap-16">
           <Reveal className="lg:col-span-2">
