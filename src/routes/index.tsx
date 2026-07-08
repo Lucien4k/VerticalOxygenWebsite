@@ -10,10 +10,20 @@ import succulentTapestry from "../assets/projects/succulent-tapestry.jpg.asset.j
 import pothosCascade from "../assets/projects/pothos-cascade.jpg.asset.json";
 import spiderPothos from "../assets/projects/spider-pothos.jpg.asset.json";
 import sedumBloom from "../assets/projects/sedum-bloom.jpg.asset.json";
+import fullCircleCalgary from "../assets/projects/full-circle-calgary.jpg.asset.json";
+import fullCircle2Calgary from "../assets/projects/full-circle-2-calgary.jpg.asset.json";
+import tallJungleWall from "../assets/projects/tall-jungle-wall.jpg.asset.json";
+import mosaicBase from "../assets/projects/mosaic-base.jpg.asset.json";
+import higherHealth from "../assets/projects/higher-health.jpg.asset.json";
+import iffWall from "../assets/projects/iff-wall.jpg.asset.json";
+import saunaPothos from "../assets/projects/sauna-pothos.jpg.asset.json";
+import cafePlanter from "../assets/projects/cafe-planter.jpg.asset.json";
+import curvedTropical from "../assets/projects/curved-tropical.jpg.asset.json";
 import { Phone, Mail, MapPin, Leaf, ArrowRight } from "lucide-react";
 import { QuoteForm } from "@/components/QuoteForm";
 import { Reveal } from "@/components/Reveal";
 import { LocationsMap } from "@/components/LocationsMap";
+import { NavMenu } from "@/components/NavMenu";
 
 export const Route = createFileRoute("/")({
   component: Index,
