@@ -150,3 +150,83 @@
     letter-spacing: -0.02em;
   }
 }
+
+/* Scroll reveal animations */
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fade-in-soft {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes scale-in-soft {
+  from { opacity: 0; transform: scale(0.96); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@utility reveal {
+  opacity: 0;
+  will-change: opacity, transform;
+  &.is-visible {
+    animation: fade-up 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+}
+@utility reveal-fade {
+  opacity: 0;
+  &.is-visible {
+    animation: fade-in-soft 1.1s ease-out forwards;
+  }
+}
+@utility reveal-scale {
+  opacity: 0;
+  &.is-visible {
+    animation: scale-in-soft 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+}
+
+/* Sliding arrow button — the arrow slides in from the left on hover, label shifts right */
+@utility slide-cta {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  & .slide-cta-arrow {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translate(-140%, -50%);
+    transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  & .slide-cta-label {
+    display: inline-block;
+    transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  &:hover .slide-cta-arrow,
+  &:focus-visible .slide-cta-arrow {
+    transform: translate(0, -50%);
+  }
+  &:hover .slide-cta-label,
+  &:focus-visible .slide-cta-label {
+    transform: translateX(1.5rem);
+  }
+}
+
+/* Slow pan for hero video */
+@keyframes slow-pan {
+  0%   { transform: scale(1.08) translate3d(-1%, 0, 0); }
+  50%  { transform: scale(1.12) translate3d(1%, -1%, 0); }
+  100% { transform: scale(1.08) translate3d(-1%, 0, 0); }
+}
+@utility hero-video {
+  animation: slow-pan 30s ease-in-out infinite;
+}
+
+/* Marker pulse for map pins */
+@keyframes ping-soft {
+  0%   { transform: scale(1);   opacity: 0.7; }
+  75%  { transform: scale(2.4); opacity: 0; }
+  100% { transform: scale(2.4); opacity: 0; }
+}
+@utility marker-pulse {
+  animation: ping-soft 2.2s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
