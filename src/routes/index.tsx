@@ -417,9 +417,11 @@ function Index() {
               <p className="mb-3 text-xs font-semibold uppercase tracking-[0.3em] text-primary">
                 Where We Grow
               </p>
-              <h2 className="font-serif text-4xl font-light text-foreground md:text-5xl">
-                Living walls, all over the world
-              </h2>
+              <WordsReveal
+                as="h2"
+                text="Living walls, all over the world."
+                className="font-serif text-4xl font-light leading-[1.05] text-foreground md:text-5xl"
+              />
               <p className="mt-4 text-muted-foreground">
                 Hover any pin to see the installation — from Vancouver lofts to Tokyo cafés
                 and Sydney harbourside restaurants.
@@ -436,21 +438,25 @@ function Index() {
       <section id="about" className="relative">
         <div className="mx-auto max-w-7xl px-6 py-20 md:py-28">
           <div className="grid gap-12 lg:grid-cols-2 lg:items-center lg:gap-20">
-            <Reveal variant="scale" className="overflow-hidden rounded-2xl">
-              <img
-                src={spiderPothos.url}
-                alt="Spider plant and pothos texture close-up"
-                className="h-full w-full object-cover"
-                loading="lazy"
-              />
+            <Reveal variant="scale" className="overflow-hidden rounded-3xl">
+              <Parallax strength={90}>
+                <img
+                  src={spiderPothos.url}
+                  alt="Spider plant and pothos texture close-up"
+                  className="aspect-[4/5] h-full w-full object-cover"
+                  loading="lazy"
+                />
+              </Parallax>
             </Reveal>
             <Reveal>
               <p className="mb-3 text-xs font-semibold uppercase tracking-[0.3em] text-primary">
                 Our Philosophy
               </p>
-              <h2 className="font-serif text-4xl font-light leading-snug text-foreground md:text-5xl">
-                Beauty with simplicity
-              </h2>
+              <WordsReveal
+                as="h2"
+                text="Beauty with simplicity."
+                className="font-serif text-4xl font-light leading-[1.05] text-foreground md:text-5xl"
+              />
               <div className="mt-8 space-y-5 text-base leading-relaxed text-muted-foreground">
                 <p>
                   Living walls couple beauty with simplicity to create healthy,
