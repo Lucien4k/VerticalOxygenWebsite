@@ -1,10 +1,19 @@
 import { createFileRoute } from "@tanstack/react-router";
 import heroImage from "../assets/hero-living-wall.jpg";
-import featurePlants from "../assets/feature-plants.jpg";
-import featureOffice from "../assets/feature-office.jpg";
-import featureCraft from "../assets/feature-craft.jpg";
-import { Phone, Mail, MapPin, Leaf } from "lucide-react";
+import outdoorFrame from "../assets/projects/outdoor-wood-frame.jpg.asset.json";
+import lobbyPanels from "../assets/projects/lobby-panels.jpg.asset.json";
+import edmontonLobby from "../assets/projects/edmonton-lobby.jpg.asset.json";
+import fairviewAquarium from "../assets/projects/fairview-aquarium.jpg.asset.json";
+import fairviewInstall from "../assets/projects/fairview-install.jpg.asset.json";
+import tropicalDense from "../assets/projects/tropical-dense.jpg.asset.json";
+import succulentTapestry from "../assets/projects/succulent-tapestry.jpg.asset.json";
+import pothosCascade from "../assets/projects/pothos-cascade.jpg.asset.json";
+import spiderPothos from "../assets/projects/spider-pothos.jpg.asset.json";
+import sedumBloom from "../assets/projects/sedum-bloom.jpg.asset.json";
+import { Phone, Mail, MapPin, Leaf, ArrowRight } from "lucide-react";
 import { QuoteForm } from "@/components/QuoteForm";
+import { Reveal } from "@/components/Reveal";
+import { LocationsMap } from "@/components/LocationsMap";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -23,206 +32,231 @@ export const Route = createFileRoute("/")({
 function Index() {
   return (
     <div className="min-h-screen bg-background">
-      {/* Utility Top Bar */}
-      <div className="hidden bg-forest text-cream md:block">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-2 text-xs">
-          <div className="flex items-center gap-6">
-            <a href="tel:+15551234567" className="flex items-center gap-1.5 transition-opacity hover:opacity-80">
-              <Phone className="h-3.5 w-3.5" aria-hidden />
-              <span>(555) 123-4567</span>
-            </a>
-            <a href="mailto:hello@verticaloxygen.com" className="flex items-center gap-1.5 transition-opacity hover:opacity-80">
-              <Mail className="h-3.5 w-3.5" aria-hidden />
-              <span>hello@verticaloxygen.com</span>
-            </a>
-            <span className="flex items-center gap-1.5 opacity-90">
-              <MapPin className="h-3.5 w-3.5" aria-hidden />
-              <span>Serving your area</span>
-            </span>
-            <span className="flex items-center gap-1.5 opacity-90">
-              <Leaf className="h-3.5 w-3.5" aria-hidden />
-              <span>Living &amp; moss walls</span>
-            </span>
-          </div>
-          <a
-            href="#quote"
-            className="rounded-sm bg-terra-light px-3 py-1 font-semibold uppercase tracking-wider text-charcoal transition-colors hover:bg-cream"
-          >
-            Request a Quote
-          </a>
-        </div>
-      </div>
-
-      {/* Navigation */}
-      <nav className="sticky top-0 z-50 bg-background/80 backdrop-blur-md">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5">
-          <a href="/" className="font-serif text-2xl font-medium tracking-tight text-foreground">
-            Vertical Oxygen
-          </a>
-          <div className="hidden items-center gap-8 text-sm font-medium md:flex">
-            <a href="#about" className="text-foreground transition-colors hover:text-primary">
-              About
-            </a>
-            <a href="#process" className="text-foreground transition-colors hover:text-primary">
-              Process
-            </a>
-            <a href="#quote" className="text-foreground transition-colors hover:text-primary">
-              Contact
-            </a>
-            <a
-              href="#quote"
-              className="rounded-md bg-primary px-4 py-2 text-primary-foreground transition-colors hover:bg-primary/90"
-            >
-              Get a Quote
-            </a>
-          </div>
-        </div>
-      </nav>
-
-      {/* Hero with background video */}
-      <section className="relative overflow-hidden">
-        {/* Background video — replace src with your own uploaded video */}
+      {/* Hero with background video + floating transparent nav bars */}
+      <section className="relative min-h-[92vh] overflow-hidden">
+        {/* Background video */}
         <video
-          className="absolute inset-0 h-full w-full object-cover"
+          className="hero-video absolute inset-0 h-full w-full object-cover"
           autoPlay
           muted
           loop
           playsInline
           poster={heroImage}
         >
-          {/* TODO: replace with your uploaded video */}
+          {/* TODO: replace src with your uploaded video */}
           <source
             src="https://cdn.coverr.co/videos/coverr-tropical-leaves-swaying-in-the-wind-4863/1080p.mp4"
             type="video/mp4"
           />
         </video>
-        <div className="absolute inset-0 bg-gradient-to-b from-charcoal/70 via-charcoal/50 to-charcoal/80" aria-hidden />
-        <div className="relative mx-auto max-w-7xl px-6 py-24 md:py-36 lg:py-44">
-          <div className="max-w-2xl">
-            <p className="mb-4 text-sm font-semibold uppercase tracking-widest text-primary">
-              Living Walls
-            </p>
-            <h1 className="font-serif text-5xl leading-[1.1] font-light text-cream md:text-6xl lg:text-7xl">
-              Living works of art
-            </h1>
-            <p className="mt-6 max-w-xl text-lg leading-relaxed text-cream/90">
-              We couple beauty with simplicity to create healthy, living works of art. 
-              Each wall is custom made to satisfy your dreams.
-            </p>
-            <div className="mt-8 flex flex-wrap gap-4">
+        <div className="absolute inset-0 bg-gradient-to-b from-charcoal/60 via-charcoal/35 to-charcoal/70" aria-hidden />
+
+        {/* Floating rounded top bars — hero video shows around them */}
+        <div className="absolute inset-x-0 top-0 z-50 px-4 pt-4 md:px-6 md:pt-5">
+          <div className="mx-auto max-w-6xl space-y-2">
+            {/* Utility strip */}
+            <div className="hidden overflow-hidden rounded-full bg-forest/70 px-5 py-2 text-xs text-cream shadow-lg backdrop-blur-md md:block">
+              <div className="flex items-center justify-between gap-6">
+                <div className="flex items-center gap-6">
+                  <a href="tel:+15551234567" className="flex items-center gap-1.5 transition-opacity hover:opacity-80">
+                    <Phone className="h-3.5 w-3.5" aria-hidden />
+                    <span>(555) 123-4567</span>
+                  </a>
+                  <a href="mailto:hello@verticaloxygen.com" className="flex items-center gap-1.5 transition-opacity hover:opacity-80">
+                    <Mail className="h-3.5 w-3.5" aria-hidden />
+                    <span>hello@verticaloxygen.com</span>
+                  </a>
+                  <span className="flex items-center gap-1.5 opacity-90">
+                    <MapPin className="h-3.5 w-3.5" aria-hidden />
+                    <span>Installations worldwide</span>
+                  </span>
+                  <span className="flex items-center gap-1.5 opacity-90">
+                    <Leaf className="h-3.5 w-3.5" aria-hidden />
+                    <span>Living &amp; moss walls</span>
+                  </span>
+                </div>
+                <a
+                  href="#quote"
+                  className="rounded-full bg-terra-light px-3 py-1 font-semibold uppercase tracking-wider text-charcoal transition-colors hover:bg-cream"
+                >
+                  Request a Quote
+                </a>
+              </div>
+            </div>
+
+            {/* Main nav pill */}
+            <nav className="flex items-center justify-between gap-4 rounded-full bg-cream/15 px-5 py-3 shadow-xl backdrop-blur-md ring-1 ring-cream/20">
+              <a href="/" className="font-serif text-xl font-medium tracking-tight text-cream md:text-2xl">
+                Vertical Oxygen
+              </a>
+              <div className="hidden items-center gap-7 text-sm font-medium text-cream md:flex">
+                <a href="#work" className="transition-colors hover:text-terra-light">Work</a>
+                <a href="#locations" className="transition-colors hover:text-terra-light">Locations</a>
+                <a href="#about" className="transition-colors hover:text-terra-light">About</a>
+                <a href="#quote" className="transition-colors hover:text-terra-light">Contact</a>
+              </div>
               <a
                 href="#quote"
-                className="inline-flex items-center justify-center rounded-md bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-all hover:bg-primary/90"
+                className="slide-cta group inline-flex items-center rounded-full bg-terra px-5 py-2 text-sm font-semibold text-cream transition-colors hover:bg-terra/90"
               >
-                Start Your Wall
+                <span className="slide-cta-arrow pl-3 text-cream">
+                  <ArrowRight className="h-4 w-4" aria-hidden />
+                </span>
+                <span className="slide-cta-label">Get a Quote</span>
+              </a>
+            </nav>
+          </div>
+        </div>
+
+        {/* Hero content */}
+        <div className="relative mx-auto flex min-h-[92vh] max-w-6xl items-center px-6 pt-40 pb-16 md:pt-44">
+          <div className="max-w-2xl">
+            <div className="reveal-fade is-visible">
+              <p className="mb-4 text-xs font-semibold uppercase tracking-[0.3em] text-terra-light">
+                Custom Living Walls
+              </p>
+              <h1 className="font-serif text-5xl leading-[1.05] font-light text-cream md:text-6xl lg:text-7xl">
+                Living works of art
+              </h1>
+              <p className="mt-6 max-w-xl text-lg leading-relaxed text-cream/90">
+                We couple beauty with simplicity to create healthy, living works of art.
+                Each wall is custom made to satisfy your dreams.
+              </p>
+            </div>
+            <div className="mt-10 flex flex-wrap items-center gap-4 reveal is-visible" style={{ animationDelay: "200ms" }}>
+              <a
+                href="#quote"
+                className="slide-cta group relative inline-flex items-center rounded-full bg-terra px-7 py-3.5 text-sm font-semibold text-cream shadow-lg transition-colors hover:bg-terra/90"
+              >
+                <span className="slide-cta-arrow pl-4 text-cream">
+                  <ArrowRight className="h-4 w-4" aria-hidden />
+                </span>
+                <span className="slide-cta-label">Get a Quote</span>
               </a>
               <a
-                href="#about"
-                className="inline-flex items-center justify-center rounded-md border border-cream/40 bg-transparent px-6 py-3 text-sm font-semibold text-cream transition-all hover:bg-cream/10"
+                href="#work"
+                className="slide-cta group relative inline-flex items-center rounded-full border border-cream/40 bg-cream/5 px-7 py-3.5 text-sm font-semibold text-cream backdrop-blur-sm transition-colors hover:bg-cream/15"
               >
-                Learn More
+                <span className="slide-cta-arrow pl-4 text-cream">
+                  <ArrowRight className="h-4 w-4" aria-hidden />
+                </span>
+                <span className="slide-cta-label">Learn More</span>
               </a>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Features Grid */}
-      <section className="mx-auto max-w-7xl px-6 py-20 md:py-28">
-        <div className="mb-16 text-center">
-          <h2 className="font-serif text-3xl font-light text-foreground md:text-4xl">
-            Crafted with care
-          </h2>
-          <p className="mx-auto mt-4 max-w-lg text-muted-foreground">
-            Every living wall is a unique composition of nature and design, 
-            tailored to thrive in your space.
-          </p>
+      {/* Selected Work — real project gallery */}
+      <section id="work" className="mx-auto max-w-7xl px-6 py-24 md:py-32">
+        <Reveal>
+          <div className="mb-14 flex flex-col justify-between gap-6 md:flex-row md:items-end">
+            <div className="max-w-xl">
+              <p className="mb-3 text-xs font-semibold uppercase tracking-[0.3em] text-primary">
+                Selected Work
+              </p>
+              <h2 className="font-serif text-4xl font-light text-foreground md:text-5xl">
+                Real walls, real spaces
+              </h2>
+            </div>
+            <p className="max-w-sm text-muted-foreground">
+              A glimpse into recent installations — from hotel lobbies and school hallways
+              to residential courtyards and outdoor architecture.
+            </p>
+          </div>
+        </Reveal>
+
+        <div className="grid gap-4 md:grid-cols-6 md:grid-rows-[repeat(6,140px)]">
+          <Reveal className="group overflow-hidden rounded-2xl md:col-span-4 md:row-span-4">
+            <img src={lobbyPanels.url} alt="Grand hotel lobby with five towering vertical panels of tropical plants" loading="lazy"
+                 className="h-full w-full object-cover transition-transform duration-1000 group-hover:scale-105" />
+          </Reveal>
+          <Reveal delay={100} className="group overflow-hidden rounded-2xl md:col-span-2 md:row-span-2">
+            <img src={outdoorFrame.url} alt="Outdoor succulent living wall framed in warm cedar" loading="lazy"
+                 className="h-full w-full object-cover transition-transform duration-1000 group-hover:scale-105" />
+          </Reveal>
+          <Reveal delay={150} className="group overflow-hidden rounded-2xl md:col-span-2 md:row-span-2">
+            <img src={fairviewAquarium.url} alt="Indoor living wall paired with a wide freshwater aquarium" loading="lazy"
+                 className="h-full w-full object-cover transition-transform duration-1000 group-hover:scale-105" />
+          </Reveal>
+          <Reveal delay={50} className="group overflow-hidden rounded-2xl md:col-span-2 md:row-span-2">
+            <img src={pothosCascade.url} alt="Close-up of pothos and heart-leaf vines cascading down a wood-framed wall" loading="lazy"
+                 className="h-full w-full object-cover transition-transform duration-1000 group-hover:scale-105" />
+          </Reveal>
+          <Reveal delay={100} className="group overflow-hidden rounded-2xl md:col-span-2 md:row-span-2">
+            <img src={succulentTapestry.url} alt="Detailed succulent tapestry with pink, green and silver textures" loading="lazy"
+                 className="h-full w-full object-cover transition-transform duration-1000 group-hover:scale-105" />
+          </Reveal>
+          <Reveal delay={150} className="group overflow-hidden rounded-2xl md:col-span-2 md:row-span-2">
+            <img src={edmontonLobby.url} alt="Sculpted living wall in a corporate lobby with dramatic uplighting" loading="lazy"
+                 className="h-full w-full object-cover transition-transform duration-1000 group-hover:scale-105" />
+          </Reveal>
+          <Reveal delay={50} className="group overflow-hidden rounded-2xl md:col-span-3 md:row-span-2">
+            <img src={tropicalDense.url} alt="Dense tropical wall with philodendrons, anthuriums and ferns" loading="lazy"
+                 className="h-full w-full object-cover transition-transform duration-1000 group-hover:scale-105" />
+          </Reveal>
+          <Reveal delay={100} className="group overflow-hidden rounded-2xl md:col-span-3 md:row-span-2">
+            <img src={fairviewInstall.url} alt="Team installing a large living wall in a school hallway" loading="lazy"
+                 className="h-full w-full object-cover transition-transform duration-1000 group-hover:scale-105" />
+          </Reveal>
         </div>
-        <div className="grid gap-8 md:grid-cols-3">
-          <div className="group overflow-hidden rounded-xl bg-card">
-            <div className="overflow-hidden">
-              <img
-                src={featurePlants}
-                alt="Close-up of tropical plants including monstera and ferns in a living wall"
-                width={800}
-                height={600}
-                className="h-64 w-full object-cover transition-transform duration-700 group-hover:scale-105"
-                loading="lazy"
-              />
-            </div>
-            <div className="p-6">
-              <h3 className="font-serif text-xl text-card-foreground">Tropical Variety</h3>
-              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                We select from a wide variety of tropical plants — from trailing pothos 
-                to dramatic monstera — to create lush, layered compositions.
-              </p>
-            </div>
-          </div>
+      </section>
 
-          <div className="group overflow-hidden rounded-xl bg-card">
-            <div className="overflow-hidden">
-              <img
-                src={featureCraft}
-                alt="Hands placing a plant into a modular terracotta living wall system"
-                width={800}
-                height={600}
-                className="h-64 w-full object-cover transition-transform duration-700 group-hover:scale-105"
-                loading="lazy"
-              />
-            </div>
-            <div className="p-6">
-              <h3 className="font-serif text-xl text-card-foreground">Custom Crafted</h3>
-              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                Hydroponic or soil-based, every system is custom designed and built 
-                to fit your wall, your light, and your lifestyle.
+      {/* Locations Map */}
+      <section id="locations" className="bg-card">
+        <div className="mx-auto max-w-7xl px-6 py-24 md:py-32">
+          <Reveal>
+            <div className="mb-14 max-w-2xl">
+              <p className="mb-3 text-xs font-semibold uppercase tracking-[0.3em] text-primary">
+                Where We Grow
+              </p>
+              <h2 className="font-serif text-4xl font-light text-foreground md:text-5xl">
+                Living walls, all over the world
+              </h2>
+              <p className="mt-4 text-muted-foreground">
+                Hover any pin to see the installation — from Vancouver lofts to Tokyo cafés
+                and Sydney harbourside restaurants.
               </p>
             </div>
-          </div>
-
-          <div className="group overflow-hidden rounded-xl bg-card">
-            <div className="overflow-hidden">
-              <img
-                src={featureOffice}
-                alt="A modern office reception with a stunning vertical garden living wall"
-                width={800}
-                height={600}
-                className="h-64 w-full object-cover transition-transform duration-700 group-hover:scale-105"
-                loading="lazy"
-              />
-            </div>
-            <div className="p-6">
-              <h3 className="font-serif text-xl text-card-foreground">Any Space</h3>
-              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                From intimate residential corners to grand commercial lobbies, 
-                we transform walls into living, breathing focal points.
-              </p>
-            </div>
-          </div>
+          </Reveal>
+          <Reveal variant="fade">
+            <LocationsMap />
+          </Reveal>
         </div>
       </section>
 
       {/* Philosophy / About */}
-      <section id="about" className="bg-card">
+      <section id="about" className="relative">
         <div className="mx-auto max-w-7xl px-6 py-20 md:py-28">
-          <div className="mx-auto max-w-3xl text-center">
-            <p className="mb-6 text-sm font-semibold uppercase tracking-widest text-primary">
-              Our Philosophy
-            </p>
-            <h2 className="font-serif text-3xl font-light leading-snug text-foreground md:text-4xl">
-              Beauty with simplicity
-            </h2>
-            <div className="mt-8 space-y-6 text-base leading-relaxed text-muted-foreground">
-              <p>
-                Living walls couple beauty with simplicity to create healthy, 
-                living works of art. They are composed of a variety of tropical 
-                plants that are grown hydroponically or soil based.
+          <div className="grid gap-12 lg:grid-cols-2 lg:items-center lg:gap-20">
+            <Reveal variant="scale" className="overflow-hidden rounded-2xl">
+              <img
+                src={spiderPothos.url}
+                alt="Spider plant and pothos texture close-up"
+                className="h-full w-full object-cover"
+                loading="lazy"
+              />
+            </Reveal>
+            <Reveal>
+              <p className="mb-3 text-xs font-semibold uppercase tracking-[0.3em] text-primary">
+                Our Philosophy
               </p>
-              <p>
-                Each living wall is custom made to satisfy our clients' dreams. 
-                We believe that bringing nature indoors should feel effortless — 
-                a seamless extension of your space and your vision.
-              </p>
-            </div>
+              <h2 className="font-serif text-4xl font-light leading-snug text-foreground md:text-5xl">
+                Beauty with simplicity
+              </h2>
+              <div className="mt-8 space-y-5 text-base leading-relaxed text-muted-foreground">
+                <p>
+                  Living walls couple beauty with simplicity to create healthy,
+                  living works of art. They are composed of a variety of tropical
+                  plants that are grown hydroponically or soil based.
+                </p>
+                <p>
+                  Each living wall is custom made to satisfy our clients' dreams.
+                  We believe that bringing nature indoors should feel effortless —
+                  a seamless extension of your space and your vision.
+                </p>
+              </div>
+            </Reveal>
           </div>
         </div>
       </section>
@@ -231,7 +265,7 @@ function Index() {
       {/* Quote Form */}
       <section id="quote" className="relative mx-auto max-w-7xl px-6 py-20 md:py-28">
         <div className="grid gap-12 lg:grid-cols-5 lg:gap-16">
-          <div className="lg:col-span-2">
+          <Reveal className="lg:col-span-2">
             <p className="mb-4 text-sm font-semibold uppercase tracking-widest text-primary">
               Request a Quote
             </p>
@@ -252,10 +286,10 @@ function Index() {
                 hello@verticaloxygen.com
               </a>
             </div>
-          </div>
-          <div className="rounded-2xl bg-card p-6 md:p-10 lg:col-span-3">
+          </Reveal>
+          <Reveal delay={150} className="rounded-2xl bg-card p-6 md:p-10 lg:col-span-3">
             <QuoteForm />
-          </div>
+          </Reveal>
         </div>
       </section>
 
