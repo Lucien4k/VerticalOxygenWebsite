@@ -52,9 +52,8 @@ export const Route = createFileRoute("/")({
 function Index() {
   return (
     <div className="min-h-screen bg-background">
-      {/* Sticky-reveal hero: pins while the next section slides up over it */}
-      <div className="relative" style={{ height: "100vh" }}>
-      <section className="sticky-hero relative overflow-hidden">
+      {/* Fixed hero: stays pinned while the rest of the page scrolls up over it */}
+      <section className="hero-fixed fixed inset-x-0 top-0 z-0 h-screen overflow-hidden">
         {/* Background video */}
         <video
           className="hero-video absolute inset-0 h-full w-full object-cover"
@@ -202,13 +201,12 @@ function Index() {
           </div>
         </div>
       </section>
-      </div>
 
-      {/* Everything below scrolls up over the sticky hero */}
-      <div className="relative z-10 bg-background">
+      {/* Everything below scrolls up over the fixed hero */}
+      <div className="relative z-10 mt-[100vh] bg-background">
 
-      {/* Selected Work — dark, premium gallery with floating cutouts */}
-      <section id="work" className="relative overflow-hidden bg-charcoal text-cream">
+      {/* Selected Work — deep forest gallery colour-matched to the hero */}
+      <section id="work" className="relative overflow-hidden bg-forest text-cream">
         {/* Decorative floating "cutout" plants — soft-masked so they read as transparent */}
         <img
           src={pothosCascade.url}
@@ -371,7 +369,7 @@ function Index() {
         </div>
 
         {/* Continuous marquee — more work at a glance */}
-        <div className="relative border-y border-cream/10 bg-charcoal/80 py-10">
+        <div className="relative border-y border-cream/10 bg-forest/80 py-10">
           <div className="mb-6 flex items-center justify-between px-6 md:px-10">
             <p className="text-xs font-semibold uppercase tracking-[0.3em] text-terra-light">
               More installations
@@ -426,8 +424,8 @@ function Index() {
                 ))}
             </div>
             {/* edge fades */}
-            <div className="pointer-events-none absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-charcoal to-transparent md:w-32" aria-hidden />
-            <div className="pointer-events-none absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-charcoal to-transparent md:w-32" aria-hidden />
+            <div className="pointer-events-none absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-forest to-transparent md:w-32" aria-hidden />
+            <div className="pointer-events-none absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-forest to-transparent md:w-32" aria-hidden />
           </div>
         </div>
       </section>
@@ -610,7 +608,7 @@ function Index() {
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-cream/10 bg-charcoal text-cream">
+      <footer className="border-t border-cream/10 bg-forest text-cream">
         <div className="mx-auto max-w-7xl px-6 py-10">
           <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
             <p className="font-serif text-lg italic text-cream">Vertical Oxygen</p>
