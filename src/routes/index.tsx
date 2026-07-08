@@ -1,5 +1,4 @@
 import { createFileRoute } from "@tanstack/react-router";
-import heroImage from "../assets/hero-living-wall.jpg";
 import outdoorFrame from "../assets/projects/outdoor-wood-frame.jpg.asset.json";
 import lobbyPanels from "../assets/projects/lobby-panels.jpg.asset.json";
 import edmontonLobby from "../assets/projects/edmonton-lobby.jpg.asset.json";
@@ -26,6 +25,7 @@ import { LocationsMap } from "@/components/LocationsMap";
 import { NavMenu } from "@/components/NavMenu";
 import { Parallax } from "@/components/Parallax";
 import { WordsReveal } from "@/components/WordsReveal";
+import { FloatingLeaves } from "@/components/FloatingLeaves";
 import westinVideo from "../assets/videos/westin_calgary.mp4.asset.json";
 import westinPoster from "../assets/videos/westin_calgary.jpg.asset.json";
 import mountRoyalVideo from "../assets/videos/mount_royal.mp4.asset.json";
@@ -61,15 +61,12 @@ function Index() {
           muted
           loop
           playsInline
-          poster={heroImage}
+          poster={tropicalDense.url}
         >
-          {/* TODO: replace src with your uploaded video */}
-          <source
-            src="https://cdn.coverr.co/videos/coverr-tropical-leaves-swaying-in-the-wind-4863/1080p.mp4"
-            type="video/mp4"
-          />
+          <source src={masloVideo.url} type="video/mp4" />
         </video>
         <div className="absolute inset-0 bg-gradient-to-b from-charcoal/60 via-charcoal/35 to-charcoal/70" aria-hidden />
+        <FloatingLeaves className="z-10" />
 
         {/* Floating rounded top bars — hero video shows around them */}
         <div className="absolute inset-x-0 top-0 z-50 px-4 pt-4 md:px-6 md:pt-5">
