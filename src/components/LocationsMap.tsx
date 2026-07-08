@@ -2,39 +2,51 @@ import { useState } from "react";
 import { ComposableMap, Geographies, Geography, Marker } from "react-simple-maps";
 import { MapPin } from "lucide-react";
 
-// Public topojson served by unpkg CDN
+// Public topojson served by CDN
 const GEO_URL = "https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json";
 
 type Location = {
   city: string;
-  country: string;
+  province: string;
   coordinates: [number, number]; // [lng, lat]
-  venue: string;
+  count: number;
 };
 
-// Approximate cities — swap for exact coordinates when the user shares them.
 const LOCATIONS: Location[] = [
-  { city: "Vancouver",     country: "Canada",       coordinates: [-123.116, 49.246], venue: "Downtown office lobby" },
-  { city: "Calgary",       country: "Canada",       coordinates: [-114.062, 51.045], venue: "Boutique hotel atrium" },
-  { city: "Edmonton",      country: "Canada",       coordinates: [-113.492, 53.546], venue: "Corporate reception wall" },
-  { city: "Toronto",       country: "Canada",       coordinates: [-79.383,  43.653], venue: "Restaurant feature wall" },
-  { city: "New York",      country: "USA",          coordinates: [-74.006,  40.713], venue: "Tribeca residential loft" },
-  { city: "Los Angeles",   country: "USA",          coordinates: [-118.243, 34.052], venue: "Studio courtyard installation" },
-  { city: "Austin",        country: "USA",          coordinates: [-97.743,  30.267], venue: "Coworking space green wall" },
-  { city: "Mexico City",   country: "Mexico",       coordinates: [-99.133,  19.432], venue: "Hospitality lobby" },
-  { city: "London",        country: "UK",           coordinates: [-0.127,   51.507], venue: "Shoreditch office atrium" },
-  { city: "Paris",         country: "France",       coordinates: [ 2.352,   48.856], venue: "Le Marais boutique" },
-  { city: "Amsterdam",     country: "Netherlands",  coordinates: [ 4.895,   52.370], venue: "Canal-side residence" },
-  { city: "Berlin",        country: "Germany",      coordinates: [13.405,   52.520], venue: "Design studio wall" },
-  { city: "Barcelona",     country: "Spain",        coordinates: [ 2.174,   41.385], venue: "Gothic quarter courtyard" },
-  { city: "Dubai",         country: "UAE",          coordinates: [55.297,   25.276], venue: "Marina tower installation" },
-  { city: "Singapore",     country: "Singapore",    coordinates: [103.820,  1.352],  venue: "Rooftop lounge" },
-  { city: "Tokyo",         country: "Japan",        coordinates: [139.692,  35.690], venue: "Shibuya cafe" },
-  { city: "Sydney",        country: "Australia",    coordinates: [151.209, -33.868], venue: "Harbourside restaurant" },
-  { city: "Melbourne",     country: "Australia",    coordinates: [144.963, -37.813], venue: "Fitzroy studio" },
-  { city: "São Paulo",     country: "Brazil",       coordinates: [-46.633, -23.550], venue: "Jardins residential" },
-  { city: "Cape Town",     country: "South Africa", coordinates: [ 18.424, -33.925], venue: "V&A Waterfront lobby" },
+  { city: "Victoria",       province: "BC",   coordinates: [-123.365, 48.428], count: 1 },
+  { city: "Vancouver",      province: "BC",   coordinates: [-123.116, 49.246], count: 3 },
+  { city: "North Vancouver",province: "BC",   coordinates: [-123.072, 49.320], count: 1 },
+  { city: "Richmond",       province: "BC",   coordinates: [-123.136, 49.166], count: 1 },
+  { city: "Campbell River", province: "BC",   coordinates: [-125.272, 50.024], count: 1 },
+  { city: "Kelowna",        province: "BC",   coordinates: [-119.496, 49.887], count: 1 },
+  { city: "Yellowknife",    province: "NT",   coordinates: [-114.371, 62.454], count: 3 },
+  { city: "Edmonton",       province: "AB",   coordinates: [-113.492, 53.546], count: 7 },
+  { city: "Calgary",        province: "AB",   coordinates: [-114.062, 51.045], count: 8 },
+  { city: "Airdrie",        province: "AB",   coordinates: [-114.014, 51.293], count: 1 },
+  { city: "High Level",     province: "AB",   coordinates: [-117.135, 58.517], count: 1 },
+  { city: "Regina",         province: "SK",   coordinates: [-104.618, 50.445], count: 1 },
+  { city: "Winnipeg",       province: "MB",   coordinates: [ -97.138, 49.895], count: 1 },
+  { city: "Barrie",         province: "ON",   coordinates: [ -79.690, 44.389], count: 1 },
+  { city: "Sudbury",        province: "ON",   coordinates: [ -80.994, 46.492], count: 1 },
+  { city: "London",         province: "ON",   coordinates: [ -81.243, 42.984], count: 1 },
+  { city: "Hamilton",       province: "ON",   coordinates: [ -79.866, 43.256], count: 1 },
+  { city: "Toronto",        province: "ON",   coordinates: [ -79.383, 43.653], count: 7 },
+  { city: "Kingston",       province: "ON",   coordinates: [ -76.481, 44.231], count: 1 },
+  { city: "Moncton",        province: "NB",   coordinates: [ -64.780, 46.088], count: 1 },
+  { city: "Halifax",        province: "NS",   coordinates: [ -63.577, 44.649], count: 1 },
+  { city: "St. John's",     province: "NL",   coordinates: [ -52.707, 47.561], count: 1 },
 ];
+
+const TOTAL_INSTALLS = LOCATIONS.reduce((sum, l) => sum + l.count, 0);
+
+function radiusFor(count: number): number {
+  // Bigger dots for cities with more installs, no numbers shown.
+  if (count >= 8) return 10;
+  if (count >= 5) return 8.5;
+  if (count >= 3) return 7;
+  if (count >= 2) return 5.5;
+  return 4;
+}
 
 export function LocationsMap() {
   const [active, setActive] = useState<Location | null>(LOCATIONS[0]);
@@ -43,19 +55,19 @@ export function LocationsMap() {
     <div className="grid gap-8 lg:grid-cols-[1fr_320px] lg:items-center">
       <div className="relative overflow-hidden rounded-2xl bg-card p-2 md:p-4">
         <ComposableMap
-          projection="geoEqualEarth"
-          projectionConfig={{ scale: 165 }}
+          projection="geoAzimuthalEqualArea"
+          projectionConfig={{ rotate: [96, -62, 0], scale: 780 }}
           width={880}
-          height={440}
+          height={560}
           style={{ width: "100%", height: "auto" }}
         >
           <Geographies geography={GEO_URL}>
             {({ geographies }: { geographies: Array<{ rsmKey: string }> }) =>
-              geographies.map((geo) => (
+              geographies.map((geo: any) => (
                 <Geography
                   key={geo.rsmKey}
                   geography={geo}
-                  fill="oklch(0.90 0.02 40)"
+                  fill={geo.properties?.name === "Canada" ? "oklch(0.88 0.03 145)" : "oklch(0.92 0.015 40)"}
                   stroke="oklch(0.983 0.033 34.7)"
                   strokeWidth={0.5}
                   style={{
@@ -69,6 +81,7 @@ export function LocationsMap() {
           </Geographies>
           {LOCATIONS.map((loc) => {
             const isActive = active?.city === loc.city;
+            const r = radiusFor(loc.count);
             return (
               <Marker
                 key={loc.city}
@@ -82,7 +95,7 @@ export function LocationsMap() {
                 }}
               >
                 <circle
-                  r={isActive ? 6 : 4}
+                  r={isActive ? r + 2 : r}
                   fill="oklch(0.615 0.144 34.4)"
                   stroke="oklch(0.983 0.033 34.7)"
                   strokeWidth={1.5}
@@ -90,7 +103,7 @@ export function LocationsMap() {
                 />
                 {isActive && (
                   <circle
-                    r={6}
+                    r={r + 4}
                     fill="oklch(0.615 0.144 34.4)"
                     fillOpacity={0.35}
                     className="marker-pulse"
@@ -105,12 +118,14 @@ export function LocationsMap() {
       <div className="space-y-6">
         <div className="rounded-2xl border border-border bg-card p-6">
           <p className="text-xs font-semibold uppercase tracking-widest text-primary">
-            Living walls, worldwide
+            Living walls across Canada
           </p>
           <p className="mt-3 font-serif text-4xl font-light text-foreground">
-            {LOCATIONS.length}+
+            {TOTAL_INSTALLS}+
           </p>
-          <p className="text-sm text-muted-foreground">Installations on 5 continents</p>
+          <p className="text-sm text-muted-foreground">
+            Installations in {LOCATIONS.length} cities coast to coast
+          </p>
         </div>
 
         {active && (
@@ -119,8 +134,7 @@ export function LocationsMap() {
               <MapPin className="mt-1 h-5 w-5 shrink-0 text-primary" aria-hidden />
               <div className="min-w-0">
                 <h3 className="font-serif text-2xl text-foreground">{active.city}</h3>
-                <p className="text-sm text-muted-foreground">{active.country}</p>
-                <p className="mt-3 text-sm text-foreground">{active.venue}</p>
+                <p className="text-sm text-muted-foreground">{active.province}, Canada</p>
               </div>
             </div>
           </div>
