@@ -26,6 +26,14 @@ import { LocationsMap } from "@/components/LocationsMap";
 import { NavMenu } from "@/components/NavMenu";
 import { Parallax } from "@/components/Parallax";
 import { WordsReveal } from "@/components/WordsReveal";
+import westinVideo from "../assets/videos/westin_calgary.mp4.asset.json";
+import westinPoster from "../assets/videos/westin_calgary.jpg.asset.json";
+import mountRoyalVideo from "../assets/videos/mount_royal.mp4.asset.json";
+import mountRoyalPoster from "../assets/videos/mount_royal.jpg.asset.json";
+import masloVideo from "../assets/videos/maslo_home.mp4.asset.json";
+import masloPoster from "../assets/videos/maslo_home.jpg.asset.json";
+import coaldaleVideo from "../assets/videos/coaldale_alberta.mp4.asset.json";
+import coaldalePoster from "../assets/videos/coaldale_alberta.jpg.asset.json";
 
 export const Route = createFileRoute("/")({
   component: Index,
