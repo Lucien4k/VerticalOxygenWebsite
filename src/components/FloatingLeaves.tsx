@@ -21,7 +21,7 @@ const LEAVES: Leaf[] = [
   { left: "18%", size: 14, delay: "6s",   duration: "28s", drift: "-30px", rotate: "-140deg", opacity: 0.28, hue: "var(--forest)" },
   { left: "31%", size: 28, delay: "12s",  duration: "34s", drift: "60px",  rotate: "220deg",  opacity: 0.32, hue: "var(--sage)" },
   { left: "44%", size: 18, delay: "3s",   duration: "26s", drift: "-45px", rotate: "-200deg", opacity: 0.3,  hue: "var(--terra-light)" },
-  { left: "57%", size: 24, delay: "9s",   duration: "30s', drift: '35px",  rotate: "160deg",  opacity: 0.28, hue: "var(--sage)" },
+  { left: "57%", size: 24, delay: "9s",   duration: "30s", drift: "35px",  rotate: "160deg",  opacity: 0.28, hue: "var(--sage)" },
   { left: "68%", size: 16, delay: "15s",  duration: "24s", drift: "-40px", rotate: "-180deg", opacity: 0.34, hue: "var(--forest)" },
   { left: "81%", size: 26, delay: "2s",   duration: "32s", drift: "50px",  rotate: "240deg",  opacity: 0.3,  hue: "var(--sage)" },
   { left: "92%", size: 20, delay: "18s",  duration: "27s", drift: "-25px", rotate: "-160deg", opacity: 0.26, hue: "var(--terra-light)" },
