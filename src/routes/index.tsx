@@ -198,65 +198,214 @@ function Index() {
       </section>
 
       {/* Selected Work — real project gallery */}
-      <section id="work" className="mx-auto max-w-7xl px-6 py-24 md:py-32">
-        <Reveal>
-          <div className="mb-14 flex flex-col justify-between gap-6 md:flex-row md:items-end">
-            <div className="max-w-xl">
-              <p className="mb-3 text-xs font-semibold uppercase tracking-[0.3em] text-primary">
+      <section id="work" className="relative overflow-hidden">
+        <div className="mx-auto max-w-7xl px-6 py-24 md:py-36">
+          <div className="mb-20 grid gap-10 md:grid-cols-12 md:items-end">
+            <Reveal className="md:col-span-7">
+              <p className="mb-4 text-xs font-semibold uppercase tracking-[0.3em] text-primary">
                 Selected Work
               </p>
-              <h2 className="font-serif text-4xl font-light text-foreground md:text-5xl">
-                Real walls, real spaces
-              </h2>
+              <WordsReveal
+                as="h2"
+                text="Real walls, real spaces."
+                className="font-serif text-4xl font-light leading-[1.05] text-foreground md:text-6xl lg:text-7xl"
+              />
+            </Reveal>
+            <Reveal delay={200} className="md:col-span-5">
+              <p className="text-muted-foreground md:text-lg">
+                A glimpse into recent installations — from clinic receptions and
+                corporate lobbies to residential stairwells and outdoor courtyards.
+              </p>
+            </Reveal>
+          </div>
+
+          {/* Row 1 — three tall staggered portraits with parallax */}
+          <div className="grid gap-6 md:grid-cols-3 md:gap-10">
+            <Reveal className="md:mt-16">
+              <Parallax strength={80}>
+                <figure className="tilt-card overflow-hidden rounded-3xl bg-card shadow-lg">
+                  <img
+                    src={higherHealth.url}
+                    alt="Curved tropical living wall filled with bromeliads and ferns in a wellness clinic"
+                    loading="lazy"
+                    className="aspect-[3/4] w-full object-cover"
+                  />
+                  <figcaption className="flex items-end justify-between gap-4 p-5">
+                    <div>
+                      <p className="font-serif text-xl text-foreground">Higher Health</p>
+                      <p className="text-xs uppercase tracking-widest text-muted-foreground">Wellness clinic · Curved wall</p>
+                    </div>
+                    <span className="text-xs text-muted-foreground">01</span>
+                  </figcaption>
+                </figure>
+              </Parallax>
+            </Reveal>
+
+            <Reveal delay={150}>
+              <Parallax strength={30}>
+                <figure className="tilt-card overflow-hidden rounded-3xl bg-card shadow-lg">
+                  <img
+                    src={tallJungleWall.url}
+                    alt="Two-story tropical wall in a warm residential stairwell"
+                    loading="lazy"
+                    className="aspect-[3/4] w-full object-cover"
+                  />
+                  <figcaption className="flex items-end justify-between gap-4 p-5">
+                    <div>
+                      <p className="font-serif text-xl text-foreground">The Berezan Residence</p>
+                      <p className="text-xs uppercase tracking-widest text-muted-foreground">Residential · Two-story</p>
+                    </div>
+                    <span className="text-xs text-muted-foreground">02</span>
+                  </figcaption>
+                </figure>
+              </Parallax>
+            </Reveal>
+
+            <Reveal delay={300}>
+              <Parallax strength={100}>
+                <figure className="tilt-card overflow-hidden rounded-3xl bg-card shadow-lg md:mt-24">
+                  <img
+                    src={fullCircle2Calgary.url}
+                    alt="Framed floor-to-ceiling living wall with dramatic uplighting"
+                    loading="lazy"
+                    className="aspect-[3/4] w-full object-cover"
+                  />
+                  <figcaption className="flex items-end justify-between gap-4 p-5">
+                    <div>
+                      <p className="font-serif text-xl text-foreground">Full Circle · Calgary</p>
+                      <p className="text-xs uppercase tracking-widest text-muted-foreground">Clinic · Framed panel</p>
+                    </div>
+                    <span className="text-xs text-muted-foreground">03</span>
+                  </figcaption>
+                </figure>
+              </Parallax>
+            </Reveal>
+          </div>
+
+          {/* Row 2 — big feature + right stack */}
+          <div className="mt-24 grid gap-6 md:mt-40 md:grid-cols-5 md:gap-10">
+            <Reveal className="md:col-span-3">
+              <Parallax strength={50}>
+                <figure className="tilt-card overflow-hidden rounded-3xl bg-card shadow-lg">
+                  <img
+                    src={iffWall.url}
+                    alt="Large office living wall in tonal greens against white paneling"
+                    loading="lazy"
+                    className="aspect-[4/3] w-full object-cover"
+                  />
+                  <figcaption className="flex items-end justify-between gap-4 p-6">
+                    <div>
+                      <p className="font-serif text-2xl text-foreground">IFF Headquarters</p>
+                      <p className="text-xs uppercase tracking-widest text-muted-foreground">Corporate · Tonal greens</p>
+                    </div>
+                    <span className="text-xs text-muted-foreground">04</span>
+                  </figcaption>
+                </figure>
+              </Parallax>
+            </Reveal>
+
+            <div className="grid gap-6 md:col-span-2 md:gap-10">
+              <Reveal delay={150}>
+                <Parallax strength={40}>
+                  <figure className="tilt-card overflow-hidden rounded-3xl bg-card shadow-lg">
+                    <img
+                      src={fullCircleCalgary.url}
+                      alt="Colourful living wall with anthuriums and snake plants at a Calgary clinic reception"
+                      loading="lazy"
+                      className="aspect-[5/4] w-full object-cover"
+                    />
+                    <figcaption className="flex items-end justify-between gap-4 p-5">
+                      <div>
+                        <p className="font-serif text-xl text-foreground">Full Circle · Reception</p>
+                        <p className="text-xs uppercase tracking-widest text-muted-foreground">Clinic · Anthuriums</p>
+                      </div>
+                      <span className="text-xs text-muted-foreground">05</span>
+                    </figcaption>
+                  </figure>
+                </Parallax>
+              </Reveal>
+              <Reveal delay={300}>
+                <Parallax strength={80}>
+                  <figure className="tilt-card overflow-hidden rounded-3xl bg-card shadow-lg">
+                    <img
+                      src={curvedTropical.url}
+                      alt="Curved tropical living wall with bromeliads and cascading ferns"
+                      loading="lazy"
+                      className="aspect-[5/4] w-full object-cover"
+                    />
+                    <figcaption className="flex items-end justify-between gap-4 p-5">
+                      <div>
+                        <p className="font-serif text-xl text-foreground">Wellness Studio</p>
+                        <p className="text-xs uppercase tracking-widest text-muted-foreground">Curved · Bromeliads</p>
+                      </div>
+                      <span className="text-xs text-muted-foreground">06</span>
+                    </figcaption>
+                  </figure>
+                </Parallax>
+              </Reveal>
             </div>
-            <p className="max-w-sm text-muted-foreground">
-              A glimpse into recent installations — from hotel lobbies and school hallways
-              to residential courtyards and outdoor architecture.
+          </div>
+        </div>
+
+        {/* Continuous marquee — more work at a glance */}
+        <div className="border-y border-border/60 bg-card/60 py-10">
+          <div className="mb-6 flex items-center justify-between px-6 md:px-10">
+            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-primary">
+              More installations
+            </p>
+            <p className="hidden text-xs uppercase tracking-widest text-muted-foreground md:block">
+              Hover to pause
             </p>
           </div>
-        </Reveal>
-
-        <div className="grid gap-4 md:grid-cols-6 md:grid-rows-[repeat(8,140px)]">
-          <Reveal className="group overflow-hidden rounded-2xl md:col-span-4 md:row-span-4">
-            <img src={higherHealth.url} alt="Lush tropical living wall with bromeliads and ferns in a curved wellness clinic" loading="lazy"
-                 className="h-full w-full object-cover transition-transform duration-1000 group-hover:scale-105" />
-          </Reveal>
-          <Reveal delay={100} className="group overflow-hidden rounded-2xl md:col-span-2 md:row-span-2">
-            <img src={fullCircleCalgary.url} alt="Colourful living wall with anthuriums and snake plants at a Calgary clinic reception" loading="lazy"
-                 className="h-full w-full object-cover transition-transform duration-1000 group-hover:scale-105" />
-          </Reveal>
-          <Reveal delay={150} className="group overflow-hidden rounded-2xl md:col-span-2 md:row-span-2">
-            <img src={iffWall.url} alt="Large office living wall in tonal greens against white paneling" loading="lazy"
-                 className="h-full w-full object-cover transition-transform duration-1000 group-hover:scale-105" />
-          </Reveal>
-          <Reveal delay={50} className="group overflow-hidden rounded-2xl md:col-span-2 md:row-span-2">
-            <img src={fullCircle2Calgary.url} alt="Framed floor-to-ceiling living wall with dramatic uplighting" loading="lazy"
-                 className="h-full w-full object-cover transition-transform duration-1000 group-hover:scale-105" />
-          </Reveal>
-          <Reveal delay={100} className="group overflow-hidden rounded-2xl md:col-span-2 md:row-span-2">
-            <img src={tallJungleWall.url} alt="Tall two-story tropical wall in a warm residential stairwell" loading="lazy"
-                 className="h-full w-full object-cover transition-transform duration-1000 group-hover:scale-105" />
-          </Reveal>
-          <Reveal delay={150} className="group overflow-hidden rounded-2xl md:col-span-2 md:row-span-2">
-            <img src={curvedTropical.url} alt="Curved tropical living wall with bromeliads and cascading ferns" loading="lazy"
-                 className="h-full w-full object-cover transition-transform duration-1000 group-hover:scale-105" />
-          </Reveal>
-          <Reveal delay={50} className="group overflow-hidden rounded-2xl md:col-span-3 md:row-span-2">
-            <img src={cafePlanter.url} alt="Elevated pothos and ZZ planter dividing a corporate café space" loading="lazy"
-                 className="h-full w-full object-cover transition-transform duration-1000 group-hover:scale-105" />
-          </Reveal>
-          <Reveal delay={100} className="group overflow-hidden rounded-2xl md:col-span-3 md:row-span-2">
-            <img src={mosaicBase.url} alt="Detail of a living wall with stone mosaic planter base" loading="lazy"
-                 className="h-full w-full object-cover transition-transform duration-1000 group-hover:scale-105" />
-          </Reveal>
-          <Reveal delay={50} className="group overflow-hidden rounded-2xl md:col-span-3 md:row-span-2">
-            <img src={outdoorFrame.url} alt="Outdoor succulent living wall framed in warm cedar" loading="lazy"
-                 className="h-full w-full object-cover transition-transform duration-1000 group-hover:scale-105" />
-          </Reveal>
-          <Reveal delay={100} className="group overflow-hidden rounded-2xl md:col-span-3 md:row-span-2">
-            <img src={saunaPothos.url} alt="Trailing pothos vines beside a cedar sauna cabin" loading="lazy"
-                 className="h-full w-full object-cover transition-transform duration-1000 group-hover:scale-105" />
-          </Reveal>
+          <div className="group relative overflow-hidden">
+            <div className="marquee-track flex w-max gap-6 pl-6 md:gap-8 md:pl-10">
+              {[
+                { src: cafePlanter.url, label: "Corporate café" },
+                { src: mosaicBase.url, label: "Mosaic base detail" },
+                { src: saunaPothos.url, label: "Cedar sauna corner" },
+                { src: outdoorFrame.url, label: "Outdoor cedar frame" },
+                { src: tropicalDense.url, label: "Dense tropical" },
+                { src: lobbyPanels.url, label: "Hotel lobby panels" },
+                { src: edmontonLobby.url, label: "Edmonton lobby" },
+                { src: fairviewAquarium.url, label: "Fairview aquarium" },
+                { src: pothosCascade.url, label: "Pothos cascade" },
+                { src: succulentTapestry.url, label: "Succulent tapestry" },
+                { src: sedumBloom.url, label: "Sedum bloom" },
+                { src: fairviewInstall.url, label: "Fairview install" },
+                { src: spiderPothos.url, label: "Spider &amp; pothos" },
+              ]
+                .concat([
+                  { src: cafePlanter.url, label: "Corporate café" },
+                  { src: mosaicBase.url, label: "Mosaic base detail" },
+                  { src: saunaPothos.url, label: "Cedar sauna corner" },
+                  { src: outdoorFrame.url, label: "Outdoor cedar frame" },
+                  { src: tropicalDense.url, label: "Dense tropical" },
+                  { src: lobbyPanels.url, label: "Hotel lobby panels" },
+                  { src: edmontonLobby.url, label: "Edmonton lobby" },
+                  { src: fairviewAquarium.url, label: "Fairview aquarium" },
+                  { src: pothosCascade.url, label: "Pothos cascade" },
+                  { src: succulentTapestry.url, label: "Succulent tapestry" },
+                  { src: sedumBloom.url, label: "Sedum bloom" },
+                  { src: fairviewInstall.url, label: "Fairview install" },
+                  { src: spiderPothos.url, label: "Spider &amp; pothos" },
+                ])
+                .map((item, i) => (
+                  <figure
+                    key={i}
+                    className="tilt-card group/marq relative h-56 w-72 shrink-0 overflow-hidden rounded-2xl bg-cover bg-center shadow-md md:h-64 md:w-96"
+                    style={{ backgroundImage: `url(${item.src})` }}
+                    aria-label={item.label}
+                  >
+                    <span className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-charcoal/70 to-transparent p-4 text-xs uppercase tracking-widest text-cream opacity-0 transition-opacity duration-500 group-hover/marq:opacity-100">
+                      {item.label}
+                    </span>
+                  </figure>
+                ))}
+            </div>
+            {/* edge fades */}
+            <div className="pointer-events-none absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-background to-transparent md:w-32" aria-hidden />
+            <div className="pointer-events-none absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-background to-transparent md:w-32" aria-hidden />
+          </div>
         </div>
       </section>
 
