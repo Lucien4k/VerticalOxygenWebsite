@@ -26,6 +26,14 @@ import { LocationsMap } from "@/components/LocationsMap";
 import { NavMenu } from "@/components/NavMenu";
 import { Parallax } from "@/components/Parallax";
 import { WordsReveal } from "@/components/WordsReveal";
+import westinVideo from "../assets/videos/westin_calgary.mp4.asset.json";
+import westinPoster from "../assets/videos/westin_calgary.jpg.asset.json";
+import mountRoyalVideo from "../assets/videos/mount_royal.mp4.asset.json";
+import mountRoyalPoster from "../assets/videos/mount_royal.jpg.asset.json";
+import masloVideo from "../assets/videos/maslo_home.mp4.asset.json";
+import masloPoster from "../assets/videos/maslo_home.jpg.asset.json";
+import coaldaleVideo from "../assets/videos/coaldale_alberta.mp4.asset.json";
+import coaldalePoster from "../assets/videos/coaldale_alberta.jpg.asset.json";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -431,6 +439,62 @@ function Index() {
           <Reveal variant="fade">
             <LocationsMap />
           </Reveal>
+        </div>
+      </section>
+
+      {/* Video Showcase — walls in motion */}
+      <section id="motion" className="relative overflow-hidden bg-forest text-cream">
+        <div className="mx-auto max-w-7xl px-6 py-24 md:py-32">
+          <div className="mb-14 grid gap-10 md:grid-cols-12 md:items-end">
+            <Reveal className="md:col-span-7">
+              <p className="mb-4 text-xs font-semibold uppercase tracking-[0.3em] text-terra-light">
+                Walls in Motion
+              </p>
+              <WordsReveal
+                as="h2"
+                text="Living, breathing installations."
+                className="font-serif text-4xl font-light leading-[1.05] text-cream md:text-6xl"
+              />
+            </Reveal>
+            <Reveal delay={200} className="md:col-span-5">
+              <p className="text-cream/75 md:text-lg">
+                A few of our walls, captured on site — light shifting across the
+                leaves, water quietly circulating, plants settling into their space.
+              </p>
+            </Reveal>
+          </div>
+
+          <div className="grid gap-6 md:grid-cols-2 md:gap-8">
+            {[
+              { video: westinVideo.url, poster: westinPoster.url, title: "Westin Calgary", caption: "Hotel lobby · Tropical cascade" },
+              { video: mountRoyalVideo.url, poster: mountRoyalPoster.url, title: "Mount Royal", caption: "University · Feature wall" },
+              { video: masloVideo.url, poster: masloPoster.url, title: "Maslo Residence", caption: "Private home · Custom install" },
+              { video: coaldaleVideo.url, poster: coaldalePoster.url, title: "Coaldale, Alberta", caption: "Community space · Outdoor" },
+            ].map((v, i) => (
+              <Reveal key={v.title} delay={i * 120}>
+                <figure className="tilt-card group relative overflow-hidden rounded-3xl bg-charcoal/40 shadow-2xl ring-1 ring-cream/10">
+                  <video
+                    className="aspect-video w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    preload="metadata"
+                    poster={v.poster}
+                  >
+                    <source src={v.video} type="video/mp4" />
+                  </video>
+                  <figcaption className="pointer-events-none absolute inset-x-0 bottom-0 flex items-end justify-between gap-4 bg-gradient-to-t from-charcoal/85 via-charcoal/40 to-transparent p-6">
+                    <div>
+                      <p className="font-serif text-xl text-cream md:text-2xl">{v.title}</p>
+                      <p className="text-xs uppercase tracking-widest text-cream/70">{v.caption}</p>
+                    </div>
+                    <span className="text-xs text-cream/60">{String(i + 1).padStart(2, "0")}</span>
+                  </figcaption>
+                </figure>
+              </Reveal>
+            ))}
+          </div>
         </div>
       </section>
 
