@@ -13,7 +13,8 @@
   --radius-3xl: calc(var(--radius) + 12px);
   --radius-4xl: calc(var(--radius) + 16px);
 
-  --font-serif: "Cormorant", "Georgia", serif;
+  --font-serif: "Fraunces", "Cormorant", "Georgia", serif;
+  --font-display: "Fraunces", "Cormorant", "Georgia", serif;
   --font-sans: "Karla", "Helvetica Neue", sans-serif;
 
   --color-background: var(--background);
@@ -307,4 +308,44 @@
 @media (prefers-reduced-motion: reduce) {
   .leaf-drift { animation: none !important; opacity: 0 !important; }
   .hero-video { animation: none !important; }
+}
+
+/* Expressive display heading — used on light sections */
+@utility display-heading {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-style: italic;
+  letter-spacing: -0.035em;
+  font-variation-settings: "opsz" 144, "SOFT" 100;
+  & em, & i {
+    font-style: italic;
+    color: var(--terra);
+  }
+  & strong {
+    font-weight: 500;
+    font-style: normal;
+  }
+}
+
+/* Soft-edged "cutout" — fades an image into the background so it reads
+   like a transparent living-wall element */
+@utility mask-fade-radial {
+  -webkit-mask-image: radial-gradient(ellipse at center, black 40%, transparent 78%);
+          mask-image: radial-gradient(ellipse at center, black 40%, transparent 78%);
+}
+@utility mask-fade-b {
+  -webkit-mask-image: linear-gradient(to bottom, black 55%, transparent 100%);
+          mask-image: linear-gradient(to bottom, black 55%, transparent 100%);
+}
+@utility mask-fade-t {
+  -webkit-mask-image: linear-gradient(to top, black 55%, transparent 100%);
+          mask-image: linear-gradient(to top, black 55%, transparent 100%);
+}
+
+/* Sticky-reveal hero: the hero pins while the next block slides up over it */
+@utility sticky-hero {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  z-index: 0;
 }
