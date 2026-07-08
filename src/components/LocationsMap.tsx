@@ -38,6 +38,7 @@ const LOCATIONS: Location[] = [
 ];
 
 const TOTAL_INSTALLS = LOCATIONS.reduce((sum, l) => sum + l.count, 0);
+void TOTAL_INSTALLS;
 
 function radiusFor(count: number): number {
   // Bigger dots for cities with more installs, no numbers shown.
@@ -121,10 +122,10 @@ export function LocationsMap() {
             Living walls across Canada
           </p>
           <p className="mt-3 font-serif text-4xl font-light text-foreground">
-            {TOTAL_INSTALLS}+
+            {LOCATIONS.length}
           </p>
           <p className="text-sm text-muted-foreground">
-            Installations in {LOCATIONS.length} cities coast to coast
+            Cities across Canada, coast to coast
           </p>
         </div>
 
