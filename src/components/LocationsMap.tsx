@@ -148,6 +148,8 @@ export function LocationsMap() {
                 <button
                   type="button"
                   onClick={() => setActive(loc)}
+                  onMouseEnter={() => setActive(loc)}
+                  onFocus={() => setActive(loc)}
                   className={`w-full rounded-md px-2 py-1.5 text-left transition-colors ${
                     active?.city === loc.city
                       ? "bg-primary/10 text-primary font-semibold"

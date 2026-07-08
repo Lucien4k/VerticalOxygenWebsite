@@ -89,7 +89,7 @@ function Index() {
                   </a>
                   <span className="flex items-center gap-1.5 opacity-90">
                     <MapPin className="h-3.5 w-3.5" aria-hidden />
-                    <span>Installations worldwide</span>
+                     <span>Installations across North America</span>
                   </span>
                   <span className="flex items-center gap-1.5 opacity-90">
                     <Leaf className="h-3.5 w-3.5" aria-hidden />
@@ -126,10 +126,10 @@ function Index() {
                     label: "Locations",
                     href: "#locations",
                     items: [
-                      { label: "North America", description: "Calgary · NYC · LA", href: "#locations", image: fullCircleCalgary.url },
-                      { label: "Europe", description: "London · Berlin · Paris", href: "#locations", image: tallJungleWall.url },
-                      { label: "Asia Pacific", description: "Tokyo · Singapore · Sydney", href: "#locations", image: saunaPothos.url },
-                      { label: "View World Map", description: "Every installation", href: "#locations", image: curvedTropical.url },
+                      { label: "Western Canada", description: "Vancouver · Calgary · Edmonton", href: "#locations", image: fullCircleCalgary.url },
+                      { label: "Central Canada", description: "Toronto · Hamilton · Kingston", href: "#locations", image: tallJungleWall.url },
+                      { label: "Atlantic Canada", description: "Halifax · Moncton · St. John's", href: "#locations", image: saunaPothos.url },
+                      { label: "View Map", description: "Every install across Canada", href: "#locations", image: curvedTropical.url },
                     ],
                   },
                   {
@@ -149,7 +149,7 @@ function Index() {
                       { label: "Request a Quote", description: "Tell us about your space", href: "#quote" },
                       { label: "Call Us", description: "(555) 123-4567", href: "tel:+15551234567" },
                       { label: "Email", description: "verticaloxygen@gmail.com", href: "mailto:verticaloxygen@gmail.com" },
-                      { label: "Service Area", description: "Installations worldwide", href: "#locations" },
+                      { label: "Service Area", description: "Across North America", href: "#locations" },
                     ],
                   },
                 ]}
