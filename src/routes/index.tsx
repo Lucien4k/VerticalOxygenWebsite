@@ -221,12 +221,6 @@ function Index() {
           aria-hidden
           className="pointer-events-none absolute -top-16 -left-24 h-[420px] w-[560px] rotate-[-6deg] object-contain opacity-70 md:h-[560px] md:w-[760px]"
         />
-        <img
-          src={cutoutWallB.url}
-          alt=""
-          aria-hidden
-          className="pointer-events-none absolute top-1/4 -right-40 h-[560px] w-[400px] rotate-[8deg] object-contain opacity-55 md:h-[720px] md:w-[520px]"
-        />
         <div className="mx-auto max-w-7xl px-6 py-24 md:py-36">
           <div className="mb-20 grid gap-10 md:grid-cols-12 md:items-end">
             <Reveal className="md:col-span-7">
