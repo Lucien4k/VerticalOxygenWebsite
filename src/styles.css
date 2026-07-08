@@ -230,3 +230,57 @@
 @utility marker-pulse {
   animation: ping-soft 2.2s cubic-bezier(0, 0, 0.2, 1) infinite;
 }
+
+/* Horizontal marquee strip */
+@keyframes marquee-x {
+  from { transform: translate3d(0, 0, 0); }
+  to   { transform: translate3d(-50%, 0, 0); }
+}
+@utility marquee-track {
+  animation: marquee-x 45s linear infinite;
+  &:hover { animation-play-state: paused; }
+}
+
+/* Scroll-linked parallax — the JS sets --p (0..1) as element travels viewport */
+@utility parallax {
+  will-change: transform;
+  transform: translate3d(0, calc((var(--p, 0.5) - 0.5) * var(--parallax-strength, 60px)), 0);
+  transition: transform 0.05s linear;
+}
+
+/* Subtle tilt-on-hover for gallery cards */
+@utility tilt-card {
+  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.6s ease;
+  &:hover {
+    transform: translateY(-6px) rotate(-0.4deg);
+    box-shadow: 0 30px 60px -30px oklch(0.298 0.009 28.9 / 0.35);
+  }
+}
+
+/* Word-by-word text reveal (JS wraps words in span.word) */
+@keyframes word-rise {
+  from { opacity: 0; transform: translateY(1.1em) rotate(3deg); }
+  to   { opacity: 1; transform: translateY(0) rotate(0); }
+}
+@utility words {
+  & .word {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(1.1em);
+    will-change: transform, opacity;
+  }
+  &.is-visible .word {
+    animation: word-rise 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    animation-delay: calc(var(--i, 0) * 60ms);
+  }
+}
+
+/* Number counter fade */
+@keyframes count-in {
+  from { opacity: 0; transform: translateY(12px); letter-spacing: 0.1em; }
+  to   { opacity: 1; transform: translateY(0); letter-spacing: -0.02em; }
+}
+@utility count-in {
+  opacity: 0;
+  &.is-visible { animation: count-in 1.1s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
+}
