@@ -10,10 +10,20 @@ import succulentTapestry from "../assets/projects/succulent-tapestry.jpg.asset.j
 import pothosCascade from "../assets/projects/pothos-cascade.jpg.asset.json";
 import spiderPothos from "../assets/projects/spider-pothos.jpg.asset.json";
 import sedumBloom from "../assets/projects/sedum-bloom.jpg.asset.json";
+import fullCircleCalgary from "../assets/projects/full-circle-calgary.jpg.asset.json";
+import fullCircle2Calgary from "../assets/projects/full-circle-2-calgary.jpg.asset.json";
+import tallJungleWall from "../assets/projects/tall-jungle-wall.jpg.asset.json";
+import mosaicBase from "../assets/projects/mosaic-base.jpg.asset.json";
+import higherHealth from "../assets/projects/higher-health.jpg.asset.json";
+import iffWall from "../assets/projects/iff-wall.jpg.asset.json";
+import saunaPothos from "../assets/projects/sauna-pothos.jpg.asset.json";
+import cafePlanter from "../assets/projects/cafe-planter.jpg.asset.json";
+import curvedTropical from "../assets/projects/curved-tropical.jpg.asset.json";
 import { Phone, Mail, MapPin, Leaf, ArrowRight } from "lucide-react";
 import { QuoteForm } from "@/components/QuoteForm";
 import { Reveal } from "@/components/Reveal";
 import { LocationsMap } from "@/components/LocationsMap";
+import { NavMenu } from "@/components/NavMenu";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -62,9 +72,9 @@ function Index() {
                     <Phone className="h-3.5 w-3.5" aria-hidden />
                     <span>(555) 123-4567</span>
                   </a>
-                  <a href="mailto:hello@verticaloxygen.com" className="flex items-center gap-1.5 transition-opacity hover:opacity-80">
+                  <a href="mailto:verticaloxygen@gmail.com" className="flex items-center gap-1.5 transition-opacity hover:opacity-80">
                     <Mail className="h-3.5 w-3.5" aria-hidden />
-                    <span>hello@verticaloxygen.com</span>
+                    <span>verticaloxygen@gmail.com</span>
                   </a>
                   <span className="flex items-center gap-1.5 opacity-90">
                     <MapPin className="h-3.5 w-3.5" aria-hidden />
@@ -89,12 +99,50 @@ function Index() {
               <a href="/" className="font-serif text-xl font-medium tracking-tight text-cream md:text-2xl">
                 Vertical Oxygen
               </a>
-              <div className="hidden items-center gap-7 text-sm font-medium text-cream md:flex">
-                <a href="#work" className="transition-colors hover:text-terra-light">Work</a>
-                <a href="#locations" className="transition-colors hover:text-terra-light">Locations</a>
-                <a href="#about" className="transition-colors hover:text-terra-light">About</a>
-                <a href="#quote" className="transition-colors hover:text-terra-light">Contact</a>
-              </div>
+              <NavMenu
+                menus={[
+                  {
+                    label: "Work",
+                    href: "#work",
+                    items: [
+                      { label: "Hotel Lobbies", description: "Grand statement walls", href: "#work", image: lobbyPanels.url },
+                      { label: "Corporate Offices", description: "Calm, focused spaces", href: "#work", image: iffWall.url },
+                      { label: "Healthcare", description: "Healing environments", href: "#work", image: higherHealth.url },
+                      { label: "Outdoor Installs", description: "All-season plantings", href: "#work", image: outdoorFrame.url },
+                    ],
+                  },
+                  {
+                    label: "Locations",
+                    href: "#locations",
+                    items: [
+                      { label: "North America", description: "Calgary · NYC · LA", href: "#locations", image: fullCircleCalgary.url },
+                      { label: "Europe", description: "London · Berlin · Paris", href: "#locations", image: tallJungleWall.url },
+                      { label: "Asia Pacific", description: "Tokyo · Singapore · Sydney", href: "#locations", image: saunaPothos.url },
+                      { label: "View World Map", description: "Every installation", href: "#locations", image: curvedTropical.url },
+                    ],
+                  },
+                  {
+                    label: "About",
+                    href: "#about",
+                    items: [
+                      { label: "Our Philosophy", description: "Beauty with simplicity", href: "#about" },
+                      { label: "Hydroponic Systems", description: "Soilless, self-watering", href: "#about" },
+                      { label: "Soil-Based Walls", description: "Traditional, lush", href: "#about" },
+                      { label: "Custom Process", description: "Design to install", href: "#quote" },
+                    ],
+                  },
+                  {
+                    label: "Contact",
+                    href: "#quote",
+                    items: [
+                      { label: "Request a Quote", description: "Tell us about your space", href: "#quote" },
+                      { label: "Call Us", description: "(555) 123-4567", href: "tel:+15551234567" },
+                      { label: "Email", description: "verticaloxygen@gmail.com", href: "mailto:verticaloxygen@gmail.com" },
+                      { label: "Service Area", description: "Installations worldwide", href: "#locations" },
+                    ],
+                  },
+                ]}
+              />
               <a
                 href="#quote"
                 className="slide-cta group inline-flex items-center rounded-full bg-terra px-5 py-2 text-sm font-semibold text-cream transition-colors hover:bg-terra/90"
@@ -166,37 +214,45 @@ function Index() {
           </div>
         </Reveal>
 
-        <div className="grid gap-4 md:grid-cols-6 md:grid-rows-[repeat(6,140px)]">
+        <div className="grid gap-4 md:grid-cols-6 md:grid-rows-[repeat(8,140px)]">
           <Reveal className="group overflow-hidden rounded-2xl md:col-span-4 md:row-span-4">
-            <img src={lobbyPanels.url} alt="Grand hotel lobby with five towering vertical panels of tropical plants" loading="lazy"
+            <img src={higherHealth.url} alt="Lush tropical living wall with bromeliads and ferns in a curved wellness clinic" loading="lazy"
                  className="h-full w-full object-cover transition-transform duration-1000 group-hover:scale-105" />
           </Reveal>
           <Reveal delay={100} className="group overflow-hidden rounded-2xl md:col-span-2 md:row-span-2">
-            <img src={outdoorFrame.url} alt="Outdoor succulent living wall framed in warm cedar" loading="lazy"
+            <img src={fullCircleCalgary.url} alt="Colourful living wall with anthuriums and snake plants at a Calgary clinic reception" loading="lazy"
                  className="h-full w-full object-cover transition-transform duration-1000 group-hover:scale-105" />
           </Reveal>
           <Reveal delay={150} className="group overflow-hidden rounded-2xl md:col-span-2 md:row-span-2">
-            <img src={fairviewAquarium.url} alt="Indoor living wall paired with a wide freshwater aquarium" loading="lazy"
+            <img src={iffWall.url} alt="Large office living wall in tonal greens against white paneling" loading="lazy"
                  className="h-full w-full object-cover transition-transform duration-1000 group-hover:scale-105" />
           </Reveal>
           <Reveal delay={50} className="group overflow-hidden rounded-2xl md:col-span-2 md:row-span-2">
-            <img src={pothosCascade.url} alt="Close-up of pothos and heart-leaf vines cascading down a wood-framed wall" loading="lazy"
+            <img src={fullCircle2Calgary.url} alt="Framed floor-to-ceiling living wall with dramatic uplighting" loading="lazy"
                  className="h-full w-full object-cover transition-transform duration-1000 group-hover:scale-105" />
           </Reveal>
           <Reveal delay={100} className="group overflow-hidden rounded-2xl md:col-span-2 md:row-span-2">
-            <img src={succulentTapestry.url} alt="Detailed succulent tapestry with pink, green and silver textures" loading="lazy"
+            <img src={tallJungleWall.url} alt="Tall two-story tropical wall in a warm residential stairwell" loading="lazy"
                  className="h-full w-full object-cover transition-transform duration-1000 group-hover:scale-105" />
           </Reveal>
           <Reveal delay={150} className="group overflow-hidden rounded-2xl md:col-span-2 md:row-span-2">
-            <img src={edmontonLobby.url} alt="Sculpted living wall in a corporate lobby with dramatic uplighting" loading="lazy"
+            <img src={curvedTropical.url} alt="Curved tropical living wall with bromeliads and cascading ferns" loading="lazy"
                  className="h-full w-full object-cover transition-transform duration-1000 group-hover:scale-105" />
           </Reveal>
           <Reveal delay={50} className="group overflow-hidden rounded-2xl md:col-span-3 md:row-span-2">
-            <img src={tropicalDense.url} alt="Dense tropical wall with philodendrons, anthuriums and ferns" loading="lazy"
+            <img src={cafePlanter.url} alt="Elevated pothos and ZZ planter dividing a corporate café space" loading="lazy"
                  className="h-full w-full object-cover transition-transform duration-1000 group-hover:scale-105" />
           </Reveal>
           <Reveal delay={100} className="group overflow-hidden rounded-2xl md:col-span-3 md:row-span-2">
-            <img src={fairviewInstall.url} alt="Team installing a large living wall in a school hallway" loading="lazy"
+            <img src={mosaicBase.url} alt="Detail of a living wall with stone mosaic planter base" loading="lazy"
+                 className="h-full w-full object-cover transition-transform duration-1000 group-hover:scale-105" />
+          </Reveal>
+          <Reveal delay={50} className="group overflow-hidden rounded-2xl md:col-span-3 md:row-span-2">
+            <img src={outdoorFrame.url} alt="Outdoor succulent living wall framed in warm cedar" loading="lazy"
+                 className="h-full w-full object-cover transition-transform duration-1000 group-hover:scale-105" />
+          </Reveal>
+          <Reveal delay={100} className="group overflow-hidden rounded-2xl md:col-span-3 md:row-span-2">
+            <img src={saunaPothos.url} alt="Trailing pothos vines beside a cedar sauna cabin" loading="lazy"
                  className="h-full w-full object-cover transition-transform duration-1000 group-hover:scale-105" />
           </Reveal>
         </div>
@@ -281,9 +337,9 @@ function Index() {
                 <Phone className="h-4 w-4 text-primary" aria-hidden />
                 (555) 123-4567
               </a>
-              <a href="mailto:hello@verticaloxygen.com" className="flex items-center gap-3 hover:text-primary">
+              <a href="mailto:verticaloxygen@gmail.com" className="flex items-center gap-3 hover:text-primary">
                 <Mail className="h-4 w-4 text-primary" aria-hidden />
-                hello@verticaloxygen.com
+                verticaloxygen@gmail.com
               </a>
             </div>
           </Reveal>
