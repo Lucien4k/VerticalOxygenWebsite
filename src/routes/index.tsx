@@ -30,12 +30,12 @@ import { NavMenu } from "@/components/NavMenu";
 import { Parallax } from "@/components/Parallax";
 import { WordsReveal } from "@/components/WordsReveal";
 import { FloatingLeaves } from "@/components/FloatingLeaves";
-import { ScrollVideo } from "@/components/ScrollVideo";
 import { ScrollProgress } from "@/components/ScrollProgress";
 import { ScrollFrames } from "@/components/ScrollFrames";
 import { FRAME_URLS } from "@/lib/frame-urls";
+import { ScrollFramesSection } from "@/components/ScrollFramesSection";
+import { HERO2_FRAME_URLS } from "@/lib/frame-urls-hero2";
 import { useState, useEffect, useRef } from "react";
-import wallPanels3d from "../assets/videos/wall-panels-3d.mp4.asset.json";
 import westinVideo from "../assets/videos/westin_calgary.mp4.asset.json";
 import westinPoster from "../assets/videos/westin_calgary.jpg.asset.json";
 import mountRoyalVideo from "../assets/videos/mount_royal.mp4.asset.json";
@@ -257,23 +257,27 @@ function Index() {
       {/* Everything below scrolls up over the fixed hero */}
       <div className="relative z-10 mt-[175vh] bg-background">
 
-      {/* Scroll-scrubbed 3D wall panel sequence */}
-      <ScrollVideo src={wallPanels3d.url} scrollLength={2.5}>
-        <div className="max-w-2xl">
-          <p className="mb-4 text-xs font-semibold uppercase tracking-[0.3em] text-terra-light">
-            Engineered in layers
-          </p>
-          <WordsReveal
-            as="h2"
-            text="Panels that come together as one."
-            className="display-heading text-4xl leading-[1.05] text-cream md:text-6xl lg:text-7xl"
-          />
-          <p className="mt-6 text-cream/80 md:text-lg">
-            Every wall is built from modular panels — designed, planted, and
-            assembled on-site. Scroll to see how the pieces come together.
-          </p>
-        </div>
-      </ScrollVideo>
+      {/* Scroll-scrubbed panel sequence — second hero */}
+      <ScrollFramesSection
+        frames={HERO2_FRAME_URLS}
+        scrollLength={2.5}
+        overlay={
+          <div className="max-w-2xl">
+            <p className="mb-4 text-xs font-semibold uppercase tracking-[0.3em] text-terra-light">
+              Engineered in layers
+            </p>
+            <WordsReveal
+              as="h2"
+              text="Panels that come together as one."
+              className="display-heading text-4xl leading-[1.05] text-cream md:text-6xl lg:text-7xl"
+            />
+            <p className="mt-6 text-cream/80 md:text-lg">
+              Every wall is built from modular panels — designed, planted, and
+              assembled on-site. Scroll to see how the pieces come together.
+            </p>
+          </div>
+        }
+      />
 
       {/* Selected Work — deep forest gallery colour-matched to the hero */}
       <section id="work" className="relative overflow-hidden bg-cream text-charcoal">
