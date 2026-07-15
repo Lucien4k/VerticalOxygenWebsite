@@ -76,7 +76,7 @@ function Index() {
       <section className="fixed inset-x-0 top-0 z-0 h-screen overflow-hidden">
         {/* Background: scroll-driven frame sequence */}
         <div className="absolute inset-0">
-          <ScrollFrames frames={FRAME_URLS} onComplete={setHeroDone} />
+          <ScrollFrames frames={FRAME_URLS} scrollRange={typeof window !== "undefined" ? window.innerHeight * 3 : 3000} onComplete={setHeroDone} />
         </div>
         <div className="absolute inset-0 bg-gradient-to-b from-charcoal/60 via-charcoal/35 to-charcoal/70" aria-hidden />
         <FloatingLeaves className="z-10" />
@@ -227,7 +227,7 @@ function Index() {
       </section>
 
       {/* Everything below scrolls up over the fixed hero */}
-      <div className="relative z-10 mt-[100vh] bg-background">
+      <div className="relative z-10 mt-[300vh] bg-background">
 
       {/* Scroll-scrubbed 3D wall panel sequence */}
       <ScrollVideo src={wallPanels3d.url} scrollLength={2.5}>
