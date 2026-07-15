@@ -32,6 +32,9 @@ import { WordsReveal } from "@/components/WordsReveal";
 import { FloatingLeaves } from "@/components/FloatingLeaves";
 import { ScrollVideo } from "@/components/ScrollVideo";
 import { ScrollProgress } from "@/components/ScrollProgress";
+import { ScrollFrames } from "@/components/ScrollFrames";
+import { FRAME_URLS } from "@/lib/frame-urls";
+import { useState } from "react";
 import wallPanels3d from "../assets/videos/wall-panels-3d.mp4.asset.json";
 import westinVideo from "../assets/videos/westin_calgary.mp4.asset.json";
 import westinPoster from "../assets/videos/westin_calgary.jpg.asset.json";
@@ -65,22 +68,16 @@ export const Route = createFileRoute("/")({
 });
 
 function Index() {
+  const [heroDone, setHeroDone] = useState(false);
   return (
     <div className="min-h-screen bg-background">
       <ScrollProgress />
       {/* Fixed hero: stays pinned while the rest of the page scrolls up over it */}
-      <section className="hero-fixed fixed inset-x-0 top-0 z-0 h-screen overflow-hidden">
-        {/* Background video */}
-        <video
-          className="hero-video absolute inset-0 h-full w-full object-cover"
-          autoPlay
-          muted
-          loop
-          playsInline
-          poster={tropicalDense.url}
-        >
-          <source src={masloVideo.url} type="video/mp4" />
-        </video>
+      <section className="fixed inset-x-0 top-0 z-0 h-screen overflow-hidden">
+        {/* Background: scroll-driven frame sequence */}
+        <div className="absolute inset-0">
+          <ScrollFrames frames={FRAME_URLS} onComplete={setHeroDone} />
+        </div>
         <div className="absolute inset-0 bg-gradient-to-b from-charcoal/60 via-charcoal/35 to-charcoal/70" aria-hidden />
         <FloatingLeaves className="z-10" />
 
@@ -188,7 +185,10 @@ function Index() {
         </div>
 
         {/* Hero content */}
-        <div className="relative mx-auto flex h-full max-w-6xl items-center px-6 pt-40 pb-16 md:pt-44">
+        <div
+          className="relative mx-auto flex h-full max-w-6xl items-center px-6 pt-40 pb-16 md:pt-44 transition-opacity duration-500"
+          style={{ opacity: heroDone ? 0 : 1 }}
+        >
           <div className="max-w-2xl">
             <div className="reveal-fade is-visible">
               <p className="mb-4 text-xs font-semibold uppercase tracking-[0.3em] text-terra-light">
