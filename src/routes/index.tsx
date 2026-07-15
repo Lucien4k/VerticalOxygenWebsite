@@ -363,7 +363,7 @@ function Index() {
             <p className="text-xs font-semibold uppercase tracking-[0.3em] text-terra-light">
               More installations
             </p>
-            <p className="hidden text-xs uppercase tracking-widest text-cream/50 md:block">
+            <p className="hidden text-xs uppercase tracking-widest text-charcoal/50 md:block">
               Hover to pause
             </p>
           </div>
