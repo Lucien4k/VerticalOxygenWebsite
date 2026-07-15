@@ -420,6 +420,14 @@ function Index() {
       </section>
 
       {/* Locations Map */}
+      {/* Wood shelf divider */}
+      <div className="relative h-5 w-full overflow-hidden md:h-7" aria-hidden>
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: `url(${woodTexture.url})` }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/50" />
+      </div>
       <section id="locations" className="relative overflow-hidden bg-card">
         <img
           src={cutoutWallC.url}
@@ -451,6 +459,14 @@ function Index() {
       </section>
 
       {/* Video Showcase — walls in motion */}
+      {/* Wood shelf divider */}
+      <div className="relative h-5 w-full overflow-hidden md:h-7" aria-hidden>
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: `url(${woodTexture.url})`, backgroundPositionX: "30%" }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/45 via-transparent to-black/55" />
+      </div>
       <section id="motion" className="relative overflow-hidden bg-forest text-cream">
         <img
           src={cutoutWallA.url}
@@ -513,6 +529,14 @@ function Index() {
       </section>
 
       {/* Philosophy / About */}
+      {/* Wood shelf divider */}
+      <div className="relative h-5 w-full overflow-hidden md:h-7" aria-hidden>
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: `url(${woodTexture.url})`, backgroundPositionX: "70%" }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/50" />
+      </div>
       <section id="about" className="relative overflow-hidden bg-background">
         <img
           src={cutoutWallB.url}
