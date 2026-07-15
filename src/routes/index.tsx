@@ -615,8 +615,14 @@ function Index() {
               { title: "Hydroponic", src: diagramHydroponic.url, desc: "Soilless growing on recycled moisture mats — lightweight, low-maintenance, self-watering." },
               { title: "Soil-Based", src: diagramSoil.url, desc: "Traditional pocket construction with soil and irrigation — lush, textured, endlessly plantable." },
             ].map((d, i) => (
-              <Reveal key={d.title} delay={i * 120} className="group flex flex-col rounded-3xl bg-background p-6 shadow-sm ring-1 ring-charcoal/5 transition-shadow hover:shadow-xl">
-                <div className="flex items-center justify-center overflow-hidden rounded-2xl bg-white p-4">
+              <Reveal key={d.title} delay={i * 120} className="group relative flex flex-col overflow-hidden rounded-3xl p-6 shadow-md ring-1 ring-charcoal/10 transition-shadow hover:shadow-xl">
+                <div
+                  className="absolute inset-0 bg-cover bg-center"
+                  style={{ backgroundImage: `url(${woodTexture.url})`, backgroundPositionX: `${i * 40}%` }}
+                  aria-hidden
+                />
+                <div className="absolute inset-0 bg-cream/88" aria-hidden />
+                <div className="relative flex items-center justify-center overflow-hidden rounded-2xl bg-white p-4 ring-1 ring-charcoal/10">
                   <img
                     src={d.src}
                     alt={`${d.title} living wall diagram`}
@@ -624,8 +630,8 @@ function Index() {
                     loading="lazy"
                   />
                 </div>
-                <h3 className="mt-6 font-serif text-2xl text-charcoal">{d.title} Wall</h3>
-                <p className="mt-2 text-sm leading-relaxed text-charcoal/70">{d.desc}</p>
+                <h3 className="relative mt-6 font-serif text-2xl text-charcoal">{d.title} Wall</h3>
+                <p className="relative mt-2 text-sm leading-relaxed text-charcoal/75">{d.desc}</p>
               </Reveal>
             ))}
           </div>
