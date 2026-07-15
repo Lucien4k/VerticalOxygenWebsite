@@ -88,7 +88,7 @@ function Index() {
         <div className="absolute inset-x-0 top-0 z-50 px-4 pt-4 md:px-6 md:pt-5">
           <div className="mx-auto max-w-6xl space-y-2">
             {/* Utility strip */}
-            <div className="hidden overflow-hidden rounded-full bg-forest/70 px-5 py-2 text-xs text-cream shadow-lg backdrop-blur-md md:block">
+            <div className="hidden overflow-hidden rounded-full bg-cream/70 px-5 py-2 text-xs text-charcoal shadow-lg backdrop-blur-md md:block">
               <div className="flex items-center justify-between gap-6">
                 <div className="flex items-center gap-6">
                   <a href="tel:+15551234567" className="flex items-center gap-1.5 transition-opacity hover:opacity-80">
@@ -248,7 +248,7 @@ function Index() {
       </ScrollVideo>
 
       {/* Selected Work — deep forest gallery colour-matched to the hero */}
-      <section id="work" className="relative overflow-hidden bg-forest text-cream">
+      <section id="work" className="relative overflow-hidden bg-cream text-charcoal">
         {/* Decorative floating "cutout" plants — soft-masked so they read as transparent */}
         <img
           src={cutoutCoaldale.url}
@@ -265,11 +265,11 @@ function Index() {
               <WordsReveal
                 as="h2"
                 text="Real walls. Real spaces."
-                className="display-heading text-5xl leading-[1] text-cream md:text-7xl lg:text-8xl"
+                className="display-heading text-5xl leading-[1] text-charcoal md:text-7xl lg:text-8xl"
               />
             </Reveal>
             <Reveal delay={200} className="md:col-span-5">
-              <p className="text-cream/70 md:text-lg">
+              <p className="text-charcoal/70 md:text-lg">
                 A glimpse into recent installations — from clinic receptions and
                 corporate lobbies to residential stairwells and outdoor courtyards.
               </p>
@@ -280,7 +280,7 @@ function Index() {
           <div className="relative grid gap-6 md:grid-cols-2 md:gap-10">
             <Reveal className="md:mt-16">
               <Parallax strength={80}>
-                <figure className="tilt-card overflow-hidden rounded-3xl bg-charcoal/50 shadow-2xl ring-1 ring-cream/10">
+                <figure className="tilt-card overflow-hidden rounded-3xl bg-charcoal/50 shadow-2xl ring-1 ring-charcoal/10">
                   <img
                     src={glenoraLobby.url}
                     alt="Five-column living wall behind a marble reception desk with hanging ferns"
@@ -293,7 +293,7 @@ function Index() {
 
             <Reveal delay={150}>
               <Parallax strength={30}>
-                <figure className="tilt-card overflow-hidden rounded-3xl bg-charcoal/50 shadow-2xl ring-1 ring-cream/10">
+                <figure className="tilt-card overflow-hidden rounded-3xl bg-charcoal/50 shadow-2xl ring-1 ring-charcoal/10">
                   <img
                     src={coaldaleHall.url}
                     alt="Large framed living wall lit by row of gooseneck lamps in a community hall"
@@ -309,7 +309,7 @@ function Index() {
           <div className="relative mt-24 md:mt-40">
             <Reveal>
               <Parallax strength={50}>
-                <figure className="tilt-card mx-auto max-w-5xl overflow-hidden rounded-3xl bg-charcoal/50 shadow-2xl ring-1 ring-cream/10">
+                <figure className="tilt-card mx-auto max-w-5xl overflow-hidden rounded-3xl bg-charcoal/50 shadow-2xl ring-1 ring-charcoal/10">
                   <img
                     src={iffWall.url}
                     alt="Large office living wall in tonal greens against white paneling"
@@ -332,7 +332,7 @@ function Index() {
           <div className="relative mt-24 grid gap-6 md:mt-40 md:grid-cols-2 md:gap-10">
             <Reveal>
               <Parallax strength={60}>
-                <figure className="tilt-card overflow-hidden rounded-3xl bg-charcoal/50 shadow-2xl ring-1 ring-cream/10 md:mt-12">
+                <figure className="tilt-card overflow-hidden rounded-3xl bg-charcoal/50 shadow-2xl ring-1 ring-charcoal/10 md:mt-12">
                   <img
                     src={lushTropicalWall.url}
                     alt="Dense tropical living wall with rubber plants, ferns and red anthuriums"
@@ -344,7 +344,7 @@ function Index() {
             </Reveal>
             <Reveal delay={150}>
               <Parallax strength={40}>
-                <figure className="tilt-card overflow-hidden rounded-3xl bg-charcoal/50 shadow-2xl ring-1 ring-cream/10">
+                <figure className="tilt-card overflow-hidden rounded-3xl bg-charcoal/50 shadow-2xl ring-1 ring-charcoal/10">
                   <img
                     src={coaldaleFlowering.url}
                     alt="Flowering living wall installation with anthuriums and cascading ferns"
@@ -358,7 +358,7 @@ function Index() {
         </div>
 
         {/* Continuous marquee — more work at a glance */}
-        <div className="relative border-y border-cream/10 bg-forest/80 py-10">
+        <div className="relative border-y border-charcoal/10 bg-cream/80 py-10">
           <div className="mb-6 flex items-center justify-between px-6 md:px-10">
             <p className="text-xs font-semibold uppercase tracking-[0.3em] text-terra-light">
               More installations
@@ -413,8 +413,8 @@ function Index() {
                 ))}
             </div>
             {/* edge fades */}
-            <div className="pointer-events-none absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-forest to-transparent md:w-32" aria-hidden />
-            <div className="pointer-events-none absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-forest to-transparent md:w-32" aria-hidden />
+            <div className="pointer-events-none absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-cream to-transparent md:w-32" aria-hidden />
+            <div className="pointer-events-none absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-cream to-transparent md:w-32" aria-hidden />
           </div>
         </div>
       </section>
