@@ -68,7 +68,7 @@ export function LocationsMap() {
                 <Geography
                   key={geo.rsmKey}
                   geography={geo}
-                  fill={geo.properties?.name === "Canada" ? "oklch(0.88 0.03 145)" : "oklch(0.92 0.015 40)"}
+                  fill={geo.properties?.name === "Canada" ? "oklch(0.90 0.02 60)" : "oklch(0.92 0.015 40)"}
                   stroke="oklch(0.983 0.033 34.7)"
                   strokeWidth={0.5}
                   style={{
