@@ -48,7 +48,7 @@ import cutoutWallC from "../assets/cutouts/wall-c.png.asset.json";
 import diagramAquaponic from "../assets/diagrams/aquaponic-wall-diagram.jpg.asset.json";
 import diagramHydroponic from "../assets/diagrams/hydroponic-wall-diagram.jpg.asset.json";
 import diagramSoil from "../assets/diagrams/soil-based-wall-diagram.jpg.asset.json";
-import woodTexture from "../assets/textures/wood-texture.jpg.asset.json";
+import woodTexture from "../assets/textures/wood-texture-v2.jpg.asset.json";
 
 export const Route = createFileRoute("/")({
   component: Index,
