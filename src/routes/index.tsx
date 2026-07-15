@@ -48,7 +48,7 @@ import cutoutWallC from "../assets/cutouts/wall-c.png.asset.json";
 import diagramAquaponic from "../assets/diagrams/aquaponic-wall-diagram.jpg.asset.json";
 import diagramHydroponic from "../assets/diagrams/hydroponic-wall-diagram.jpg.asset.json";
 import diagramSoil from "../assets/diagrams/soil-based-wall-diagram.jpg.asset.json";
-import woodTexture from "../assets/textures/wood-texture.jpg.asset.json";
+import woodTexture from "../assets/textures/wood-texture-v2.jpg.asset.json";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -602,6 +602,15 @@ function Index() {
         </div>
       </section>
 
+      {/* Wood shelf divider */}
+      <div className="relative h-6 w-full overflow-hidden md:h-8" aria-hidden>
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: `url(${woodTexture.url})` }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/40" />
+      </div>
+
       <section id="quote" className="relative overflow-hidden bg-forest text-cream">
         <img
           src={cutoutCoaldale.url}
@@ -639,8 +648,14 @@ function Index() {
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-cream/10 bg-forest text-cream">
-        <div className="mx-auto max-w-7xl px-6 py-10">
+      <footer className="relative overflow-hidden border-t border-cream/10 text-cream">
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: `url(${woodTexture.url})` }}
+          aria-hidden
+        />
+        <div className="absolute inset-0 bg-charcoal/75" aria-hidden />
+        <div className="relative z-10 mx-auto max-w-7xl px-6 py-10">
           <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
             <p className="font-serif text-lg italic text-cream">Vertical Oxygen</p>
             <p className="text-sm text-cream/60">
