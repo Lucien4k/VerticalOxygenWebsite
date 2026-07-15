@@ -273,8 +273,8 @@ function Index() {
               <Parallax strength={80}>
                 <figure className="tilt-card overflow-hidden rounded-3xl bg-charcoal/50 shadow-2xl ring-1 ring-cream/10">
                   <img
-                    src={higherHealth.url}
-                    alt="Curved tropical living wall filled with bromeliads and ferns in a wellness clinic"
+                    src={glenoraLobby.url}
+                    alt="Five-column living wall behind a marble reception desk with hanging ferns"
                     loading="lazy"
                     className="aspect-[3/4] w-full object-cover"
                   />
@@ -286,8 +286,8 @@ function Index() {
               <Parallax strength={30}>
                 <figure className="tilt-card overflow-hidden rounded-3xl bg-charcoal/50 shadow-2xl ring-1 ring-cream/10">
                   <img
-                    src={tallJungleWall.url}
-                    alt="Two-story tropical wall in a warm residential stairwell"
+                    src={coaldaleHall.url}
+                    alt="Large framed living wall lit by row of gooseneck lamps in a community hall"
                     loading="lazy"
                     className="aspect-[3/4] w-full object-cover"
                   />
@@ -314,6 +314,34 @@ function Index() {
                     </div>
                     <span className="text-xs text-cream/50">03</span>
                   </figcaption>
+                </figure>
+              </Parallax>
+            </Reveal>
+          </div>
+
+          {/* Row 3 — two more recent installs */}
+          <div className="relative mt-24 grid gap-6 md:mt-40 md:grid-cols-2 md:gap-10">
+            <Reveal>
+              <Parallax strength={60}>
+                <figure className="tilt-card overflow-hidden rounded-3xl bg-charcoal/50 shadow-2xl ring-1 ring-cream/10 md:mt-12">
+                  <img
+                    src={lushTropicalWall.url}
+                    alt="Dense tropical living wall with rubber plants, ferns and red anthuriums"
+                    loading="lazy"
+                    className="aspect-[4/3] w-full object-cover"
+                  />
+                </figure>
+              </Parallax>
+            </Reveal>
+            <Reveal delay={150}>
+              <Parallax strength={40}>
+                <figure className="tilt-card overflow-hidden rounded-3xl bg-charcoal/50 shadow-2xl ring-1 ring-cream/10">
+                  <img
+                    src={coaldaleFlowering.url}
+                    alt="Flowering living wall installation with anthuriums and cascading ferns"
+                    loading="lazy"
+                    className="aspect-[4/3] w-full object-cover"
+                  />
                 </figure>
               </Parallax>
             </Reveal>
