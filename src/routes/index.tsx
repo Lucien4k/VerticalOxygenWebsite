@@ -260,7 +260,7 @@ function Index() {
       {/* Scroll-scrubbed panel sequence — second hero */}
       <ScrollFramesSection
         frames={HERO2_FRAME_URLS}
-        scrollLength={2.5}
+        scrollLength={1.5}
         overlay={
           <div className="max-w-2xl">
             <p className="mb-4 text-xs font-semibold uppercase tracking-[0.3em] text-terra-light">
