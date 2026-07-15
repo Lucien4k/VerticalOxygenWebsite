@@ -34,7 +34,7 @@ import { ScrollVideo } from "@/components/ScrollVideo";
 import { ScrollProgress } from "@/components/ScrollProgress";
 import { ScrollFrames } from "@/components/ScrollFrames";
 import { FRAME_URLS } from "@/lib/frame-urls";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import wallPanels3d from "../assets/videos/wall-panels-3d.mp4.asset.json";
 import westinVideo from "../assets/videos/westin_calgary.mp4.asset.json";
 import westinPoster from "../assets/videos/westin_calgary.jpg.asset.json";
@@ -68,6 +68,31 @@ export const Route = createFileRoute("/")({
 
 function Index() {
   const [heroDone, setHeroDone] = useState(false);
+  const blurLayerRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    let raf = 0;
+    const update = () => {
+      raf = 0;
+      const range = window.innerHeight * 1.75;
+      const t = Math.min(1, Math.max(0, window.scrollY / range));
+      const blur = t * 12; // px
+      if (blurLayerRef.current) {
+        blurLayerRef.current.style.backdropFilter = `blur(${blur}px)`;
+        blurLayerRef.current.style.opacity = String(t);
+      }
+    };
+    const onScroll = () => {
+      if (!raf) raf = requestAnimationFrame(update);
+    };
+    update();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+      if (raf) cancelAnimationFrame(raf);
+    };
+  }, []);
   return (
     <div className="min-h-screen bg-background">
       <ScrollProgress />
@@ -78,6 +103,8 @@ function Index() {
           <ScrollFrames frames={FRAME_URLS} scrollRange={typeof window !== "undefined" ? window.innerHeight * 1.75 : 1750} onComplete={setHeroDone} />
         </div>
         <div className="absolute inset-0 bg-gradient-to-b from-charcoal/60 via-charcoal/35 to-charcoal/70" aria-hidden />
+        {/* Soft blur that intensifies as the page scrolls up over the hero */}
+        <div ref={blurLayerRef} className="pointer-events-none absolute inset-0 z-[5] will-change-[backdrop-filter,opacity]" aria-hidden />
         <FloatingLeaves className="z-10" />
 
         {/* Floating rounded top bars — hero video shows around them */}
