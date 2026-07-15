@@ -49,7 +49,7 @@ import cutoutWallA from "../assets/cutouts/wall-a.png.asset.json";
 import cutoutWallB from "../assets/cutouts/wall-b.png.asset.json";
 import cutoutWallC from "../assets/cutouts/wall-c.png.asset.json";
 import diagramAquaponic from "../assets/diagrams/aquaponic-wall-diagram-v2.jpg.asset.json";
-import diagramHydroponic from "../assets/diagrams/hydroponic-wall-diagram.jpg.asset.json";
+import diagramHydroponic from "../assets/diagrams/hydroponic-wall-diagram-v2.jpg.asset.json";
 import woodTexture from "../assets/textures/wood-texture-v2.jpg.asset.json";
 
 export const Route = createFileRoute("/")({
@@ -635,28 +635,28 @@ function Index() {
             </p>
           </Reveal>
 
-          <div className="mt-14 grid gap-8 md:grid-cols-2">
+          <div className="mt-14 grid gap-10 md:grid-cols-2">
             {[
               { title: "Aquaponic", src: diagramAquaponic.url, desc: "Plants and tilapia share one closed loop — fish waste feeds the wall, roots clean the water." },
               { title: "Hydroponic", src: diagramHydroponic.url, desc: "Soilless growing on recycled moisture mats — lightweight, low-maintenance, self-watering." },
             ].map((d, i) => (
-              <Reveal key={d.title} delay={i * 120} className="group relative flex flex-col overflow-hidden rounded-3xl p-6 shadow-md ring-1 ring-charcoal/10 transition-shadow hover:shadow-xl">
+              <Reveal key={d.title} delay={i * 120} className="group relative flex flex-col overflow-hidden rounded-3xl p-8 shadow-md ring-1 ring-charcoal/10 transition-shadow hover:shadow-xl md:p-10">
                 <div
                   className="absolute inset-0 bg-cover bg-center"
                   style={{ backgroundImage: `url(${woodTexture.url})`, backgroundPositionX: `${i * 40}%` }}
                   aria-hidden
                 />
                 <div className="absolute inset-0 bg-cream/88" aria-hidden />
-                <div className="relative flex items-center justify-center overflow-hidden rounded-2xl bg-white p-4 ring-1 ring-charcoal/10">
+                <div className="relative flex items-center justify-center overflow-hidden rounded-2xl bg-white p-6 ring-1 ring-charcoal/10">
                   <img
                     src={d.src}
                     alt={`${d.title} living wall diagram`}
-                    className="h-72 w-auto object-contain transition-transform duration-500 group-hover:scale-105"
+                    className="h-[28rem] w-auto object-contain transition-transform duration-500 group-hover:scale-105 md:h-[36rem]"
                     loading="lazy"
                   />
                 </div>
-                <h3 className="relative mt-6 font-serif text-2xl text-charcoal">{d.title} Wall</h3>
-                <p className="relative mt-2 text-sm leading-relaxed text-charcoal/75">{d.desc}</p>
+                <h3 className="relative mt-8 font-serif text-3xl text-charcoal md:text-4xl">{d.title} Wall</h3>
+                <p className="relative mt-3 text-base leading-relaxed text-charcoal/75 md:text-lg">{d.desc}</p>
               </Reveal>
             ))}
           </div>
