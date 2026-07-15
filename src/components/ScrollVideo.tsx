@@ -88,8 +88,6 @@ export function ScrollVideo({
           muted
           playsInline
           preload="auto"
-          // @ts-expect-error non-standard iOS attribute
-          disableRemotePlayback
         />
         <div className="absolute inset-0 bg-gradient-to-b from-charcoal/40 via-transparent to-charcoal/70" aria-hidden />
         {children ? (
