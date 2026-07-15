@@ -76,10 +76,6 @@ export function ScrollProgress() {
       className="fixed right-5 top-1/2 z-[60] hidden -translate-y-1/2 md:flex md:flex-col md:items-center md:gap-4"
       aria-hidden
     >
-      <span className="font-serif text-[11px] italic tabular-nums text-cream mix-blend-difference">
-        {String(pct).padStart(2, "0")}
-      </span>
-
       {/* Track with segmented column border */}
       <div className="relative h-[46vh] w-[10px]">
         {/* Outer column border */}
@@ -151,8 +147,6 @@ export function ScrollProgress() {
           );
         })}
       </div>
-
-      <span className="font-serif text-[11px] italic text-cream/60 mix-blend-difference">100</span>
     </div>
   );
 }
