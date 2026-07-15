@@ -49,9 +49,9 @@ import cutoutWallA from "../assets/cutouts/wall-a.png.asset.json";
 import cutoutWallB from "../assets/cutouts/wall-b.png.asset.json";
 import cutoutWallC from "../assets/cutouts/wall-c.png.asset.json";
 import diagramAquaponicUrl from "../assets/diagrams/aquaponic-wall-diagram-v3.jpg";
-import diagramHydroponicAsset from "../assets/diagrams/hydroponic-wall-diagram.jpg.asset.json";
+import diagramHydroponicUrl from "../assets/diagrams/hydroponic-wall-diagram-v3.jpg";
 const diagramAquaponic = { url: diagramAquaponicUrl };
-const diagramHydroponic = diagramHydroponicAsset;
+const diagramHydroponic = { url: diagramHydroponicUrl };
 import woodTexture from "../assets/textures/wood-texture-v2.jpg.asset.json";
 
 export const Route = createFileRoute("/")({
