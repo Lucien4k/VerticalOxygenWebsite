@@ -263,8 +263,8 @@ function Index() {
             </Reveal>
           </div>
 
-          {/* Row 1 — three tall staggered portraits with parallax */}
-          <div className="relative grid gap-6 md:grid-cols-3 md:gap-10">
+          {/* Row 1 — two tall staggered portraits with parallax */}
+          <div className="relative grid gap-6 md:grid-cols-2 md:gap-10">
             <Reveal className="md:mt-16">
               <Parallax strength={80}>
                 <figure className="tilt-card overflow-hidden rounded-3xl bg-charcoal/50 shadow-2xl ring-1 ring-cream/10">
@@ -274,13 +274,6 @@ function Index() {
                     loading="lazy"
                     className="aspect-[3/4] w-full object-cover"
                   />
-                  <figcaption className="flex items-end justify-between gap-4 bg-charcoal/60 p-5 backdrop-blur-sm">
-                    <div>
-                      <p className="font-serif text-xl italic text-cream">Higher Health</p>
-                      <p className="text-xs uppercase tracking-widest text-cream/60">Wellness clinic · Curved wall</p>
-                    </div>
-                    <span className="text-xs text-cream/50">01</span>
-                  </figcaption>
                 </figure>
               </Parallax>
             </Reveal>
@@ -294,43 +287,16 @@ function Index() {
                     loading="lazy"
                     className="aspect-[3/4] w-full object-cover"
                   />
-                  <figcaption className="flex items-end justify-between gap-4 bg-charcoal/60 p-5 backdrop-blur-sm">
-                    <div>
-                      <p className="font-serif text-xl italic text-cream">The Berezan Residence</p>
-                      <p className="text-xs uppercase tracking-widest text-cream/60">Residential · Two-story</p>
-                    </div>
-                    <span className="text-xs text-cream/50">02</span>
-                  </figcaption>
-                </figure>
-              </Parallax>
-            </Reveal>
-
-            <Reveal delay={300}>
-              <Parallax strength={100}>
-                <figure className="tilt-card overflow-hidden rounded-3xl bg-charcoal/50 shadow-2xl ring-1 ring-cream/10 md:mt-24">
-                  <img
-                    src={fullCircle2Calgary.url}
-                    alt="Framed floor-to-ceiling living wall with dramatic uplighting"
-                    loading="lazy"
-                    className="aspect-[3/4] w-full object-cover"
-                  />
-                  <figcaption className="flex items-end justify-between gap-4 bg-charcoal/60 p-5 backdrop-blur-sm">
-                    <div>
-                      <p className="font-serif text-xl italic text-cream">Full Circle · Calgary</p>
-                      <p className="text-xs uppercase tracking-widest text-cream/60">Clinic · Framed panel</p>
-                    </div>
-                    <span className="text-xs text-cream/50">03</span>
-                  </figcaption>
                 </figure>
               </Parallax>
             </Reveal>
           </div>
 
-          {/* Row 2 — big feature + right stack */}
-          <div className="relative mt-24 grid gap-6 md:mt-40 md:grid-cols-5 md:gap-10">
-            <Reveal className="md:col-span-3">
+          {/* Row 2 — IFF feature */}
+          <div className="relative mt-24 md:mt-40">
+            <Reveal>
               <Parallax strength={50}>
-                <figure className="tilt-card overflow-hidden rounded-3xl bg-charcoal/50 shadow-2xl ring-1 ring-cream/10">
+                <figure className="tilt-card mx-auto max-w-5xl overflow-hidden rounded-3xl bg-charcoal/50 shadow-2xl ring-1 ring-cream/10">
                   <img
                     src={iffWall.url}
                     alt="Large office living wall in tonal greens against white paneling"
@@ -342,52 +308,11 @@ function Index() {
                       <p className="font-serif text-2xl italic text-cream">IFF Headquarters</p>
                       <p className="text-xs uppercase tracking-widest text-cream/60">Corporate · Tonal greens</p>
                     </div>
-                    <span className="text-xs text-cream/50">04</span>
+                    <span className="text-xs text-cream/50">03</span>
                   </figcaption>
                 </figure>
               </Parallax>
             </Reveal>
-
-            <div className="grid gap-6 md:col-span-2 md:gap-10">
-              <Reveal delay={150}>
-                <Parallax strength={40}>
-                  <figure className="tilt-card overflow-hidden rounded-3xl bg-charcoal/50 shadow-2xl ring-1 ring-cream/10">
-                    <img
-                      src={fullCircleCalgary.url}
-                      alt="Colourful living wall with anthuriums and snake plants at a Calgary clinic reception"
-                      loading="lazy"
-                      className="aspect-[5/4] w-full object-cover"
-                    />
-                    <figcaption className="flex items-end justify-between gap-4 bg-charcoal/60 p-5 backdrop-blur-sm">
-                      <div>
-                        <p className="font-serif text-xl italic text-cream">Full Circle · Reception</p>
-                        <p className="text-xs uppercase tracking-widest text-cream/60">Clinic · Anthuriums</p>
-                      </div>
-                      <span className="text-xs text-cream/50">05</span>
-                    </figcaption>
-                  </figure>
-                </Parallax>
-              </Reveal>
-              <Reveal delay={300}>
-                <Parallax strength={80}>
-                  <figure className="tilt-card overflow-hidden rounded-3xl bg-charcoal/50 shadow-2xl ring-1 ring-cream/10">
-                    <img
-                      src={curvedTropical.url}
-                      alt="Curved tropical living wall with bromeliads and cascading ferns"
-                      loading="lazy"
-                      className="aspect-[5/4] w-full object-cover"
-                    />
-                    <figcaption className="flex items-end justify-between gap-4 bg-charcoal/60 p-5 backdrop-blur-sm">
-                      <div>
-                        <p className="font-serif text-xl italic text-cream">Wellness Studio</p>
-                        <p className="text-xs uppercase tracking-widest text-cream/60">Curved · Bromeliads</p>
-                      </div>
-                      <span className="text-xs text-cream/50">06</span>
-                    </figcaption>
-                  </figure>
-                </Parallax>
-              </Reveal>
-            </div>
           </div>
         </div>
 
