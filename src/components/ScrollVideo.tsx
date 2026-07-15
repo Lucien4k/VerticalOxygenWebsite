@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import type { ReactNode } from "react";
 
 /**
  * A full-viewport section that pins while the user scrolls,
@@ -9,12 +10,17 @@ export function ScrollVideo({
   poster,
   children,
   scrollLength = 2.5,
+  overlay,
+  className = "",
 }: {
   src: string;
   poster?: string;
-  children?: React.ReactNode;
+  children?: ReactNode;
   /** Multiplier of viewport height controlling how long the scrub lasts. */
   scrollLength?: number;
+  /** Optional overlay rendered inside the sticky viewport, above the video. */
+  overlay?: ReactNode;
+  className?: string;
 }) {
   const wrapRef = useRef<HTMLDivElement | null>(null);
   const videoRef = useRef<HTMLVideoElement | null>(null);
@@ -26,7 +32,24 @@ export function ScrollVideo({
     const onMeta = () => setReady(true);
     video.addEventListener("loadedmetadata", onMeta);
     if (video.readyState >= 1) setReady(true);
-    return () => video.removeEventListener("loadedmetadata", onMeta);
+
+    // Prime the decoder: some browsers won't render frames from a seek
+    // until the video has been played at least once.
+    const prime = () => {
+      const p = video.play();
+      if (p && typeof p.then === "function") {
+        p.then(() => video.pause()).catch(() => {
+          /* autoplay blocked — that's fine, seek still works */
+        });
+      }
+    };
+    if (video.readyState >= 2) prime();
+    else video.addEventListener("canplay", prime, { once: true });
+
+    return () => {
+      video.removeEventListener("loadedmetadata", onMeta);
+      video.removeEventListener("canplay", prime);
+    };
   }, []);
 
   useEffect(() => {
@@ -37,38 +60,36 @@ export function ScrollVideo({
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
     let raf = 0;
-    let targetTime = 0;
 
-    const tick = () => {
-      raf = 0;
-      // Smoothly ease currentTime toward target for buttery scrubbing
-      const cur = video.currentTime;
-      const diff = targetTime - cur;
-      if (Math.abs(diff) < 0.02) {
-        video.currentTime = targetTime;
-      } else {
-        video.currentTime = cur + diff * 0.2;
-        raf = requestAnimationFrame(tick);
-      }
-    };
-
-    const update = () => {
+    const compute = () => {
       const rect = wrap.getBoundingClientRect();
       const vh = window.innerHeight || 1;
       const total = rect.height - vh;
       const scrolled = Math.min(Math.max(-rect.top, 0), total);
-      const p = total > 0 ? scrolled / total : 0;
-      const dur = video.duration || 0;
-      targetTime = Math.max(0, Math.min(dur - 0.05, p * dur));
-      if (!raf) raf = requestAnimationFrame(tick);
+      return total > 0 ? scrolled / total : 0;
     };
 
-    update();
-    window.addEventListener("scroll", update, { passive: true });
-    window.addEventListener("resize", update);
+    const apply = () => {
+      raf = 0;
+      const p = compute();
+      const dur = video.duration || 0;
+      const t = Math.max(0, Math.min(dur - 0.05, p * dur));
+      // Video is re-encoded all-intra so direct seek is frame-accurate
+      if (Math.abs(video.currentTime - t) > 0.008) {
+        video.currentTime = t;
+      }
+    };
+
+    const onScroll = () => {
+      if (!raf) raf = requestAnimationFrame(apply);
+    };
+
+    apply();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
     return () => {
-      window.removeEventListener("scroll", update);
-      window.removeEventListener("resize", update);
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
       if (raf) cancelAnimationFrame(raf);
     };
   }, [ready]);
@@ -76,7 +97,7 @@ export function ScrollVideo({
   return (
     <section
       ref={wrapRef}
-      className="relative bg-charcoal text-cream"
+      className={`relative bg-charcoal text-cream ${className}`}
       style={{ height: `${scrollLength * 100}vh` }}
     >
       <div className="sticky top-0 h-screen w-full overflow-hidden">
@@ -90,6 +111,7 @@ export function ScrollVideo({
           preload="auto"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-charcoal/40 via-transparent to-charcoal/70" aria-hidden />
+        {overlay}
         {children ? (
           <div className="relative z-10 mx-auto flex h-full max-w-6xl items-center px-6">
             {children}
