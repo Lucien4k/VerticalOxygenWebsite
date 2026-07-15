@@ -13,7 +13,6 @@ const CHECKPOINTS = [
 export function ScrollProgress() {
   const [p, setP] = useState(0);
   const [marks, setMarks] = useState<number[]>([]);
-  const [hovered, setHovered] = useState<number | null>(null);
 
   // Measure each section's position (as a fraction of total scrollable height)
   useEffect(() => {
@@ -61,8 +60,6 @@ export function ScrollProgress() {
     };
   }, []);
 
-  const pct = Math.round(p * 100);
-
   const goTo = (id: string) => {
     if (id === "top") {
       window.scrollTo({ top: 0, behavior: "smooth" });
@@ -73,76 +70,43 @@ export function ScrollProgress() {
 
   return (
     <div
-      className="fixed right-5 top-1/2 z-[60] hidden -translate-y-1/2 md:flex md:flex-col md:items-center md:gap-4"
-      aria-hidden
+      className="fixed right-6 top-1/2 z-[60] hidden -translate-y-1/2 md:block"
     >
-      {/* Track with segmented column border */}
-      <div className="relative h-[46vh] w-[10px]">
-        {/* Outer column border */}
-        <div className="absolute inset-0 rounded-full border border-cream/40 mix-blend-difference" />
-        {/* Track background */}
-        <div className="absolute inset-[3px] overflow-hidden rounded-full bg-cream/10 mix-blend-difference">
-          {/* Fill */}
-          <div
-            className="absolute inset-x-0 top-0 rounded-full bg-gradient-to-b from-terra-light via-terra to-forest"
-            style={{
-              height: `${pct}%`,
-              transition: "height 220ms cubic-bezier(0.22, 1, 0.36, 1)",
-            }}
-          />
-          {/* Segment dividers — vertical column ticks across the track */}
-          {marks.slice(1, -1).map((m, i) => (
-            <div
-              key={i}
-              className="absolute inset-x-0 h-px bg-cream/40 mix-blend-difference"
-              style={{ top: `${m * 100}%` }}
-            />
-          ))}
-        </div>
+      {/* Organic tapered stem */}
+      <div className="relative flex h-[52vh] w-6 flex-col items-center">
+        {/* Stem track — thin hairline */}
+        <div className="absolute inset-y-0 left-1/2 w-px -translate-x-1/2 rounded-full bg-cream/25 mix-blend-difference" />
+
+        {/* Growth fill — terracotta with soft glow */}
+        <div
+          className="absolute top-0 left-1/2 w-[2px] -translate-x-1/2 rounded-full bg-terra"
+          style={{
+            height: `${p * 100}%`,
+            boxShadow: "0 0 10px color-mix(in oklab, var(--terra) 45%, transparent)",
+            transition: "height 260ms cubic-bezier(0.22, 1, 0.36, 1)",
+          }}
+        />
 
         {/* Checkpoint nodes */}
         {marks.map((m, i) => {
           const cp = CHECKPOINTS[i];
           const reached = p >= m - 0.001;
-          const active =
-            i === marks.length - 1
-              ? reached
-              : reached && p < (marks[i + 1] ?? 1);
           return (
             <button
               key={cp.id}
               type="button"
               onClick={() => goTo(cp.id)}
-              onMouseEnter={() => setHovered(i)}
-              onMouseLeave={() => setHovered(null)}
-              onFocus={() => setHovered(i)}
-              onBlur={() => setHovered(null)}
-              className="group absolute left-1/2 -translate-x-1/2 -translate-y-1/2"
+              className="group absolute left-1/2 -translate-x-1/2 -translate-y-1/2 p-1"
               style={{ top: `${m * 100}%` }}
               aria-label={`Jump to ${cp.label}`}
             >
-              {/* Pulse ring when active */}
-              {active && (
-                <span className="marker-pulse absolute left-1/2 top-1/2 h-3 w-3 -translate-x-1/2 -translate-y-1/2 rounded-full bg-terra-light" />
-              )}
-              {/* Dot */}
               <span
-                className={`relative block h-3 w-3 rounded-full ring-2 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${
+                className={`block rounded-full ring-4 ring-charcoal transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-150 ${
                   reached
-                    ? "scale-100 bg-terra-light ring-cream/90"
-                    : "scale-90 bg-cream/20 ring-cream/50"
-                } ${active ? "scale-125" : ""} group-hover:scale-150 group-focus-visible:scale-150`}
-              />
-              {/* Label pill */}
-              <span
-                className={`pointer-events-none absolute right-full top-1/2 mr-3 -translate-y-1/2 whitespace-nowrap rounded-full bg-charcoal/85 px-3 py-1 font-serif text-xs italic text-cream shadow-lg backdrop-blur-sm transition-all duration-300 ${
-                  hovered === i || active
-                    ? "translate-x-0 opacity-100"
-                    : "translate-x-2 opacity-0"
+                    ? "h-2.5 w-2.5 bg-terra shadow-[0_0_8px_rgba(201,123,90,0.55)]"
+                    : "h-2 w-2 bg-cream/40 group-hover:bg-terra"
                 }`}
-              >
-                {cp.label}
-              </span>
+              />
             </button>
           );
         })}
