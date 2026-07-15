@@ -227,7 +227,7 @@ function Index() {
       </section>
 
       {/* Everything below scrolls up over the fixed hero */}
-      <div className="relative z-10 mt-[300vh] bg-background">
+      <div className="relative z-10 mt-[175vh] bg-background">
 
       {/* Scroll-scrubbed 3D wall panel sequence */}
       <ScrollVideo src={wallPanels3d.url} scrollLength={2.5}>
