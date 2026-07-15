@@ -48,6 +48,7 @@ import cutoutWallC from "../assets/cutouts/wall-c.png.asset.json";
 import diagramAquaponic from "../assets/diagrams/aquaponic-wall-diagram.jpg.asset.json";
 import diagramHydroponic from "../assets/diagrams/hydroponic-wall-diagram.jpg.asset.json";
 import diagramSoil from "../assets/diagrams/soil-based-wall-diagram.jpg.asset.json";
+import woodTexture from "../assets/textures/wood-texture.jpg.asset.json";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -117,63 +118,71 @@ function Index() {
             </div>
 
             {/* Main nav pill */}
-            <nav className="flex items-center justify-between gap-4 rounded-full bg-cream/15 px-5 py-3 shadow-xl backdrop-blur-md ring-1 ring-cream/20">
-              <a href="/" className="font-serif text-xl font-medium tracking-tight text-cream md:text-2xl">
-                Vertical Oxygen
-              </a>
-              <NavMenu
-                menus={[
-                  {
-                    label: "Work",
-                    href: "#work",
-                    items: [
-                      { label: "Hotel Lobbies", description: "Grand statement walls", href: "#work", image: lobbyPanels.url },
-                      { label: "Corporate Offices", description: "Calm, focused spaces", href: "#work", image: iffWall.url },
-                      { label: "Healthcare", description: "Healing environments", href: "#work", image: higherHealth.url },
-                      { label: "Outdoor Installs", description: "All-season plantings", href: "#work", image: outdoorFrame.url },
-                    ],
-                  },
-                  {
-                    label: "Locations",
-                    href: "#locations",
-                    items: [
-                      { label: "Western Canada", description: "Vancouver · Calgary · Edmonton", href: "#locations", image: fullCircleCalgary.url },
-                      { label: "Central Canada", description: "Toronto · Hamilton · Kingston", href: "#locations", image: tallJungleWall.url },
-                      { label: "Atlantic Canada", description: "Halifax · Moncton · St. John's", href: "#locations", image: saunaPothos.url },
-                      { label: "View Map", description: "Every install across Canada", href: "#locations", image: curvedTropical.url },
-                    ],
-                  },
-                  {
-                    label: "About",
-                    href: "#about",
-                    items: [
-                      { label: "Our Philosophy", description: "Beauty with simplicity", href: "#about" },
-                      { label: "Hydroponic Systems", description: "Soilless, self-watering", href: "#about" },
-                      { label: "Soil-Based Walls", description: "Traditional, lush", href: "#about" },
-                      { label: "Custom Process", description: "Design to install", href: "#quote" },
-                    ],
-                  },
-                  {
-                    label: "Contact",
-                    href: "#quote",
-                    items: [
-                      { label: "Request a Quote", description: "Tell us about your space", href: "#quote" },
-                      { label: "Call Us", description: "(555) 123-4567", href: "tel:+15551234567" },
-                      { label: "Email", description: "verticaloxygen@gmail.com", href: "mailto:verticaloxygen@gmail.com" },
-                      { label: "Service Area", description: "Across North America", href: "#locations" },
-                    ],
-                  },
-                ]}
+            <nav className="relative flex items-center justify-between gap-4 overflow-hidden rounded-full px-5 py-3 shadow-xl ring-1 ring-cream/20">
+              <div
+                className="absolute inset-0 bg-cover bg-center"
+                style={{ backgroundImage: `url(${woodTexture.url})` }}
+                aria-hidden
               />
-              <a
-                href="#quote"
-                className="slide-cta group inline-flex items-center rounded-full bg-terra px-5 py-2 text-sm font-semibold text-cream transition-colors hover:bg-terra/90"
-              >
-                <span className="slide-cta-arrow pl-3 text-cream">
-                  <ArrowRight className="h-4 w-4" aria-hidden />
-                </span>
-                <span className="slide-cta-label">Get a Quote</span>
-              </a>
+              <div className="absolute inset-0 bg-charcoal/45" aria-hidden />
+              <div className="relative z-10 flex w-full items-center justify-between gap-4">
+                <a href="/" className="font-serif text-xl font-medium tracking-tight text-cream md:text-2xl">
+                  Vertical Oxygen
+                </a>
+                <NavMenu
+                  menus={[
+                    {
+                      label: "Work",
+                      href: "#work",
+                      items: [
+                        { label: "Hotel Lobbies", description: "Grand statement walls", href: "#work", image: lobbyPanels.url },
+                        { label: "Corporate Offices", description: "Calm, focused spaces", href: "#work", image: iffWall.url },
+                        { label: "Healthcare", description: "Healing environments", href: "#work", image: higherHealth.url },
+                        { label: "Outdoor Installs", description: "All-season plantings", href: "#work", image: outdoorFrame.url },
+                      ],
+                    },
+                    {
+                      label: "Locations",
+                      href: "#locations",
+                      items: [
+                        { label: "Western Canada", description: "Vancouver · Calgary · Edmonton", href: "#locations", image: fullCircleCalgary.url },
+                        { label: "Central Canada", description: "Toronto · Hamilton · Kingston", href: "#locations", image: tallJungleWall.url },
+                        { label: "Atlantic Canada", description: "Halifax · Moncton · St. John's", href: "#locations", image: saunaPothos.url },
+                        { label: "View Map", description: "Every install across Canada", href: "#locations", image: curvedTropical.url },
+                      ],
+                    },
+                    {
+                      label: "About",
+                      href: "#about",
+                      items: [
+                        { label: "Our Philosophy", description: "Beauty with simplicity", href: "#about" },
+                        { label: "Hydroponic Systems", description: "Soilless, self-watering", href: "#about" },
+                        { label: "Soil-Based Walls", description: "Traditional, lush", href: "#about" },
+                        { label: "Custom Process", description: "Design to install", href: "#quote" },
+                      ],
+                    },
+                    {
+                      label: "Contact",
+                      href: "#quote",
+                      items: [
+                        { label: "Request a Quote", description: "Tell us about your space", href: "#quote" },
+                        { label: "Call Us", description: "(555) 123-4567", href: "tel:+15551234567" },
+                        { label: "Email", description: "verticaloxygen@gmail.com", href: "mailto:verticaloxygen@gmail.com" },
+                        { label: "Service Area", description: "Across North America", href: "#locations" },
+                      ],
+                    },
+                  ]}
+                />
+                <a
+                  href="#quote"
+                  className="slide-cta group inline-flex items-center rounded-full bg-terra px-5 py-2 text-sm font-semibold text-cream transition-colors hover:bg-terra/90"
+                >
+                  <span className="slide-cta-arrow pl-3 text-cream">
+                    <ArrowRight className="h-4 w-4" aria-hidden />
+                  </span>
+                  <span className="slide-cta-label">Get a Quote</span>
+                </a>
+              </div>
             </nav>
           </div>
         </div>
