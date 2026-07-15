@@ -518,7 +518,13 @@ function Index() {
           src={cutoutWallB.url}
           alt=""
           aria-hidden
-          className="pointer-events-none absolute -top-20 -right-24 h-[420px] w-[320px] object-contain opacity-55 md:h-[560px] md:w-[420px]"
+          className="pointer-events-none absolute -top-32 -right-40 h-[460px] w-[360px] object-contain opacity-50 md:h-[620px] md:w-[480px]"
+          style={{
+            WebkitMaskImage:
+              "radial-gradient(ellipse at 30% 60%, black 45%, transparent 80%)",
+            maskImage:
+              "radial-gradient(ellipse at 30% 60%, black 45%, transparent 80%)",
+          }}
         />
         <div className="mx-auto max-w-7xl px-6 py-20 md:py-28">
           <div className="grid gap-12 lg:grid-cols-2 lg:items-center lg:gap-20">
