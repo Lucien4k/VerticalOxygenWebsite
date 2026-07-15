@@ -48,8 +48,8 @@ import cutoutCoaldale from "../assets/cutouts/coaldale-wall.png.asset.json";
 import cutoutWallA from "../assets/cutouts/wall-a.png.asset.json";
 import cutoutWallB from "../assets/cutouts/wall-b.png.asset.json";
 import cutoutWallC from "../assets/cutouts/wall-c.png.asset.json";
-import diagramAquaponic from "../assets/diagrams/aquaponic-wall-diagram-v2.jpg.asset.json";
-import diagramHydroponic from "../assets/diagrams/hydroponic-wall-diagram-v2.jpg.asset.json";
+import diagramAquaponic from "../assets/diagrams/aquaponic-wall-diagram-v3.jpg.asset.json";
+import diagramHydroponic from "../assets/diagrams/hydroponic-wall-diagram-v3.jpg.asset.json";
 import woodTexture from "../assets/textures/wood-texture-v2.jpg.asset.json";
 
 export const Route = createFileRoute("/")({
