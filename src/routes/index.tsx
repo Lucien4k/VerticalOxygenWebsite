@@ -48,9 +48,8 @@ import cutoutCoaldale from "../assets/cutouts/coaldale-wall.png.asset.json";
 import cutoutWallA from "../assets/cutouts/wall-a.png.asset.json";
 import cutoutWallB from "../assets/cutouts/wall-b.png.asset.json";
 import cutoutWallC from "../assets/cutouts/wall-c.png.asset.json";
-import diagramAquaponic from "../assets/diagrams/aquaponic-wall-diagram.jpg.asset.json";
+import diagramAquaponic from "../assets/diagrams/aquaponic-wall-diagram-v2.jpg.asset.json";
 import diagramHydroponic from "../assets/diagrams/hydroponic-wall-diagram.jpg.asset.json";
-import diagramSoil from "../assets/diagrams/soil-based-wall-diagram.jpg.asset.json";
 import woodTexture from "../assets/textures/wood-texture-v2.jpg.asset.json";
 
 export const Route = createFileRoute("/")({
@@ -154,7 +153,7 @@ function Index() {
                       items: [
                         { label: "Our Philosophy", description: "Beauty with simplicity", href: "#about" },
                         { label: "Hydroponic Systems", description: "Soilless, self-watering", href: "#about" },
-                        { label: "Soil-Based Walls", description: "Traditional, lush", href: "#about" },
+                        { label: "Aquaponic Walls", description: "Fish and plants, one loop", href: "#about" },
                         { label: "Custom Process", description: "Design to install", href: "#quote" },
                       ],
                     },
@@ -599,7 +598,7 @@ function Index() {
             </p>
             <WordsReveal
               as="h2"
-              text="We work with three types of living walls."
+              text="We work with two types of living walls."
               className="display-heading max-w-3xl text-4xl leading-[1.02] text-charcoal md:text-5xl"
             />
             <p className="mt-6 max-w-2xl text-base leading-relaxed text-charcoal/70">
@@ -609,11 +608,10 @@ function Index() {
             </p>
           </Reveal>
 
-          <div className="mt-14 grid gap-8 md:grid-cols-3">
+          <div className="mt-14 grid gap-8 md:grid-cols-2">
             {[
               { title: "Aquaponic", src: diagramAquaponic.url, desc: "Plants and tilapia share one closed loop — fish waste feeds the wall, roots clean the water." },
               { title: "Hydroponic", src: diagramHydroponic.url, desc: "Soilless growing on recycled moisture mats — lightweight, low-maintenance, self-watering." },
-              { title: "Soil-Based", src: diagramSoil.url, desc: "Traditional pocket construction with soil and irrigation — lush, textured, endlessly plantable." },
             ].map((d, i) => (
               <Reveal key={d.title} delay={i * 120} className="group relative flex flex-col overflow-hidden rounded-3xl p-6 shadow-md ring-1 ring-charcoal/10 transition-shadow hover:shadow-xl">
                 <div
