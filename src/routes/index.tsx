@@ -348,15 +348,15 @@ function Index() {
                     loading="lazy"
                     className="aspect-[4/3] w-full object-cover"
                   />
-                  <Reveal delay={250} variant="up">
                   <figcaption className="flex items-end justify-between gap-4 bg-charcoal/60 p-6 backdrop-blur-sm">
-                    <div>
+                    <Reveal variant="up" delay={250}>
                       <p className="font-serif text-2xl italic text-cream">IFF Headquarters</p>
                       <p className="text-xs uppercase tracking-widest text-cream/60">Corporate · Tonal greens</p>
-                    </div>
-                    <span className="text-xs text-cream/50">03</span>
+                    </Reveal>
+                    <Reveal variant="fade" delay={400}>
+                      <span className="text-xs text-cream/50">03</span>
+                    </Reveal>
                   </figcaption>
-                  </Reveal>
                 </figure>
               </Parallax>
             </Reveal>
