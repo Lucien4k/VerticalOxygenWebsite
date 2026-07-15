@@ -310,7 +310,7 @@ function Index() {
 
           {/* Row 1 — two tall staggered portraits with parallax */}
           <div className="relative grid gap-6 md:grid-cols-2 md:gap-10">
-            <Reveal className="md:mt-16">
+            <Reveal variant="scale" className="md:mt-16">
               <Parallax strength={80}>
                 <figure className="tilt-card overflow-hidden rounded-3xl bg-charcoal/50 shadow-2xl ring-1 ring-charcoal/10">
                   <img
@@ -323,7 +323,7 @@ function Index() {
               </Parallax>
             </Reveal>
 
-            <Reveal delay={150}>
+            <Reveal variant="scale" delay={200}>
               <Parallax strength={30}>
                 <figure className="tilt-card overflow-hidden rounded-3xl bg-charcoal/50 shadow-2xl ring-1 ring-charcoal/10">
                   <img
@@ -339,7 +339,7 @@ function Index() {
 
           {/* Row 2 — IFF feature */}
           <div className="relative mt-24 md:mt-40">
-            <Reveal>
+            <Reveal variant="scale">
               <Parallax strength={50}>
                 <figure className="tilt-card mx-auto max-w-5xl overflow-hidden rounded-3xl bg-charcoal/50 shadow-2xl ring-1 ring-charcoal/10">
                   <img
@@ -348,6 +348,7 @@ function Index() {
                     loading="lazy"
                     className="aspect-[4/3] w-full object-cover"
                   />
+                  <Reveal delay={250} variant="up">
                   <figcaption className="flex items-end justify-between gap-4 bg-charcoal/60 p-6 backdrop-blur-sm">
                     <div>
                       <p className="font-serif text-2xl italic text-cream">IFF Headquarters</p>
@@ -355,6 +356,7 @@ function Index() {
                     </div>
                     <span className="text-xs text-cream/50">03</span>
                   </figcaption>
+                  </Reveal>
                 </figure>
               </Parallax>
             </Reveal>
@@ -362,7 +364,7 @@ function Index() {
 
           {/* Row 3 — two more recent installs */}
           <div className="relative mt-24 grid gap-6 md:mt-40 md:grid-cols-2 md:gap-10">
-            <Reveal>
+            <Reveal variant="scale">
               <Parallax strength={60}>
                 <figure className="tilt-card overflow-hidden rounded-3xl bg-charcoal/50 shadow-2xl ring-1 ring-charcoal/10 md:mt-12">
                   <img
@@ -374,7 +376,7 @@ function Index() {
                 </figure>
               </Parallax>
             </Reveal>
-            <Reveal delay={150}>
+            <Reveal variant="scale" delay={200}>
               <Parallax strength={40}>
                 <figure className="tilt-card overflow-hidden rounded-3xl bg-charcoal/50 shadow-2xl ring-1 ring-charcoal/10">
                   <img
