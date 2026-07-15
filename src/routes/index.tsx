@@ -420,6 +420,14 @@ function Index() {
       </section>
 
       {/* Locations Map */}
+      {/* Wood shelf divider */}
+      <div className="relative h-5 w-full overflow-hidden md:h-7" aria-hidden>
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: `url(${woodTexture.url})` }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/50" />
+      </div>
       <section id="locations" className="relative overflow-hidden bg-card">
         <img
           src={cutoutWallC.url}
@@ -451,6 +459,14 @@ function Index() {
       </section>
 
       {/* Video Showcase — walls in motion */}
+      {/* Wood shelf divider */}
+      <div className="relative h-5 w-full overflow-hidden md:h-7" aria-hidden>
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: `url(${woodTexture.url})`, backgroundPositionX: "30%" }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/45 via-transparent to-black/55" />
+      </div>
       <section id="motion" className="relative overflow-hidden bg-forest text-cream">
         <img
           src={cutoutWallA.url}
@@ -513,6 +529,14 @@ function Index() {
       </section>
 
       {/* Philosophy / About */}
+      {/* Wood shelf divider */}
+      <div className="relative h-5 w-full overflow-hidden md:h-7" aria-hidden>
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: `url(${woodTexture.url})`, backgroundPositionX: "70%" }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/50" />
+      </div>
       <section id="about" className="relative overflow-hidden bg-background">
         <img
           src={cutoutWallB.url}
@@ -591,8 +615,14 @@ function Index() {
               { title: "Hydroponic", src: diagramHydroponic.url, desc: "Soilless growing on recycled moisture mats — lightweight, low-maintenance, self-watering." },
               { title: "Soil-Based", src: diagramSoil.url, desc: "Traditional pocket construction with soil and irrigation — lush, textured, endlessly plantable." },
             ].map((d, i) => (
-              <Reveal key={d.title} delay={i * 120} className="group flex flex-col rounded-3xl bg-background p-6 shadow-sm ring-1 ring-charcoal/5 transition-shadow hover:shadow-xl">
-                <div className="flex items-center justify-center overflow-hidden rounded-2xl bg-white p-4">
+              <Reveal key={d.title} delay={i * 120} className="group relative flex flex-col overflow-hidden rounded-3xl p-6 shadow-md ring-1 ring-charcoal/10 transition-shadow hover:shadow-xl">
+                <div
+                  className="absolute inset-0 bg-cover bg-center"
+                  style={{ backgroundImage: `url(${woodTexture.url})`, backgroundPositionX: `${i * 40}%` }}
+                  aria-hidden
+                />
+                <div className="absolute inset-0 bg-cream/88" aria-hidden />
+                <div className="relative flex items-center justify-center overflow-hidden rounded-2xl bg-white p-4 ring-1 ring-charcoal/10">
                   <img
                     src={d.src}
                     alt={`${d.title} living wall diagram`}
@@ -600,8 +630,8 @@ function Index() {
                     loading="lazy"
                   />
                 </div>
-                <h3 className="mt-6 font-serif text-2xl text-charcoal">{d.title} Wall</h3>
-                <p className="mt-2 text-sm leading-relaxed text-charcoal/70">{d.desc}</p>
+                <h3 className="relative mt-6 font-serif text-2xl text-charcoal">{d.title} Wall</h3>
+                <p className="relative mt-2 text-sm leading-relaxed text-charcoal/75">{d.desc}</p>
               </Reveal>
             ))}
           </div>
