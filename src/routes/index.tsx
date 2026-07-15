@@ -467,7 +467,7 @@ function Index() {
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/45 via-transparent to-black/55" />
       </div>
-      <section id="motion" className="relative overflow-hidden bg-forest text-cream">
+      <section id="motion" className="relative overflow-hidden bg-cream text-charcoal">
         <img
           src={cutoutWallA.url}
           alt=""
@@ -483,11 +483,11 @@ function Index() {
               <WordsReveal
                 as="h2"
                 text="Living, breathing installations."
-                className="display-heading text-4xl leading-[1.02] text-cream md:text-7xl"
+                className="display-heading text-4xl leading-[1.02] text-charcoal md:text-7xl"
               />
             </Reveal>
             <Reveal delay={200} className="md:col-span-5">
-              <p className="text-cream/75 md:text-lg">
+              <p className="text-charcoal/75 md:text-lg">
                 A few of our walls, captured on site — light shifting across the
                 leaves, water quietly circulating, plants settling into their space.
               </p>
@@ -502,7 +502,7 @@ function Index() {
               { video: coaldaleVideo.url, poster: coaldalePoster.url, title: "Coaldale, Alberta", caption: "Community space · Outdoor" },
             ].map((v, i) => (
               <Reveal key={v.title} delay={i * 120}>
-                <figure className="tilt-card group relative overflow-hidden rounded-3xl bg-charcoal/40 shadow-2xl ring-1 ring-cream/10">
+                <figure className="tilt-card group relative overflow-hidden rounded-3xl bg-charcoal/40 shadow-2xl ring-1 ring-charcoal/10">
                   <video
                     className="aspect-video w-full object-cover transition-transform duration-700 group-hover:scale-105"
                     autoPlay
@@ -647,7 +647,7 @@ function Index() {
         <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/40" />
       </div>
 
-      <section id="quote" className="relative overflow-hidden bg-forest text-cream">
+      <section id="quote" className="relative overflow-hidden bg-cream text-charcoal">
         <img
           src={cutoutCoaldale.url}
           alt=""
@@ -659,19 +659,19 @@ function Index() {
             <p className="mb-4 text-sm font-semibold uppercase tracking-widest text-terra-light">
               Request a Quote
             </p>
-            <h2 className="display-heading text-4xl text-cream md:text-5xl lg:text-6xl">
+            <h2 className="display-heading text-4xl text-charcoal md:text-5xl lg:text-6xl">
               Ready to bring your wall to <em>life?</em>
             </h2>
-            <p className="mt-6 text-cream/75">
+            <p className="mt-6 text-charcoal/75">
               Tell us about your space and share a few photos if you have them. 
               We'll get back to you within 1–2 business days with a tailored proposal.
             </p>
-            <div className="mt-8 space-y-3 text-sm text-cream/75">
-              <a href="tel:+15551234567" className="flex items-center gap-3 hover:text-cream">
+            <div className="mt-8 space-y-3 text-sm text-charcoal/75">
+              <a href="tel:+15551234567" className="flex items-center gap-3 hover:text-charcoal">
                 <Phone className="h-4 w-4 text-terra-light" aria-hidden />
                 (555) 123-4567
               </a>
-              <a href="mailto:verticaloxygen@gmail.com" className="flex items-center gap-3 hover:text-cream">
+              <a href="mailto:verticaloxygen@gmail.com" className="flex items-center gap-3 hover:text-charcoal">
                 <Mail className="h-4 w-4 text-terra-light" aria-hidden />
                 verticaloxygen@gmail.com
               </a>
