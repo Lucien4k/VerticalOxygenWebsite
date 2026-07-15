@@ -27,6 +27,7 @@ import { Parallax } from "@/components/Parallax";
 import { WordsReveal } from "@/components/WordsReveal";
 import { FloatingLeaves } from "@/components/FloatingLeaves";
 import { ScrollVideo } from "@/components/ScrollVideo";
+import { ScrollProgress } from "@/components/ScrollProgress";
 import wallPanels3d from "../assets/videos/wall-panels-3d.mp4.asset.json";
 import westinVideo from "../assets/videos/westin_calgary.mp4.asset.json";
 import westinPoster from "../assets/videos/westin_calgary.jpg.asset.json";
@@ -61,6 +62,7 @@ export const Route = createFileRoute("/")({
 function Index() {
   return (
     <div className="min-h-screen bg-background">
+      <ScrollProgress />
       {/* Fixed hero: stays pinned while the rest of the page scrolls up over it */}
       <section className="hero-fixed fixed inset-x-0 top-0 z-0 h-screen overflow-hidden">
         {/* Background video */}
