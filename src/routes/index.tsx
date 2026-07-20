@@ -137,13 +137,13 @@ function Index() {
             </div>
 
             {/* Main nav pill */}
-            <nav className="relative flex items-center justify-between gap-4 overflow-hidden rounded-full px-5 py-3 shadow-xl ring-1 ring-cream/20">
+            <nav className="relative flex items-center justify-between gap-4 rounded-full px-5 py-3 shadow-xl ring-1 ring-cream/20">
               <div
-                className="absolute inset-0 bg-cover bg-center"
+                className="absolute inset-0 rounded-full bg-cover bg-center"
                 style={{ backgroundImage: `url(${woodTexture.url})` }}
                 aria-hidden
               />
-              <div className="absolute inset-0 bg-charcoal/45" aria-hidden />
+              <div className="absolute inset-0 rounded-full bg-charcoal/45" aria-hidden />
               <div className="relative z-10 flex w-full items-center justify-between gap-4">
                 <a href="/" className="font-serif text-xl font-medium tracking-tight text-cream md:text-2xl">
                   Vertical Oxygen
@@ -181,13 +181,13 @@ function Index() {
                       ],
                     },
                     {
-                      label: "Contact",
-                      href: "#quote",
+                      label: "Specs",
+                      href: "/specifications",
                       items: [
-                        { label: "Request a Quote", description: "Tell us about your space", href: "#quote" },
-                        { label: "Call Us", description: "(555) 123-4567", href: "tel:+15551234567" },
-                        { label: "Email", description: "verticaloxygen@gmail.com", href: "mailto:verticaloxygen@gmail.com" },
-                        { label: "Service Area", description: "Across North America", href: "#locations" },
+                        { label: "Specifications", description: "Technical data & systems", href: "/specifications" },
+                        { label: "Request a Spec Review", description: "Engineering review", href: "/specifications#spec-review" },
+                        { label: "CAD / BIM Files", description: "Downloads for architects", href: "/specifications" },
+                        { label: "CSI MasterFormat", description: "Classification reference", href: "/specifications" },
                       ],
                     },
                   ]}
