@@ -113,7 +113,7 @@ function Index() {
         <div className="absolute inset-x-0 top-0 z-50 px-4 pt-4 md:px-6 md:pt-5">
           <div className="mx-auto max-w-6xl space-y-2">
             {/* Utility strip */}
-            <div className="hidden overflow-hidden rounded-full bg-cream/70 px-5 py-2 text-xs text-charcoal shadow-lg backdrop-blur-md md:block">
+            <div className="hidden overflow-hidden rounded-full bg-white/80 px-5 py-2 text-xs text-charcoal shadow-lg ring-1 ring-charcoal/10 backdrop-blur-md md:block">
               <div className="flex items-center justify-between gap-6">
                 <div className="flex items-center gap-6">
                   <a href="tel:+15551234567" className="flex items-center gap-1.5 transition-opacity hover:opacity-80">
