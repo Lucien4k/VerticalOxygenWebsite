@@ -46,7 +46,7 @@ export function NavMenu({ menus }: { menus: MenuItem[] }) {
   const [open, setOpen] = useState<string | null>(null);
 
   return (
-    <div className="hidden items-center gap-1 text-sm font-medium text-cream md:flex">
+    <div className="hidden items-center gap-1 text-sm font-medium text-charcoal md:flex">
       {menus.map((menu) => {
         const isOpen = open === menu.label;
         return (
@@ -58,7 +58,7 @@ export function NavMenu({ menus }: { menus: MenuItem[] }) {
           >
             <NavLink
               href={menu.href}
-              className="inline-flex items-center gap-1 rounded-full px-3 py-2 transition-colors hover:text-terra-light"
+              className="inline-flex items-center gap-1 rounded-full px-3 py-2 transition-colors hover:text-terra"
             >
               {menu.label}
               <ChevronDown
@@ -74,7 +74,7 @@ export function NavMenu({ menus }: { menus: MenuItem[] }) {
               }`}
             >
               <div
-                className={`w-[min(92vw,32rem)] origin-top rounded-2xl bg-cream/95 p-3 shadow-2xl ring-1 ring-charcoal/10 backdrop-blur-md transition-all duration-200 ${
+                className={`w-[min(92vw,32rem)] origin-top rounded-2xl bg-white/95 p-3 shadow-2xl ring-1 ring-charcoal/10 backdrop-blur-md transition-all duration-200 ${
                   isOpen
                     ? "translate-y-0 scale-100 opacity-100"
                     : "-translate-y-1 scale-[0.98] opacity-0"

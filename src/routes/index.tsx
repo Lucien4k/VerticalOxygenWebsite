@@ -113,7 +113,7 @@ function Index() {
         <div className="absolute inset-x-0 top-0 z-50 px-4 pt-4 md:px-6 md:pt-5">
           <div className="mx-auto max-w-6xl space-y-2">
             {/* Utility strip */}
-            <div className="hidden overflow-hidden rounded-full bg-cream/70 px-5 py-2 text-xs text-charcoal shadow-lg backdrop-blur-md md:block">
+            <div className="hidden overflow-hidden rounded-full bg-white/80 px-5 py-2 text-xs text-charcoal shadow-lg ring-1 ring-charcoal/10 backdrop-blur-md md:block">
               <div className="flex items-center justify-between gap-6">
                 <div className="flex items-center gap-6">
                   <a href="tel:+15551234567" className="flex items-center gap-1.5 transition-opacity hover:opacity-80">
@@ -137,15 +137,15 @@ function Index() {
             </div>
 
             {/* Main nav pill */}
-            <nav className="relative flex items-center justify-between gap-4 rounded-full px-5 py-3 shadow-xl ring-1 ring-cream/20">
+            <nav className="relative flex items-center justify-between gap-4 rounded-full px-5 py-3 shadow-xl ring-1 ring-charcoal/10">
               <div
                 className="absolute inset-0 rounded-full bg-cover bg-center"
                 style={{ backgroundImage: `url(${woodTexture.url})` }}
                 aria-hidden
               />
-              <div className="absolute inset-0 rounded-full bg-charcoal/45" aria-hidden />
+              <div className="absolute inset-0 rounded-full bg-white/88" aria-hidden />
               <div className="relative z-10 flex w-full items-center justify-between gap-4">
-                <a href="/" className="font-serif text-xl font-medium tracking-tight text-cream md:text-2xl">
+                <a href="/" className="font-serif text-xl font-medium tracking-tight text-charcoal md:text-2xl">
                   Vertical Oxygen
                 </a>
                 <NavMenu
