@@ -256,16 +256,16 @@ function Index() {
         frames={HERO2_FRAME_URLS}
         scrollLength={1.5}
         overlay={
-          <div className="max-w-2xl rounded-2xl bg-charcoal/55 px-8 py-10 ring-1 ring-cream/10 backdrop-blur-sm">
-            <p className="mb-4 text-xs font-semibold uppercase tracking-[0.3em] text-terra-light drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)]">
+          <div className="max-w-2xl">
+            <p className="text-shadow-hero mb-4 text-xs font-bold uppercase tracking-[0.3em] text-terra-light">
               Engineered in layers
             </p>
             <WordsReveal
               as="h2"
               text="Panels that come together as one."
-              className="display-heading text-4xl leading-[1.05] text-cream md:text-6xl lg:text-7xl drop-shadow-[0_2px_16px_rgba(0,0,0,0.65)]"
+              className="display-heading-hero text-4xl text-cream md:text-6xl lg:text-7xl"
             />
-            <p className="mt-6 text-cream md:text-lg drop-shadow-[0_2px_10px_rgba(0,0,0,0.6)]">
+            <p className="text-shadow-hero mt-6 text-lg font-medium leading-relaxed text-cream md:text-xl">
               Every wall is built from modular panels — designed, planted, and
               assembled on-site. Scroll to see how the pieces come together.
             </p>
