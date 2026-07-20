@@ -1,23 +1,22 @@
-# Progress bar — even checkpoint spacing
+## Goal
+Make the overlay text on the first hero ("Living works of art") and the second hero ("Panels that come together as one.") clearly readable over the busy frame-sequence backgrounds.
 
-Right now checkpoints (Start, Work, Locations, In Motion, About, Systems, Quote) are placed on the stem proportional to each section's real scroll position, so long sections push their dots far apart and short sections crowd them together.
+## Changes
 
-## Change
+1. **First hero (`src/routes/index.tsx`, lines ~102–255)**
+   - Strengthen the existing full-section gradient scrim: change `from-charcoal/60 via-charcoal/35 to-charcoal/70` to a darker, left-biased gradient (`from-charcoal/85 via-charcoal/55 to-charcoal/30`) so text side is darkest without hiding the animation.
+   - Add a soft radial vignette behind the text block only (a second absolutely-positioned div sized to the text column, `bg-[radial-gradient(ellipse_at_left,_theme(...)/70,_transparent_70%)]`), keeping the right side of the frame visible.
+   - Add `drop-shadow-[0_2px_12px_rgba(0,0,0,0.55)]` to the `h1`, eyebrow, and body copy classes for extra separation.
+   - Bump body copy from `text-cream/90` to `text-cream` and eyebrow from `text-terra-light` to `text-terra-light drop-shadow`.
 
-In `src/components/ScrollProgress.tsx`:
+2. **Second hero overlay (`ScrollFramesSection` call, lines ~261–280)**
+   - Wrap the overlay content in a translucent charcoal card: `rounded-2xl bg-charcoal/55 backdrop-blur-sm px-8 py-10 ring-1 ring-cream/10`, so the WordsReveal heading and paragraph sit on a consistent dark plate regardless of which frame is showing.
+   - Add matching `drop-shadow` to the eyebrow and heading.
+   - Optionally add a bottom-to-top gradient inside `ScrollFramesSection`'s sticky container via the overlay wrapper (`bg-gradient-to-t from-charcoal/70 to-transparent`) so the text base stays dark.
 
-- Remove the `marks` state and the measurement effect that computes each section's fractional scroll offset.
-- Space the 7 checkpoints evenly along the stem: dot `i` sits at `i / (CHECKPOINTS.length - 1) * 100%` — same visual rhythm no matter how tall each section is.
-- Track the active checkpoint by watching which section is currently in view (find the checkpoint whose element's top has most recently passed the top of the viewport). Store `activeIndex`.
-- Drive the terracotta growth fill from `activeIndex` interpolated toward the next checkpoint, so the fill moves smoothly between evenly-spaced dots and lands exactly on a dot when its section is at the top. Keep the existing 260ms cubic-bezier transition.
-- "Reached" state for each dot is now `i <= activeIndex` (plus the interpolated fraction for the current segment), not `p >= mark`.
-- Click-to-jump behavior stays the same.
+3. **No other sections change.** Frame sequences, animation timing, section heights, and copy stay identical.
 
 ## Technical notes
-
-- Use one scroll listener with `requestAnimationFrame`, same pattern as today.
-- For active detection: for each checkpoint id, `getBoundingClientRect().top`; the active one is the last checkpoint whose top is `<= 1px` (i.e. at or above the viewport top). Fall back to index 0 when nothing has passed yet.
-- Fill height = `((activeIndex + segmentFraction) / (CHECKPOINTS.length - 1)) * 100%`, where `segmentFraction` is how far scroll has progressed from the active section's top toward the next section's top (clamped 0–1).
-- Keep the mix-blend hairline track, terracotta glow, and ring-4 charcoal ring on dots — visual style unchanged.
-
-No other files touched.
+- All edits are in `src/routes/index.tsx`; no new components or assets.
+- Uses existing design tokens (`charcoal`, `cream`, `terra-light`) — no new colors.
+- `drop-shadow-*` is a stock Tailwind utility; no CSS additions needed.
