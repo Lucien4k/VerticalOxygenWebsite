@@ -133,12 +133,6 @@ function Index() {
                     <span>Living &amp; moss walls</span>
                   </span>
                 </div>
-                <a
-                  href="#quote"
-                  className="rounded-full bg-terra-light px-3 py-1 font-semibold uppercase tracking-wider text-charcoal transition-colors hover:bg-cream"
-                >
-                  Request a Quote
-                </a>
               </div>
             </div>
 
