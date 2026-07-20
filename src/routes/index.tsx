@@ -212,14 +212,14 @@ function Index() {
           style={{ opacity: heroDone ? 0 : 1 }}
         >
           <div className="max-w-2xl">
-            <div className="reveal-fade is-visible rounded-2xl bg-charcoal/55 px-8 py-10 ring-1 ring-cream/10 backdrop-blur-sm">
-              <p className="mb-4 text-xs font-semibold uppercase tracking-[0.3em] text-terra-light">
+            <div className="reveal-fade is-visible">
+              <p className="text-shadow-hero mb-4 text-xs font-bold uppercase tracking-[0.3em] text-cream">
                 Custom Living Walls
               </p>
-              <h1 className="display-heading text-5xl leading-[1.02] font-light text-cream md:text-7xl lg:text-8xl">
-                Living <em>works</em> of art
+              <h1 className="display-heading-hero text-5xl text-cream md:text-7xl lg:text-8xl">
+                Living works of art
               </h1>
-              <p className="mt-6 max-w-xl text-lg leading-relaxed text-cream">
+              <p className="text-shadow-hero mt-6 max-w-xl text-lg font-medium leading-relaxed text-cream">
                 We couple beauty with simplicity to create healthy, living works of art.
                 Each wall is custom made to satisfy your dreams.
               </p>
@@ -236,7 +236,7 @@ function Index() {
               </a>
               <a
                 href="#work"
-                className="slide-cta group relative inline-flex items-center rounded-full border border-cream/40 bg-cream/5 px-7 py-3.5 text-sm font-semibold text-cream backdrop-blur-sm transition-colors hover:bg-cream/15"
+                className="slide-cta group relative inline-flex items-center rounded-full border border-cream/40 bg-cream/10 px-7 py-3.5 text-sm font-semibold text-cream shadow-lg transition-colors hover:bg-cream/20"
               >
                 <span className="slide-cta-arrow pl-4 text-cream">
                   <ArrowRight className="h-4 w-4" aria-hidden />
