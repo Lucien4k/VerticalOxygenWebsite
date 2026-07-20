@@ -46,7 +46,7 @@ export function NavMenu({ menus }: { menus: MenuItem[] }) {
   const [open, setOpen] = useState<string | null>(null);
 
   return (
-    <div className="hidden items-center gap-1 text-sm font-medium text-cream md:flex">
+    <div className="hidden items-center gap-1 text-sm font-medium text-charcoal md:flex">
       {menus.map((menu) => {
         const isOpen = open === menu.label;
         return (
