@@ -137,15 +137,15 @@ function Index() {
             </div>
 
             {/* Main nav pill */}
-            <nav className="relative flex items-center justify-between gap-4 rounded-full px-5 py-3 shadow-xl ring-1 ring-cream/20">
+            <nav className="relative flex items-center justify-between gap-4 rounded-full px-5 py-3 shadow-xl ring-1 ring-charcoal/10">
               <div
                 className="absolute inset-0 rounded-full bg-cover bg-center"
                 style={{ backgroundImage: `url(${woodTexture.url})` }}
                 aria-hidden
               />
-              <div className="absolute inset-0 rounded-full bg-charcoal/45" aria-hidden />
+              <div className="absolute inset-0 rounded-full bg-white/88" aria-hidden />
               <div className="relative z-10 flex w-full items-center justify-between gap-4">
-                <a href="/" className="font-serif text-xl font-medium tracking-tight text-cream md:text-2xl">
+                <a href="/" className="font-serif text-xl font-medium tracking-tight text-charcoal md:text-2xl">
                   Vertical Oxygen
                 </a>
                 <NavMenu
