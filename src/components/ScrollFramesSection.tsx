@@ -27,6 +27,7 @@ export function ScrollFramesSection({
   const lastDrawnRef = useRef(-1);
   const [ready, setReady] = useState(false);
   const [done, setDone] = useState(false);
+  const blurRef = useRef<HTMLDivElement | null>(null);
 
   // Preload
   useEffect(() => {
@@ -123,6 +124,12 @@ export function ScrollFramesSection({
         lastDrawnRef.current = idx;
       }
       setDone(p >= 0.995);
+      if (blurRef.current) {
+        // Ramp blur in over the last ~40% of the section scroll.
+        const t = Math.min(1, Math.max(0, (p - 0.6) / 0.4));
+        blurRef.current.style.backdropFilter = `blur(${t * 14}px)`;
+        blurRef.current.style.opacity = String(t);
+      }
     };
 
     const schedule = () => {
@@ -147,6 +154,12 @@ export function ScrollFramesSection({
     >
       <div className="sticky top-0 h-screen w-full overflow-hidden">
         <canvas ref={canvasRef} className="absolute inset-0 h-full w-full" />
+        <div
+          ref={blurRef}
+          className="pointer-events-none absolute inset-0 z-[5] will-change-[backdrop-filter,opacity]"
+          style={{ opacity: 0 }}
+          aria-hidden
+        />
         {!ready ? (
           <div className="absolute inset-0 z-30 flex items-center justify-center bg-charcoal">
             <div className="flex flex-col items-center gap-4 text-cream/80">
