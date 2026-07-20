@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useState, type ReactNode } from "react";
 import { ChevronDown } from "lucide-react";
+import { Link } from "@tanstack/react-router";
 
 type SubItem = {
   label: string;
@@ -13,6 +14,33 @@ type MenuItem = {
   href: string;
   items: SubItem[];
 };
+
+function isInternalHref(href: string) {
+  return href.startsWith("/");
+}
+
+function NavLink({
+  href,
+  className,
+  children,
+}: {
+  href: string;
+  className: string;
+  children: ReactNode;
+}) {
+  if (isInternalHref(href)) {
+    return (
+      <Link to={href} className={className}>
+        {children}
+      </Link>
+    );
+  }
+  return (
+    <a href={href} className={className}>
+      {children}
+    </a>
+  );
+}
 
 export function NavMenu({ menus }: { menus: MenuItem[] }) {
   const [open, setOpen] = useState<string | null>(null);
@@ -28,7 +56,7 @@ export function NavMenu({ menus }: { menus: MenuItem[] }) {
             onMouseEnter={() => setOpen(menu.label)}
             onMouseLeave={() => setOpen((v) => (v === menu.label ? null : v))}
           >
-            <a
+            <NavLink
               href={menu.href}
               className="inline-flex items-center gap-1 rounded-full px-3 py-2 transition-colors hover:text-terra-light"
             >
@@ -37,7 +65,7 @@ export function NavMenu({ menus }: { menus: MenuItem[] }) {
                 className={`h-3.5 w-3.5 transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`}
                 aria-hidden
               />
-            </a>
+            </NavLink>
 
             {/* Panel */}
             <div
@@ -54,7 +82,7 @@ export function NavMenu({ menus }: { menus: MenuItem[] }) {
               >
                 <div className="grid grid-cols-2 gap-1">
                   {menu.items.map((item) => (
-                    <a
+                    <NavLink
                       key={item.label}
                       href={item.href}
                       className="group flex items-center gap-3 rounded-xl p-2.5 transition-colors hover:bg-charcoal/5"
@@ -80,7 +108,7 @@ export function NavMenu({ menus }: { menus: MenuItem[] }) {
                           </span>
                         )}
                       </span>
-                    </a>
+                    </NavLink>
                   ))}
                 </div>
               </div>
