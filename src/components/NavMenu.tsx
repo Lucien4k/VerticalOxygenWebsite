@@ -74,7 +74,7 @@ export function NavMenu({ menus }: { menus: MenuItem[] }) {
               }`}
             >
               <div
-                className={`w-[min(92vw,32rem)] origin-top rounded-2xl bg-cream/95 p-3 shadow-2xl ring-1 ring-charcoal/10 backdrop-blur-md transition-all duration-200 ${
+                className={`w-[min(92vw,32rem)] origin-top rounded-2xl bg-white/95 p-3 shadow-2xl ring-1 ring-charcoal/10 backdrop-blur-md transition-all duration-200 ${
                   isOpen
                     ? "translate-y-0 scale-100 opacity-100"
                     : "-translate-y-1 scale-[0.98] opacity-0"
