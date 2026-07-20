@@ -217,7 +217,8 @@ function Index() {
                 Custom Living Walls
               </p>
               <h1 className="display-heading-hero text-5xl text-cream md:text-7xl lg:text-8xl">
-                Living works of art
+                Living works{" "}
+                <span className="whitespace-nowrap">of art</span>
               </h1>
               <p className="text-shadow-hero mt-6 max-w-xl text-lg font-medium leading-relaxed text-cream">
                 We couple beauty with simplicity to create healthy, living works of art.
