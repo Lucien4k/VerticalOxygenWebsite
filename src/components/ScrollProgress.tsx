@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useLenis } from "./SmoothScroll";
 
 const CHECKPOINTS = [
   { id: "top", label: "Start" },
@@ -11,6 +12,7 @@ const CHECKPOINTS = [
 ];
 
 export function ScrollProgress() {
+  const lenis = useLenis();
   // fractional index into CHECKPOINTS (0..CHECKPOINTS.length-1)
   const [fIdx, setFIdx] = useState(0);
 
@@ -56,10 +58,12 @@ export function ScrollProgress() {
 
   const goTo = (id: string) => {
     if (id === "top") {
-      window.scrollTo({ top: 0, behavior: "smooth" });
+      lenis?.scrollTo(0, { duration: 1.2 });
       return;
     }
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
+    const el = document.getElementById(id);
+    if (!el) return;
+    lenis?.scrollTo(el, { offset: 0, duration: 1.2 });
   };
 
   const steps = CHECKPOINTS.length - 1;

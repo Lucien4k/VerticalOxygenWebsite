@@ -12,6 +12,7 @@ import { useEffect, type ReactNode } from "react";
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { Toaster } from "../components/ui/sonner";
+import { SmoothScroll } from "../components/SmoothScroll";
 
 function NotFoundComponent() {
   return (
@@ -119,7 +120,9 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <Outlet />
+      <SmoothScroll>
+        <Outlet />
+      </SmoothScroll>
       <Toaster richColors position="top-center" />
     </QueryClientProvider>
   );
