@@ -11,51 +11,45 @@ const CHECKPOINTS = [
 ];
 
 export function ScrollProgress() {
-  const [p, setP] = useState(0);
-  const [marks, setMarks] = useState<number[]>([]);
-
-  // Measure each section's position (as a fraction of total scrollable height)
-  useEffect(() => {
-    const measure = () => {
-      const doc = document.documentElement;
-      const total = doc.scrollHeight - window.innerHeight;
-      if (total <= 0) return;
-      const positions = CHECKPOINTS.map((c) => {
-        if (c.id === "top") return 0;
-        const el = document.getElementById(c.id);
-        if (!el) return 1;
-        const top = el.getBoundingClientRect().top + window.scrollY;
-        return Math.min(1, Math.max(0, top / total));
-      });
-      setMarks(positions);
-    };
-    measure();
-    window.addEventListener("resize", measure);
-    const t = window.setTimeout(measure, 400);
-    return () => {
-      window.removeEventListener("resize", measure);
-      clearTimeout(t);
-    };
-  }, []);
+  // fractional index into CHECKPOINTS (0..CHECKPOINTS.length-1)
+  const [fIdx, setFIdx] = useState(0);
 
   useEffect(() => {
     let raf = 0;
+    const getTop = (id: string) => {
+      if (id === "top") return -window.scrollY; // effectively 0 when at page top
+      const el = document.getElementById(id);
+      if (!el) return Number.POSITIVE_INFINITY;
+      return el.getBoundingClientRect().top;
+    };
     const update = () => {
       raf = 0;
-      const doc = document.documentElement;
-      const total = doc.scrollHeight - window.innerHeight;
-      const scrolled = window.scrollY || doc.scrollTop;
-      setP(total > 0 ? Math.min(1, Math.max(0, scrolled / total)) : 0);
+      const tops = CHECKPOINTS.map((c) => getTop(c.id));
+      // active = last checkpoint whose top <= 1px
+      let active = 0;
+      for (let i = 0; i < tops.length; i++) {
+        if (tops[i] <= 1) active = i;
+      }
+      let frac = 0;
+      if (active < tops.length - 1) {
+        const cur = tops[active];
+        const nxt = tops[active + 1];
+        const dist = nxt - cur;
+        if (dist > 0) frac = Math.min(1, Math.max(0, (0 - cur) / dist));
+      }
+      setFIdx(active + frac);
     };
     const onScroll = () => {
       if (!raf) raf = requestAnimationFrame(update);
     };
     update();
+    const t = window.setTimeout(update, 400);
     window.addEventListener("scroll", onScroll, { passive: true });
     window.addEventListener("resize", onScroll);
     return () => {
       window.removeEventListener("scroll", onScroll);
       window.removeEventListener("resize", onScroll);
+      clearTimeout(t);
       if (raf) cancelAnimationFrame(raf);
     };
   }, []);
@@ -67,6 +61,9 @@ export function ScrollProgress() {
     }
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
+
+  const steps = CHECKPOINTS.length - 1;
+  const fillPct = (fIdx / steps) * 100;
 
   return (
     <div
@@ -81,23 +78,23 @@ export function ScrollProgress() {
         <div
           className="absolute top-0 left-1/2 w-[2px] -translate-x-1/2 rounded-full bg-terra"
           style={{
-            height: `${p * 100}%`,
+            height: `${fillPct}%`,
             boxShadow: "0 0 10px color-mix(in oklab, var(--terra) 45%, transparent)",
             transition: "height 260ms cubic-bezier(0.22, 1, 0.36, 1)",
           }}
         />
 
         {/* Checkpoint nodes */}
-        {marks.map((m, i) => {
-          const cp = CHECKPOINTS[i];
-          const reached = p >= m - 0.001;
+        {CHECKPOINTS.map((cp, i) => {
+          const pos = (i / steps) * 100;
+          const reached = fIdx >= i - 0.001;
           return (
             <button
               key={cp.id}
               type="button"
               onClick={() => goTo(cp.id)}
               className="group absolute left-1/2 -translate-x-1/2 -translate-y-1/2 p-1"
-              style={{ top: `${m * 100}%` }}
+              style={{ top: `${pos}%` }}
               aria-label={`Jump to ${cp.label}`}
             >
               <span
