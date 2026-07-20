@@ -58,7 +58,7 @@ export function NavMenu({ menus }: { menus: MenuItem[] }) {
           >
             <NavLink
               href={menu.href}
-              className="inline-flex items-center gap-1 rounded-full px-3 py-2 transition-colors hover:text-terra-light"
+              className="inline-flex items-center gap-1 rounded-full px-3 py-2 transition-colors hover:text-terra"
             >
               {menu.label}
               <ChevronDown
