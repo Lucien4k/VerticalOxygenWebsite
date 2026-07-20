@@ -104,12 +104,7 @@ function Index() {
         <div className="absolute inset-0">
           <ScrollFrames frames={FRAME_URLS} scrollRange={typeof window !== "undefined" ? window.innerHeight * 1.75 : 1750} onComplete={setHeroDone} />
         </div>
-        <div className="absolute inset-0 bg-gradient-to-r from-charcoal/85 via-charcoal/55 to-charcoal/30" aria-hidden />
-        <div
-          className="pointer-events-none absolute inset-y-0 left-0 w-full md:w-2/3"
-          style={{ background: "radial-gradient(ellipse at left center, rgba(0,0,0,0.55), transparent 70%)" }}
-          aria-hidden
-        />
+        <div className="absolute inset-0 bg-gradient-to-b from-charcoal/40 via-charcoal/20 to-charcoal/50" aria-hidden />
         {/* Soft blur that intensifies as the page scrolls up over the hero */}
         <div ref={blurLayerRef} className="pointer-events-none absolute inset-0 z-[5] will-change-[backdrop-filter,opacity]" aria-hidden />
         <FloatingLeaves className="z-10" />
@@ -223,14 +218,14 @@ function Index() {
           style={{ opacity: heroDone ? 0 : 1 }}
         >
           <div className="max-w-2xl">
-            <div className="reveal-fade is-visible">
-              <p className="mb-4 text-xs font-semibold uppercase tracking-[0.3em] text-terra-light drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)]">
+            <div className="reveal-fade is-visible rounded-2xl bg-charcoal/55 px-8 py-10 ring-1 ring-cream/10 backdrop-blur-sm">
+              <p className="mb-4 text-xs font-semibold uppercase tracking-[0.3em] text-terra-light">
                 Custom Living Walls
               </p>
-              <h1 className="display-heading text-5xl leading-[1.02] font-light text-cream md:text-7xl lg:text-8xl drop-shadow-[0_2px_16px_rgba(0,0,0,0.65)]">
+              <h1 className="display-heading text-5xl leading-[1.02] font-light text-cream md:text-7xl lg:text-8xl">
                 Living <em>works</em> of art
               </h1>
-              <p className="mt-6 max-w-xl text-lg leading-relaxed text-cream drop-shadow-[0_2px_10px_rgba(0,0,0,0.6)]">
+              <p className="mt-6 max-w-xl text-lg leading-relaxed text-cream">
                 We couple beauty with simplicity to create healthy, living works of art.
                 Each wall is custom made to satisfy your dreams.
               </p>
