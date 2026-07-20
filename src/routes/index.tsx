@@ -104,7 +104,12 @@ function Index() {
         <div className="absolute inset-0">
           <ScrollFrames frames={FRAME_URLS} scrollRange={typeof window !== "undefined" ? window.innerHeight * 1.75 : 1750} onComplete={setHeroDone} />
         </div>
-        <div className="absolute inset-0 bg-gradient-to-b from-charcoal/60 via-charcoal/35 to-charcoal/70" aria-hidden />
+        <div className="absolute inset-0 bg-gradient-to-r from-charcoal/85 via-charcoal/55 to-charcoal/30" aria-hidden />
+        <div
+          className="pointer-events-none absolute inset-y-0 left-0 w-full md:w-2/3"
+          style={{ background: "radial-gradient(ellipse at left center, rgba(0,0,0,0.55), transparent 70%)" }}
+          aria-hidden
+        />
         {/* Soft blur that intensifies as the page scrolls up over the hero */}
         <div ref={blurLayerRef} className="pointer-events-none absolute inset-0 z-[5] will-change-[backdrop-filter,opacity]" aria-hidden />
         <FloatingLeaves className="z-10" />
@@ -219,13 +224,13 @@ function Index() {
         >
           <div className="max-w-2xl">
             <div className="reveal-fade is-visible">
-              <p className="mb-4 text-xs font-semibold uppercase tracking-[0.3em] text-terra-light">
+              <p className="mb-4 text-xs font-semibold uppercase tracking-[0.3em] text-terra-light drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)]">
                 Custom Living Walls
               </p>
-              <h1 className="display-heading text-5xl leading-[1.02] font-light text-cream md:text-7xl lg:text-8xl">
+              <h1 className="display-heading text-5xl leading-[1.02] font-light text-cream md:text-7xl lg:text-8xl drop-shadow-[0_2px_16px_rgba(0,0,0,0.65)]">
                 Living <em>works</em> of art
               </h1>
-              <p className="mt-6 max-w-xl text-lg leading-relaxed text-cream/90">
+              <p className="mt-6 max-w-xl text-lg leading-relaxed text-cream drop-shadow-[0_2px_10px_rgba(0,0,0,0.6)]">
                 We couple beauty with simplicity to create healthy, living works of art.
                 Each wall is custom made to satisfy your dreams.
               </p>
@@ -262,16 +267,16 @@ function Index() {
         frames={HERO2_FRAME_URLS}
         scrollLength={1.5}
         overlay={
-          <div className="max-w-2xl">
-            <p className="mb-4 text-xs font-semibold uppercase tracking-[0.3em] text-terra-light">
+          <div className="max-w-2xl rounded-2xl bg-charcoal/55 px-8 py-10 ring-1 ring-cream/10 backdrop-blur-sm">
+            <p className="mb-4 text-xs font-semibold uppercase tracking-[0.3em] text-terra-light drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)]">
               Engineered in layers
             </p>
             <WordsReveal
               as="h2"
               text="Panels that come together as one."
-              className="display-heading text-4xl leading-[1.05] text-cream md:text-6xl lg:text-7xl"
+              className="display-heading text-4xl leading-[1.05] text-cream md:text-6xl lg:text-7xl drop-shadow-[0_2px_16px_rgba(0,0,0,0.65)]"
             />
-            <p className="mt-6 text-cream/80 md:text-lg">
+            <p className="mt-6 text-cream md:text-lg drop-shadow-[0_2px_10px_rgba(0,0,0,0.6)]">
               Every wall is built from modular panels — designed, planted, and
               assembled on-site. Scroll to see how the pieces come together.
             </p>
