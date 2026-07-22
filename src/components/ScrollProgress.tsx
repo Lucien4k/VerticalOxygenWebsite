@@ -78,12 +78,12 @@ export function ScrollProgress() {
         {/* Stem track — thin hairline */}
         <div className="absolute inset-y-0 left-1/2 w-px -translate-x-1/2 rounded-full bg-cream/25 mix-blend-difference" />
 
-        {/* Growth fill — terracotta with soft glow */}
+        {/* Growth fill — forest green with soft glow */}
         <div
-          className="absolute top-0 left-1/2 w-[2px] -translate-x-1/2 rounded-full bg-terra"
+          className="absolute top-0 left-1/2 w-[2px] -translate-x-1/2 rounded-full bg-forest"
           style={{
             height: `${fillPct}%`,
-            boxShadow: "0 0 10px color-mix(in oklab, var(--terra) 45%, transparent)",
+            boxShadow: "0 0 10px color-mix(in oklab, var(--forest) 45%, transparent)",
             transition: "height 260ms cubic-bezier(0.22, 1, 0.36, 1)",
           }}
         />
