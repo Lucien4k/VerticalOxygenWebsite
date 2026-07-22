@@ -28,6 +28,7 @@ export function ScrollFramesSection({
   const [ready, setReady] = useState(false);
   const [done, setDone] = useState(false);
   const blurRef = useRef<HTMLDivElement | null>(null);
+  const overlayRef = useRef<HTMLDivElement | null>(null);
 
   // Preload
   useEffect(() => {
@@ -130,6 +131,15 @@ export function ScrollFramesSection({
         blurRef.current.style.backdropFilter = `blur(${t * 14}px)`;
         blurRef.current.style.opacity = String(t);
       }
+      if (overlayRef.current) {
+        // Slowly rise into view over the first ~55% of the section scroll.
+        const r = Math.min(1, Math.max(0, p / 0.55));
+        // ease-out cubic
+        const eased = 1 - Math.pow(1 - r, 3);
+        const ty = (1 - eased) * 45; // vh
+        overlayRef.current.style.transform = `translate3d(0, ${ty}vh, 0)`;
+        overlayRef.current.style.opacity = String(done ? 0 : eased);
+      }
     };
 
     const schedule = () => {
@@ -170,8 +180,9 @@ export function ScrollFramesSection({
         ) : null}
         {overlay ? (
           <div
+            ref={overlayRef}
             className="pointer-events-none absolute inset-0 z-10 flex items-center justify-center transition-opacity duration-700"
-            style={{ opacity: done ? 0 : 1 }}
+            style={{ opacity: 0, transform: "translate3d(0, 45vh, 0)", willChange: "transform, opacity" }}
           >
             <div className="pointer-events-auto mx-auto max-w-6xl px-6">{overlay}</div>
           </div>
