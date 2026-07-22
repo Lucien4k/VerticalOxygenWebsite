@@ -78,12 +78,12 @@ export function ScrollProgress() {
         {/* Stem track — thin hairline */}
         <div className="absolute inset-y-0 left-1/2 w-px -translate-x-1/2 rounded-full bg-cream/25 mix-blend-difference" />
 
-        {/* Growth fill — terracotta with soft glow */}
+        {/* Growth fill — forest green with soft glow */}
         <div
-          className="absolute top-0 left-1/2 w-[2px] -translate-x-1/2 rounded-full bg-terra"
+          className="absolute top-0 left-1/2 w-[2px] -translate-x-1/2 rounded-full bg-forest"
           style={{
             height: `${fillPct}%`,
-            boxShadow: "0 0 10px color-mix(in oklab, var(--terra) 45%, transparent)",
+            boxShadow: "0 0 10px color-mix(in oklab, var(--forest) 45%, transparent)",
             transition: "height 260ms cubic-bezier(0.22, 1, 0.36, 1)",
           }}
         />
@@ -104,8 +104,8 @@ export function ScrollProgress() {
               <span
                 className={`block rounded-full ring-4 ring-charcoal transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-150 ${
                   reached
-                    ? "h-2.5 w-2.5 bg-terra shadow-[0_0_8px_rgba(201,123,90,0.55)]"
-                    : "h-2 w-2 bg-cream/40 group-hover:bg-terra"
+                    ? "h-2.5 w-2.5 bg-forest shadow-[0_0_8px_rgba(74,110,74,0.55)]"
+                    : "h-2 w-2 bg-cream/40 group-hover:bg-forest"
                 }`}
               />
             </button>
