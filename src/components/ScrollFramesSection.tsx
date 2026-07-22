@@ -25,6 +25,7 @@ export function ScrollFramesSection({
   const imagesRef = useRef<(HTMLImageElement | null)[]>([]);
   const rafRef = useRef(0);
   const lastDrawnRef = useRef(-1);
+  const doneRef = useRef(false);
   const [ready, setReady] = useState(false);
   const [done, setDone] = useState(false);
   const blurRef = useRef<HTMLDivElement | null>(null);
@@ -125,7 +126,10 @@ export function ScrollFramesSection({
         lastDrawnRef.current = idx;
       }
       const isDone = p >= 0.995;
-      setDone(isDone);
+      if (isDone !== doneRef.current) {
+        doneRef.current = isDone;
+        setDone(isDone);
+      }
       if (blurRef.current) {
         // Ramp blur in over the last ~40% of the section scroll.
         const t = Math.min(1, Math.max(0, (p - 0.6) / 0.4));
@@ -133,27 +137,26 @@ export function ScrollFramesSection({
         blurRef.current.style.opacity = String(t);
       }
       if (overlayRef.current) {
-        // Slowly rise into view over the first ~55% of the section scroll.
-        const r = Math.min(1, Math.max(0, p / 0.55));
-        // ease-out cubic
+        // Rise gently from the lower third, then hold readable until the end.
+        const r = Math.min(1, Math.max(0, p / 0.6));
         const eased = 1 - Math.pow(1 - r, 3);
-        const ty = (1 - eased) * 45; // vh
+        const ty = (1 - eased) * 24; // vh
         overlayRef.current.style.transform = `translate3d(0, ${ty}vh, 0)`;
         // Fade out over the last ~10% of the scroll range.
         const fade = Math.min(1, Math.max(0, (p - 0.9) / 0.1));
-        overlayRef.current.style.opacity = String(eased * (1 - fade));
+        overlayRef.current.style.opacity = String(1 - fade);
       }
     };
 
-    const schedule = () => {
-      if (!rafRef.current) rafRef.current = requestAnimationFrame(draw);
+    const tick = () => {
+      draw();
+      rafRef.current = requestAnimationFrame(tick);
     };
 
     resize();
-    window.addEventListener("scroll", schedule, { passive: true });
     window.addEventListener("resize", resize);
+    rafRef.current = requestAnimationFrame(tick);
     return () => {
-      window.removeEventListener("scroll", schedule);
       window.removeEventListener("resize", resize);
       if (rafRef.current) cancelAnimationFrame(rafRef.current);
     };
@@ -167,6 +170,7 @@ export function ScrollFramesSection({
     >
       <div className="sticky top-0 h-screen w-full overflow-hidden">
         <canvas ref={canvasRef} className="absolute inset-0 h-full w-full" />
+        <div className="pointer-events-none absolute inset-0 z-[4] bg-gradient-to-b from-charcoal/25 via-charcoal/15 to-charcoal/35" aria-hidden />
         <div
           ref={blurRef}
           className="pointer-events-none absolute inset-0 z-[5] will-change-[backdrop-filter,opacity]"
@@ -185,7 +189,7 @@ export function ScrollFramesSection({
           <div
             ref={overlayRef}
             className="pointer-events-none absolute inset-0 z-10 flex items-center justify-center transition-opacity duration-700"
-            style={{ opacity: 0, transform: "translate3d(0, 45vh, 0)", willChange: "transform, opacity" }}
+            style={{ opacity: 1, transform: "translate3d(0, 24vh, 0)", willChange: "transform, opacity" }}
           >
             <div className="pointer-events-auto mx-auto max-w-6xl px-6">{overlay}</div>
           </div>
