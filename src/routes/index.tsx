@@ -194,7 +194,7 @@ function Index() {
                 />
                 <a
                   href="#quote"
-                  className="slide-cta group inline-flex items-center rounded-full bg-terra px-5 py-2 text-sm font-semibold text-cream transition-colors hover:bg-terra/90"
+                  className="slide-cta group inline-flex items-center rounded-full bg-forest-deep px-5 py-2 text-sm font-semibold text-cream transition-colors hover:bg-forest-deep/90"
                 >
                   <span className="slide-cta-arrow pl-3 text-cream">
                     <ArrowRight className="h-4 w-4" aria-hidden />
@@ -228,7 +228,7 @@ function Index() {
             <div className="mt-10 flex flex-wrap items-center gap-4 reveal is-visible" style={{ animationDelay: "200ms" }}>
               <a
                 href="#quote"
-                className="slide-cta group relative inline-flex items-center rounded-full bg-terra px-7 py-3.5 text-sm font-semibold text-cream shadow-lg transition-colors hover:bg-terra/90"
+                className="slide-cta group relative inline-flex items-center rounded-full bg-forest-deep px-7 py-3.5 text-sm font-semibold text-cream shadow-lg transition-colors hover:bg-forest-deep/90"
               >
                 <span className="slide-cta-arrow pl-4 text-cream">
                   <ArrowRight className="h-4 w-4" aria-hidden />
