@@ -104,8 +104,8 @@ export function ScrollProgress() {
               <span
                 className={`block rounded-full ring-4 ring-charcoal transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-150 ${
                   reached
-                    ? "h-2.5 w-2.5 bg-terra shadow-[0_0_8px_rgba(201,123,90,0.55)]"
-                    : "h-2 w-2 bg-cream/40 group-hover:bg-terra"
+                    ? "h-2.5 w-2.5 bg-forest shadow-[0_0_8px_rgba(74,110,74,0.55)]"
+                    : "h-2 w-2 bg-cream/40 group-hover:bg-forest"
                 }`}
               />
             </button>
