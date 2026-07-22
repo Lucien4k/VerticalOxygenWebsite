@@ -124,7 +124,8 @@ export function ScrollFramesSection({
         drawFrame(img);
         lastDrawnRef.current = idx;
       }
-      setDone(p >= 0.995);
+      const isDone = p >= 0.995;
+      setDone(isDone);
       if (blurRef.current) {
         // Ramp blur in over the last ~40% of the section scroll.
         const t = Math.min(1, Math.max(0, (p - 0.6) / 0.4));
@@ -138,7 +139,9 @@ export function ScrollFramesSection({
         const eased = 1 - Math.pow(1 - r, 3);
         const ty = (1 - eased) * 45; // vh
         overlayRef.current.style.transform = `translate3d(0, ${ty}vh, 0)`;
-        overlayRef.current.style.opacity = String(done ? 0 : eased);
+        // Fade out over the last ~10% of the scroll range.
+        const fade = Math.min(1, Math.max(0, (p - 0.9) / 0.1));
+        overlayRef.current.style.opacity = String(eased * (1 - fade));
       }
     };
 
