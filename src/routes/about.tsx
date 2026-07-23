@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, Leaf, Sprout } from "lucide-react";
+import { ArrowRight, Leaf, Sprout, Instagram } from "lucide-react";
 
 export const Route = createFileRoute("/about")({
   component: AboutPage,
