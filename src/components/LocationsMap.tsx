@@ -117,7 +117,7 @@ export function LocationsMap() {
       </div>
 
       <div className="space-y-6">
-        <div className="rounded-2xl border border-border bg-card p-6">
+        <div className="rounded-2xl border border-border bg-white p-6">
           <p className="text-xs font-semibold uppercase tracking-widest text-forest">
             Living walls across Canada
           </p>
@@ -130,7 +130,7 @@ export function LocationsMap() {
         </div>
 
         {active && (
-          <div key={active.city} className="reveal-fade is-visible rounded-2xl border border-border bg-card p-6">
+          <div key={active.city} className="reveal-fade is-visible rounded-2xl border border-border bg-white p-6">
             <div className="flex items-start gap-3">
               <MapPin className="mt-1 h-5 w-5 shrink-0 text-forest" aria-hidden />
               <div className="min-w-0">
@@ -141,7 +141,7 @@ export function LocationsMap() {
           </div>
         )}
 
-        <div className="max-h-56 overflow-y-auto rounded-2xl border border-border bg-card p-4">
+        <div className="max-h-56 overflow-y-auto rounded-2xl border border-border bg-white p-4">
           <ul className="grid grid-cols-2 gap-1 text-xs">
             {LOCATIONS.map((loc) => (
               <li key={loc.city}>
