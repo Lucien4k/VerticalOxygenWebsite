@@ -44,8 +44,12 @@ function AboutPage() {
       {/* Top bar */}
       <header className="border-b border-charcoal/10 bg-white/70 backdrop-blur">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-          <Link to="/" className="font-serif text-xl font-medium tracking-tight">
-            Vertical Oxygen
+          <Link to="/" className="flex items-center">
+            <img
+              src={logoHeader.url}
+              alt="Vertical Oxygen"
+              className="h-8 w-auto"
+            />
           </Link>
           <Link
             to="/"
