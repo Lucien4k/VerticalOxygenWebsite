@@ -1,22 +1,24 @@
-## Goal
-Make the overlay text on the first hero ("Living works of art") and the second hero ("Panels that come together as one.") clearly readable over the busy frame-sequence backgrounds.
+Update the quote section so it no longer reads as pink/warm. Switch the background to a light sage wash, keep the form card light and readable, and ensure all text and inputs maintain contrast.
 
-## Changes
+### What will change
 
-1. **First hero (`src/routes/index.tsx`, lines ~102–255)**
-   - Strengthen the existing full-section gradient scrim: change `from-charcoal/60 via-charcoal/35 to-charcoal/70` to a darker, left-biased gradient (`from-charcoal/85 via-charcoal/55 to-charcoal/30`) so text side is darkest without hiding the animation.
-   - Add a soft radial vignette behind the text block only (a second absolutely-positioned div sized to the text column, `bg-[radial-gradient(ellipse_at_left,_theme(...)/70,_transparent_70%)]`), keeping the right side of the frame visible.
-   - Add `drop-shadow-[0_2px_12px_rgba(0,0,0,0.55)]` to the `h1`, eyebrow, and body copy classes for extra separation.
-   - Bump body copy from `text-cream/90` to `text-cream` and eyebrow from `text-terra-light` to `text-terra-light drop-shadow`.
+1. **New colour token in `src/styles.css`**
+   - Add `--sage-wash: oklch(0.94 0.02 125)` mapped to `--color-sage-wash` so it is available as `bg-sage-wash` / `text-sage-wash`.
 
-2. **Second hero overlay (`ScrollFramesSection` call, lines ~261–280)**
-   - Wrap the overlay content in a translucent charcoal card: `rounded-2xl bg-charcoal/55 backdrop-blur-sm px-8 py-10 ring-1 ring-cream/10`, so the WordsReveal heading and paragraph sit on a consistent dark plate regardless of which frame is showing.
-   - Add matching `drop-shadow` to the eyebrow and heading.
-   - Optionally add a bottom-to-top gradient inside `ScrollFramesSection`'s sticky container via the overlay wrapper (`bg-gradient-to-t from-charcoal/70 to-transparent`) so the text base stays dark.
+2. **Quote section background (`src/routes/index.tsx`)**
+   - Change the outer `#quote` section from `bg-cream` to `bg-sage-wash`.
+   - Keep the section text as `text-charcoal` for readability.
 
-3. **No other sections change.** Frame sequences, animation timing, section heights, and copy stay identical.
+3. **Form card background**
+   - Change the form card from `bg-card` (warm pinkish tone) to `bg-white` with a very subtle sage border (`border-sage/30`).
+   - Keep the existing rounded-2xl padding and shadow.
 
-## Technical notes
-- All edits are in `src/routes/index.tsx`; no new components or assets.
-- Uses existing design tokens (`charcoal`, `cream`, `terra-light`) — no new colors.
-- `drop-shadow-*` is a stock Tailwind utility; no CSS additions needed.
+4. **Form inputs (`src/components/QuoteForm.tsx`)**
+   - Ensure input/select backgrounds are `bg-white` and borders use `border-sage/40` so they sit cleanly on the sage page.
+   - Keep placeholder text muted charcoal.
+
+5. **Submit button**
+   - No change — it already uses the forest-deep primary colour, which works on sage.
+
+### Result
+The quote page will feel calm, botanical, and premium rather than warm/pink. The form will remain easy to read with white fields floating on the soft sage background.
