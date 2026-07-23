@@ -131,8 +131,8 @@ export function ScrollFramesSection({
         setDone(isDone);
       }
       if (blurRef.current) {
-        // Ramp blur in over the last ~40% of the section scroll.
-        const t = Math.min(1, Math.max(0, (p - 0.6) / 0.4));
+        // Ramp blur in over the last ~30% of the section scroll.
+        const t = Math.min(1, Math.max(0, (p - 0.55) / 0.3));
         blurRef.current.style.backdropFilter = `blur(${t * 14}px)`;
         blurRef.current.style.opacity = String(t);
       }
@@ -142,9 +142,11 @@ export function ScrollFramesSection({
         const eased = 1 - Math.pow(1 - r, 3);
         const ty = (1 - eased) * 10; // vh
         overlayRef.current.style.transform = `translate3d(0, ${ty}vh, 0)`;
-        // Fade out over the last ~10% of the scroll range.
-        const fade = Math.min(1, Math.max(0, (p - 0.9) / 0.1));
+        // Fade + blur out together with the background blur ramp so nothing
+        // shifts once the section starts to release near the bottom.
+        const fade = Math.min(1, Math.max(0, (p - 0.55) / 0.3));
         overlayRef.current.style.opacity = String(1 - fade);
+        overlayRef.current.style.filter = `blur(${fade * 14}px)`;
       }
     };
 
