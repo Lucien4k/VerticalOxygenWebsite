@@ -132,7 +132,7 @@ export function LocationsMap() {
         {active && (
           <div key={active.city} className="reveal-fade is-visible rounded-2xl border border-border bg-card p-6">
             <div className="flex items-start gap-3">
-              <MapPin className="mt-1 h-5 w-5 shrink-0 text-primary" aria-hidden />
+              <MapPin className="mt-1 h-5 w-5 shrink-0 text-forest" aria-hidden />
               <div className="min-w-0">
                 <h3 className="font-serif text-2xl text-foreground">{active.city}</h3>
                 <p className="text-sm text-muted-foreground">{active.province}, Canada</p>
