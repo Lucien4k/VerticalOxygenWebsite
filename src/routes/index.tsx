@@ -458,25 +458,33 @@ function Index() {
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/50" />
       </div>
-      <section id="locations" className="relative overflow-hidden bg-card">
+      <section id="locations" className="relative overflow-hidden">
+        {/* Wood grain background with a cream wash so it isn't blank or pink */}
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: `url(${woodTexture.url})` }}
+          aria-hidden
+        />
+        <div className="absolute inset-0 bg-cream/90" aria-hidden />
+        <div className="absolute inset-0 bg-gradient-to-b from-cream/40 via-transparent to-cream/60" aria-hidden />
         <img
           src={cutoutWallC.url}
           alt=""
           aria-hidden
-          className="pointer-events-none absolute -top-24 right-[-6rem] h-[380px] w-[380px] object-contain opacity-60 md:h-[520px] md:w-[520px]"
+          className="pointer-events-none absolute -top-24 right-[-6rem] h-[380px] w-[380px] object-contain opacity-30 md:h-[520px] md:w-[520px]"
         />
-        <div className="mx-auto max-w-7xl px-6 py-24 md:py-32">
+        <div className="relative mx-auto max-w-7xl px-6 py-24 md:py-32">
           <Reveal>
             <div className="mb-14 max-w-2xl">
-              <p className="mb-3 text-xs font-semibold uppercase tracking-[0.3em] text-primary">
+              <p className="mb-3 text-xs font-semibold uppercase tracking-[0.3em] text-forest">
                 Where We Grow
               </p>
               <WordsReveal
                 as="h2"
                 text="Living walls, coast to coast."
-                className="display-heading text-4xl leading-[1.05] text-foreground md:text-6xl"
+                className="display-heading text-4xl leading-[1.05] text-charcoal md:text-6xl"
               />
-              <p className="mt-4 text-muted-foreground">
+              <p className="mt-4 text-charcoal/70">
                 Hover any pin to see the installation — from Vancouver lofts to
                 Halifax lobbies, Yellowknife to St. John's.
               </p>
