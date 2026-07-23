@@ -682,6 +682,15 @@ function Index() {
             <p className="text-sm text-cream/60">
               Custom living walls.
             </p>
+            <a
+              href="https://www.instagram.com/verticaloxygen/?hl=en"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Vertical Oxygen on Instagram"
+              className="flex h-10 w-10 items-center justify-center rounded-full bg-cream/10 text-cream transition-colors hover:bg-cream/20"
+            >
+              <Instagram className="h-5 w-5" aria-hidden />
+            </a>
           </div>
         </div>
       </footer>
