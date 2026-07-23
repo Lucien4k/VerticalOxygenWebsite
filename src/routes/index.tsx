@@ -147,18 +147,18 @@ function SystemsShowcase() {
       <div key={sys.key} className="systems-swap grid gap-10 md:grid-cols-12 md:gap-14">
         {/* Diagram plaque */}
         <div className="md:col-span-7">
-          <div className="relative overflow-hidden rounded-3xl p-6 shadow-2xl ring-1 ring-charcoal/10 md:p-10">
+          <div className="relative overflow-hidden rounded-3xl p-3 ring-1 ring-charcoal/10 md:p-4">
             <div
               className="absolute inset-0 bg-cover bg-center"
               style={{ backgroundImage: `url(${woodTexture.url})` }}
               aria-hidden
             />
-            <div className="absolute inset-0 bg-cream/90" aria-hidden />
-            <div className="relative flex items-center justify-center overflow-hidden rounded-2xl bg-white p-6 ring-1 ring-charcoal/10 md:p-10">
+            <div className="absolute inset-0 bg-cream/92" aria-hidden />
+            <div className="relative overflow-hidden rounded-2xl bg-white">
               <img
                 src={sys.diagram}
                 alt={`${sys.title} living wall diagram`}
-                className="h-[26rem] w-auto object-contain md:h-[36rem]"
+                className="h-auto w-full object-contain md:max-h-[46rem]"
                 loading="lazy"
               />
             </div>
