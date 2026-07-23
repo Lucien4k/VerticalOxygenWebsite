@@ -97,7 +97,7 @@ export function LocationsMap() {
               >
                 <circle
                   r={isActive ? r + 2 : r}
-                  fill="oklch(0.615 0.144 34.4)"
+                  fill="oklch(0.482 0.065 129.0)"
                   stroke="oklch(0.983 0.033 34.7)"
                   strokeWidth={1.5}
                   style={{ transition: "r 0.2s ease" }}
@@ -105,7 +105,7 @@ export function LocationsMap() {
                 {isActive && (
                   <circle
                     r={r + 4}
-                    fill="oklch(0.615 0.144 34.4)"
+                    fill="oklch(0.482 0.065 129.0)"
                     fillOpacity={0.35}
                     className="marker-pulse"
                   />
@@ -118,7 +118,7 @@ export function LocationsMap() {
 
       <div className="space-y-6">
         <div className="rounded-2xl border border-border bg-card p-6">
-          <p className="text-xs font-semibold uppercase tracking-widest text-primary">
+          <p className="text-xs font-semibold uppercase tracking-widest text-forest">
             Living walls across Canada
           </p>
           <p className="mt-3 font-serif text-4xl font-light text-foreground">
@@ -132,7 +132,7 @@ export function LocationsMap() {
         {active && (
           <div key={active.city} className="reveal-fade is-visible rounded-2xl border border-border bg-card p-6">
             <div className="flex items-start gap-3">
-              <MapPin className="mt-1 h-5 w-5 shrink-0 text-primary" aria-hidden />
+              <MapPin className="mt-1 h-5 w-5 shrink-0 text-forest" aria-hidden />
               <div className="min-w-0">
                 <h3 className="font-serif text-2xl text-foreground">{active.city}</h3>
                 <p className="text-sm text-muted-foreground">{active.province}, Canada</p>
@@ -152,7 +152,7 @@ export function LocationsMap() {
                   onFocus={() => setActive(loc)}
                   className={`w-full rounded-md px-2 py-1.5 text-left transition-colors ${
                     active?.city === loc.city
-                      ? "bg-primary/10 text-primary font-semibold"
+                      ? "bg-forest/10 text-forest font-semibold"
                       : "text-muted-foreground hover:bg-background hover:text-foreground"
                   }`}
                 >
