@@ -97,7 +97,7 @@ export function LocationsMap() {
               >
                 <circle
                   r={isActive ? r + 2 : r}
-                  fill="oklch(0.615 0.144 34.4)"
+                  fill="oklch(0.482 0.065 129.0)"
                   stroke="oklch(0.983 0.033 34.7)"
                   strokeWidth={1.5}
                   style={{ transition: "r 0.2s ease" }}
@@ -105,7 +105,7 @@ export function LocationsMap() {
                 {isActive && (
                   <circle
                     r={r + 4}
-                    fill="oklch(0.615 0.144 34.4)"
+                    fill="oklch(0.482 0.065 129.0)"
                     fillOpacity={0.35}
                     className="marker-pulse"
                   />
