@@ -119,13 +119,13 @@ export function LocationsMap() {
       <div className="space-y-6">
         <div className="rounded-2xl border border-border bg-white p-6">
           <p className="text-xs font-semibold uppercase tracking-widest text-forest">
-            Living walls across Canada
+            Cities across Canada
           </p>
           <p className="mt-3 font-serif text-4xl font-light text-foreground">
             {LOCATIONS.length}
           </p>
           <p className="text-sm text-muted-foreground">
-            Cities across Canada, coast to coast
+            Communities served, coast to coast
           </p>
         </div>
 
