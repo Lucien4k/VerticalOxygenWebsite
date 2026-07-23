@@ -174,13 +174,13 @@ export function QuoteForm() {
             {photos.map((f, i) => (
               <li
                 key={i}
-                className="flex items-center justify-between rounded-md border border-border bg-background px-3 py-2 text-sm text-foreground"
+                className="flex items-center justify-between rounded-md border border-sage/40 bg-white px-3 py-2 text-sm text-charcoal"
               >
                 <span className="truncate">{f.name}</span>
                 <button
                   type="button"
                   onClick={() => removePhoto(i)}
-                  className="ml-3 text-xs font-semibold uppercase tracking-wider text-primary hover:underline"
+                  className="ml-3 text-xs font-semibold uppercase tracking-wider text-forest hover:underline"
                 >
                   Remove
                 </button>
