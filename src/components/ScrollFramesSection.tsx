@@ -137,11 +137,6 @@ export function ScrollFramesSection({
         blurRef.current.style.opacity = String(t);
       }
       if (overlayRef.current) {
-        // Start higher and settle in quickly so text is readable early.
-        const r = Math.min(1, Math.max(0, p / 0.25));
-        const eased = 1 - Math.pow(1 - r, 3);
-        const ty = (1 - eased) * 10; // vh
-        overlayRef.current.style.transform = `translate3d(0, ${ty}vh, 0)`;
         // Fade + blur out together with the background blur ramp so nothing
         // shifts once the section starts to release near the bottom.
         const fade = Math.min(1, Math.max(0, (p - 0.55) / 0.3));
@@ -191,7 +186,7 @@ export function ScrollFramesSection({
           <div
             ref={overlayRef}
             className="pointer-events-none absolute inset-0 z-10 flex items-start justify-center pt-[14vh] transition-opacity duration-700 md:pt-[12vh]"
-            style={{ opacity: 1, transform: "translate3d(0, 10vh, 0)", willChange: "transform, opacity, filter" }}
+            style={{ opacity: 1, willChange: "opacity, filter" }}
           >
             <div className="pointer-events-auto mx-auto max-w-6xl px-6">{overlay}</div>
           </div>
