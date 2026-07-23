@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
 import { Download, FileText, ArrowUpRight } from "lucide-react";
+import logoHeader from "../assets/logo-header.png.asset.json";
 
 export const Route = createFileRoute("/specifications")({
   component: SpecificationsPage,
