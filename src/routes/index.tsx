@@ -729,11 +729,11 @@ function Index() {
         <div className="absolute inset-0 bg-charcoal/75" aria-hidden />
         <div className="relative z-10 mx-auto max-w-7xl px-6 py-10">
           <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
-            <a href="/" className="rounded-lg bg-cream px-4 py-3">
+            <a href="/" className="rounded-lg bg-cream px-5 py-4">
               <img
                 src={logoHeader.url}
                 alt="Vertical Oxygen"
-                className="h-10 w-auto md:h-12"
+                className="h-24 w-auto md:h-28"
               />
             </a>
             <p className="text-sm text-cream/60">
