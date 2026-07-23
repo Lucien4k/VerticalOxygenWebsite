@@ -643,9 +643,13 @@ function Index() {
               We'll get back to you within 1–2 business days with a tailored proposal.
             </p>
             <div className="mt-8 space-y-3 text-sm text-charcoal/75">
-              <a href="tel:+15551234567" className="flex items-center gap-3 hover:text-charcoal">
+              <a href="tel:+16049971760" className="flex items-center gap-3 hover:text-charcoal">
                 <Phone className="h-4 w-4 text-terra-light" aria-hidden />
-                (555) 123-4567
+                604-997-1760 <span className="text-charcoal/50">— English</span>
+              </a>
+              <a href="tel:+14038613732" className="flex items-center gap-3 hover:text-charcoal">
+                <Phone className="h-4 w-4 text-terra-light" aria-hidden />
+                403-861-3732 <span className="text-charcoal/50">— French</span>
               </a>
               <a href="mailto:verticaloxygen@gmail.com" className="flex items-center gap-3 hover:text-charcoal">
                 <Mail className="h-4 w-4 text-terra-light" aria-hidden />
