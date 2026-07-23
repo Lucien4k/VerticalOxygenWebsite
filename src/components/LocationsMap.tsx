@@ -118,7 +118,7 @@ export function LocationsMap() {
 
       <div className="space-y-6">
         <div className="rounded-2xl border border-border bg-card p-6">
-          <p className="text-xs font-semibold uppercase tracking-widest text-primary">
+          <p className="text-xs font-semibold uppercase tracking-widest text-forest">
             Living walls across Canada
           </p>
           <p className="mt-3 font-serif text-4xl font-light text-foreground">
