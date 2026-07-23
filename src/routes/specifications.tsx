@@ -139,7 +139,13 @@ function SpecificationsPage() {
       <div className="border-b border-neutral-200 bg-neutral-50">
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-6 px-6 py-2.5 font-mono text-[11px] uppercase tracking-[0.14em] text-neutral-600">
           <div className="flex items-center gap-6">
-            <Link to="/" className="hover:text-neutral-900">← Vertical Oxygen</Link>
+            <Link to="/" className="flex items-center hover:opacity-80">
+              <img
+                src={logoHeader.url}
+                alt="Vertical Oxygen"
+                className="h-6 w-auto"
+              />
+            </Link>
             <span className="hidden md:inline">Technical Documentation</span>
           </div>
           <div className="flex items-center gap-6">
