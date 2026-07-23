@@ -54,7 +54,7 @@ export function LocationsMap() {
 
   return (
     <div className="grid gap-8 lg:grid-cols-[1fr_320px] lg:items-center">
-      <div className="relative overflow-hidden rounded-2xl bg-card p-2 md:p-4">
+      <div className="relative overflow-hidden rounded-2xl bg-white p-2 md:p-4">
         <ComposableMap
           projection="geoAzimuthalEqualArea"
           projectionConfig={{ rotate: [96, -62, 0], scale: 780 }}
@@ -68,12 +68,12 @@ export function LocationsMap() {
                 <Geography
                   key={geo.rsmKey}
                   geography={geo}
-                  fill={geo.properties?.name === "Canada" ? "oklch(0.90 0.02 60)" : "oklch(0.92 0.015 40)"}
-                  stroke="oklch(0.99 0.004 80)"
+                  fill={geo.properties?.name === "Canada" ? "oklch(0.96 0.005 100)" : "oklch(1 0 0)"}
+                  stroke="oklch(0.88 0.01 100)"
                   strokeWidth={0.5}
                   style={{
                     default: { outline: "none" },
-                    hover:   { outline: "none", fill: "oklch(0.86 0.03 40)" },
+                    hover:   { outline: "none", fill: "oklch(0.94 0.005 100)" },
                     pressed: { outline: "none" },
                   }}
                 />
