@@ -191,7 +191,7 @@ export function ScrollFramesSection({
           <div
             ref={overlayRef}
             className="pointer-events-none absolute inset-0 z-10 flex items-start justify-center pt-[14vh] transition-opacity duration-700 md:pt-[12vh]"
-            style={{ opacity: 1, transform: "translate3d(0, 10vh, 0)", willChange: "transform, opacity" }}
+            style={{ opacity: 1, transform: "translate3d(0, 10vh, 0)", willChange: "transform, opacity, filter" }}
           >
             <div className="pointer-events-auto mx-auto max-w-6xl px-6">{overlay}</div>
           </div>
