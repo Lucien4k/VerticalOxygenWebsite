@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, Leaf, Sprout, Instagram } from "lucide-react";
+import logoHeader from "../assets/logo-header.png.asset.json";
 
 function TikTokIcon({ className }: { className?: string }) {
   return (
