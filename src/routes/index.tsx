@@ -275,7 +275,7 @@ function Index() {
       />
 
       {/* Selected Work — deep forest gallery colour-matched to the hero */}
-      <section id="work" className="relative overflow-hidden bg-cream text-charcoal">
+      <section id="work" className="relative z-20 -mt-[40vh] overflow-hidden rounded-t-[3rem] bg-cream text-charcoal shadow-[0_-40px_80px_-40px_rgba(0,0,0,0.45)]">
         {/* Decorative floating "cutout" plants — soft-masked so they read as transparent */}
         <img
           src={cutoutCoaldale.url}
