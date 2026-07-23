@@ -683,7 +683,13 @@ function Index() {
         <div className="absolute inset-0 bg-charcoal/75" aria-hidden />
         <div className="relative z-10 mx-auto max-w-7xl px-6 py-10">
           <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
-            <p className="font-serif text-lg italic text-cream">Vertical Oxygen</p>
+            <a href="/" className="rounded-lg bg-cream px-3 py-2">
+              <img
+                src={logoHeader.url}
+                alt="Vertical Oxygen"
+                className="h-7 w-auto"
+              />
+            </a>
             <p className="text-sm text-cream/60">
               Custom living walls.
             </p>
