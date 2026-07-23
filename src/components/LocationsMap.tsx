@@ -68,12 +68,12 @@ export function LocationsMap() {
                 <Geography
                   key={geo.rsmKey}
                   geography={geo}
-                  fill={geo.properties?.name === "Canada" ? "oklch(0.96 0.005 100)" : "oklch(1 0 0)"}
-                  stroke="oklch(0.88 0.01 100)"
-                  strokeWidth={0.5}
+                  fill={geo.properties?.name === "Canada" ? "oklch(0.45 0.03 130)" : "oklch(0.78 0.01 100)"}
+                  stroke="oklch(0.35 0.01 100)"
+                  strokeWidth={0.6}
                   style={{
                     default: { outline: "none" },
-                    hover:   { outline: "none", fill: "oklch(0.94 0.005 100)" },
+                    hover:   { outline: "none", fill: geo.properties?.name === "Canada" ? "oklch(0.52 0.03 130)" : "oklch(0.72 0.01 100)" },
                     pressed: { outline: "none" },
                   }}
                 />
