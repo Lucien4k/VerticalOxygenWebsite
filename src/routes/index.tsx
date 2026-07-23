@@ -54,6 +54,177 @@ const diagramAquaponic = { url: diagramAquaponicUrl };
 const diagramHydroponic = { url: diagramHydroponicUrl };
 import woodTexture from "../assets/textures/wood-texture-v2.jpg.asset.json";
 
+const SYSTEMS = [
+  {
+    key: "aquaponic",
+    title: "Aquaponic",
+    tag: "Closed-loop · Fish + plants",
+    diagram: diagramAquaponic.url,
+    tagline: "One ecosystem. Zero waste.",
+    description:
+      "Plants and tilapia share a single closed loop. Fish waste becomes nutrients, roots polish the water, and the system self-regulates with minimal input.",
+    stats: [
+      { label: "Water use", value: "~90% less" },
+      { label: "Fertilizer", value: "None added" },
+      { label: "Best for", value: "Feature walls, cafés, showrooms" },
+      { label: "Wall depth", value: "8–12 in" },
+    ],
+    highlights: [
+      "Live fish tank integrated at base",
+      "Fully soilless, gravel media beds",
+      "Continuous nutrient cycle",
+    ],
+  },
+  {
+    key: "hydroponic",
+    title: "Hydroponic",
+    tag: "Soilless · Recirculating",
+    diagram: diagramHydroponic.url,
+    tagline: "Lightweight. Precise. Effortless.",
+    description:
+      "Recirculating water and dosed nutrients feed a felt matrix — soilless, low-weight, and simple to maintain across large-format installations.",
+    stats: [
+      { label: "Wall weight", value: "≈ 8 lb/ft²" },
+      { label: "Water use", value: "Recirculating" },
+      { label: "Best for", value: "Lobbies, offices, tall installs" },
+      { label: "Wall depth", value: "4–6 in" },
+    ],
+    highlights: [
+      "Ultra-light felt matrix",
+      "Automated dosing + irrigation",
+      "Scales to any wall size",
+    ],
+  },
+];
+
+function SystemsShowcase() {
+  const [active, setActive] = useState(0);
+  const sys = SYSTEMS[active];
+  const next = SYSTEMS[(active + 1) % SYSTEMS.length];
+  return (
+    <div className="relative mx-auto max-w-7xl px-6 py-24 md:py-32">
+      <div className="mb-14 flex flex-col gap-10 md:flex-row md:items-end md:justify-between">
+        <div>
+          <p className="mb-3 text-xs font-semibold uppercase tracking-[0.3em] text-forest">
+            Our Systems
+          </p>
+          <WordsReveal
+            as="h2"
+            text="Two ways to grow a wall."
+            className="display-heading text-5xl leading-[1] text-charcoal md:text-7xl lg:text-[5.5rem]"
+          />
+          <p className="mt-6 max-w-xl text-charcoal/70 md:text-lg">
+            Every Vertical Oxygen wall is built on one of two engineered systems. Tap through to see how each works and where it fits best.
+          </p>
+        </div>
+
+        {/* Tab switcher with sliding pill */}
+        <div
+          role="tablist"
+          aria-label="Living wall systems"
+          className="relative inline-flex self-start rounded-full bg-charcoal/5 p-1.5 ring-1 ring-charcoal/10 backdrop-blur md:self-auto"
+        >
+          <div
+            className="absolute inset-y-1.5 left-1.5 w-[calc(50%-0.375rem)] rounded-full bg-charcoal shadow-lg transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]"
+            style={{ transform: `translateX(${active * 100}%)` }}
+            aria-hidden
+          />
+          {SYSTEMS.map((s, i) => (
+            <button
+              key={s.key}
+              type="button"
+              role="tab"
+              aria-selected={active === i}
+              onClick={() => setActive(i)}
+              className={`relative z-10 rounded-full px-6 py-2.5 text-xs font-semibold uppercase tracking-[0.25em] transition-colors duration-500 md:px-8 md:py-3 md:text-sm ${
+                active === i ? "text-cream" : "text-charcoal/60 hover:text-charcoal"
+              }`}
+            >
+              {s.title}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      <div key={sys.key} className="systems-swap grid gap-10 md:grid-cols-12 md:gap-14">
+        {/* Diagram plaque */}
+        <div className="md:col-span-7">
+          <div className="relative overflow-hidden rounded-3xl p-6 shadow-2xl ring-1 ring-charcoal/10 md:p-10">
+            <div
+              className="absolute inset-0 bg-cover bg-center"
+              style={{ backgroundImage: `url(${woodTexture.url})` }}
+              aria-hidden
+            />
+            <div className="absolute inset-0 bg-cream/90" aria-hidden />
+            <div className="relative flex items-center justify-center overflow-hidden rounded-2xl bg-white p-6 ring-1 ring-charcoal/10 md:p-10">
+              <img
+                src={sys.diagram}
+                alt={`${sys.title} living wall diagram`}
+                className="h-[26rem] w-auto object-contain md:h-[36rem]"
+                loading="lazy"
+              />
+            </div>
+            <div className="pointer-events-none absolute bottom-4 right-6 z-10 font-serif text-6xl italic text-charcoal/10 md:text-8xl">
+              0{active + 1}
+            </div>
+          </div>
+        </div>
+
+        {/* Details */}
+        <div className="md:col-span-5">
+          <p className="text-xs font-semibold uppercase tracking-[0.3em] text-forest">
+            {sys.tag}
+          </p>
+          <h3 className="mt-3 font-serif text-4xl italic text-charcoal md:text-5xl">
+            {sys.tagline}
+          </h3>
+          <p className="mt-5 text-charcoal/75 md:text-lg">{sys.description}</p>
+
+          <dl className="mt-8 grid grid-cols-2 gap-px overflow-hidden rounded-2xl bg-charcoal/10 ring-1 ring-charcoal/10">
+            {sys.stats.map((s) => (
+              <div key={s.label} className="bg-cream p-4 md:p-5">
+                <dt className="text-[10px] font-semibold uppercase tracking-[0.2em] text-charcoal/50">
+                  {s.label}
+                </dt>
+                <dd className="mt-1.5 font-serif text-xl text-charcoal md:text-2xl">
+                  {s.value}
+                </dd>
+              </div>
+            ))}
+          </dl>
+
+          <ul className="mt-8 space-y-3">
+            {sys.highlights.map((h) => (
+              <li key={h} className="flex items-start gap-3 text-charcoal/80">
+                <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-forest" />
+                <span>{h}</span>
+              </li>
+            ))}
+          </ul>
+
+          <div className="mt-10 flex flex-wrap gap-3">
+            <a
+              href="#quote"
+              className="group inline-flex items-center gap-2 rounded-full bg-forest-deep px-6 py-3 text-xs font-semibold uppercase tracking-[0.25em] text-cream shadow-lg transition hover:bg-forest-deep/90 md:text-sm"
+            >
+              Get a quote
+              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+            </a>
+            <button
+              type="button"
+              onClick={() => setActive((active + 1) % SYSTEMS.length)}
+              className="group inline-flex items-center gap-2 rounded-full border border-charcoal/25 px-6 py-3 text-xs font-semibold uppercase tracking-[0.25em] text-charcoal transition hover:bg-charcoal hover:text-cream md:text-sm"
+            >
+              See {next.title}
+              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export const Route = createFileRoute("/")({
   component: Index,
   head: () => ({
