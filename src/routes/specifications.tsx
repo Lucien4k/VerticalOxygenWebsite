@@ -413,6 +413,14 @@ function SpecificationsPage() {
                 <dd className="text-neutral-900">specs@verticaloxygen.com</dd>
               </div>
               <div className="flex justify-between border-b border-neutral-200 py-1.5">
+                <dt className="text-neutral-500">Phone EN</dt>
+                <dd className="text-neutral-900">604-997-1760</dd>
+              </div>
+              <div className="flex justify-between border-b border-neutral-200 py-1.5">
+                <dt className="text-neutral-500">Phone FR</dt>
+                <dd className="text-neutral-900">403-861-3732</dd>
+              </div>
+              <div className="flex justify-between border-b border-neutral-200 py-1.5">
                 <dt className="text-neutral-500">Response</dt>
                 <dd className="text-neutral-900">2 business days</dd>
               </div>
