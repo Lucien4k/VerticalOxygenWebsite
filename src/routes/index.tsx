@@ -22,7 +22,7 @@ import glenoraLobby from "../assets/projects/glenora-lobby.jpg.asset.json";
 import coaldaleHall from "../assets/projects/coaldale-hall.png.asset.json";
 import lushTropicalWall from "../assets/projects/lush-tropical-wall.jpg.asset.json";
 import coaldaleFlowering from "../assets/projects/coaldale-flowering.jpg.asset.json";
-import { Phone, Mail, MapPin, Leaf, ArrowRight } from "lucide-react";
+import { Phone, Mail, MapPin, Leaf, ArrowRight, Instagram } from "lucide-react";
 import { QuoteForm } from "@/components/QuoteForm";
 import { Reveal } from "@/components/Reveal";
 import { LocationsMap } from "@/components/LocationsMap";
@@ -682,6 +682,15 @@ function Index() {
             <p className="text-sm text-cream/60">
               Custom living walls.
             </p>
+            <a
+              href="https://www.instagram.com/verticaloxygen/?hl=en"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Vertical Oxygen on Instagram"
+              className="flex h-10 w-10 items-center justify-center rounded-full bg-cream/10 text-cream transition-colors hover:bg-cream/20"
+            >
+              <Instagram className="h-5 w-5" aria-hidden />
+            </a>
           </div>
         </div>
       </footer>

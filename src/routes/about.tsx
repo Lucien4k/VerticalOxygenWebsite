@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, Leaf, Sprout } from "lucide-react";
+import { ArrowRight, Leaf, Sprout, Instagram } from "lucide-react";
 
 export const Route = createFileRoute("/about")({
   component: AboutPage,
@@ -154,6 +154,16 @@ function AboutPage() {
         >
           Request a quote <ArrowRight className="h-4 w-4" aria-hidden />
         </Link>
+
+        <a
+          href="https://www.instagram.com/verticaloxygen/?hl=en"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-charcoal/70 hover:text-forest-deep"
+        >
+          <Instagram className="h-4 w-4" aria-hidden />
+          Follow us on Instagram
+        </a>
       </section>
     </main>
   );
