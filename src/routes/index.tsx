@@ -352,7 +352,7 @@ function Index() {
                       ],
                     },
                     {
-                      label: "Specs",
+                      label: "Specifications",
                       href: "/specifications",
                       items: [
                         { label: "Specifications", description: "Technical data & systems", href: "/specifications" },
