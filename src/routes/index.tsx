@@ -627,62 +627,6 @@ function Index() {
 
       {/* CTA */}
       {/* Quote Form */}
-      {/* Types of Living Walls — diagrams */}
-      <section id="wall-types" className="relative overflow-hidden bg-cream text-charcoal">
-        <div className="mx-auto max-w-7xl px-6 py-20 md:py-28">
-          <Reveal>
-            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.3em] text-primary">
-              Types of Plant Walls
-            </p>
-            <WordsReveal
-              as="h2"
-              text="We work with two types of living walls."
-              className="display-heading max-w-3xl text-4xl leading-[1.02] text-charcoal md:text-5xl"
-            />
-            <p className="mt-6 max-w-2xl text-base leading-relaxed text-charcoal/70">
-              Each type of living wall has specific applications but is extremely versatile
-              and provides endless possibilities. We take the time to understand your
-              environment and build you a wall that will beautify and detoxify interior spaces.
-            </p>
-          </Reveal>
-
-          <div className="mt-14 grid gap-10 md:grid-cols-2">
-            {[
-              { title: "Aquaponic", src: diagramAquaponic.url, desc: "Plants and tilapia share one closed loop — fish waste feeds the wall, roots clean the water." },
-              { title: "Hydroponic", src: diagramHydroponic.url, desc: "Soilless growing on recycled moisture mats — lightweight, low-maintenance, self-watering." },
-            ].map((d, i) => (
-              <Reveal key={d.title} delay={i * 120} className="group relative flex flex-col overflow-hidden rounded-3xl p-8 shadow-md ring-1 ring-charcoal/10 transition-shadow hover:shadow-xl md:p-10">
-                <div
-                  className="absolute inset-0 bg-cover bg-center"
-                  style={{ backgroundImage: `url(${woodTexture.url})`, backgroundPositionX: `${i * 40}%` }}
-                  aria-hidden
-                />
-                <div className="absolute inset-0 bg-cream/88" aria-hidden />
-                <div className="relative flex items-center justify-center overflow-hidden rounded-2xl bg-white p-6 ring-1 ring-charcoal/10">
-                  <img
-                    src={d.src}
-                    alt={`${d.title} living wall diagram`}
-                    className="h-[28rem] w-auto object-contain transition-transform duration-500 group-hover:scale-105 md:h-[36rem]"
-                    loading="lazy"
-                  />
-                </div>
-                <h3 className="relative mt-8 font-serif text-3xl text-charcoal md:text-4xl">{d.title} Wall</h3>
-                <p className="relative mt-3 text-base leading-relaxed text-charcoal/75 md:text-lg">{d.desc}</p>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Wood shelf divider */}
-      <div className="relative h-6 w-full overflow-hidden md:h-8" aria-hidden>
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: `url(${woodTexture.url})` }}
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/40" />
-      </div>
-
       <section id="quote" className="relative overflow-hidden bg-cream text-charcoal">
         <img
           src={cutoutCoaldale.url}
