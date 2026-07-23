@@ -316,8 +316,12 @@ function Index() {
               />
               <div className="absolute inset-0 rounded-full bg-white/88" aria-hidden />
               <div className="relative z-10 flex w-full items-center justify-between gap-4">
-                <a href="/" className="font-serif text-xl font-medium tracking-tight text-charcoal md:text-2xl">
-                  Vertical Oxygen
+                <a href="/" className="flex items-center">
+                  <img
+                    src={logoHeader.url}
+                    alt="Vertical Oxygen"
+                    className="h-8 w-auto md:h-9"
+                  />
                 </a>
                 <NavMenu
                   menus={[
