@@ -51,6 +51,7 @@ import cutoutWallC from "../assets/cutouts/wall-c.png.asset.json";
 import diagramAquaponic from "../assets/diagrams/aquaponic-wall-diagram-v7.png.asset.json";
 import diagramHydroponic from "../assets/diagrams/hydroponic-wall-diagram-v5.png.asset.json";
 import woodTexture from "../assets/textures/wood-texture-v2.jpg.asset.json";
+import logoHeader from "../assets/logo-header.png.asset.json";
 
 const SYSTEMS = [
   {
@@ -315,8 +316,12 @@ function Index() {
               />
               <div className="absolute inset-0 rounded-full bg-white/88" aria-hidden />
               <div className="relative z-10 flex w-full items-center justify-between gap-4">
-                <a href="/" className="font-serif text-xl font-medium tracking-tight text-charcoal md:text-2xl">
-                  Vertical Oxygen
+                <a href="/" className="flex items-center">
+                  <img
+                    src={logoHeader.url}
+                    alt="Vertical Oxygen"
+                    className="h-8 w-auto md:h-9"
+                  />
                 </a>
                 <NavMenu
                   menus={[
@@ -678,7 +683,13 @@ function Index() {
         <div className="absolute inset-0 bg-charcoal/75" aria-hidden />
         <div className="relative z-10 mx-auto max-w-7xl px-6 py-10">
           <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
-            <p className="font-serif text-lg italic text-cream">Vertical Oxygen</p>
+            <a href="/" className="rounded-lg bg-cream px-3 py-2">
+              <img
+                src={logoHeader.url}
+                alt="Vertical Oxygen"
+                className="h-7 w-auto"
+              />
+            </a>
             <p className="text-sm text-cream/60">
               Custom living walls.
             </p>
