@@ -7,7 +7,6 @@ const CHECKPOINTS = [
   { id: "locations", label: "Locations" },
   { id: "motion", label: "In Motion" },
   { id: "about", label: "About" },
-  { id: "wall-types", label: "Systems" },
   { id: "quote", label: "Quote" },
 ];
 

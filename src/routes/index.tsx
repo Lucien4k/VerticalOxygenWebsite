@@ -54,6 +54,177 @@ const diagramAquaponic = { url: diagramAquaponicUrl };
 const diagramHydroponic = { url: diagramHydroponicUrl };
 import woodTexture from "../assets/textures/wood-texture-v2.jpg.asset.json";
 
+const SYSTEMS = [
+  {
+    key: "aquaponic",
+    title: "Aquaponic",
+    tag: "Closed-loop · Fish + plants",
+    diagram: diagramAquaponic.url,
+    tagline: "One ecosystem. Zero waste.",
+    description:
+      "Plants and tilapia share a single closed loop. Fish waste becomes nutrients, roots polish the water, and the system self-regulates with minimal input.",
+    stats: [
+      { label: "Water use", value: "~90% less" },
+      { label: "Fertilizer", value: "None added" },
+      { label: "Best for", value: "Feature walls, cafés, showrooms" },
+      { label: "Wall depth", value: "8–12 in" },
+    ],
+    highlights: [
+      "Live fish tank integrated at base",
+      "Fully soilless, gravel media beds",
+      "Continuous nutrient cycle",
+    ],
+  },
+  {
+    key: "hydroponic",
+    title: "Hydroponic",
+    tag: "Soilless · Recirculating",
+    diagram: diagramHydroponic.url,
+    tagline: "Lightweight. Precise. Effortless.",
+    description:
+      "Recirculating water and dosed nutrients feed a felt matrix — soilless, low-weight, and simple to maintain across large-format installations.",
+    stats: [
+      { label: "Wall weight", value: "≈ 8 lb/ft²" },
+      { label: "Water use", value: "Recirculating" },
+      { label: "Best for", value: "Lobbies, offices, tall installs" },
+      { label: "Wall depth", value: "4–6 in" },
+    ],
+    highlights: [
+      "Ultra-light felt matrix",
+      "Automated dosing + irrigation",
+      "Scales to any wall size",
+    ],
+  },
+];
+
+function SystemsShowcase() {
+  const [active, setActive] = useState(0);
+  const sys = SYSTEMS[active];
+  const next = SYSTEMS[(active + 1) % SYSTEMS.length];
+  return (
+    <div className="relative mx-auto max-w-7xl px-6 py-24 md:py-32">
+      <div className="mb-14 flex flex-col gap-10 md:flex-row md:items-end md:justify-between">
+        <div>
+          <p className="mb-3 text-xs font-semibold uppercase tracking-[0.3em] text-forest">
+            Our Systems
+          </p>
+          <WordsReveal
+            as="h2"
+            text="Two ways to grow a wall."
+            className="display-heading text-5xl leading-[1] text-charcoal md:text-7xl lg:text-[5.5rem]"
+          />
+          <p className="mt-6 max-w-xl text-charcoal/70 md:text-lg">
+            Every Vertical Oxygen wall is built on one of two engineered systems. Tap through to see how each works and where it fits best.
+          </p>
+        </div>
+
+        {/* Tab switcher with sliding pill */}
+        <div
+          role="tablist"
+          aria-label="Living wall systems"
+          className="relative inline-flex self-start rounded-full bg-charcoal/5 p-1.5 ring-1 ring-charcoal/10 backdrop-blur md:self-auto"
+        >
+          <div
+            className="absolute inset-y-1.5 left-1.5 w-[calc(50%-0.375rem)] rounded-full bg-charcoal shadow-lg transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]"
+            style={{ transform: `translateX(${active * 100}%)` }}
+            aria-hidden
+          />
+          {SYSTEMS.map((s, i) => (
+            <button
+              key={s.key}
+              type="button"
+              role="tab"
+              aria-selected={active === i}
+              onClick={() => setActive(i)}
+              className={`relative z-10 rounded-full px-6 py-2.5 text-xs font-semibold uppercase tracking-[0.25em] transition-colors duration-500 md:px-8 md:py-3 md:text-sm ${
+                active === i ? "text-cream" : "text-charcoal/60 hover:text-charcoal"
+              }`}
+            >
+              {s.title}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      <div key={sys.key} className="systems-swap grid gap-10 md:grid-cols-12 md:gap-14">
+        {/* Diagram plaque */}
+        <div className="md:col-span-7">
+          <div className="relative overflow-hidden rounded-3xl p-6 shadow-2xl ring-1 ring-charcoal/10 md:p-10">
+            <div
+              className="absolute inset-0 bg-cover bg-center"
+              style={{ backgroundImage: `url(${woodTexture.url})` }}
+              aria-hidden
+            />
+            <div className="absolute inset-0 bg-cream/90" aria-hidden />
+            <div className="relative flex items-center justify-center overflow-hidden rounded-2xl bg-white p-6 ring-1 ring-charcoal/10 md:p-10">
+              <img
+                src={sys.diagram}
+                alt={`${sys.title} living wall diagram`}
+                className="h-[26rem] w-auto object-contain md:h-[36rem]"
+                loading="lazy"
+              />
+            </div>
+            <div className="pointer-events-none absolute bottom-4 right-6 z-10 font-serif text-6xl italic text-charcoal/10 md:text-8xl">
+              0{active + 1}
+            </div>
+          </div>
+        </div>
+
+        {/* Details */}
+        <div className="md:col-span-5">
+          <p className="text-xs font-semibold uppercase tracking-[0.3em] text-forest">
+            {sys.tag}
+          </p>
+          <h3 className="mt-3 font-serif text-4xl italic text-charcoal md:text-5xl">
+            {sys.tagline}
+          </h3>
+          <p className="mt-5 text-charcoal/75 md:text-lg">{sys.description}</p>
+
+          <dl className="mt-8 grid grid-cols-2 gap-px overflow-hidden rounded-2xl bg-charcoal/10 ring-1 ring-charcoal/10">
+            {sys.stats.map((s) => (
+              <div key={s.label} className="bg-cream p-4 md:p-5">
+                <dt className="text-[10px] font-semibold uppercase tracking-[0.2em] text-charcoal/50">
+                  {s.label}
+                </dt>
+                <dd className="mt-1.5 font-serif text-xl text-charcoal md:text-2xl">
+                  {s.value}
+                </dd>
+              </div>
+            ))}
+          </dl>
+
+          <ul className="mt-8 space-y-3">
+            {sys.highlights.map((h) => (
+              <li key={h} className="flex items-start gap-3 text-charcoal/80">
+                <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-forest" />
+                <span>{h}</span>
+              </li>
+            ))}
+          </ul>
+
+          <div className="mt-10 flex flex-wrap gap-3">
+            <a
+              href="#quote"
+              className="group inline-flex items-center gap-2 rounded-full bg-forest-deep px-6 py-3 text-xs font-semibold uppercase tracking-[0.25em] text-cream shadow-lg transition hover:bg-forest-deep/90 md:text-sm"
+            >
+              Get a quote
+              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+            </a>
+            <button
+              type="button"
+              onClick={() => setActive((active + 1) % SYSTEMS.length)}
+              className="group inline-flex items-center gap-2 rounded-full border border-charcoal/25 px-6 py-3 text-xs font-semibold uppercase tracking-[0.25em] text-charcoal transition hover:bg-charcoal hover:text-cream md:text-sm"
+            >
+              See {next.title}
+              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export const Route = createFileRoute("/")({
   component: Index,
   head: () => ({
@@ -274,178 +445,15 @@ function Index() {
         }
       />
 
-      {/* Selected Work — deep forest gallery colour-matched to the hero */}
+      {/* Systems Showcase — replaces the old gallery with an interactive systems module */}
       <section id="work" className="relative z-20 -mt-[40vh] overflow-hidden rounded-t-[3rem] bg-cream text-charcoal shadow-[0_-40px_80px_-40px_rgba(0,0,0,0.45)]">
-        {/* Decorative floating "cutout" plants — soft-masked so they read as transparent */}
         <img
           src={cutoutCoaldale.url}
           alt=""
           aria-hidden
-          className="pointer-events-none absolute -top-16 -left-24 h-[420px] w-[560px] rotate-[-6deg] object-contain opacity-70 md:h-[560px] md:w-[760px]"
+          className="pointer-events-none absolute -top-16 -left-24 h-[420px] w-[560px] rotate-[-6deg] object-contain opacity-40 md:h-[560px] md:w-[760px]"
         />
-        <div className="mx-auto max-w-7xl px-6 py-24 md:py-36">
-          <div className="mb-20 grid gap-10 md:grid-cols-12 md:items-end">
-            <Reveal className="md:col-span-7">
-              <p className="mb-4 text-xs font-semibold uppercase tracking-[0.3em] text-terra-light">
-                Selected Work
-              </p>
-              <WordsReveal
-                as="h2"
-                text="Real walls. Real spaces."
-                className="display-heading text-5xl leading-[1] text-charcoal md:text-7xl lg:text-8xl"
-              />
-            </Reveal>
-            <Reveal delay={200} className="md:col-span-5">
-              <p className="text-charcoal/70 md:text-lg">
-                A glimpse into recent installations — from clinic receptions and
-                corporate lobbies to residential stairwells and outdoor courtyards.
-              </p>
-            </Reveal>
-          </div>
-
-          {/* Row 1 — two tall staggered portraits with parallax */}
-          <div className="relative grid gap-6 md:grid-cols-2 md:gap-10">
-            <Reveal variant="scale" className="md:mt-16">
-              <Parallax strength={80}>
-                <figure className="tilt-card overflow-hidden rounded-3xl bg-charcoal/50 shadow-2xl ring-1 ring-charcoal/10">
-                  <img
-                    src={glenoraLobby.url}
-                    alt="Five-column living wall behind a marble reception desk with hanging ferns"
-                    loading="lazy"
-                    className="aspect-[3/4] w-full object-cover"
-                  />
-                </figure>
-              </Parallax>
-            </Reveal>
-
-            <Reveal variant="scale" delay={200}>
-              <Parallax strength={30}>
-                <figure className="tilt-card overflow-hidden rounded-3xl bg-charcoal/50 shadow-2xl ring-1 ring-charcoal/10">
-                  <img
-                    src={coaldaleHall.url}
-                    alt="Large framed living wall lit by row of gooseneck lamps in a community hall"
-                    loading="lazy"
-                    className="aspect-[3/4] w-full object-cover"
-                  />
-                </figure>
-              </Parallax>
-            </Reveal>
-          </div>
-
-          {/* Row 2 — IFF feature */}
-          <div className="relative mt-24 md:mt-40">
-            <Reveal variant="scale">
-              <Parallax strength={50}>
-                <figure className="tilt-card mx-auto max-w-5xl overflow-hidden rounded-3xl bg-charcoal/50 shadow-2xl ring-1 ring-charcoal/10">
-                  <img
-                    src={iffWall.url}
-                    alt="Large office living wall in tonal greens against white paneling"
-                    loading="lazy"
-                    className="aspect-[4/3] w-full object-cover"
-                  />
-                  <figcaption className="flex items-end justify-between gap-4 bg-charcoal/60 p-6 backdrop-blur-sm">
-                    <Reveal variant="up" delay={250}>
-                      <p className="font-serif text-2xl italic text-cream">IFF Headquarters</p>
-                      <p className="text-xs uppercase tracking-widest text-cream/60">Corporate · Tonal greens</p>
-                    </Reveal>
-                    <Reveal variant="fade" delay={400}>
-                      <span className="text-xs text-cream/50">03</span>
-                    </Reveal>
-                  </figcaption>
-                </figure>
-              </Parallax>
-            </Reveal>
-          </div>
-
-          {/* Row 3 — two more recent installs */}
-          <div className="relative mt-24 grid gap-6 md:mt-40 md:grid-cols-2 md:gap-10">
-            <Reveal variant="scale">
-              <Parallax strength={60}>
-                <figure className="tilt-card overflow-hidden rounded-3xl bg-charcoal/50 shadow-2xl ring-1 ring-charcoal/10 md:mt-12">
-                  <img
-                    src={lushTropicalWall.url}
-                    alt="Dense tropical living wall with rubber plants, ferns and red anthuriums"
-                    loading="lazy"
-                    className="aspect-[4/3] w-full object-cover"
-                  />
-                </figure>
-              </Parallax>
-            </Reveal>
-            <Reveal variant="scale" delay={200}>
-              <Parallax strength={40}>
-                <figure className="tilt-card overflow-hidden rounded-3xl bg-charcoal/50 shadow-2xl ring-1 ring-charcoal/10">
-                  <img
-                    src={coaldaleFlowering.url}
-                    alt="Flowering living wall installation with anthuriums and cascading ferns"
-                    loading="lazy"
-                    className="aspect-[4/3] w-full object-cover"
-                  />
-                </figure>
-              </Parallax>
-            </Reveal>
-          </div>
-        </div>
-
-        {/* Continuous marquee — more work at a glance */}
-        <div className="relative border-y border-charcoal/10 bg-cream/80 py-10">
-          <div className="mb-6 flex items-center justify-between px-6 md:px-10">
-            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-terra-light">
-              More installations
-            </p>
-            <p className="hidden text-xs uppercase tracking-widest text-charcoal/50 md:block">
-              Hover to pause
-            </p>
-          </div>
-          <div className="group relative overflow-hidden">
-            <div className="marquee-track flex w-max gap-6 pl-6 md:gap-8 md:pl-10">
-              {[
-                { src: cafePlanter.url, label: "Corporate café" },
-                { src: mosaicBase.url, label: "Mosaic base detail" },
-                { src: saunaPothos.url, label: "Cedar sauna corner" },
-                { src: outdoorFrame.url, label: "Outdoor cedar frame" },
-                { src: tropicalDense.url, label: "Dense tropical" },
-                { src: lobbyPanels.url, label: "Hotel lobby panels" },
-                { src: edmontonLobby.url, label: "Edmonton lobby" },
-                { src: fairviewAquarium.url, label: "Fairview aquarium" },
-                { src: pothosCascade.url, label: "Pothos cascade" },
-                { src: succulentTapestry.url, label: "Succulent tapestry" },
-                { src: sedumBloom.url, label: "Sedum bloom" },
-                { src: fairviewInstall.url, label: "Fairview install" },
-                { src: spiderPothos.url, label: "Spider &amp; pothos" },
-              ]
-                .concat([
-                  { src: cafePlanter.url, label: "Corporate café" },
-                  { src: mosaicBase.url, label: "Mosaic base detail" },
-                  { src: saunaPothos.url, label: "Cedar sauna corner" },
-                  { src: outdoorFrame.url, label: "Outdoor cedar frame" },
-                  { src: tropicalDense.url, label: "Dense tropical" },
-                  { src: lobbyPanels.url, label: "Hotel lobby panels" },
-                  { src: edmontonLobby.url, label: "Edmonton lobby" },
-                  { src: fairviewAquarium.url, label: "Fairview aquarium" },
-                  { src: pothosCascade.url, label: "Pothos cascade" },
-                  { src: succulentTapestry.url, label: "Succulent tapestry" },
-                  { src: sedumBloom.url, label: "Sedum bloom" },
-                  { src: fairviewInstall.url, label: "Fairview install" },
-                  { src: spiderPothos.url, label: "Spider &amp; pothos" },
-                ])
-                .map((item, i) => (
-                  <figure
-                    key={i}
-                    className="tilt-card group/marq relative h-56 w-72 shrink-0 overflow-hidden rounded-2xl bg-cover bg-center shadow-md md:h-64 md:w-96"
-                    style={{ backgroundImage: `url(${item.src})` }}
-                    aria-label={item.label}
-                  >
-                    <span className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-charcoal/70 to-transparent p-4 text-xs uppercase tracking-widest text-cream opacity-0 transition-opacity duration-500 group-hover/marq:opacity-100">
-                      {item.label}
-                    </span>
-                  </figure>
-                ))}
-            </div>
-            {/* edge fades */}
-            <div className="pointer-events-none absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-cream to-transparent md:w-32" aria-hidden />
-            <div className="pointer-events-none absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-cream to-transparent md:w-32" aria-hidden />
-          </div>
-        </div>
+        <SystemsShowcase />
       </section>
 
       {/* Locations Map */}
@@ -619,62 +627,6 @@ function Index() {
 
       {/* CTA */}
       {/* Quote Form */}
-      {/* Types of Living Walls — diagrams */}
-      <section id="wall-types" className="relative overflow-hidden bg-cream text-charcoal">
-        <div className="mx-auto max-w-7xl px-6 py-20 md:py-28">
-          <Reveal>
-            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.3em] text-primary">
-              Types of Plant Walls
-            </p>
-            <WordsReveal
-              as="h2"
-              text="We work with two types of living walls."
-              className="display-heading max-w-3xl text-4xl leading-[1.02] text-charcoal md:text-5xl"
-            />
-            <p className="mt-6 max-w-2xl text-base leading-relaxed text-charcoal/70">
-              Each type of living wall has specific applications but is extremely versatile
-              and provides endless possibilities. We take the time to understand your
-              environment and build you a wall that will beautify and detoxify interior spaces.
-            </p>
-          </Reveal>
-
-          <div className="mt-14 grid gap-10 md:grid-cols-2">
-            {[
-              { title: "Aquaponic", src: diagramAquaponic.url, desc: "Plants and tilapia share one closed loop — fish waste feeds the wall, roots clean the water." },
-              { title: "Hydroponic", src: diagramHydroponic.url, desc: "Soilless growing on recycled moisture mats — lightweight, low-maintenance, self-watering." },
-            ].map((d, i) => (
-              <Reveal key={d.title} delay={i * 120} className="group relative flex flex-col overflow-hidden rounded-3xl p-8 shadow-md ring-1 ring-charcoal/10 transition-shadow hover:shadow-xl md:p-10">
-                <div
-                  className="absolute inset-0 bg-cover bg-center"
-                  style={{ backgroundImage: `url(${woodTexture.url})`, backgroundPositionX: `${i * 40}%` }}
-                  aria-hidden
-                />
-                <div className="absolute inset-0 bg-cream/88" aria-hidden />
-                <div className="relative flex items-center justify-center overflow-hidden rounded-2xl bg-white p-6 ring-1 ring-charcoal/10">
-                  <img
-                    src={d.src}
-                    alt={`${d.title} living wall diagram`}
-                    className="h-[28rem] w-auto object-contain transition-transform duration-500 group-hover:scale-105 md:h-[36rem]"
-                    loading="lazy"
-                  />
-                </div>
-                <h3 className="relative mt-8 font-serif text-3xl text-charcoal md:text-4xl">{d.title} Wall</h3>
-                <p className="relative mt-3 text-base leading-relaxed text-charcoal/75 md:text-lg">{d.desc}</p>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Wood shelf divider */}
-      <div className="relative h-6 w-full overflow-hidden md:h-8" aria-hidden>
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: `url(${woodTexture.url})` }}
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/40" />
-      </div>
-
       <section id="quote" className="relative overflow-hidden bg-cream text-charcoal">
         <img
           src={cutoutCoaldale.url}
