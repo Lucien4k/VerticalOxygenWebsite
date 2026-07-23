@@ -98,8 +98,19 @@ const SYSTEMS = [
 
 function SystemsShowcase() {
   const [active, setActive] = useState(0);
+  const [lightbox, setLightbox] = useState<{ src: string; title: string } | null>(null);
   const sys = SYSTEMS[active];
   const next = SYSTEMS[(active + 1) % SYSTEMS.length];
+
+  useEffect(() => {
+    if (!lightbox) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setLightbox(null);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [lightbox]);
+
   return (
     <div className="relative mx-auto max-w-7xl px-6 py-24 md:py-32">
       <div className="mb-14 flex flex-col gap-10 md:flex-row md:items-end md:justify-between">
@@ -148,7 +159,12 @@ function SystemsShowcase() {
       <div key={sys.key} className="systems-swap grid gap-10 md:grid-cols-12 md:gap-14">
         {/* Diagram plaque */}
         <div className="md:col-span-7">
-          <div className="relative overflow-hidden rounded-3xl p-3 ring-1 ring-charcoal/10 md:p-4">
+          <button
+            type="button"
+            onClick={() => setLightbox({ src: sys.diagram, title: `${sys.title} living wall diagram` })}
+            className="group relative block w-full overflow-hidden rounded-3xl p-3 text-left ring-1 ring-charcoal/10 transition-shadow hover:shadow-xl md:p-4"
+            aria-label={`Enlarge ${sys.title} diagram`}
+          >
             <div
               className="absolute inset-0 bg-cover bg-center"
               style={{ backgroundImage: `url(${woodTexture.url})` }}
@@ -159,11 +175,15 @@ function SystemsShowcase() {
               <img
                 src={sys.diagram}
                 alt={`${sys.title} living wall diagram`}
-                className="h-auto w-full object-contain md:max-h-[46rem]"
+                className="h-auto w-full object-contain transition-transform duration-700 group-hover:scale-[1.02] md:max-h-[46rem]"
                 loading="lazy"
               />
+              {/* Zoom hint */}
+              <span className="pointer-events-none absolute bottom-4 right-4 flex h-10 w-10 items-center justify-center rounded-full bg-charcoal/80 text-cream opacity-0 shadow-lg backdrop-blur transition-opacity duration-300 group-hover:opacity-100 md:h-12 md:w-12">
+                <ZoomIn className="h-5 w-5" aria-hidden />
+              </span>
             </div>
-          </div>
+          </button>
         </div>
 
         {/* Details */}
@@ -217,6 +237,32 @@ function SystemsShowcase() {
           </div>
         </div>
       </div>
+
+      {/* Lightbox */}
+      {lightbox && (
+        <div
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-charcoal/95 p-4 backdrop-blur-sm animate-in fade-in duration-200"
+          onClick={() => setLightbox(null)}
+          role="dialog"
+          aria-modal="true"
+          aria-label={lightbox.title}
+        >
+          <button
+            type="button"
+            onClick={() => setLightbox(null)}
+            className="absolute top-5 right-5 flex h-12 w-12 items-center justify-center rounded-full bg-cream/10 text-cream transition hover:bg-cream/20"
+            aria-label="Close"
+          >
+            <X className="h-6 w-6" aria-hidden />
+          </button>
+          <img
+            src={lightbox.src}
+            alt={lightbox.title}
+            className="max-h-[90vh] max-w-[90vw] rounded-2xl bg-white object-contain shadow-2xl"
+            onClick={(e) => e.stopPropagation()}
+          />
+        </div>
+      )}
     </div>
   );
 }
