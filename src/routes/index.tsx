@@ -109,7 +109,7 @@ function SystemsShowcase() {
           <WordsReveal
             as="h2"
             text="Two ways to grow a wall."
-            className="display-heading-hero text-5xl leading-[1] text-charcoal md:text-7xl lg:text-[5.5rem]"
+            className="display-heading text-5xl leading-[1] text-charcoal md:text-7xl lg:text-[5.5rem]"
           />
           <p className="mt-6 max-w-xl text-charcoal/70 md:text-lg">
             Every Vertical Oxygen wall is built on one of two engineered systems. Tap through to see how each works and where it fits best.
