@@ -51,6 +51,7 @@ import cutoutWallC from "../assets/cutouts/wall-c.png.asset.json";
 import diagramAquaponic from "../assets/diagrams/aquaponic-wall-diagram-v7.png.asset.json";
 import diagramHydroponic from "../assets/diagrams/hydroponic-wall-diagram-v5.png.asset.json";
 import woodTexture from "../assets/textures/wood-texture-v2.jpg.asset.json";
+import logoHeader from "../assets/logo-header.png.asset.json";
 
 const SYSTEMS = [
   {
