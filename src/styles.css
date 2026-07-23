@@ -343,7 +343,7 @@ html.lenis body {
   font-variation-settings: "opsz" 144, "SOFT" 100;
   & em, & i {
     font-style: italic;
-    color: var(--terra);
+    color: var(--forest);
   }
   & strong {
     font-weight: 500;

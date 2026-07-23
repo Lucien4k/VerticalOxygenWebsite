@@ -69,7 +69,7 @@ export function LocationsMap() {
                   key={geo.rsmKey}
                   geography={geo}
                   fill={geo.properties?.name === "Canada" ? "oklch(0.90 0.02 60)" : "oklch(0.92 0.015 40)"}
-                  stroke="oklch(0.983 0.033 34.7)"
+                  stroke="oklch(0.99 0.004 80)"
                   strokeWidth={0.5}
                   style={{
                     default: { outline: "none" },
@@ -98,7 +98,7 @@ export function LocationsMap() {
                 <circle
                   r={isActive ? r + 2 : r}
                   fill="oklch(0.482 0.065 129.0)"
-                  stroke="oklch(0.983 0.033 34.7)"
+                  stroke="oklch(0.99 0.004 80)"
                   strokeWidth={1.5}
                   style={{ transition: "r 0.2s ease" }}
                 />
