@@ -48,31 +48,11 @@ import cutoutCoaldale from "../assets/cutouts/coaldale-wall.png.asset.json";
 import cutoutWallA from "../assets/cutouts/wall-a.png.asset.json";
 import cutoutWallB from "../assets/cutouts/wall-b.png.asset.json";
 import cutoutWallC from "../assets/cutouts/wall-c.png.asset.json";
-import diagramAquaponic from "../assets/diagrams/aquaponic-wall-diagram-v4.jpg.asset.json";
-import diagramHydroponic from "../assets/diagrams/hydroponic-wall-diagram-v4.jpg.asset.json";
+import diagramAquaponic from "../assets/diagrams/aquaponic-wall-diagram-v7.png.asset.json";
+import diagramHydroponic from "../assets/diagrams/hydroponic-wall-diagram-v5.png.asset.json";
 import woodTexture from "../assets/textures/wood-texture-v2.jpg.asset.json";
 
 const SYSTEMS = [
-  {
-    key: "aquaponic",
-    title: "Aquaponic",
-    tag: "Closed-loop · Fish + plants",
-    diagram: diagramAquaponic.url,
-    tagline: "One ecosystem. Zero waste.",
-    description:
-      "Plants and tilapia share a single closed loop. Fish waste becomes nutrients, roots polish the water, and the system self-regulates with minimal input.",
-    stats: [
-      { label: "Water use", value: "~90% less" },
-      { label: "Fertilizer", value: "None added" },
-      { label: "Best for", value: "Feature walls, cafés, showrooms" },
-      { label: "Wall depth", value: "8–12 in" },
-    ],
-    highlights: [
-      "Live fish tank integrated at base",
-      "Fully soilless, gravel media beds",
-      "Continuous nutrient cycle",
-    ],
-  },
   {
     key: "hydroponic",
     title: "Hydroponic",
@@ -91,6 +71,26 @@ const SYSTEMS = [
       "Ultra-light felt matrix",
       "Automated dosing + irrigation",
       "Scales to any wall size",
+    ],
+  },
+  {
+    key: "aquaponic",
+    title: "Aquaponic",
+    tag: "Closed-loop · Fish + plants",
+    diagram: diagramAquaponic.url,
+    tagline: "One ecosystem. Zero waste.",
+    description:
+      "Plants and tilapia share a single closed loop. Fish waste becomes nutrients, roots polish the water, and the system self-regulates with minimal input.",
+    stats: [
+      { label: "Water use", value: "~90% less" },
+      { label: "Fertilizer", value: "None added" },
+      { label: "Best for", value: "Feature walls, cafés, showrooms" },
+      { label: "Wall depth", value: "8–12 in" },
+    ],
+    highlights: [
+      "Live fish tank integrated at base",
+      "Fully soilless, gravel media beds",
+      "Continuous nutrient cycle",
     ],
   },
 ];
@@ -161,9 +161,6 @@ function SystemsShowcase() {
                 className="h-[26rem] w-auto object-contain md:h-[36rem]"
                 loading="lazy"
               />
-            </div>
-            <div className="pointer-events-none absolute bottom-4 right-6 z-10 font-serif text-6xl italic text-charcoal/10 md:text-8xl">
-              0{active + 1}
             </div>
           </div>
         </div>
