@@ -285,9 +285,13 @@ function Index() {
             <div className="hidden overflow-hidden rounded-full bg-white/80 px-5 py-2 text-xs text-charcoal shadow-lg ring-1 ring-charcoal/10 backdrop-blur-md md:block">
               <div className="flex items-center justify-between gap-6">
                 <div className="flex items-center gap-6">
-                  <a href="tel:+15551234567" className="flex items-center gap-1.5 transition-opacity hover:opacity-80">
+                  <a href="tel:+16049971760" className="flex items-center gap-1.5 transition-opacity hover:opacity-80">
                     <Phone className="h-3.5 w-3.5" aria-hidden />
-                    <span>(555) 123-4567</span>
+                    <span>604-997-1760 <span className="text-charcoal/60">EN</span></span>
+                  </a>
+                  <a href="tel:+14038613732" className="flex items-center gap-1.5 transition-opacity hover:opacity-80">
+                    <Phone className="h-3.5 w-3.5" aria-hidden />
+                    <span>403-861-3732 <span className="text-charcoal/60">FR</span></span>
                   </a>
                   <a href="mailto:verticaloxygen@gmail.com" className="flex items-center gap-1.5 transition-opacity hover:opacity-80">
                     <Mail className="h-3.5 w-3.5" aria-hidden />
