@@ -425,7 +425,7 @@ function Index() {
         scrollLength={1.5}
         overlay={
           <div className="max-w-2xl">
-            <p className="text-shadow-hero mb-4 text-xs font-bold uppercase tracking-[0.3em] text-terra-light">
+            <p className="text-shadow-hero mb-4 text-xs font-bold uppercase tracking-[0.3em] text-white">
               Engineered in layers
             </p>
             <WordsReveal
