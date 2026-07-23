@@ -152,7 +152,7 @@ export function LocationsMap() {
                   onFocus={() => setActive(loc)}
                   className={`w-full rounded-md px-2 py-1.5 text-left transition-colors ${
                     active?.city === loc.city
-                      ? "bg-primary/10 text-primary font-semibold"
+                      ? "bg-forest/10 text-forest font-semibold"
                       : "text-muted-foreground hover:bg-background hover:text-foreground"
                   }`}
                 >
