@@ -13,6 +13,7 @@ type MenuItem = {
   label: string;
   href: string;
   items: SubItem[];
+  description?: string;
 };
 
 function isInternalHref(href: string) {
@@ -80,6 +81,22 @@ export function NavMenu({ menus }: { menus: MenuItem[] }) {
                     : "-translate-y-1 scale-[0.98] opacity-0"
                 }`}
               >
+                {menu.description && menu.items.length === 0 ? (
+                  <div className="p-4">
+                    <p className="font-serif text-lg leading-snug text-charcoal">
+                      {menu.label}
+                    </p>
+                    <p className="mt-2 text-sm leading-relaxed text-charcoal/70">
+                      {menu.description}
+                    </p>
+                    <NavLink
+                      href={menu.href}
+                      className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-forest-deep hover:underline"
+                    >
+                      Open page →
+                    </NavLink>
+                  </div>
+                ) : (
                 <div className="grid grid-cols-2 gap-1">
                   {menu.items.map((item) => (
                     <NavLink
@@ -111,6 +128,7 @@ export function NavMenu({ menus }: { menus: MenuItem[] }) {
                     </NavLink>
                   ))}
                 </div>
+                )}
               </div>
             </div>
           </div>
