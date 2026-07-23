@@ -343,23 +343,17 @@ function Index() {
                     },
                     {
                       label: "About",
-                      href: "#about",
-                      items: [
-                        { label: "Our Philosophy", description: "Beauty with simplicity", href: "#about" },
-                        { label: "Hydroponic Systems", description: "Soilless, self-watering", href: "#about" },
-                        { label: "Aquaponic Walls", description: "Fish and plants, one loop", href: "#about" },
-                        { label: "Custom Process", description: "Design to install", href: "#quote" },
-                      ],
+                      href: "/about",
+                      items: [],
+                      description:
+                        "Meet Nathalie Callede and Tim Suddaby — the woman-owned team behind Vertical Oxygen and every wall we've built.",
                     },
                     {
                       label: "Specifications",
                       href: "/specifications",
-                      items: [
-                        { label: "Specifications", description: "Technical data & systems", href: "/specifications" },
-                        { label: "Request a Spec Review", description: "Engineering review", href: "/specifications#spec-review" },
-                        { label: "CAD / BIM Files", description: "Downloads for architects", href: "/specifications" },
-                        { label: "CSI MasterFormat", description: "Classification reference", href: "/specifications" },
-                      ],
+                      items: [],
+                      description:
+                        "Technical datasheets, load and water specs, fire ratings, and CAD/BIM downloads for architects, engineers, and contractors.",
                     },
                   ]}
                 />
