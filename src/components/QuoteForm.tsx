@@ -97,7 +97,7 @@ export function QuoteForm() {
   };
 
   const inputCls =
-    "w-full rounded-md border border-border bg-background px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-colors";
+    "w-full rounded-md border border-sage/40 bg-white px-4 py-3 text-sm text-charcoal placeholder:text-charcoal/50 focus:border-forest focus:outline-none focus:ring-2 focus:ring-forest/20 transition-colors";
 
   return (
     <form onSubmit={handleSubmit} className="space-y-5">

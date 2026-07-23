@@ -633,7 +633,7 @@ function Index() {
 
       {/* CTA */}
       {/* Quote Form */}
-      <section id="quote" className="relative overflow-hidden bg-cream text-charcoal">
+      <section id="quote" className="relative overflow-hidden bg-sage-wash text-charcoal">
         <img
           src={cutoutCoaldale.url}
           alt=""
@@ -642,7 +642,7 @@ function Index() {
         />
         <div className="mx-auto grid max-w-7xl gap-12 px-6 py-20 md:py-28 lg:grid-cols-5 lg:gap-16">
           <Reveal className="lg:col-span-2">
-            <p className="mb-4 text-sm font-semibold uppercase tracking-widest text-terra-light">
+            <p className="mb-4 text-sm font-semibold uppercase tracking-widest text-forest">
               Request a Quote
             </p>
             <h2 className="display-heading text-4xl text-charcoal md:text-5xl lg:text-6xl">
@@ -654,20 +654,20 @@ function Index() {
             </p>
             <div className="mt-8 space-y-3 text-sm text-charcoal/75">
               <a href="tel:+16049971760" className="flex items-center gap-3 hover:text-charcoal">
-                <Phone className="h-4 w-4 text-terra-light" aria-hidden />
+                <Phone className="h-4 w-4 text-forest" aria-hidden />
                 604-997-1760 <span className="text-charcoal/50">— English</span>
               </a>
               <a href="tel:+14038613732" className="flex items-center gap-3 hover:text-charcoal">
-                <Phone className="h-4 w-4 text-terra-light" aria-hidden />
+                <Phone className="h-4 w-4 text-forest" aria-hidden />
                 403-861-3732 <span className="text-charcoal/50">— French</span>
               </a>
               <a href="mailto:verticaloxygen@gmail.com" className="flex items-center gap-3 hover:text-charcoal">
-                <Mail className="h-4 w-4 text-terra-light" aria-hidden />
+                <Mail className="h-4 w-4 text-forest" aria-hidden />
                 verticaloxygen@gmail.com
               </a>
             </div>
           </Reveal>
-          <Reveal delay={150} className="rounded-2xl bg-card p-6 md:p-10 lg:col-span-3">
+          <Reveal delay={150} className="rounded-2xl border border-sage/30 bg-white p-6 shadow-sm md:p-10 lg:col-span-3">
             <QuoteForm />
           </Reveal>
         </div>
