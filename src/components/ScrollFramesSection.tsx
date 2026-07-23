@@ -137,10 +137,10 @@ export function ScrollFramesSection({
         blurRef.current.style.opacity = String(t);
       }
       if (overlayRef.current) {
-        // Rise gently from the lower third, then hold readable until the end.
-        const r = Math.min(1, Math.max(0, p / 0.6));
+        // Start higher and settle in quickly so text is readable early.
+        const r = Math.min(1, Math.max(0, p / 0.25));
         const eased = 1 - Math.pow(1 - r, 3);
-        const ty = (1 - eased) * 24; // vh
+        const ty = (1 - eased) * 10; // vh
         overlayRef.current.style.transform = `translate3d(0, ${ty}vh, 0)`;
         // Fade out over the last ~10% of the scroll range.
         const fade = Math.min(1, Math.max(0, (p - 0.9) / 0.1));
@@ -188,8 +188,8 @@ export function ScrollFramesSection({
         {overlay ? (
           <div
             ref={overlayRef}
-            className="pointer-events-none absolute inset-0 z-10 flex items-center justify-center transition-opacity duration-700"
-            style={{ opacity: 1, transform: "translate3d(0, 24vh, 0)", willChange: "transform, opacity" }}
+            className="pointer-events-none absolute inset-0 z-10 flex items-start justify-center pt-[14vh] transition-opacity duration-700 md:pt-[12vh]"
+            style={{ opacity: 1, transform: "translate3d(0, 10vh, 0)", willChange: "transform, opacity" }}
           >
             <div className="pointer-events-auto mx-auto max-w-6xl px-6">{overlay}</div>
           </div>
