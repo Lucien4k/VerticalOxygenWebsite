@@ -428,6 +428,9 @@ function Index() {
         >
           <div className="max-w-2xl">
             <div className="reveal-fade is-visible">
+              <span className="text-shadow-hero mb-4 inline-flex items-center gap-2 rounded-full border border-cream/30 bg-cream/10 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.25em] text-cream backdrop-blur-sm">
+                Since 2011
+              </span>
               <p className="text-shadow-hero mb-4 text-xs font-bold uppercase tracking-[0.3em] text-cream">
                 Custom Living Walls
               </p>
