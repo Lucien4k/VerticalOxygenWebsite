@@ -36,14 +36,12 @@ import { FRAME_URLS } from "@/lib/frame-urls";
 import { ScrollFramesSection } from "@/components/ScrollFramesSection";
 import { HERO2_FRAME_URLS } from "@/lib/frame-urls-hero2";
 import { useState, useEffect, useRef } from "react";
-import westinVideo from "../assets/videos/westin_calgary.mp4.asset.json";
-import westinPoster from "../assets/videos/westin_calgary.jpg.asset.json";
-import mountRoyalVideo from "../assets/videos/mount_royal.mp4.asset.json";
-import mountRoyalPoster from "../assets/videos/mount_royal.jpg.asset.json";
-import masloVideo from "../assets/videos/maslo_home.mp4.asset.json";
-import masloPoster from "../assets/videos/maslo_home.jpg.asset.json";
-import coaldaleVideo from "../assets/videos/coaldale_alberta.mp4.asset.json";
-import coaldalePoster from "../assets/videos/coaldale_alberta.jpg.asset.json";
+import installGlenora from "../assets/installs/glenora-1.jpg.asset.json";
+import installCoaldale2 from "../assets/installs/coaldale-2-2.jpg.asset.json";
+import install5212 from "../assets/installs/img-5212.jpg.asset.json";
+import install5215 from "../assets/installs/img-5215.jpg.asset.json";
+import install5221 from "../assets/installs/img-5221.jpg.asset.json";
+import install0628 from "../assets/installs/img-0628.jpg.asset.json";
 import cutoutCoaldale from "../assets/cutouts/coaldale-wall.png.asset.json";
 import cutoutWallA from "../assets/cutouts/wall-a.png.asset.json";
 import cutoutWallB from "../assets/cutouts/wall-b.png.asset.json";
@@ -550,7 +548,7 @@ function Index() {
         </div>
       </section>
 
-      {/* Video Showcase — walls in motion */}
+      {/* Photo showcase — living, breathing installations */}
       {/* Wood shelf divider */}
       <div className="relative h-5 w-full overflow-hidden md:h-7" aria-hidden>
         <div
@@ -570,7 +568,7 @@ function Index() {
           <div className="mb-14 grid gap-10 md:grid-cols-12 md:items-end">
             <Reveal className="md:col-span-7">
               <p className="mb-4 text-xs font-semibold uppercase tracking-[0.3em] text-terra-light">
-                Walls in Motion
+                Recent Installations
               </p>
               <WordsReveal
                 as="h2"
@@ -580,38 +578,79 @@ function Index() {
             </Reveal>
             <Reveal delay={200} className="md:col-span-5">
               <p className="text-charcoal/75 md:text-lg">
-                A few of our walls, captured on site — light shifting across the
-                leaves, water quietly circulating, plants settling into their space.
+                A few of our walls, photographed on site — lobbies, offices and
+                community spaces where the planting has fully settled in.
               </p>
             </Reveal>
           </div>
 
-          <div className="grid gap-6 md:grid-cols-2 md:gap-8">
+          <div className="grid items-start gap-4 md:grid-cols-12 md:gap-5">
             {[
-              { video: westinVideo.url, poster: westinPoster.url, title: "Westin Calgary", caption: "Hotel lobby · Tropical cascade" },
-              { video: mountRoyalVideo.url, poster: mountRoyalPoster.url, title: "Mount Royal", caption: "University · Feature wall" },
-              { video: masloVideo.url, poster: masloPoster.url, title: "Maslo Residence", caption: "Private home · Custom install" },
-              { video: coaldaleVideo.url, poster: coaldalePoster.url, title: "Coaldale, Alberta", caption: "Community space · Outdoor" },
-            ].map((v, i) => (
-              <Reveal key={v.title} delay={i * 120}>
-                <figure className="tilt-card group relative overflow-hidden rounded-3xl bg-charcoal/40 shadow-2xl ring-1 ring-charcoal/10">
-                  <video
-                    className="aspect-video w-full object-cover transition-transform duration-700 group-hover:scale-105"
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
-                    preload="metadata"
-                    poster={v.poster}
-                  >
-                    <source src={v.video} type="video/mp4" />
-                  </video>
-                  <figcaption className="pointer-events-none absolute inset-x-0 bottom-0 flex items-end justify-between gap-4 bg-gradient-to-t from-charcoal/85 via-charcoal/40 to-transparent p-6">
-                    <div>
-                      <p className="font-serif text-xl text-cream md:text-2xl">{v.title}</p>
-                      <p className="text-xs uppercase tracking-widest text-cream/70">{v.caption}</p>
+              {
+                img: installGlenora.url,
+                title: "Glenora Lobby",
+                caption: "Edmonton, AB · Five-panel feature wall",
+                span: "md:col-span-8",
+                ratio: "aspect-[4/3]",
+              },
+              {
+                img: install5215.url,
+                title: "Atrium Column",
+                caption: "Calgary, AB · Double-sided hydroponic",
+                span: "md:col-span-4",
+                ratio: "aspect-[3/4]",
+              },
+              {
+                img: install5221.url,
+                title: "Reception Wall",
+                caption: "Corporate office · Mixed tropical palette",
+                span: "md:col-span-5",
+                ratio: "aspect-[4/3]",
+              },
+              {
+                img: installCoaldale2.url,
+                title: "Coaldale, Alberta",
+                caption: "Community hall · Full-height install",
+                span: "md:col-span-3",
+                ratio: "aspect-[3/4]",
+              },
+              {
+                img: install5212.url,
+                title: "Boardroom Divider",
+                caption: "Office interior · Free-standing panel",
+                span: "md:col-span-4",
+                ratio: "aspect-[4/3]",
+              },
+              {
+                img: install0628.url,
+                title: "Install Day",
+                caption: "On site · Hand-planted, panel by panel",
+                span: "md:col-span-12",
+                ratio: "aspect-[4/3] md:aspect-[21/9]",
+              },
+            ].map((p, i) => (
+              <Reveal key={p.title} delay={i * 90} className={p.span}>
+                <figure className={`group relative overflow-hidden rounded-[1.75rem] bg-charcoal/5 ring-1 ring-charcoal/10 ${p.ratio}`}>
+                  <img
+                    src={p.img}
+                    alt={`${p.title} — ${p.caption}`}
+                    loading="lazy"
+                    decoding="async"
+                    className="absolute inset-0 h-full w-full object-cover transition-transform duration-[1200ms] ease-out will-change-transform group-hover:scale-[1.06]"
+                  />
+                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-charcoal/80 via-charcoal/5 to-transparent opacity-70 transition-opacity duration-500 group-hover:opacity-95" />
+                  <figcaption className="pointer-events-none absolute inset-x-0 bottom-0 flex items-end justify-between gap-4 p-5 md:p-7">
+                    <div className="translate-y-1 transition-transform duration-500 group-hover:translate-y-0">
+                      <p className="font-serif text-lg text-cream md:text-2xl">
+                        {p.title}
+                      </p>
+                      <p className="mt-1 text-[0.65rem] uppercase tracking-[0.22em] text-cream/70 md:text-xs">
+                        {p.caption}
+                      </p>
                     </div>
-                    <span className="text-xs text-cream/60">{String(i + 1).padStart(2, "0")}</span>
+                    <span className="hidden font-mono text-[0.65rem] text-cream/50 md:block">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
                   </figcaption>
                 </figure>
               </Reveal>
