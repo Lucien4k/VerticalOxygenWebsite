@@ -630,13 +630,13 @@ function Index() {
               },
             ].map((p, i) => (
               <Reveal key={p.title} delay={i * 90} className={p.span}>
-                <figure className="group relative h-full overflow-hidden rounded-[1.75rem] bg-charcoal/5 ring-1 ring-charcoal/10">
+                <figure className={`group relative overflow-hidden rounded-[1.75rem] bg-charcoal/5 ring-1 ring-charcoal/10 ${p.ratio}`}>
                   <img
                     src={p.img}
                     alt={`${p.title} — ${p.caption}`}
                     loading="lazy"
                     decoding="async"
-                    className={`${p.ratio} w-full object-cover transition-transform duration-[1200ms] ease-out will-change-transform group-hover:scale-[1.06]`}
+                    className="absolute inset-0 h-full w-full object-cover transition-transform duration-[1200ms] ease-out will-change-transform group-hover:scale-[1.06]"
                   />
                   <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-charcoal/80 via-charcoal/5 to-transparent opacity-70 transition-opacity duration-500 group-hover:opacity-95" />
                   <figcaption className="pointer-events-none absolute inset-x-0 bottom-0 flex items-end justify-between gap-4 p-5 md:p-7">
