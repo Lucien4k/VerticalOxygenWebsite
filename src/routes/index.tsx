@@ -584,7 +584,7 @@ function Index() {
             </Reveal>
           </div>
 
-          <div className="grid auto-rows-[minmax(0,1fr)] gap-4 md:grid-cols-12 md:gap-5">
+          <div className="grid items-start gap-4 md:grid-cols-12 md:gap-5">
             {[
               {
                 img: installGlenora.url,
