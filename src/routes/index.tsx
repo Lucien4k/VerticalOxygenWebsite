@@ -621,13 +621,6 @@ function Index() {
                 span: "md:col-span-4",
                 ratio: "aspect-[4/3]",
               },
-              {
-                img: install0628.url,
-                title: "Install Day",
-                caption: "On site · Hand-planted, panel by panel",
-                span: "md:col-span-12",
-                ratio: "aspect-[4/3] md:aspect-[21/9]",
-              },
             ].map((p, i) => (
               <Reveal key={p.title} delay={i * 90} className={p.span}>
                 <figure className={`group relative overflow-hidden rounded-[1.75rem] bg-charcoal/5 ring-1 ring-charcoal/10 ${p.ratio}`}>
