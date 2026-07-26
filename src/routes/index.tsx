@@ -652,6 +652,68 @@ function Index() {
         </div>
       </section>
 
+      {/* Maintenance & Guarantee */}
+      <section id="maintenance" className="relative overflow-hidden bg-cream text-charcoal">
+        <div className="mx-auto max-w-7xl px-6 py-20 md:py-28">
+          <Reveal>
+            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.3em] text-forest">
+              Maintenance & Guarantee
+            </p>
+            <h2 className="display-heading max-w-3xl text-4xl leading-[1.05] text-charcoal md:text-6xl">
+              100% plant guarantee — <em>with maintenance.</em>
+            </h2>
+            <p className="mt-6 max-w-2xl text-base leading-relaxed text-charcoal/70">
+              A living wall is a living thing. Our maintenance program keeps every wall
+              thriving — and every wall on an active maintenance agreement is covered by
+              our 100% plant guarantee. If a plant fails, we replace it. No charge, no
+              questions. The guarantee is available exclusively with maintenance service.
+            </p>
+          </Reveal>
+
+          <div className="mt-14 grid gap-6 md:grid-cols-3">
+            {[
+              {
+                title: "100% Plant Guarantee",
+                body: "Any plant that declines or dies is replaced at no cost for the life of your maintenance agreement.",
+              },
+              {
+                title: "Scheduled Maintenance",
+                body: "Regular visits for pruning, feeding, pest management, irrigation checks, and system calibration.",
+              },
+              {
+                title: "Plant Warranty Terms",
+                body: "Coverage stays active as long as maintenance is current. Without a maintenance plan, the guarantee does not apply.",
+              },
+            ].map((c, i) => (
+              <Reveal key={c.title} delay={i * 0.08}>
+                <div className="h-full rounded-3xl border border-charcoal/10 bg-white p-8">
+                  <Leaf className="h-5 w-5 text-forest" />
+                  <h3 className="mt-5 text-xl font-semibold text-charcoal">{c.title}</h3>
+                  <p className="mt-3 text-sm leading-relaxed text-charcoal/65">{c.body}</p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+
+          <Reveal>
+            <div className="mt-10 flex flex-wrap items-center gap-4">
+              <a
+                href="#quote"
+                className="inline-flex items-center gap-2 rounded-full bg-forest-deep px-7 py-3 text-sm font-semibold text-cream transition hover:opacity-90"
+              >
+                Ask about maintenance <ArrowRight className="h-4 w-4" />
+              </a>
+              <Link
+                to="/specifications"
+                className="text-sm font-semibold uppercase tracking-[0.18em] text-forest underline underline-offset-4"
+              >
+                Full warranty terms
+              </Link>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
       {/* Philosophy / About */}
       {/* Wood shelf divider */}
       <div className="relative h-5 w-full overflow-hidden md:h-7" aria-hidden>
