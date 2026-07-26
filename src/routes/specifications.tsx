@@ -390,7 +390,69 @@ function SpecificationsPage() {
                 rows={[
                   ["Structural", "10 years — frame & panels"],
                   ["Irrigation", "5 years — pumps & controllers"],
-                  ["Plant Health", "1 year — with active maintenance contract"],
+                  ["Plant Health", "100% guarantee — active maintenance contract required"],
+                ]}
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Maintenance & plant guarantee */}
+      <section id="maintenance" className="border-b border-neutral-200">
+        <div className="mx-auto grid max-w-7xl grid-cols-1 gap-10 px-6 py-14 md:grid-cols-12">
+          <div className="md:col-span-4">
+            <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-neutral-500">§ 3</p>
+            <h2
+              className="mt-1 text-2xl tracking-tight text-neutral-900 md:text-3xl"
+              style={{ fontFamily: "'Fraunces', Georgia, serif", fontWeight: 400 }}
+            >
+              Maintenance & Plant Guarantee
+            </h2>
+            <p className="mt-4 font-mono text-[12px] leading-relaxed text-neutral-700">
+              All living wall installations require a scheduled maintenance agreement to
+              remain under plant warranty. The 100% plant guarantee is issued only in
+              conjunction with an active maintenance contract and lapses if service is
+              discontinued.
+            </p>
+          </div>
+          <div className="md:col-span-8">
+            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+              <SpecBlock
+                label="Plant Guarantee"
+                rows={[
+                  ["Coverage", "100% of installed plant material"],
+                  ["Replacement", "No cost — labour & material included"],
+                  ["Condition", "Active maintenance contract required"],
+                  ["Lapse", "Void 30 days after service discontinued"],
+                ]}
+              />
+              <SpecBlock
+                label="Maintenance Scope"
+                rows={[
+                  ["Pruning & grooming", "Every scheduled visit"],
+                  ["Nutrient dosing", "Reservoir feed adjustment"],
+                  ["Pest management", "Inspection & IPM treatment"],
+                  ["Irrigation service", "Pump, emitter & filter check"],
+                  ["Reporting", "Condition log issued per visit"],
+                ]}
+              />
+              <SpecBlock
+                label="Service Frequency"
+                rows={[
+                  ["Interior — standard", "Bi-weekly"],
+                  ["Interior — high visibility", "Weekly"],
+                  ["Exterior", "Monthly (seasonal)"],
+                  ["System audit", "Annual"],
+                ]}
+              />
+              <SpecBlock
+                label="Exclusions"
+                rows={[
+                  ["Owner intervention", "Unauthorized planting or dosing"],
+                  ["Building services", "Loss of water, power, or HVAC"],
+                  ["Lighting", "Levels below specified PPFD minimum"],
+                  ["Damage", "Vandalism, impact, or force majeure"],
                 ]}
               />
             </div>
@@ -402,7 +464,7 @@ function SpecificationsPage() {
       <section id="spec-review" className="border-b border-neutral-200">
         <div className="mx-auto grid max-w-7xl grid-cols-1 gap-10 px-6 py-14 md:grid-cols-12">
           <div className="md:col-span-4">
-            <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-neutral-500">§ 3</p>
+            <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-neutral-500">§ 4</p>
             <h2
               className="mt-1 text-2xl tracking-tight text-neutral-900 md:text-3xl"
               style={{ fontFamily: "'Fraunces', Georgia, serif", fontWeight: 400 }}
