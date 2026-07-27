@@ -167,6 +167,7 @@ function SpecificationsPage() {
           <div className="flex items-center gap-6">
             <span className="hidden md:inline">{t({ en: "Rev. 2026.07", fr: "Rév. 2026.07", zh: "修订版 2026.07" })}</span>
             <span>{t({ en: "Doc. VO-SPEC", fr: "Doc. VO-SPEC", zh: "文档 VO-SPEC" })}</span>
+            <LanguageSwitcher />
           </div>
         </div>
       </div>

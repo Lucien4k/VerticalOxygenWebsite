@@ -83,12 +83,15 @@ function AboutPage() {
               className="h-8 w-auto"
             />
           </Link>
-          <Link
-            to="/"
-            className="inline-flex items-center gap-1 text-sm font-medium text-charcoal/70 hover:text-forest-deep"
-          >
-            ← {t({ en: "Back home", fr: "Retour à l'accueil", zh: "返回首页" })}
-          </Link>
+          <div className="flex items-center gap-4">
+            <LanguageSwitcher />
+            <Link
+              to="/"
+              className="inline-flex items-center gap-1 text-sm font-medium text-charcoal/70 hover:text-forest-deep"
+            >
+              ← {t({ en: "Back home", fr: "Retour à l'accueil", zh: "返回首页" })}
+            </Link>
+          </div>
         </div>
       </header>
 
