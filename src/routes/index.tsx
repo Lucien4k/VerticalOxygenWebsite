@@ -184,6 +184,7 @@ const SYSTEMS: {
 ];
 
 function SystemsShowcase() {
+  const t = useT();
   const [active, setActive] = useState(0);
   const [lightbox, setLightbox] = useState<{ src: string; title: string } | null>(null);
   const sys = SYSTEMS[active];
@@ -203,22 +204,30 @@ function SystemsShowcase() {
       <div className="mb-14 flex flex-col gap-10 md:flex-row md:items-end md:justify-between">
         <div>
           <p className="mb-3 text-xs font-semibold uppercase tracking-[0.3em] text-forest">
-            Our Systems
+            {t({ en: "Our Systems", fr: "Nos systèmes", zh: "我们的系统" })}
           </p>
           <WordsReveal
             as="h2"
-            text="Two ways to grow a wall."
+            text={t({
+              en: "Two ways to grow a wall.",
+              fr: "Deux façons de faire pousser un mur.",
+              zh: "两种打造绿墙的方式。",
+            })}
             className="display-heading text-5xl leading-[1] text-charcoal md:text-7xl lg:text-[5.5rem]"
           />
           <p className="mt-6 max-w-xl text-charcoal/70 md:text-lg">
-            Every Vertical Oxygen wall is built on one of two engineered systems. Tap through to see how each works and where it fits best.
+            {t({
+              en: "Every Vertical Oxygen wall is built on one of two engineered systems. Tap through to see how each works and where it fits best.",
+              fr: "Chaque mur Vertical Oxygen repose sur l'un de nos deux systèmes d'ingénierie. Parcourez-les pour découvrir leur fonctionnement et leurs usages idéaux.",
+              zh: "每一面 Vertical Oxygen 绿墙都基于两套工程化系统之一。点击切换，了解各自的原理与适用场景。",
+            })}
           </p>
         </div>
 
         {/* Tab switcher with sliding pill */}
         <div
           role="tablist"
-          aria-label="Living wall systems"
+          aria-label={t({ en: "Living wall systems", fr: "Systèmes de murs végétaux", zh: "植物墙系统" })}
           className="relative inline-flex self-start rounded-full bg-charcoal/5 p-1.5 ring-1 ring-charcoal/10 backdrop-blur md:self-auto"
         >
           <div
@@ -237,7 +246,7 @@ function SystemsShowcase() {
                 active === i ? "text-cream" : "text-charcoal/60 hover:text-charcoal"
               }`}
             >
-              {s.title}
+              {t(s.title)}
             </button>
           ))}
         </div>
@@ -248,9 +257,14 @@ function SystemsShowcase() {
         <div className="md:col-span-7">
           <button
             type="button"
-            onClick={() => setLightbox({ src: sys.diagram, title: `${sys.title} living wall diagram` })}
+            onClick={() =>
+              setLightbox({
+                src: sys.diagram,
+                title: `${t(sys.title)} — ${t({ en: "living wall diagram", fr: "schéma de mur végétal", zh: "植物墙示意图" })}`,
+              })
+            }
             className="group relative block w-full overflow-hidden rounded-3xl p-3 text-left ring-1 ring-charcoal/10 transition-shadow hover:shadow-xl md:p-4"
-            aria-label={`Enlarge ${sys.title} diagram`}
+            aria-label={`${t({ en: "Enlarge", fr: "Agrandir", zh: "放大" })} — ${t(sys.title)}`}
           >
             <div
               className="absolute inset-0 bg-cover bg-center"
@@ -261,7 +275,7 @@ function SystemsShowcase() {
             <div className="relative overflow-hidden rounded-2xl bg-white">
               <img
                 src={sys.diagram}
-                alt={`${sys.title} living wall diagram`}
+                alt={`${t(sys.title)} — ${t({ en: "living wall diagram", fr: "schéma de mur végétal", zh: "植物墙示意图" })}`}
                 className="h-auto w-full object-contain transition-transform duration-700 group-hover:scale-[1.02] md:max-h-[46rem]"
                 loading="lazy"
               />
@@ -276,21 +290,21 @@ function SystemsShowcase() {
         {/* Details */}
         <div className="md:col-span-5">
           <p className="text-xs font-semibold uppercase tracking-[0.3em] text-forest">
-            {sys.tag}
+            {t(sys.tag)}
           </p>
           <h3 className="mt-3 font-serif text-4xl italic text-charcoal md:text-5xl">
-            {sys.tagline}
+            {t(sys.tagline)}
           </h3>
-          <p className="mt-5 text-charcoal/75 md:text-lg">{sys.description}</p>
+          <p className="mt-5 text-charcoal/75 md:text-lg">{t(sys.description)}</p>
 
           <dl className="mt-8 grid grid-cols-2 gap-px overflow-hidden rounded-2xl bg-charcoal/10 ring-1 ring-charcoal/10">
             {sys.stats.map((s) => (
-              <div key={s.label} className="bg-cream p-4 md:p-5">
+              <div key={s.label.en} className="bg-cream p-4 md:p-5">
                 <dt className="text-[10px] font-semibold uppercase tracking-[0.2em] text-charcoal/50">
-                  {s.label}
+                  {t(s.label)}
                 </dt>
                 <dd className="mt-1.5 font-serif text-xl text-charcoal md:text-2xl">
-                  {s.value}
+                  {t(s.value)}
                 </dd>
               </div>
             ))}
@@ -298,9 +312,9 @@ function SystemsShowcase() {
 
           <ul className="mt-8 space-y-3">
             {sys.highlights.map((h) => (
-              <li key={h} className="flex items-start gap-3 text-charcoal/80">
+              <li key={h.en} className="flex items-start gap-3 text-charcoal/80">
                 <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-forest" />
-                <span>{h}</span>
+                <span>{t(h)}</span>
               </li>
             ))}
           </ul>
@@ -310,7 +324,7 @@ function SystemsShowcase() {
               href="#quote"
               className="group inline-flex items-center gap-2 rounded-full bg-forest-deep px-6 py-3 text-xs font-semibold uppercase tracking-[0.25em] text-cream shadow-lg transition hover:bg-forest-deep/90 md:text-sm"
             >
-              Get a quote
+              {t({ en: "Get a quote", fr: "Demander un devis", zh: "获取报价" })}
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </a>
             <button
@@ -318,7 +332,7 @@ function SystemsShowcase() {
               onClick={() => setActive((active + 1) % SYSTEMS.length)}
               className="group inline-flex items-center gap-2 rounded-full border border-charcoal/25 px-6 py-3 text-xs font-semibold uppercase tracking-[0.25em] text-charcoal transition hover:bg-charcoal hover:text-cream md:text-sm"
             >
-              See {next.title}
+              {t({ en: "See", fr: "Voir", zh: "查看" })} {t(next.title)}
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </button>
           </div>
@@ -338,7 +352,7 @@ function SystemsShowcase() {
             type="button"
             onClick={() => setLightbox(null)}
             className="absolute top-5 right-5 flex h-12 w-12 items-center justify-center rounded-full bg-cream/10 text-cream transition hover:bg-cream/20"
-            aria-label="Close"
+            aria-label={t({ en: "Close", fr: "Fermer", zh: "关闭" })}
           >
             <X className="h-6 w-6" aria-hidden />
           </button>
