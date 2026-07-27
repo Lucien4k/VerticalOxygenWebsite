@@ -1061,7 +1061,11 @@ function Index() {
               <Parallax strength={90}>
                 <img
                   src={spiderPothos.url}
-                  alt="Spider plant and pothos texture close-up"
+                  alt={t({
+                    en: "Spider plant and pothos texture close-up",
+                    fr: "Gros plan sur la texture d'une plante araignée et d'un pothos",
+                    zh: "吊兰与绿萝纹理特写",
+                  })}
                   className="aspect-[4/5] h-full w-full object-cover"
                   loading="lazy"
                 />
@@ -1069,23 +1073,31 @@ function Index() {
             </Reveal>
             <Reveal>
               <p className="mb-3 text-xs font-semibold uppercase tracking-[0.3em] text-primary">
-                Our Philosophy
+                {t({ en: "Our Philosophy", fr: "Notre philosophie", zh: "我们的理念" })}
               </p>
               <WordsReveal
                 as="h2"
-                text="Beauty with simplicity."
+                text={t({
+                  en: "Beauty with simplicity.",
+                  fr: "La beauté dans la simplicité.",
+                  zh: "以简约成就美感。",
+                })}
                 className="display-heading text-4xl leading-[1.02] text-foreground md:text-6xl"
               />
               <div className="mt-8 space-y-5 text-base leading-relaxed text-muted-foreground">
                 <p>
-                  Living walls couple beauty with simplicity to create healthy,
-                  living works of art. They are composed of a variety of tropical
-                  plants that are grown hydroponically or soil based.
+                  {t({
+                    en: "Living walls couple beauty with simplicity to create healthy, living works of art. They are composed of a variety of tropical plants that are grown hydroponically or soil based.",
+                    fr: "Les murs végétaux allient beauté et simplicité pour créer des œuvres d'art vivantes et saines. Ils réunissent une variété de plantes tropicales cultivées en hydroponie ou en substrat.",
+                    zh: "植物墙将美感与简约融为一体，成为健康而有生命力的艺术作品。它们由多种热带植物组成，采用水培或基质栽培。",
+                  })}
                 </p>
                 <p>
-                  Each living wall is custom made to satisfy our clients' dreams.
-                  We believe that bringing nature indoors should feel effortless —
-                  a seamless extension of your space and your vision.
+                  {t({
+                    en: "Each living wall is custom made to satisfy our clients' dreams. We believe that bringing nature indoors should feel effortless — a seamless extension of your space and your vision.",
+                    fr: "Chaque mur végétal est réalisé sur mesure pour concrétiser les rêves de nos clients. Nous croyons que faire entrer la nature à l'intérieur doit être sans effort — un prolongement naturel de votre espace et de votre vision.",
+                    zh: "每一面植物墙都为客户的梦想量身定制。我们相信，把自然引入室内应当毫不费力——成为空间与愿景的自然延伸。",
+                  })}
                 </p>
               </div>
             </Reveal>
