@@ -36,6 +36,8 @@ import { FRAME_URLS } from "@/lib/frame-urls";
 import { ScrollFramesSection } from "@/components/ScrollFramesSection";
 import { HERO2_FRAME_URLS } from "@/lib/frame-urls-hero2";
 import { useState, useEffect, useRef } from "react";
+import { useT, type Tr } from "@/lib/i18n";
+import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import installGlenora from "../assets/installs/glenora-1.jpg.asset.json";
 import installCoaldale2 from "../assets/installs/coaldale-2-2.jpg.asset.json";
 import install5212 from "../assets/installs/img-5212.jpg.asset.json";
@@ -51,45 +53,132 @@ import diagramHydroponic from "../assets/diagrams/hydroponic-wall-diagram-v5.png
 import woodTexture from "../assets/textures/wood-texture-v2.jpg.asset.json";
 import logoHeader from "../assets/logo-header.png.asset.json";
 
-const SYSTEMS = [
+const SYSTEMS: {
+  key: string;
+  title: Tr;
+  tag: Tr;
+  diagram: string;
+  tagline: Tr;
+  description: Tr;
+  stats: { label: Tr; value: Tr }[];
+  highlights: Tr[];
+}[] = [
   {
     key: "hydroponic",
-    title: "Hydroponic",
-    tag: "Soilless · Recirculating",
+    title: { en: "Hydroponic", fr: "Hydroponique", zh: "水培系统" },
+    tag: {
+      en: "Soilless · Recirculating",
+      fr: "Sans terre · Circuit fermé",
+      zh: "无土栽培 · 循环供水",
+    },
     diagram: diagramHydroponic.url,
-    tagline: "Lightweight. Precise. Effortless.",
-    description:
-      "Recirculating water and dosed nutrients feed a felt matrix — soilless, low-weight, and simple to maintain across large-format installations.",
+    tagline: {
+      en: "Lightweight. Precise. Effortless.",
+      fr: "Léger. Précis. Sans effort.",
+      zh: "轻盈、精准、省心。",
+    },
+    description: {
+      en: "Recirculating water and dosed nutrients feed a felt matrix — soilless, low-weight, and simple to maintain across large-format installations.",
+      fr: "L'eau recirculée et les nutriments dosés alimentent une matrice de feutre — sans terre, très légère et simple à entretenir, même sur de très grandes installations.",
+      zh: "循环水与精准配比的营养液滋养毛毡基质——无需土壤、重量极轻，即便是大幅面墙体也易于维护。",
+    },
     stats: [
-      { label: "Wall weight", value: "≈ 8 lb/ft²" },
-      { label: "Water use", value: "Recirculating" },
-      { label: "Best for", value: "Lobbies, offices, tall installs" },
-      { label: "Wall depth", value: "4–6 in" },
+      {
+        label: { en: "Wall weight", fr: "Poids du mur", zh: "墙体重量" },
+        value: { en: "≈ 8 lb/ft²" },
+      },
+      {
+        label: { en: "Water use", fr: "Consommation d'eau", zh: "用水方式" },
+        value: { en: "Recirculating", fr: "Circuit fermé", zh: "循环利用" },
+      },
+      {
+        label: { en: "Best for", fr: "Idéal pour", zh: "适用场景" },
+        value: {
+          en: "Lobbies, offices, tall installs",
+          fr: "Halls, bureaux, murs de grande hauteur",
+          zh: "大堂、办公空间、超高墙面",
+        },
+      },
+      {
+        label: { en: "Wall depth", fr: "Profondeur du mur", zh: "墙体厚度" },
+        value: { en: "4–6 in", fr: "10–15 cm", zh: "10–15 厘米" },
+      },
     ],
     highlights: [
-      "Ultra-light felt matrix",
-      "Automated dosing + irrigation",
-      "Scales to any wall size",
+      {
+        en: "Ultra-light felt matrix",
+        fr: "Matrice de feutre ultralégère",
+        zh: "超轻毛毡基质",
+      },
+      {
+        en: "Automated dosing + irrigation",
+        fr: "Dosage et irrigation automatisés",
+        zh: "自动配肥与灌溉",
+      },
+      {
+        en: "Scales to any wall size",
+        fr: "S'adapte à toutes les dimensions",
+        zh: "可适配任意墙面尺寸",
+      },
     ],
   },
   {
     key: "aquaponic",
-    title: "Aquaponic",
-    tag: "Closed-loop · Fish + plants",
+    title: { en: "Aquaponic", fr: "Aquaponique", zh: "鱼菜共生系统" },
+    tag: {
+      en: "Closed-loop · Fish + plants",
+      fr: "Circuit fermé · Poissons et plantes",
+      zh: "闭环生态 · 鱼与植物共生",
+    },
     diagram: diagramAquaponic.url,
-    tagline: "One ecosystem. Zero waste.",
-    description:
-      "Plants and tilapia share a single closed loop. Fish waste becomes nutrients, roots polish the water, and the system self-regulates with minimal input.",
+    tagline: {
+      en: "One ecosystem. Zero waste.",
+      fr: "Un écosystème. Zéro déchet.",
+      zh: "一个生态系统，零浪费。",
+    },
+    description: {
+      en: "Plants and tilapia share a single closed loop. Fish waste becomes nutrients, roots polish the water, and the system self-regulates with minimal input.",
+      fr: "Les plantes et les tilapias partagent un même circuit fermé. Les déjections des poissons deviennent des nutriments, les racines purifient l'eau et le système s'autorégule avec très peu d'intervention.",
+      zh: "植物与罗非鱼共享同一闭环：鱼类排泄物转化为养分，根系净化水质，系统几乎无需人工干预即可自我调节。",
+    },
     stats: [
-      { label: "Water use", value: "~90% less" },
-      { label: "Fertilizer", value: "None added" },
-      { label: "Best for", value: "Feature walls, cafés, showrooms" },
-      { label: "Wall depth", value: "8–12 in" },
+      {
+        label: { en: "Water use", fr: "Consommation d'eau", zh: "用水量" },
+        value: { en: "~90% less", fr: "~90 % de moins", zh: "减少约 90%" },
+      },
+      {
+        label: { en: "Fertilizer", fr: "Engrais", zh: "肥料" },
+        value: { en: "None added", fr: "Aucun ajout", zh: "无需额外添加" },
+      },
+      {
+        label: { en: "Best for", fr: "Idéal pour", zh: "适用场景" },
+        value: {
+          en: "Feature walls, cafés, showrooms",
+          fr: "Murs signatures, cafés, salles d'exposition",
+          zh: "主题墙、咖啡馆、展厅",
+        },
+      },
+      {
+        label: { en: "Wall depth", fr: "Profondeur du mur", zh: "墙体厚度" },
+        value: { en: "8–12 in", fr: "20–30 cm", zh: "20–30 厘米" },
+      },
     ],
     highlights: [
-      "Live fish tank integrated at base",
-      "Fully soilless, gravel media beds",
-      "Continuous nutrient cycle",
+      {
+        en: "Live fish tank integrated at base",
+        fr: "Aquarium vivant intégré à la base",
+        zh: "底部集成活体鱼缸",
+      },
+      {
+        en: "Fully soilless, gravel media beds",
+        fr: "Entièrement sans terre, lits de gravier",
+        zh: "完全无土，砾石基质床",
+      },
+      {
+        en: "Continuous nutrient cycle",
+        fr: "Cycle nutritif continu",
+        zh: "持续循环的养分体系",
+      },
     ],
   },
 ];
