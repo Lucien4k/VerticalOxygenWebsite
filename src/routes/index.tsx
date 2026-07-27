@@ -383,6 +383,7 @@ export const Route = createFileRoute("/")({
 });
 
 function Index() {
+  const t = useT();
   const [heroDone, setHeroDone] = useState(false);
   const [installShot, setInstallShot] = useState<
     { img: string; title: string; caption: string } | null
