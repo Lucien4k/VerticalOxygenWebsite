@@ -281,6 +281,17 @@ export const Route = createFileRoute("/")({
 
 function Index() {
   const [heroDone, setHeroDone] = useState(false);
+  const [installShot, setInstallShot] = useState<
+    { img: string; title: string; caption: string } | null
+  >(null);
+  useEffect(() => {
+    if (!installShot) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setInstallShot(null);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [installShot]);
   const blurLayerRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
     let raf = 0;
@@ -641,7 +652,19 @@ function Index() {
               },
             ].map((p, i) => (
               <Reveal key={p.title} delay={i * 90} className={p.span}>
-                <figure className={`group relative overflow-hidden rounded-[1.75rem] bg-charcoal/5 ring-1 ring-charcoal/10 ${p.ratio}`}>
+                <figure
+                  role="button"
+                  tabIndex={0}
+                  onClick={() => setInstallShot(p)}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter" || e.key === " ") {
+                      e.preventDefault();
+                      setInstallShot(p);
+                    }
+                  }}
+                  aria-label={`View larger photo: ${p.title}`}
+                  className={`group relative cursor-zoom-in overflow-hidden rounded-[1.75rem] bg-charcoal/5 ring-1 ring-charcoal/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-forest-deep ${p.ratio}`}
+                >
                   <img
                     src={p.img}
                     alt={`${p.title} — ${p.caption}`}
@@ -668,6 +691,43 @@ function Index() {
             ))}
           </div>
         </div>
+
+        {installShot && (
+          <div
+            className="fixed inset-0 z-[120] flex items-center justify-center bg-charcoal/90 p-4 backdrop-blur-sm md:p-10"
+            onClick={() => setInstallShot(null)}
+            role="dialog"
+            aria-modal="true"
+            aria-label={installShot.title}
+          >
+            <button
+              type="button"
+              onClick={() => setInstallShot(null)}
+              aria-label="Close"
+              className="absolute right-5 top-5 rounded-full bg-cream/10 px-4 py-2 text-sm font-medium text-cream ring-1 ring-cream/25 transition-colors hover:bg-cream/20"
+            >
+              Close ✕
+            </button>
+            <figure
+              className="max-h-full w-full max-w-5xl"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <img
+                src={installShot.img}
+                alt={`${installShot.title} — ${installShot.caption}`}
+                className="mx-auto max-h-[80vh] w-auto max-w-full rounded-2xl object-contain shadow-2xl"
+              />
+              <figcaption className="mt-4 text-center">
+                <p className="font-serif text-xl text-cream md:text-2xl">
+                  {installShot.title}
+                </p>
+                <p className="mt-1 text-[0.7rem] uppercase tracking-[0.22em] text-cream/60">
+                  {installShot.caption}
+                </p>
+              </figcaption>
+            </figure>
+          </div>
+        )}
       </section>
 
       {/* Maintenance & Guarantee */}

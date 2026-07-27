@@ -1,6 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, Leaf, Sprout, Instagram } from "lucide-react";
 import logoHeader from "../assets/logo-header.png.asset.json";
+import nathaliePhoto from "../assets/team/nathalie.jpg.asset.json";
+import timPhoto from "../assets/team/tim.jpg.asset.json";
 
 function TikTokIcon({ className }: { className?: string }) {
   return (
@@ -79,6 +81,12 @@ function AboutPage() {
       <section className="mx-auto grid max-w-5xl gap-10 px-6 pb-24 md:grid-cols-2">
         {/* Nathalie */}
         <article className="rounded-3xl bg-white p-8 shadow-sm ring-1 ring-charcoal/10">
+          <img
+            src={nathaliePhoto.url}
+            alt="Nathalie Callede, founder and principal of Vertical Oxygen"
+            loading="lazy"
+            className="mb-6 aspect-[4/5] w-full rounded-2xl object-cover object-center ring-1 ring-charcoal/10"
+          />
           <div className="flex items-center gap-3">
             <span className="flex h-10 w-10 items-center justify-center rounded-full bg-forest-deep/10 text-forest-deep">
               <Leaf className="h-5 w-5" aria-hidden />
@@ -109,6 +117,12 @@ function AboutPage() {
 
         {/* Tim */}
         <article className="rounded-3xl bg-white p-8 shadow-sm ring-1 ring-charcoal/10">
+          <img
+            src={timPhoto.url}
+            alt="Tim Suddaby, chief designer and construction manager at Vertical Oxygen"
+            loading="lazy"
+            className="mb-6 aspect-[4/5] w-full rounded-2xl object-cover object-center ring-1 ring-charcoal/10"
+          />
           <div className="flex items-center gap-3">
             <span className="flex h-10 w-10 items-center justify-center rounded-full bg-forest-deep/10 text-forest-deep">
               <Leaf className="h-5 w-5" aria-hidden />
