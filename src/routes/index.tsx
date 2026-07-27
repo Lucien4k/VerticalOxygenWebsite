@@ -920,10 +920,10 @@ function Index() {
             <button
               type="button"
               onClick={() => setInstallShot(null)}
-              aria-label="Close"
+              aria-label={t({ en: "Close", fr: "Fermer", zh: "关闭" })}
               className="absolute right-5 top-5 rounded-full bg-cream/10 px-4 py-2 text-sm font-medium text-cream ring-1 ring-cream/25 transition-colors hover:bg-cream/20"
             >
-              Close ✕
+              {t({ en: "Close", fr: "Fermer", zh: "关闭" })} ✕
             </button>
             <figure
               className="max-h-full w-full max-w-5xl"
