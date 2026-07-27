@@ -373,20 +373,20 @@ function Index() {
                       label: "Work",
                       href: "#work",
                       items: [
-                        { label: "Hotel Lobbies", description: "Grand statement walls", href: "#work", image: lobbyPanels.url },
-                        { label: "Corporate Offices", description: "Calm, focused spaces", href: "#work", image: iffWall.url },
-                        { label: "Healthcare", description: "Healing environments", href: "#work", image: higherHealth.url },
-                        { label: "Outdoor Installs", description: "All-season plantings", href: "#work", image: outdoorFrame.url },
+                        { label: "Our Systems", description: "Hydroponic & aquaponic walls", href: "#work", image: iffWall.url },
+                        { label: "Recent Installations", description: "Photos from real projects", href: "#motion", image: lobbyPanels.url },
+                        { label: "Maintenance & Guarantee", description: "100% plant guarantee with service", href: "#maintenance", image: higherHealth.url },
+                        { label: "Specifications", description: "Loads, water, fire ratings", href: "/specifications", image: outdoorFrame.url },
                       ],
                     },
                     {
                       label: "Locations",
                       href: "#locations",
                       items: [
-                        { label: "Western Canada", description: "Vancouver · Calgary · Edmonton", href: "#locations", image: fullCircleCalgary.url },
-                        { label: "Central Canada", description: "Toronto · Hamilton · Kingston", href: "#locations", image: tallJungleWall.url },
+                        { label: "West Coast", description: "Vancouver · Victoria · Kelowna", href: "#locations", image: fullCircleCalgary.url },
+                        { label: "Prairies & North", description: "Calgary · Edmonton · Yellowknife", href: "#locations", image: curvedTropical.url },
+                        { label: "Ontario & Manitoba", description: "Toronto · Hamilton · Winnipeg", href: "#locations", image: tallJungleWall.url },
                         { label: "Atlantic Canada", description: "Halifax · Moncton · St. John's", href: "#locations", image: saunaPothos.url },
-                        { label: "View Map", description: "Every install across Canada", href: "#locations", image: curvedTropical.url },
                       ],
                     },
                     {
