@@ -736,16 +736,23 @@ function Index() {
           <Reveal>
             <div className="mb-14 max-w-2xl">
               <p className="mb-3 text-xs font-semibold uppercase tracking-[0.3em] text-forest">
-                Where We Grow
+                {t({ en: "Where We Grow", fr: "Où nous cultivons", zh: "我们的足迹" })}
               </p>
               <WordsReveal
                 as="h2"
-                text="Living walls, coast to coast."
+                text={t({
+                  en: "Living walls, coast to coast.",
+                  fr: "Des murs végétaux, d'un océan à l'autre.",
+                  zh: "植物墙，横贯东西两岸。",
+                })}
                 className="display-heading text-4xl leading-[1.05] text-charcoal md:text-6xl"
               />
               <p className="mt-4 text-charcoal/70">
-                Hover any pin to see the installation — from Vancouver lofts to
-                Halifax lobbies, Yellowknife to St. John's.
+                {t({
+                  en: "Hover any pin to see the installation — from Vancouver lofts to Halifax lobbies, Yellowknife to St. John's.",
+                  fr: "Survolez un repère pour découvrir l'installation — des lofts de Vancouver aux halls d'Halifax, de Yellowknife à St. John's.",
+                  zh: "将鼠标悬停在任意标记上即可查看项目——从温哥华的公寓到哈利法克斯的大堂，从黄刀镇到圣约翰斯。",
+                })}
               </p>
             </div>
           </Reveal>
