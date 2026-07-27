@@ -1117,23 +1117,37 @@ function Index() {
         <div className="mx-auto grid max-w-7xl gap-12 px-6 py-20 md:py-28 lg:grid-cols-5 lg:gap-16">
           <Reveal className="lg:col-span-2">
             <p className="mb-4 text-sm font-semibold uppercase tracking-widest text-forest">
-              Request a Quote
+              {t({ en: "Request a Quote", fr: "Demander un devis", zh: "索取报价" })}
             </p>
             <h2 className="display-heading text-4xl text-charcoal md:text-5xl lg:text-6xl">
-              Ready to bring your wall to <em>life?</em>
+              {t({
+                en: "Ready to bring your wall to",
+                fr: "Prêt à donner",
+                zh: "准备好让您的墙面",
+              })}{" "}
+              <em>{t({ en: "life?", fr: "vie à votre mur ?", zh: "焕发生机了吗？" })}</em>
             </h2>
             <p className="mt-6 text-charcoal/75">
-              Tell us about your space and share a few photos if you have them. 
-              We'll get back to you within 1–2 business days with a tailored proposal.
+              {t({
+                en: "Tell us about your space and share a few photos if you have them. We'll get back to you within 1–2 business days with a tailored proposal.",
+                fr: "Parlez-nous de votre espace et joignez quelques photos si vous en avez. Nous vous répondrons sous 1 à 2 jours ouvrables avec une proposition sur mesure.",
+                zh: "告诉我们您的空间情况，如有照片也欢迎一并提供。我们将在 1–2 个工作日内回复您的专属方案。",
+              })}
             </p>
             <div className="mt-8 space-y-3 text-sm text-charcoal/75">
               <a href="tel:+16049971760" className="flex items-center gap-3 hover:text-charcoal">
                 <Phone className="h-4 w-4 text-forest" aria-hidden />
-                604-997-1760 <span className="text-charcoal/50">— English</span>
+                604-997-1760{" "}
+                <span className="text-charcoal/50">
+                  — {t({ en: "English", fr: "anglais", zh: "英语" })}
+                </span>
               </a>
               <a href="tel:+14038613732" className="flex items-center gap-3 hover:text-charcoal">
                 <Phone className="h-4 w-4 text-forest" aria-hidden />
-                403-861-3732 <span className="text-charcoal/50">— French</span>
+                403-861-3732{" "}
+                <span className="text-charcoal/50">
+                  — {t({ en: "French", fr: "français", zh: "法语" })}
+                </span>
               </a>
               <a href="mailto:verticaloxygen@gmail.com" className="flex items-center gap-3 hover:text-charcoal">
                 <Mail className="h-4 w-4 text-forest" aria-hidden />
@@ -1165,7 +1179,7 @@ function Index() {
               />
             </a>
             <p className="text-sm text-cream/60">
-              Custom living walls.
+              {t({ en: "Custom living walls.", fr: "Murs végétaux sur mesure.", zh: "定制植物墙。" })}
             </p>
             <div className="flex items-center gap-3">
               <a
