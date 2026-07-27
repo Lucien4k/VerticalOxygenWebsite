@@ -782,18 +782,25 @@ function Index() {
           <div className="mb-14 grid gap-10 md:grid-cols-12 md:items-end">
             <Reveal className="md:col-span-7">
               <p className="mb-4 text-xs font-semibold uppercase tracking-[0.3em] text-terra-light">
-                Recent Installations
+                {t({ en: "Recent Installations", fr: "Réalisations récentes", zh: "近期案例" })}
               </p>
               <WordsReveal
                 as="h2"
-                text="Living, breathing installations."
+                text={t({
+                  en: "Living, breathing installations.",
+                  fr: "Des installations vivantes qui respirent.",
+                  zh: "会呼吸的生命装置。",
+                })}
                 className="display-heading text-4xl leading-[1.02] text-charcoal md:text-7xl"
               />
             </Reveal>
             <Reveal delay={200} className="md:col-span-5">
               <p className="text-charcoal/75 md:text-lg">
-                A few of our walls, photographed on site — lobbies, offices and
-                community spaces where the planting has fully settled in.
+                {t({
+                  en: "A few of our walls, photographed on site — lobbies, offices and community spaces where the planting has fully settled in.",
+                  fr: "Quelques-uns de nos murs photographiés sur place — halls, bureaux et espaces communautaires où la végétation s'est pleinement établie.",
+                  zh: "部分绿墙的现场实拍——大堂、办公室与公共空间中，植物已完全扎根生长。",
+                })}
               </p>
             </Reveal>
           </div>
@@ -802,41 +809,66 @@ function Index() {
             {[
               {
                 img: installGlenora.url,
-                title: "Glenora Lobby",
-                caption: "Edmonton, AB · Five-panel feature wall",
+                key: "glenora",
+                title: t({ en: "Glenora Lobby", fr: "Hall Glenora", zh: "Glenora 大堂" }),
+                caption: t({
+                  en: "Edmonton, AB · Five-panel feature wall",
+                  fr: "Edmonton, AB · Mur signature de cinq panneaux",
+                  zh: "阿尔伯塔省埃德蒙顿 · 五面板主题墙",
+                }),
                 span: "md:col-span-8",
                 ratio: "aspect-[4/3]",
               },
               {
                 img: install5215.url,
-                title: "Atrium Column",
-                caption: "Calgary, AB · Double-sided hydroponic",
+                key: "atrium",
+                title: t({ en: "Atrium Column", fr: "Colonne d'atrium", zh: "中庭立柱" }),
+                caption: t({
+                  en: "Calgary, AB · Double-sided hydroponic",
+                  fr: "Calgary, AB · Hydroponique double face",
+                  zh: "阿尔伯塔省卡尔加里 · 双面水培",
+                }),
                 span: "md:col-span-4",
                 ratio: "aspect-[3/4]",
               },
               {
                 img: install5221.url,
-                title: "Reception Wall",
-                caption: "Corporate office · Mixed tropical palette",
+                key: "reception",
+                title: t({ en: "Reception Wall", fr: "Mur de réception", zh: "前台绿墙" }),
+                caption: t({
+                  en: "Corporate office · Mixed tropical palette",
+                  fr: "Bureaux d'entreprise · Palette tropicale mixte",
+                  zh: "企业办公空间 · 混合热带植物配色",
+                }),
                 span: "md:col-span-5",
                 ratio: "aspect-[4/3]",
               },
               {
                 img: installCoaldale2.url,
-                title: "Coaldale, Alberta",
-                caption: "Community hall · Full-height install",
+                key: "coaldale",
+                title: t({ en: "Coaldale, Alberta", fr: "Coaldale, Alberta", zh: "阿尔伯塔省 Coaldale" }),
+                caption: t({
+                  en: "Community hall · Full-height install",
+                  fr: "Salle communautaire · Installation pleine hauteur",
+                  zh: "社区活动厅 · 通高安装",
+                }),
                 span: "md:col-span-3",
                 ratio: "aspect-[3/4]",
               },
               {
                 img: install5212.url,
-                title: "Boardroom Divider",
-                caption: "Office interior · Free-standing panel",
+                key: "boardroom",
+                title: t({ en: "Boardroom Divider", fr: "Cloison de salle de réunion", zh: "会议室隔断" }),
+                caption: t({
+                  en: "Office interior · Free-standing panel",
+                  fr: "Intérieur de bureau · Panneau autoportant",
+                  zh: "办公室内部 · 独立式面板",
+                }),
                 span: "md:col-span-4",
                 ratio: "aspect-[4/3]",
               },
             ].map((p, i) => (
-              <Reveal key={p.title} delay={i * 90} className={p.span}>
+              <Reveal key={p.key} delay={i * 90} className={p.span}>
                 <figure
                   role="button"
                   tabIndex={0}
@@ -847,7 +879,7 @@ function Index() {
                       setInstallShot(p);
                     }
                   }}
-                  aria-label={`View larger photo: ${p.title}`}
+                  aria-label={`${t({ en: "View larger photo", fr: "Voir la photo en grand", zh: "查看大图" })}: ${p.title}`}
                   className={`group relative cursor-zoom-in overflow-hidden rounded-[1.75rem] bg-charcoal/5 ring-1 ring-charcoal/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-forest-deep ${p.ratio}`}
                 >
                   <img
