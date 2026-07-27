@@ -498,17 +498,53 @@ function Index() {
                 <NavMenu
                   menus={[
                     {
-                      label: "Work",
+                      label: t({ en: "Work", fr: "Réalisations", zh: "项目" }),
                       href: "#work",
                       items: [
-                        { label: "Our Systems", description: "Hydroponic & aquaponic walls", href: "#work", image: iffWall.url },
-                        { label: "Recent Installations", description: "Photos from real projects", href: "#motion", image: lobbyPanels.url },
-                        { label: "Maintenance & Guarantee", description: "100% plant guarantee with service", href: "#maintenance", image: higherHealth.url },
-                        { label: "Specifications", description: "Loads, water, fire ratings", href: "/specifications", image: outdoorFrame.url },
+                        {
+                          label: t({ en: "Our Systems", fr: "Nos systèmes", zh: "我们的系统" }),
+                          description: t({
+                            en: "Hydroponic & aquaponic walls",
+                            fr: "Murs hydroponiques et aquaponiques",
+                            zh: "水培与鱼菜共生墙体",
+                          }),
+                          href: "#work",
+                          image: iffWall.url,
+                        },
+                        {
+                          label: t({ en: "Recent Installations", fr: "Réalisations récentes", zh: "近期案例" }),
+                          description: t({
+                            en: "Photos from real projects",
+                            fr: "Photos de projets réels",
+                            zh: "真实项目实拍",
+                          }),
+                          href: "#motion",
+                          image: lobbyPanels.url,
+                        },
+                        {
+                          label: t({ en: "Maintenance & Guarantee", fr: "Entretien et garantie", zh: "养护与保障" }),
+                          description: t({
+                            en: "100% plant guarantee with service",
+                            fr: "Garantie 100 % des plantes avec entretien",
+                            zh: "含养护服务的 100% 植物保障",
+                          }),
+                          href: "#maintenance",
+                          image: higherHealth.url,
+                        },
+                        {
+                          label: t({ en: "Specifications", fr: "Fiche technique", zh: "技术规格" }),
+                          description: t({
+                            en: "Loads, water, fire ratings",
+                            fr: "Charges, eau, résistance au feu",
+                            zh: "荷载、给水与防火等级",
+                          }),
+                          href: "/specifications",
+                          image: outdoorFrame.url,
+                        },
                       ],
                     },
                     {
-                      label: "Locations",
+                      label: t({ en: "Locations", fr: "Emplacements", zh: "服务城市" }),
                       href: "#locations",
                       items: [
                         { label: "Vancouver", href: "#locations" },
@@ -536,21 +572,28 @@ function Index() {
                       ],
                     },
                     {
-                      label: "About",
+                      label: t({ en: "About", fr: "À propos", zh: "关于我们" }),
                       href: "/about",
                       items: [],
-                      description:
-                        "Meet Nathalie Callede and Tim Suddaby — the woman-owned team behind Vertical Oxygen and every wall we've built.",
+                      description: t({
+                        en: "Meet Nathalie Callede and Tim Suddaby — the woman-owned team behind Vertical Oxygen and every wall we've built.",
+                        fr: "Rencontrez Nathalie Callede et Tim Suddaby — l'équipe détenue par une femme derrière Vertical Oxygen et chacun de nos murs.",
+                        zh: "认识 Nathalie Callede 与 Tim Suddaby——这家由女性创办的团队，打造了 Vertical Oxygen 的每一面绿墙。",
+                      }),
                     },
                     {
-                      label: "Specifications",
+                      label: t({ en: "Specifications", fr: "Fiche technique", zh: "技术规格" }),
                       href: "/specifications",
                       items: [],
-                      description:
-                        "Technical datasheets, load and water specs, fire ratings, and CAD/BIM downloads for architects, engineers, and contractors.",
+                      description: t({
+                        en: "Technical datasheets, load and water specs, fire ratings, and CAD/BIM downloads for architects, engineers, and contractors.",
+                        fr: "Fiches techniques, charges et alimentation en eau, résistance au feu et fichiers CAO/BIM pour architectes, ingénieurs et entrepreneurs.",
+                        zh: "面向建筑师、工程师与承包商的技术数据表、荷载与给水参数、防火等级及 CAD/BIM 下载。",
+                      }),
                     },
                   ]}
                 />
+                <LanguageSwitcher className="md:hidden" />
                 <a
                   href="#quote"
                   className="slide-cta group inline-flex items-center rounded-full bg-forest-deep px-5 py-2 text-sm font-semibold text-cream transition-colors hover:bg-forest-deep/90"
@@ -558,7 +601,9 @@ function Index() {
                   <span className="slide-cta-arrow pl-3 text-cream">
                     <ArrowRight className="h-4 w-4" aria-hidden />
                   </span>
-                  <span className="slide-cta-label">Get a Quote</span>
+                  <span className="slide-cta-label">
+                    {t({ en: "Get a Quote", fr: "Demander un devis", zh: "获取报价" })}
+                  </span>
                 </a>
               </div>
             </nav>
