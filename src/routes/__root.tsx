@@ -13,6 +13,7 @@ import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { Toaster } from "../components/ui/sonner";
 import { SmoothScroll } from "../components/SmoothScroll";
+import { LanguageProvider } from "../lib/i18n";
 
 function NotFoundComponent() {
   return (
@@ -120,10 +121,12 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <SmoothScroll>
-        <Outlet />
-      </SmoothScroll>
-      <Toaster richColors position="top-center" />
+      <LanguageProvider>
+        <SmoothScroll>
+          <Outlet />
+        </SmoothScroll>
+        <Toaster richColors position="top-center" />
+      </LanguageProvider>
     </QueryClientProvider>
   );
 }

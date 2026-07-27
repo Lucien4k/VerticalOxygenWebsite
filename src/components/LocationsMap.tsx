@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { ComposableMap, Geographies, Geography, Marker } from "react-simple-maps";
 import { MapPin } from "lucide-react";
+import { useT } from "@/lib/i18n";
 
 // Public topojson served by CDN
 const GEO_URL = "https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json";
@@ -50,6 +51,7 @@ function radiusFor(count: number): number {
 }
 
 export function LocationsMap() {
+  const t = useT();
   const [active, setActive] = useState<Location | null>(LOCATIONS[0]);
 
   return (
@@ -119,13 +121,17 @@ export function LocationsMap() {
       <div className="space-y-6">
         <div className="rounded-2xl border border-border bg-white p-6">
           <p className="text-xs font-semibold uppercase tracking-widest text-forest">
-            Cities across Canada
+            {t({ en: "Cities across Canada", fr: "Villes à travers le Canada", zh: "遍布加拿大的城市" })}
           </p>
           <p className="mt-3 font-serif text-4xl font-light text-foreground">
             {LOCATIONS.length}
           </p>
           <p className="text-sm text-muted-foreground">
-            Communities served, coast to coast
+            {t({
+              en: "Communities served, coast to coast",
+              fr: "Communautés desservies, d'un océan à l'autre",
+              zh: "服务遍及加拿大各地社区",
+            })}
           </p>
         </div>
 
@@ -135,7 +141,9 @@ export function LocationsMap() {
               <MapPin className="mt-1 h-5 w-5 shrink-0 text-forest" aria-hidden />
               <div className="min-w-0">
                 <h3 className="font-serif text-2xl text-foreground">{active.city}</h3>
-                <p className="text-sm text-muted-foreground">{active.province}, Canada</p>
+                <p className="text-sm text-muted-foreground">
+                  {active.province}, {t({ en: "Canada", fr: "Canada", zh: "加拿大" })}
+                </p>
               </div>
             </div>
           </div>

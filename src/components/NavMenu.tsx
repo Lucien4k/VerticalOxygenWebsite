@@ -1,6 +1,7 @@
 import { useState, type ReactNode } from "react";
 import { ChevronDown, Menu, X } from "lucide-react";
 import { Link } from "@tanstack/react-router";
+import { useT } from "@/lib/i18n";
 
 type SubItem = {
   label: string;
@@ -75,6 +76,7 @@ function MobileNavLink({
 }
 
 export function NavMenu({ menus }: { menus: MenuItem[] }) {
+  const t = useT();
   const [open, setOpen] = useState<string | null>(null);
   const [mobileOpen, setMobileOpen] = useState(false);
 
@@ -127,7 +129,7 @@ export function NavMenu({ menus }: { menus: MenuItem[] }) {
                         href={menu.href}
                         className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-forest-deep hover:underline"
                       >
-                        Open page →
+                        {t({ en: "Open page →", fr: "Ouvrir la page →", zh: "打开页面 →" })}
                       </NavLink>
                     </div>
                   ) : menu.items.every((i) => !i.image && !i.description) ? (
@@ -188,7 +190,11 @@ export function NavMenu({ menus }: { menus: MenuItem[] }) {
         type="button"
         onClick={() => setMobileOpen((v) => !v)}
         className="relative z-50 flex h-10 w-10 items-center justify-center rounded-full bg-charcoal/5 text-charcoal md:hidden"
-        aria-label={mobileOpen ? "Close menu" : "Open menu"}
+        aria-label={
+          mobileOpen
+            ? t({ en: "Close menu", fr: "Fermer le menu", zh: "关闭菜单" })
+            : t({ en: "Open menu", fr: "Ouvrir le menu", zh: "打开菜单" })
+        }
         aria-expanded={mobileOpen}
       >
         {mobileOpen ? (
@@ -243,7 +249,7 @@ export function NavMenu({ menus }: { menus: MenuItem[] }) {
             onClick={() => setMobileOpen(false)}
             className="mt-4 inline-flex items-center justify-center rounded-full bg-forest-deep px-6 py-3 text-sm font-semibold text-cream"
           >
-            Get a Quote
+            {t({ en: "Get a Quote", fr: "Demander un devis", zh: "获取报价" })}
           </a>
         </div>
       </div>

@@ -36,6 +36,8 @@ import { FRAME_URLS } from "@/lib/frame-urls";
 import { ScrollFramesSection } from "@/components/ScrollFramesSection";
 import { HERO2_FRAME_URLS } from "@/lib/frame-urls-hero2";
 import { useState, useEffect, useRef } from "react";
+import { useT, type Tr } from "@/lib/i18n";
+import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import installGlenora from "../assets/installs/glenora-1.jpg.asset.json";
 import installCoaldale2 from "../assets/installs/coaldale-2-2.jpg.asset.json";
 import install5212 from "../assets/installs/img-5212.jpg.asset.json";
@@ -51,50 +53,138 @@ import diagramHydroponic from "../assets/diagrams/hydroponic-wall-diagram-v5.png
 import woodTexture from "../assets/textures/wood-texture-v2.jpg.asset.json";
 import logoHeader from "../assets/logo-header.png.asset.json";
 
-const SYSTEMS = [
+const SYSTEMS: {
+  key: string;
+  title: Tr;
+  tag: Tr;
+  diagram: string;
+  tagline: Tr;
+  description: Tr;
+  stats: { label: Tr; value: Tr }[];
+  highlights: Tr[];
+}[] = [
   {
     key: "hydroponic",
-    title: "Hydroponic",
-    tag: "Soilless · Recirculating",
+    title: { en: "Hydroponic", fr: "Hydroponique", zh: "水培系统" },
+    tag: {
+      en: "Soilless · Recirculating",
+      fr: "Sans terre · Circuit fermé",
+      zh: "无土栽培 · 循环供水",
+    },
     diagram: diagramHydroponic.url,
-    tagline: "Lightweight. Precise. Effortless.",
-    description:
-      "Recirculating water and dosed nutrients feed a felt matrix — soilless, low-weight, and simple to maintain across large-format installations.",
+    tagline: {
+      en: "Lightweight. Precise. Effortless.",
+      fr: "Léger. Précis. Sans effort.",
+      zh: "轻盈、精准、省心。",
+    },
+    description: {
+      en: "Recirculating water and dosed nutrients feed a felt matrix — soilless, low-weight, and simple to maintain across large-format installations.",
+      fr: "L'eau recirculée et les nutriments dosés alimentent une matrice de feutre — sans terre, très légère et simple à entretenir, même sur de très grandes installations.",
+      zh: "循环水与精准配比的营养液滋养毛毡基质——无需土壤、重量极轻，即便是大幅面墙体也易于维护。",
+    },
     stats: [
-      { label: "Wall weight", value: "≈ 8 lb/ft²" },
-      { label: "Water use", value: "Recirculating" },
-      { label: "Best for", value: "Lobbies, offices, tall installs" },
-      { label: "Wall depth", value: "4–6 in" },
+      {
+        label: { en: "Wall weight", fr: "Poids du mur", zh: "墙体重量" },
+        value: { en: "≈ 8 lb/ft²" },
+      },
+      {
+        label: { en: "Water use", fr: "Consommation d'eau", zh: "用水方式" },
+        value: { en: "Recirculating", fr: "Circuit fermé", zh: "循环利用" },
+      },
+      {
+        label: { en: "Best for", fr: "Idéal pour", zh: "适用场景" },
+        value: {
+          en: "Lobbies, offices, tall installs",
+          fr: "Halls, bureaux, murs de grande hauteur",
+          zh: "大堂、办公空间、超高墙面",
+        },
+      },
+      {
+        label: { en: "Wall depth", fr: "Profondeur du mur", zh: "墙体厚度" },
+        value: { en: "4–6 in", fr: "10–15 cm", zh: "10–15 厘米" },
+      },
     ],
     highlights: [
-      "Ultra-light felt matrix",
-      "Automated dosing + irrigation",
-      "Scales to any wall size",
+      {
+        en: "Ultra-light felt matrix",
+        fr: "Matrice de feutre ultralégère",
+        zh: "超轻毛毡基质",
+      },
+      {
+        en: "Automated dosing + irrigation",
+        fr: "Dosage et irrigation automatisés",
+        zh: "自动配肥与灌溉",
+      },
+      {
+        en: "Scales to any wall size",
+        fr: "S'adapte à toutes les dimensions",
+        zh: "可适配任意墙面尺寸",
+      },
     ],
   },
   {
     key: "aquaponic",
-    title: "Aquaponic",
-    tag: "Closed-loop · Fish + plants",
+    title: { en: "Aquaponic", fr: "Aquaponique", zh: "鱼菜共生系统" },
+    tag: {
+      en: "Closed-loop · Fish + plants",
+      fr: "Circuit fermé · Poissons et plantes",
+      zh: "闭环生态 · 鱼与植物共生",
+    },
     diagram: diagramAquaponic.url,
-    tagline: "One ecosystem. Zero waste.",
-    description:
-      "Plants and tilapia share a single closed loop. Fish waste becomes nutrients, roots polish the water, and the system self-regulates with minimal input.",
+    tagline: {
+      en: "One ecosystem. Zero waste.",
+      fr: "Un écosystème. Zéro déchet.",
+      zh: "一个生态系统，零浪费。",
+    },
+    description: {
+      en: "Plants and tilapia share a single closed loop. Fish waste becomes nutrients, roots polish the water, and the system self-regulates with minimal input.",
+      fr: "Les plantes et les tilapias partagent un même circuit fermé. Les déjections des poissons deviennent des nutriments, les racines purifient l'eau et le système s'autorégule avec très peu d'intervention.",
+      zh: "植物与罗非鱼共享同一闭环：鱼类排泄物转化为养分，根系净化水质，系统几乎无需人工干预即可自我调节。",
+    },
     stats: [
-      { label: "Water use", value: "~90% less" },
-      { label: "Fertilizer", value: "None added" },
-      { label: "Best for", value: "Feature walls, cafés, showrooms" },
-      { label: "Wall depth", value: "8–12 in" },
+      {
+        label: { en: "Water use", fr: "Consommation d'eau", zh: "用水量" },
+        value: { en: "~90% less", fr: "~90 % de moins", zh: "减少约 90%" },
+      },
+      {
+        label: { en: "Fertilizer", fr: "Engrais", zh: "肥料" },
+        value: { en: "None added", fr: "Aucun ajout", zh: "无需额外添加" },
+      },
+      {
+        label: { en: "Best for", fr: "Idéal pour", zh: "适用场景" },
+        value: {
+          en: "Feature walls, cafés, showrooms",
+          fr: "Murs signatures, cafés, salles d'exposition",
+          zh: "主题墙、咖啡馆、展厅",
+        },
+      },
+      {
+        label: { en: "Wall depth", fr: "Profondeur du mur", zh: "墙体厚度" },
+        value: { en: "8–12 in", fr: "20–30 cm", zh: "20–30 厘米" },
+      },
     ],
     highlights: [
-      "Live fish tank integrated at base",
-      "Fully soilless, gravel media beds",
-      "Continuous nutrient cycle",
+      {
+        en: "Live fish tank integrated at base",
+        fr: "Aquarium vivant intégré à la base",
+        zh: "底部集成活体鱼缸",
+      },
+      {
+        en: "Fully soilless, gravel media beds",
+        fr: "Entièrement sans terre, lits de gravier",
+        zh: "完全无土，砾石基质床",
+      },
+      {
+        en: "Continuous nutrient cycle",
+        fr: "Cycle nutritif continu",
+        zh: "持续循环的养分体系",
+      },
     ],
   },
 ];
 
 function SystemsShowcase() {
+  const t = useT();
   const [active, setActive] = useState(0);
   const [lightbox, setLightbox] = useState<{ src: string; title: string } | null>(null);
   const sys = SYSTEMS[active];
@@ -114,22 +204,30 @@ function SystemsShowcase() {
       <div className="mb-14 flex flex-col gap-10 md:flex-row md:items-end md:justify-between">
         <div>
           <p className="mb-3 text-xs font-semibold uppercase tracking-[0.3em] text-forest">
-            Our Systems
+            {t({ en: "Our Systems", fr: "Nos systèmes", zh: "我们的系统" })}
           </p>
           <WordsReveal
             as="h2"
-            text="Two ways to grow a wall."
+            text={t({
+              en: "Two ways to grow a wall.",
+              fr: "Deux façons de faire pousser un mur.",
+              zh: "两种打造绿墙的方式。",
+            })}
             className="display-heading text-5xl leading-[1] text-charcoal md:text-7xl lg:text-[5.5rem]"
           />
           <p className="mt-6 max-w-xl text-charcoal/70 md:text-lg">
-            Every Vertical Oxygen wall is built on one of two engineered systems. Tap through to see how each works and where it fits best.
+            {t({
+              en: "Every Vertical Oxygen wall is built on one of two engineered systems. Tap through to see how each works and where it fits best.",
+              fr: "Chaque mur Vertical Oxygen repose sur l'un de nos deux systèmes d'ingénierie. Parcourez-les pour découvrir leur fonctionnement et leurs usages idéaux.",
+              zh: "每一面 Vertical Oxygen 绿墙都基于两套工程化系统之一。点击切换，了解各自的原理与适用场景。",
+            })}
           </p>
         </div>
 
         {/* Tab switcher with sliding pill */}
         <div
           role="tablist"
-          aria-label="Living wall systems"
+          aria-label={t({ en: "Living wall systems", fr: "Systèmes de murs végétaux", zh: "植物墙系统" })}
           className="relative inline-flex self-start rounded-full bg-charcoal/5 p-1.5 ring-1 ring-charcoal/10 backdrop-blur md:self-auto"
         >
           <div
@@ -148,7 +246,7 @@ function SystemsShowcase() {
                 active === i ? "text-cream" : "text-charcoal/60 hover:text-charcoal"
               }`}
             >
-              {s.title}
+              {t(s.title)}
             </button>
           ))}
         </div>
@@ -159,9 +257,14 @@ function SystemsShowcase() {
         <div className="md:col-span-7">
           <button
             type="button"
-            onClick={() => setLightbox({ src: sys.diagram, title: `${sys.title} living wall diagram` })}
+            onClick={() =>
+              setLightbox({
+                src: sys.diagram,
+                title: `${t(sys.title)} — ${t({ en: "living wall diagram", fr: "schéma de mur végétal", zh: "植物墙示意图" })}`,
+              })
+            }
             className="group relative block w-full overflow-hidden rounded-3xl p-3 text-left ring-1 ring-charcoal/10 transition-shadow hover:shadow-xl md:p-4"
-            aria-label={`Enlarge ${sys.title} diagram`}
+            aria-label={`${t({ en: "Enlarge", fr: "Agrandir", zh: "放大" })} — ${t(sys.title)}`}
           >
             <div
               className="absolute inset-0 bg-cover bg-center"
@@ -172,7 +275,7 @@ function SystemsShowcase() {
             <div className="relative overflow-hidden rounded-2xl bg-white">
               <img
                 src={sys.diagram}
-                alt={`${sys.title} living wall diagram`}
+                alt={`${t(sys.title)} — ${t({ en: "living wall diagram", fr: "schéma de mur végétal", zh: "植物墙示意图" })}`}
                 className="h-auto w-full object-contain transition-transform duration-700 group-hover:scale-[1.02] md:max-h-[46rem]"
                 loading="lazy"
               />
@@ -187,21 +290,21 @@ function SystemsShowcase() {
         {/* Details */}
         <div className="md:col-span-5">
           <p className="text-xs font-semibold uppercase tracking-[0.3em] text-forest">
-            {sys.tag}
+            {t(sys.tag)}
           </p>
           <h3 className="mt-3 font-serif text-4xl italic text-charcoal md:text-5xl">
-            {sys.tagline}
+            {t(sys.tagline)}
           </h3>
-          <p className="mt-5 text-charcoal/75 md:text-lg">{sys.description}</p>
+          <p className="mt-5 text-charcoal/75 md:text-lg">{t(sys.description)}</p>
 
           <dl className="mt-8 grid grid-cols-2 gap-px overflow-hidden rounded-2xl bg-charcoal/10 ring-1 ring-charcoal/10">
             {sys.stats.map((s) => (
-              <div key={s.label} className="bg-cream p-4 md:p-5">
+              <div key={s.label.en} className="bg-cream p-4 md:p-5">
                 <dt className="text-[10px] font-semibold uppercase tracking-[0.2em] text-charcoal/50">
-                  {s.label}
+                  {t(s.label)}
                 </dt>
                 <dd className="mt-1.5 font-serif text-xl text-charcoal md:text-2xl">
-                  {s.value}
+                  {t(s.value)}
                 </dd>
               </div>
             ))}
@@ -209,9 +312,9 @@ function SystemsShowcase() {
 
           <ul className="mt-8 space-y-3">
             {sys.highlights.map((h) => (
-              <li key={h} className="flex items-start gap-3 text-charcoal/80">
+              <li key={h.en} className="flex items-start gap-3 text-charcoal/80">
                 <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-forest" />
-                <span>{h}</span>
+                <span>{t(h)}</span>
               </li>
             ))}
           </ul>
@@ -221,7 +324,7 @@ function SystemsShowcase() {
               href="#quote"
               className="group inline-flex items-center gap-2 rounded-full bg-forest-deep px-6 py-3 text-xs font-semibold uppercase tracking-[0.25em] text-cream shadow-lg transition hover:bg-forest-deep/90 md:text-sm"
             >
-              Get a quote
+              {t({ en: "Get a quote", fr: "Demander un devis", zh: "获取报价" })}
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </a>
             <button
@@ -229,7 +332,7 @@ function SystemsShowcase() {
               onClick={() => setActive((active + 1) % SYSTEMS.length)}
               className="group inline-flex items-center gap-2 rounded-full border border-charcoal/25 px-6 py-3 text-xs font-semibold uppercase tracking-[0.25em] text-charcoal transition hover:bg-charcoal hover:text-cream md:text-sm"
             >
-              See {next.title}
+              {t({ en: "See", fr: "Voir", zh: "查看" })} {t(next.title)}
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </button>
           </div>
@@ -249,7 +352,7 @@ function SystemsShowcase() {
             type="button"
             onClick={() => setLightbox(null)}
             className="absolute top-5 right-5 flex h-12 w-12 items-center justify-center rounded-full bg-cream/10 text-cream transition hover:bg-cream/20"
-            aria-label="Close"
+            aria-label={t({ en: "Close", fr: "Fermer", zh: "关闭" })}
           >
             <X className="h-6 w-6" aria-hidden />
           </button>
@@ -280,6 +383,7 @@ export const Route = createFileRoute("/")({
 });
 
 function Index() {
+  const t = useT();
   const [heroDone, setHeroDone] = useState(false);
   const [installShot, setInstallShot] = useState<
     { img: string; title: string; caption: string } | null
@@ -352,13 +456,26 @@ function Index() {
                   </a>
                   <span className="flex items-center gap-1.5 opacity-90">
                     <MapPin className="h-3.5 w-3.5" aria-hidden />
-                     <span>Installations across North America</span>
+                    <span>
+                      {t({
+                        en: "Installations across North America",
+                        fr: "Installations partout en Amérique du Nord",
+                        zh: "遍布北美的绿墙项目",
+                      })}
+                    </span>
                   </span>
                   <span className="flex items-center gap-1.5 opacity-90">
                     <Leaf className="h-3.5 w-3.5" aria-hidden />
-                    <span>Living &amp; moss walls</span>
+                    <span>
+                      {t({
+                        en: "Living & moss walls",
+                        fr: "Murs végétaux et murs de mousse",
+                        zh: "植物墙与苔藓墙",
+                      })}
+                    </span>
                   </span>
                 </div>
+                <LanguageSwitcher />
               </div>
             </div>
 
@@ -381,17 +498,53 @@ function Index() {
                 <NavMenu
                   menus={[
                     {
-                      label: "Work",
+                      label: t({ en: "Work", fr: "Réalisations", zh: "项目" }),
                       href: "#work",
                       items: [
-                        { label: "Our Systems", description: "Hydroponic & aquaponic walls", href: "#work", image: iffWall.url },
-                        { label: "Recent Installations", description: "Photos from real projects", href: "#motion", image: lobbyPanels.url },
-                        { label: "Maintenance & Guarantee", description: "100% plant guarantee with service", href: "#maintenance", image: higherHealth.url },
-                        { label: "Specifications", description: "Loads, water, fire ratings", href: "/specifications", image: outdoorFrame.url },
+                        {
+                          label: t({ en: "Our Systems", fr: "Nos systèmes", zh: "我们的系统" }),
+                          description: t({
+                            en: "Hydroponic & aquaponic walls",
+                            fr: "Murs hydroponiques et aquaponiques",
+                            zh: "水培与鱼菜共生墙体",
+                          }),
+                          href: "#work",
+                          image: iffWall.url,
+                        },
+                        {
+                          label: t({ en: "Recent Installations", fr: "Réalisations récentes", zh: "近期案例" }),
+                          description: t({
+                            en: "Photos from real projects",
+                            fr: "Photos de projets réels",
+                            zh: "真实项目实拍",
+                          }),
+                          href: "#motion",
+                          image: lobbyPanels.url,
+                        },
+                        {
+                          label: t({ en: "Maintenance & Guarantee", fr: "Entretien et garantie", zh: "养护与保障" }),
+                          description: t({
+                            en: "100% plant guarantee with service",
+                            fr: "Garantie 100 % des plantes avec entretien",
+                            zh: "含养护服务的 100% 植物保障",
+                          }),
+                          href: "#maintenance",
+                          image: higherHealth.url,
+                        },
+                        {
+                          label: t({ en: "Specifications", fr: "Fiche technique", zh: "技术规格" }),
+                          description: t({
+                            en: "Loads, water, fire ratings",
+                            fr: "Charges, eau, résistance au feu",
+                            zh: "荷载、给水与防火等级",
+                          }),
+                          href: "/specifications",
+                          image: outdoorFrame.url,
+                        },
                       ],
                     },
                     {
-                      label: "Locations",
+                      label: t({ en: "Locations", fr: "Emplacements", zh: "服务城市" }),
                       href: "#locations",
                       items: [
                         { label: "Vancouver", href: "#locations" },
@@ -419,21 +572,28 @@ function Index() {
                       ],
                     },
                     {
-                      label: "About",
+                      label: t({ en: "About", fr: "À propos", zh: "关于我们" }),
                       href: "/about",
                       items: [],
-                      description:
-                        "Meet Nathalie Callede and Tim Suddaby — the woman-owned team behind Vertical Oxygen and every wall we've built.",
+                      description: t({
+                        en: "Meet Nathalie Callede and Tim Suddaby — the woman-owned team behind Vertical Oxygen and every wall we've built.",
+                        fr: "Rencontrez Nathalie Callede et Tim Suddaby — l'équipe détenue par une femme derrière Vertical Oxygen et chacun de nos murs.",
+                        zh: "认识 Nathalie Callede 与 Tim Suddaby——这家由女性创办的团队，打造了 Vertical Oxygen 的每一面绿墙。",
+                      }),
                     },
                     {
-                      label: "Specifications",
+                      label: t({ en: "Specifications", fr: "Fiche technique", zh: "技术规格" }),
                       href: "/specifications",
                       items: [],
-                      description:
-                        "Technical datasheets, load and water specs, fire ratings, and CAD/BIM downloads for architects, engineers, and contractors.",
+                      description: t({
+                        en: "Technical datasheets, load and water specs, fire ratings, and CAD/BIM downloads for architects, engineers, and contractors.",
+                        fr: "Fiches techniques, charges et alimentation en eau, résistance au feu et fichiers CAO/BIM pour architectes, ingénieurs et entrepreneurs.",
+                        zh: "面向建筑师、工程师与承包商的技术数据表、荷载与给水参数、防火等级及 CAD/BIM 下载。",
+                      }),
                     },
                   ]}
                 />
+                <LanguageSwitcher className="md:hidden" />
                 <a
                   href="#quote"
                   className="slide-cta group inline-flex items-center rounded-full bg-forest-deep px-5 py-2 text-sm font-semibold text-cream transition-colors hover:bg-forest-deep/90"
@@ -441,7 +601,9 @@ function Index() {
                   <span className="slide-cta-arrow pl-3 text-cream">
                     <ArrowRight className="h-4 w-4" aria-hidden />
                   </span>
-                  <span className="slide-cta-label">Get a Quote</span>
+                  <span className="slide-cta-label">
+                    {t({ en: "Get a Quote", fr: "Demander un devis", zh: "获取报价" })}
+                  </span>
                 </a>
               </div>
             </nav>
@@ -456,18 +618,23 @@ function Index() {
           <div className="max-w-2xl">
             <div className="reveal-fade is-visible">
               <span className="text-shadow-hero mb-4 inline-flex items-center gap-2 rounded-full border border-cream/30 bg-cream/10 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.25em] text-cream backdrop-blur-sm">
-                Since 2011
+                {t({ en: "Since 2011", fr: "Depuis 2011", zh: "始于 2011 年" })}
               </span>
               <p className="text-shadow-hero mb-4 text-xs font-bold uppercase tracking-[0.3em] text-cream">
-                Custom Living Walls
+                {t({ en: "Custom Living Walls", fr: "Murs végétaux sur mesure", zh: "定制植物墙" })}
               </p>
               <h1 className="display-heading-hero text-5xl text-cream md:text-7xl lg:text-8xl">
-                Living works{" "}
-                <span className="whitespace-nowrap">of art</span>
+                {t({ en: "Living works", fr: "Des œuvres d'art", zh: "有生命的" })}{" "}
+                <span className="whitespace-nowrap">
+                  {t({ en: "of art", fr: "vivantes", zh: "艺术作品" })}
+                </span>
               </h1>
               <p className="text-shadow-hero mt-6 max-w-xl text-lg font-medium leading-relaxed text-cream">
-                We couple beauty with simplicity to create healthy, living works of art.
-                Each wall is custom made to satisfy your dreams.
+                {t({
+                  en: "We couple beauty with simplicity to create healthy, living works of art. Each wall is custom made to satisfy your dreams.",
+                  fr: "Nous allions beauté et simplicité pour créer des œuvres d'art vivantes et saines. Chaque mur est conçu sur mesure pour concrétiser vos rêves.",
+                  zh: "我们将美感与简约结合，创造健康而富有生命力的艺术作品。每一面绿墙都为您的构想量身打造。",
+                })}
               </p>
             </div>
             <div className="mt-10 flex flex-wrap items-center gap-4 reveal is-visible" style={{ animationDelay: "200ms" }}>
@@ -478,7 +645,9 @@ function Index() {
                 <span className="slide-cta-arrow pl-4 text-cream">
                   <ArrowRight className="h-4 w-4" aria-hidden />
                 </span>
-                <span className="slide-cta-label">Get a Quote</span>
+                <span className="slide-cta-label">
+                  {t({ en: "Get a Quote", fr: "Demander un devis", zh: "获取报价" })}
+                </span>
               </a>
               <a
                 href="#work"
@@ -487,7 +656,9 @@ function Index() {
                 <span className="slide-cta-arrow pl-4 text-cream">
                   <ArrowRight className="h-4 w-4" aria-hidden />
                 </span>
-                <span className="slide-cta-label">Learn More</span>
+                <span className="slide-cta-label">
+                  {t({ en: "Learn More", fr: "En savoir plus", zh: "了解更多" })}
+                </span>
               </a>
             </div>
           </div>
@@ -504,16 +675,23 @@ function Index() {
         overlay={
           <div className="max-w-2xl">
             <p className="text-shadow-hero mb-4 text-xs font-bold uppercase tracking-[0.3em] text-white">
-              Engineered in layers
+              {t({ en: "Engineered in layers", fr: "Conçu par couches", zh: "分层工程结构" })}
             </p>
             <WordsReveal
               as="h2"
-              text="Panels that come together as one."
+              text={t({
+                en: "Panels that come together as one.",
+                fr: "Des panneaux qui n'en forment qu'un.",
+                zh: "块块面板，浑然一体。",
+              })}
               className="display-heading-hero text-4xl text-cream md:text-6xl lg:text-7xl"
             />
             <p className="text-shadow-hero mt-6 text-lg font-medium leading-relaxed text-cream md:text-xl">
-              Every wall is built from modular panels — designed, planted, and
-              assembled on-site. Scroll to see how the pieces come together.
+              {t({
+                en: "Every wall is built from modular panels — designed, planted, and assembled on-site. Scroll to see how the pieces come together.",
+                fr: "Chaque mur est constitué de panneaux modulaires — conçus, plantés et assemblés sur place. Faites défiler pour voir les pièces s'assembler.",
+                zh: "每一面墙都由模块化面板组成——设计、栽植并在现场组装。向下滚动，看它们如何合而为一。",
+              })}
             </p>
           </div>
         }
@@ -558,16 +736,23 @@ function Index() {
           <Reveal>
             <div className="mb-14 max-w-2xl">
               <p className="mb-3 text-xs font-semibold uppercase tracking-[0.3em] text-forest">
-                Where We Grow
+                {t({ en: "Where We Grow", fr: "Où nous cultivons", zh: "我们的足迹" })}
               </p>
               <WordsReveal
                 as="h2"
-                text="Living walls, coast to coast."
+                text={t({
+                  en: "Living walls, coast to coast.",
+                  fr: "Des murs végétaux, d'un océan à l'autre.",
+                  zh: "植物墙，横贯东西两岸。",
+                })}
                 className="display-heading text-4xl leading-[1.05] text-charcoal md:text-6xl"
               />
               <p className="mt-4 text-charcoal/70">
-                Hover any pin to see the installation — from Vancouver lofts to
-                Halifax lobbies, Yellowknife to St. John's.
+                {t({
+                  en: "Hover any pin to see the installation — from Vancouver lofts to Halifax lobbies, Yellowknife to St. John's.",
+                  fr: "Survolez un repère pour découvrir l'installation — des lofts de Vancouver aux halls d'Halifax, de Yellowknife à St. John's.",
+                  zh: "将鼠标悬停在任意标记上即可查看项目——从温哥华的公寓到哈利法克斯的大堂，从黄刀镇到圣约翰斯。",
+                })}
               </p>
             </div>
           </Reveal>
@@ -597,18 +782,25 @@ function Index() {
           <div className="mb-14 grid gap-10 md:grid-cols-12 md:items-end">
             <Reveal className="md:col-span-7">
               <p className="mb-4 text-xs font-semibold uppercase tracking-[0.3em] text-terra-light">
-                Recent Installations
+                {t({ en: "Recent Installations", fr: "Réalisations récentes", zh: "近期案例" })}
               </p>
               <WordsReveal
                 as="h2"
-                text="Living, breathing installations."
+                text={t({
+                  en: "Living, breathing installations.",
+                  fr: "Des installations vivantes qui respirent.",
+                  zh: "会呼吸的生命装置。",
+                })}
                 className="display-heading text-4xl leading-[1.02] text-charcoal md:text-7xl"
               />
             </Reveal>
             <Reveal delay={200} className="md:col-span-5">
               <p className="text-charcoal/75 md:text-lg">
-                A few of our walls, photographed on site — lobbies, offices and
-                community spaces where the planting has fully settled in.
+                {t({
+                  en: "A few of our walls, photographed on site — lobbies, offices and community spaces where the planting has fully settled in.",
+                  fr: "Quelques-uns de nos murs photographiés sur place — halls, bureaux et espaces communautaires où la végétation s'est pleinement établie.",
+                  zh: "部分绿墙的现场实拍——大堂、办公室与公共空间中，植物已完全扎根生长。",
+                })}
               </p>
             </Reveal>
           </div>
@@ -617,41 +809,66 @@ function Index() {
             {[
               {
                 img: installGlenora.url,
-                title: "Glenora Lobby",
-                caption: "Edmonton, AB · Five-panel feature wall",
+                key: "glenora",
+                title: t({ en: "Glenora Lobby", fr: "Hall Glenora", zh: "Glenora 大堂" }),
+                caption: t({
+                  en: "Edmonton, AB · Five-panel feature wall",
+                  fr: "Edmonton, AB · Mur signature de cinq panneaux",
+                  zh: "阿尔伯塔省埃德蒙顿 · 五面板主题墙",
+                }),
                 span: "md:col-span-8",
                 ratio: "aspect-[4/3]",
               },
               {
                 img: install5215.url,
-                title: "Atrium Column",
-                caption: "Calgary, AB · Double-sided hydroponic",
+                key: "atrium",
+                title: t({ en: "Atrium Column", fr: "Colonne d'atrium", zh: "中庭立柱" }),
+                caption: t({
+                  en: "Calgary, AB · Double-sided hydroponic",
+                  fr: "Calgary, AB · Hydroponique double face",
+                  zh: "阿尔伯塔省卡尔加里 · 双面水培",
+                }),
                 span: "md:col-span-4",
                 ratio: "aspect-[3/4]",
               },
               {
                 img: install5221.url,
-                title: "Reception Wall",
-                caption: "Corporate office · Mixed tropical palette",
+                key: "reception",
+                title: t({ en: "Reception Wall", fr: "Mur de réception", zh: "前台绿墙" }),
+                caption: t({
+                  en: "Corporate office · Mixed tropical palette",
+                  fr: "Bureaux d'entreprise · Palette tropicale mixte",
+                  zh: "企业办公空间 · 混合热带植物配色",
+                }),
                 span: "md:col-span-5",
                 ratio: "aspect-[4/3]",
               },
               {
                 img: installCoaldale2.url,
-                title: "Coaldale, Alberta",
-                caption: "Community hall · Full-height install",
+                key: "coaldale",
+                title: t({ en: "Coaldale, Alberta", fr: "Coaldale, Alberta", zh: "阿尔伯塔省 Coaldale" }),
+                caption: t({
+                  en: "Community hall · Full-height install",
+                  fr: "Salle communautaire · Installation pleine hauteur",
+                  zh: "社区活动厅 · 通高安装",
+                }),
                 span: "md:col-span-3",
                 ratio: "aspect-[3/4]",
               },
               {
                 img: install5212.url,
-                title: "Boardroom Divider",
-                caption: "Office interior · Free-standing panel",
+                key: "boardroom",
+                title: t({ en: "Boardroom Divider", fr: "Cloison de salle de réunion", zh: "会议室隔断" }),
+                caption: t({
+                  en: "Office interior · Free-standing panel",
+                  fr: "Intérieur de bureau · Panneau autoportant",
+                  zh: "办公室内部 · 独立式面板",
+                }),
                 span: "md:col-span-4",
                 ratio: "aspect-[4/3]",
               },
             ].map((p, i) => (
-              <Reveal key={p.title} delay={i * 90} className={p.span}>
+              <Reveal key={p.key} delay={i * 90} className={p.span}>
                 <figure
                   role="button"
                   tabIndex={0}
@@ -662,7 +879,7 @@ function Index() {
                       setInstallShot(p);
                     }
                   }}
-                  aria-label={`View larger photo: ${p.title}`}
+                  aria-label={`${t({ en: "View larger photo", fr: "Voir la photo en grand", zh: "查看大图" })}: ${p.title}`}
                   className={`group relative cursor-zoom-in overflow-hidden rounded-[1.75rem] bg-charcoal/5 ring-1 ring-charcoal/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-forest-deep ${p.ratio}`}
                 >
                   <img
@@ -703,10 +920,10 @@ function Index() {
             <button
               type="button"
               onClick={() => setInstallShot(null)}
-              aria-label="Close"
+              aria-label={t({ en: "Close", fr: "Fermer", zh: "关闭" })}
               className="absolute right-5 top-5 rounded-full bg-cream/10 px-4 py-2 text-sm font-medium text-cream ring-1 ring-cream/25 transition-colors hover:bg-cream/20"
             >
-              Close ✕
+              {t({ en: "Close", fr: "Fermer", zh: "关闭" })} ✕
             </button>
             <figure
               className="max-h-full w-full max-w-5xl"
@@ -735,35 +952,58 @@ function Index() {
         <div className="mx-auto max-w-7xl px-6 py-20 md:py-28">
           <Reveal>
             <p className="mb-3 text-xs font-semibold uppercase tracking-[0.3em] text-forest">
-              Maintenance & Guarantee
+              {t({ en: "Maintenance & Guarantee", fr: "Entretien et garantie", zh: "养护与保障" })}
             </p>
             <h2 className="display-heading max-w-3xl text-4xl leading-[1.05] text-charcoal md:text-6xl">
-              100% plant guarantee — <em>with maintenance.</em>
+              {t({
+                en: "100% plant guarantee —",
+                fr: "Garantie 100 % des plantes —",
+                zh: "100% 植物保障——",
+              })}{" "}
+              <em>
+                {t({ en: "with maintenance.", fr: "avec l'entretien.", zh: "需搭配养护服务。" })}
+              </em>
             </h2>
             <p className="mt-6 max-w-2xl text-base leading-relaxed text-charcoal/70">
-              A living wall is a living thing. Our maintenance program keeps every wall
-              thriving — and every wall on an active maintenance agreement is covered by
-              our 100% plant guarantee. If a plant fails, we replace it. No charge, no
-              questions. The guarantee is available exclusively with maintenance service.
+              {t({
+                en: "A living wall is a living thing. Our maintenance program keeps every wall thriving — and every wall on an active maintenance agreement is covered by our 100% plant guarantee. If a plant fails, we replace it. No charge, no questions. The guarantee is available exclusively with maintenance service.",
+                fr: "Un mur végétal est un organisme vivant. Notre programme d'entretien garde chaque mur en pleine santé — et tout mur couvert par un contrat d'entretien actif bénéficie de notre garantie 100 % des plantes. Si une plante dépérit, nous la remplaçons. Sans frais, sans discussion. La garantie est offerte exclusivement avec le service d'entretien.",
+                zh: "植物墙是有生命的。我们的养护计划让每一面墙持续繁茂——凡在有效养护合约内的墙体，均享有 100% 植物保障。若有植物枯萎，我们免费更换，无需多问。该保障仅在订购养护服务时提供。",
+              })}
             </p>
           </Reveal>
 
           <div className="mt-14 grid gap-6 md:grid-cols-3">
             {[
               {
-                title: "100% Plant Guarantee",
-                body: "Any plant that declines or dies is replaced at no cost for the life of your maintenance agreement.",
+                key: "guarantee",
+                title: t({ en: "100% Plant Guarantee", fr: "Garantie 100 % des plantes", zh: "100% 植物保障" }),
+                body: t({
+                  en: "Any plant that declines or dies is replaced at no cost for the life of your maintenance agreement.",
+                  fr: "Toute plante qui dépérit ou meurt est remplacée sans frais pendant toute la durée de votre contrat d'entretien.",
+                  zh: "在养护合约有效期内，任何衰弱或枯死的植物均免费更换。",
+                }),
               },
               {
-                title: "Scheduled Maintenance",
-                body: "Regular visits for pruning, feeding, pest management, irrigation checks, and system calibration.",
+                key: "scheduled",
+                title: t({ en: "Scheduled Maintenance", fr: "Entretien planifié", zh: "定期养护" }),
+                body: t({
+                  en: "Regular visits for pruning, feeding, pest management, irrigation checks, and system calibration.",
+                  fr: "Visites régulières pour la taille, la fertilisation, la gestion des nuisibles, la vérification de l'irrigation et le calibrage du système.",
+                  zh: "定期上门进行修剪、施肥、病虫害防治、灌溉检查与系统校准。",
+                }),
               },
               {
-                title: "Plant Warranty Terms",
-                body: "Coverage stays active as long as maintenance is current. Without a maintenance plan, the guarantee does not apply.",
+                key: "terms",
+                title: t({ en: "Plant Warranty Terms", fr: "Conditions de la garantie", zh: "植物保修条款" }),
+                body: t({
+                  en: "Coverage stays active as long as maintenance is current. Without a maintenance plan, the guarantee does not apply.",
+                  fr: "La couverture demeure active tant que l'entretien est à jour. Sans forfait d'entretien, la garantie ne s'applique pas.",
+                  zh: "只要养护服务持续有效，保障即持续生效；未订购养护计划则不适用该保障。",
+                }),
               },
             ].map((c, i) => (
-              <Reveal key={c.title} delay={i * 0.08}>
+              <Reveal key={c.key} delay={i * 0.08}>
                 <div className="h-full rounded-3xl border border-charcoal/10 bg-white p-8">
                   <Leaf className="h-5 w-5 text-forest" />
                   <h3 className="mt-5 text-xl font-semibold text-charcoal">{c.title}</h3>
@@ -779,13 +1019,14 @@ function Index() {
                 href="#quote"
                 className="inline-flex items-center gap-2 rounded-full bg-forest-deep px-7 py-3 text-sm font-semibold text-cream transition hover:opacity-90"
               >
-                Ask about maintenance <ArrowRight className="h-4 w-4" />
+                {t({ en: "Ask about maintenance", fr: "Renseignez-vous sur l'entretien", zh: "咨询养护服务" })}{" "}
+                <ArrowRight className="h-4 w-4" />
               </a>
               <Link
                 to="/specifications"
                 className="text-sm font-semibold uppercase tracking-[0.18em] text-forest underline underline-offset-4"
               >
-                Full warranty terms
+                {t({ en: "Full warranty terms", fr: "Conditions complètes de garantie", zh: "完整保修条款" })}
               </Link>
             </div>
           </Reveal>
@@ -820,7 +1061,11 @@ function Index() {
               <Parallax strength={90}>
                 <img
                   src={spiderPothos.url}
-                  alt="Spider plant and pothos texture close-up"
+                  alt={t({
+                    en: "Spider plant and pothos texture close-up",
+                    fr: "Gros plan sur la texture d'une plante araignée et d'un pothos",
+                    zh: "吊兰与绿萝纹理特写",
+                  })}
                   className="aspect-[4/5] h-full w-full object-cover"
                   loading="lazy"
                 />
@@ -828,23 +1073,31 @@ function Index() {
             </Reveal>
             <Reveal>
               <p className="mb-3 text-xs font-semibold uppercase tracking-[0.3em] text-primary">
-                Our Philosophy
+                {t({ en: "Our Philosophy", fr: "Notre philosophie", zh: "我们的理念" })}
               </p>
               <WordsReveal
                 as="h2"
-                text="Beauty with simplicity."
+                text={t({
+                  en: "Beauty with simplicity.",
+                  fr: "La beauté dans la simplicité.",
+                  zh: "以简约成就美感。",
+                })}
                 className="display-heading text-4xl leading-[1.02] text-foreground md:text-6xl"
               />
               <div className="mt-8 space-y-5 text-base leading-relaxed text-muted-foreground">
                 <p>
-                  Living walls couple beauty with simplicity to create healthy,
-                  living works of art. They are composed of a variety of tropical
-                  plants that are grown hydroponically or soil based.
+                  {t({
+                    en: "Living walls couple beauty with simplicity to create healthy, living works of art. They are composed of a variety of tropical plants that are grown hydroponically or soil based.",
+                    fr: "Les murs végétaux allient beauté et simplicité pour créer des œuvres d'art vivantes et saines. Ils réunissent une variété de plantes tropicales cultivées en hydroponie ou en substrat.",
+                    zh: "植物墙将美感与简约融为一体，成为健康而有生命力的艺术作品。它们由多种热带植物组成，采用水培或基质栽培。",
+                  })}
                 </p>
                 <p>
-                  Each living wall is custom made to satisfy our clients' dreams.
-                  We believe that bringing nature indoors should feel effortless —
-                  a seamless extension of your space and your vision.
+                  {t({
+                    en: "Each living wall is custom made to satisfy our clients' dreams. We believe that bringing nature indoors should feel effortless — a seamless extension of your space and your vision.",
+                    fr: "Chaque mur végétal est réalisé sur mesure pour concrétiser les rêves de nos clients. Nous croyons que faire entrer la nature à l'intérieur doit être sans effort — un prolongement naturel de votre espace et de votre vision.",
+                    zh: "每一面植物墙都为客户的梦想量身定制。我们相信，把自然引入室内应当毫不费力——成为空间与愿景的自然延伸。",
+                  })}
                 </p>
               </div>
             </Reveal>
@@ -864,23 +1117,37 @@ function Index() {
         <div className="mx-auto grid max-w-7xl gap-12 px-6 py-20 md:py-28 lg:grid-cols-5 lg:gap-16">
           <Reveal className="lg:col-span-2">
             <p className="mb-4 text-sm font-semibold uppercase tracking-widest text-forest">
-              Request a Quote
+              {t({ en: "Request a Quote", fr: "Demander un devis", zh: "索取报价" })}
             </p>
             <h2 className="display-heading text-4xl text-charcoal md:text-5xl lg:text-6xl">
-              Ready to bring your wall to <em>life?</em>
+              {t({
+                en: "Ready to bring your wall to",
+                fr: "Prêt à donner",
+                zh: "准备好让您的墙面",
+              })}{" "}
+              <em>{t({ en: "life?", fr: "vie à votre mur ?", zh: "焕发生机了吗？" })}</em>
             </h2>
             <p className="mt-6 text-charcoal/75">
-              Tell us about your space and share a few photos if you have them. 
-              We'll get back to you within 1–2 business days with a tailored proposal.
+              {t({
+                en: "Tell us about your space and share a few photos if you have them. We'll get back to you within 1–2 business days with a tailored proposal.",
+                fr: "Parlez-nous de votre espace et joignez quelques photos si vous en avez. Nous vous répondrons sous 1 à 2 jours ouvrables avec une proposition sur mesure.",
+                zh: "告诉我们您的空间情况，如有照片也欢迎一并提供。我们将在 1–2 个工作日内回复您的专属方案。",
+              })}
             </p>
             <div className="mt-8 space-y-3 text-sm text-charcoal/75">
               <a href="tel:+16049971760" className="flex items-center gap-3 hover:text-charcoal">
                 <Phone className="h-4 w-4 text-forest" aria-hidden />
-                604-997-1760 <span className="text-charcoal/50">— English</span>
+                604-997-1760{" "}
+                <span className="text-charcoal/50">
+                  — {t({ en: "English", fr: "anglais", zh: "英语" })}
+                </span>
               </a>
               <a href="tel:+14038613732" className="flex items-center gap-3 hover:text-charcoal">
                 <Phone className="h-4 w-4 text-forest" aria-hidden />
-                403-861-3732 <span className="text-charcoal/50">— French</span>
+                403-861-3732{" "}
+                <span className="text-charcoal/50">
+                  — {t({ en: "French", fr: "français", zh: "法语" })}
+                </span>
               </a>
               <a href="mailto:verticaloxygen@gmail.com" className="flex items-center gap-3 hover:text-charcoal">
                 <Mail className="h-4 w-4 text-forest" aria-hidden />
@@ -912,7 +1179,7 @@ function Index() {
               />
             </a>
             <p className="text-sm text-cream/60">
-              Custom living walls.
+              {t({ en: "Custom living walls.", fr: "Murs végétaux sur mesure.", zh: "定制植物墙。" })}
             </p>
             <div className="flex items-center gap-3">
               <a
