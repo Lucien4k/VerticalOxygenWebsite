@@ -456,13 +456,26 @@ function Index() {
                   </a>
                   <span className="flex items-center gap-1.5 opacity-90">
                     <MapPin className="h-3.5 w-3.5" aria-hidden />
-                     <span>Installations across North America</span>
+                    <span>
+                      {t({
+                        en: "Installations across North America",
+                        fr: "Installations partout en Amérique du Nord",
+                        zh: "遍布北美的绿墙项目",
+                      })}
+                    </span>
                   </span>
                   <span className="flex items-center gap-1.5 opacity-90">
                     <Leaf className="h-3.5 w-3.5" aria-hidden />
-                    <span>Living &amp; moss walls</span>
+                    <span>
+                      {t({
+                        en: "Living & moss walls",
+                        fr: "Murs végétaux et murs de mousse",
+                        zh: "植物墙与苔藓墙",
+                      })}
+                    </span>
                   </span>
                 </div>
+                <LanguageSwitcher />
               </div>
             </div>
 
