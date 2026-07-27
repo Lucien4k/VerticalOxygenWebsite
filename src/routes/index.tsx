@@ -952,35 +952,58 @@ function Index() {
         <div className="mx-auto max-w-7xl px-6 py-20 md:py-28">
           <Reveal>
             <p className="mb-3 text-xs font-semibold uppercase tracking-[0.3em] text-forest">
-              Maintenance & Guarantee
+              {t({ en: "Maintenance & Guarantee", fr: "Entretien et garantie", zh: "养护与保障" })}
             </p>
             <h2 className="display-heading max-w-3xl text-4xl leading-[1.05] text-charcoal md:text-6xl">
-              100% plant guarantee — <em>with maintenance.</em>
+              {t({
+                en: "100% plant guarantee —",
+                fr: "Garantie 100 % des plantes —",
+                zh: "100% 植物保障——",
+              })}{" "}
+              <em>
+                {t({ en: "with maintenance.", fr: "avec l'entretien.", zh: "需搭配养护服务。" })}
+              </em>
             </h2>
             <p className="mt-6 max-w-2xl text-base leading-relaxed text-charcoal/70">
-              A living wall is a living thing. Our maintenance program keeps every wall
-              thriving — and every wall on an active maintenance agreement is covered by
-              our 100% plant guarantee. If a plant fails, we replace it. No charge, no
-              questions. The guarantee is available exclusively with maintenance service.
+              {t({
+                en: "A living wall is a living thing. Our maintenance program keeps every wall thriving — and every wall on an active maintenance agreement is covered by our 100% plant guarantee. If a plant fails, we replace it. No charge, no questions. The guarantee is available exclusively with maintenance service.",
+                fr: "Un mur végétal est un organisme vivant. Notre programme d'entretien garde chaque mur en pleine santé — et tout mur couvert par un contrat d'entretien actif bénéficie de notre garantie 100 % des plantes. Si une plante dépérit, nous la remplaçons. Sans frais, sans discussion. La garantie est offerte exclusivement avec le service d'entretien.",
+                zh: "植物墙是有生命的。我们的养护计划让每一面墙持续繁茂——凡在有效养护合约内的墙体，均享有 100% 植物保障。若有植物枯萎，我们免费更换，无需多问。该保障仅在订购养护服务时提供。",
+              })}
             </p>
           </Reveal>
 
           <div className="mt-14 grid gap-6 md:grid-cols-3">
             {[
               {
-                title: "100% Plant Guarantee",
-                body: "Any plant that declines or dies is replaced at no cost for the life of your maintenance agreement.",
+                key: "guarantee",
+                title: t({ en: "100% Plant Guarantee", fr: "Garantie 100 % des plantes", zh: "100% 植物保障" }),
+                body: t({
+                  en: "Any plant that declines or dies is replaced at no cost for the life of your maintenance agreement.",
+                  fr: "Toute plante qui dépérit ou meurt est remplacée sans frais pendant toute la durée de votre contrat d'entretien.",
+                  zh: "在养护合约有效期内，任何衰弱或枯死的植物均免费更换。",
+                }),
               },
               {
-                title: "Scheduled Maintenance",
-                body: "Regular visits for pruning, feeding, pest management, irrigation checks, and system calibration.",
+                key: "scheduled",
+                title: t({ en: "Scheduled Maintenance", fr: "Entretien planifié", zh: "定期养护" }),
+                body: t({
+                  en: "Regular visits for pruning, feeding, pest management, irrigation checks, and system calibration.",
+                  fr: "Visites régulières pour la taille, la fertilisation, la gestion des nuisibles, la vérification de l'irrigation et le calibrage du système.",
+                  zh: "定期上门进行修剪、施肥、病虫害防治、灌溉检查与系统校准。",
+                }),
               },
               {
-                title: "Plant Warranty Terms",
-                body: "Coverage stays active as long as maintenance is current. Without a maintenance plan, the guarantee does not apply.",
+                key: "terms",
+                title: t({ en: "Plant Warranty Terms", fr: "Conditions de la garantie", zh: "植物保修条款" }),
+                body: t({
+                  en: "Coverage stays active as long as maintenance is current. Without a maintenance plan, the guarantee does not apply.",
+                  fr: "La couverture demeure active tant que l'entretien est à jour. Sans forfait d'entretien, la garantie ne s'applique pas.",
+                  zh: "只要养护服务持续有效，保障即持续生效；未订购养护计划则不适用该保障。",
+                }),
               },
             ].map((c, i) => (
-              <Reveal key={c.title} delay={i * 0.08}>
+              <Reveal key={c.key} delay={i * 0.08}>
                 <div className="h-full rounded-3xl border border-charcoal/10 bg-white p-8">
                   <Leaf className="h-5 w-5 text-forest" />
                   <h3 className="mt-5 text-xl font-semibold text-charcoal">{c.title}</h3>
@@ -996,13 +1019,14 @@ function Index() {
                 href="#quote"
                 className="inline-flex items-center gap-2 rounded-full bg-forest-deep px-7 py-3 text-sm font-semibold text-cream transition hover:opacity-90"
               >
-                Ask about maintenance <ArrowRight className="h-4 w-4" />
+                {t({ en: "Ask about maintenance", fr: "Renseignez-vous sur l'entretien", zh: "咨询养护服务" })}{" "}
+                <ArrowRight className="h-4 w-4" />
               </a>
               <Link
                 to="/specifications"
                 className="text-sm font-semibold uppercase tracking-[0.18em] text-forest underline underline-offset-4"
               >
-                Full warranty terms
+                {t({ en: "Full warranty terms", fr: "Conditions complètes de garantie", zh: "完整保修条款" })}
               </Link>
             </div>
           </Reveal>
