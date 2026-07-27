@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
 import { Download, FileText, ArrowUpRight } from "lucide-react";
 import logoHeader from "../assets/logo-header.png.asset.json";
+import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { useT, type Tr } from "@/lib/i18n";
 
 export const Route = createFileRoute("/specifications")({
