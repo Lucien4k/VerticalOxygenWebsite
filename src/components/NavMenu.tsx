@@ -130,6 +130,19 @@ export function NavMenu({ menus }: { menus: MenuItem[] }) {
                         Open page →
                       </NavLink>
                     </div>
+                  ) : menu.items.every((i) => !i.image && !i.description) ? (
+                    <div className="grid grid-cols-2 gap-x-4 gap-y-1 p-2 sm:grid-cols-3">
+                      {menu.items.map((item) => (
+                        <NavLink
+                          key={item.label}
+                          href={item.href}
+                          className="group flex items-center gap-2 rounded-lg px-2 py-1.5 text-sm text-charcoal transition-colors hover:bg-charcoal/5 hover:text-forest-deep"
+                        >
+                          <span className="h-1.5 w-1.5 rounded-full bg-forest-deep/60 transition-all group-hover:h-2 group-hover:w-2 group-hover:bg-forest-deep" />
+                          <span className="truncate">{item.label}</span>
+                        </NavLink>
+                      ))}
+                    </div>
                   ) : (
                     <div className="grid grid-cols-2 gap-1">
                       {menu.items.map((item) => (
