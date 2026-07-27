@@ -618,18 +618,23 @@ function Index() {
           <div className="max-w-2xl">
             <div className="reveal-fade is-visible">
               <span className="text-shadow-hero mb-4 inline-flex items-center gap-2 rounded-full border border-cream/30 bg-cream/10 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.25em] text-cream backdrop-blur-sm">
-                Since 2011
+                {t({ en: "Since 2011", fr: "Depuis 2011", zh: "始于 2011 年" })}
               </span>
               <p className="text-shadow-hero mb-4 text-xs font-bold uppercase tracking-[0.3em] text-cream">
-                Custom Living Walls
+                {t({ en: "Custom Living Walls", fr: "Murs végétaux sur mesure", zh: "定制植物墙" })}
               </p>
               <h1 className="display-heading-hero text-5xl text-cream md:text-7xl lg:text-8xl">
-                Living works{" "}
-                <span className="whitespace-nowrap">of art</span>
+                {t({ en: "Living works", fr: "Des œuvres d'art", zh: "有生命的" })}{" "}
+                <span className="whitespace-nowrap">
+                  {t({ en: "of art", fr: "vivantes", zh: "艺术作品" })}
+                </span>
               </h1>
               <p className="text-shadow-hero mt-6 max-w-xl text-lg font-medium leading-relaxed text-cream">
-                We couple beauty with simplicity to create healthy, living works of art.
-                Each wall is custom made to satisfy your dreams.
+                {t({
+                  en: "We couple beauty with simplicity to create healthy, living works of art. Each wall is custom made to satisfy your dreams.",
+                  fr: "Nous allions beauté et simplicité pour créer des œuvres d'art vivantes et saines. Chaque mur est conçu sur mesure pour concrétiser vos rêves.",
+                  zh: "我们将美感与简约结合，创造健康而富有生命力的艺术作品。每一面绿墙都为您的构想量身打造。",
+                })}
               </p>
             </div>
             <div className="mt-10 flex flex-wrap items-center gap-4 reveal is-visible" style={{ animationDelay: "200ms" }}>
@@ -640,7 +645,9 @@ function Index() {
                 <span className="slide-cta-arrow pl-4 text-cream">
                   <ArrowRight className="h-4 w-4" aria-hidden />
                 </span>
-                <span className="slide-cta-label">Get a Quote</span>
+                <span className="slide-cta-label">
+                  {t({ en: "Get a Quote", fr: "Demander un devis", zh: "获取报价" })}
+                </span>
               </a>
               <a
                 href="#work"
@@ -649,7 +656,9 @@ function Index() {
                 <span className="slide-cta-arrow pl-4 text-cream">
                   <ArrowRight className="h-4 w-4" aria-hidden />
                 </span>
-                <span className="slide-cta-label">Learn More</span>
+                <span className="slide-cta-label">
+                  {t({ en: "Learn More", fr: "En savoir plus", zh: "了解更多" })}
+                </span>
               </a>
             </div>
           </div>
@@ -666,16 +675,23 @@ function Index() {
         overlay={
           <div className="max-w-2xl">
             <p className="text-shadow-hero mb-4 text-xs font-bold uppercase tracking-[0.3em] text-white">
-              Engineered in layers
+              {t({ en: "Engineered in layers", fr: "Conçu par couches", zh: "分层工程结构" })}
             </p>
             <WordsReveal
               as="h2"
-              text="Panels that come together as one."
+              text={t({
+                en: "Panels that come together as one.",
+                fr: "Des panneaux qui n'en forment qu'un.",
+                zh: "块块面板，浑然一体。",
+              })}
               className="display-heading-hero text-4xl text-cream md:text-6xl lg:text-7xl"
             />
             <p className="text-shadow-hero mt-6 text-lg font-medium leading-relaxed text-cream md:text-xl">
-              Every wall is built from modular panels — designed, planted, and
-              assembled on-site. Scroll to see how the pieces come together.
+              {t({
+                en: "Every wall is built from modular panels — designed, planted, and assembled on-site. Scroll to see how the pieces come together.",
+                fr: "Chaque mur est constitué de panneaux modulaires — conçus, plantés et assemblés sur place. Faites défiler pour voir les pièces s'assembler.",
+                zh: "每一面墙都由模块化面板组成——设计、栽植并在现场组装。向下滚动，看它们如何合而为一。",
+              })}
             </p>
           </div>
         }
