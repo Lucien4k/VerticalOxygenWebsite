@@ -26,6 +26,7 @@ import { Phone, Mail, MapPin, Leaf, ArrowRight, Instagram, X, ZoomIn } from "luc
 import { QuoteForm } from "@/components/QuoteForm";
 import { Reveal } from "@/components/Reveal";
 import { LocationsMap } from "@/components/LocationsMap";
+import { ClientLogos } from "@/components/ClientLogos";
 import { NavMenu } from "@/components/NavMenu";
 import { Parallax } from "@/components/Parallax";
 import { WordsReveal } from "@/components/WordsReveal";
@@ -764,6 +765,12 @@ function Index() {
 
       {/* Photo showcase — living, breathing installations */}
       {/* Wood shelf divider */}
+      <section id="clients" className="relative overflow-hidden bg-cream py-24 text-charcoal md:py-32">
+        <Reveal>
+          <ClientLogos />
+        </Reveal>
+      </section>
+
       <div className="relative h-5 w-full overflow-hidden md:h-7" aria-hidden>
         <div
           className="absolute inset-0 bg-cover bg-center"
