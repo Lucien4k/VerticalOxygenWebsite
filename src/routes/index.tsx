@@ -764,6 +764,12 @@ function Index() {
 
       {/* Photo showcase — living, breathing installations */}
       {/* Wood shelf divider */}
+      <section id="clients" className="relative overflow-hidden bg-cream py-24 text-charcoal md:py-32">
+        <Reveal>
+          <ClientLogos />
+        </Reveal>
+      </section>
+
       <div className="relative h-5 w-full overflow-hidden md:h-7" aria-hidden>
         <div
           className="absolute inset-0 bg-cover bg-center"
