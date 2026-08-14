@@ -66,43 +66,82 @@ const SYSTEMS: {
 }[] = [
   {
     key: "hydroponic",
-    title: { en: "Hydroponic", fr: "Hydroponique", zh: "水培系统" },
+    title: {
+      en: "Hydroponic",
+      fr: "Hydroponique",
+      zh: "水培系统",
+      es: "Hidropónico",
+      pa: "ਹਾਈਡ੍ਰੋਪੋਨਿਕ",
+      ar: "الزراعة المائية",
+      hi: "हाइड्रोपोनिक",
+    },
     tag: {
       en: "Soilless · Recirculating",
       fr: "Sans terre · Circuit fermé",
       zh: "无土栽培 · 循环供水",
+      es: "Sin tierra · Recirculante",
+      pa: "ਮਿੱਟੀ ਰਹਿਤ · ਮੁੜ-ਸੰਚਾਰੀ",
+      ar: "بدون تربة · إعادة تدوير المياه",
+      hi: "मिट्टी रहित · पुनर्चक्रित",
     },
     diagram: diagramHydroponic.url,
     tagline: {
       en: "Lightweight. Precise. Effortless.",
       fr: "Léger. Précis. Sans effort.",
       zh: "轻盈、精准、省心。",
+      es: "Ligero. Preciso. Sin esfuerzo.",
+      pa: "ਹਲਕਾ। ਸਟੀਕ। ਆਸਾਨ।",
+      ar: "خفيف. دقيق. بلا جهد.",
+      hi: "हल्का। सटीक। सहज।",
     },
     description: {
       en: "Recirculating water and dosed nutrients feed a felt matrix — soilless, low-weight, and simple to maintain across large-format installations.",
       fr: "L'eau recirculée et les nutriments dosés alimentent une matrice de feutre — sans terre, très légère et simple à entretenir, même sur de très grandes installations.",
       zh: "循环水与精准配比的营养液滋养毛毡基质——无需土壤、重量极轻，即便是大幅面墙体也易于维护。",
+      es: "El agua recirculada y los nutrientes dosificados alimentan una matriz de fieltro — sin tierra, de bajo peso y fácil de mantener incluso en instalaciones de gran formato.",
+      pa: "ਮੁੜ-ਸੰਚਾਰਿਤ ਪਾਣੀ ਅਤੇ ਮਿਣਿਆ ਹੋਇਆ ਪੋਸ਼ਣ ਇੱਕ ਫੈਲਟ ਮੈਟ੍ਰਿਕਸ ਨੂੰ ਖੁਰਾਕ ਦਿੰਦੇ ਹਨ — ਮਿੱਟੀ ਰਹਿਤ, ਹਲਕਾ, ਅਤੇ ਵੱਡੇ ਪੱਧਰ ਦੀਆਂ ਸਥਾਪਨਾਵਾਂ ਵਿੱਚ ਵੀ ਸੰਭਾਲਣਾ ਸੌਖਾ।",
+      ar: "تغذي المياه المعاد تدويرها والمغذيات المقاسة بدقة نسيجًا من اللباد — بدون تربة، خفيف الوزن وسهل الصيانة حتى في التركيبات الكبيرة.",
+      hi: "पुनर्चक्रित पानी और मापे गए पोषक तत्व एक फेल्ट मैट्रिक्स को पोषण देते हैं — मिट्टी रहित, हल्के वज़न वाला, और बड़े इंस्टॉलेशन में भी बनाए रखना आसान।",
     },
     stats: [
       {
-        label: { en: "Wall weight", fr: "Poids du mur", zh: "墙体重量" },
+        label: {
+          en: "Wall weight", fr: "Poids du mur", zh: "墙体重量",
+          es: "Peso del muro", pa: "ਕੰਧ ਦਾ ਭਾਰ", ar: "وزن الجدار", hi: "दीवार का वज़न",
+        },
         value: { en: "≈ 8 lb/ft²" },
       },
       {
-        label: { en: "Water use", fr: "Consommation d'eau", zh: "用水方式" },
-        value: { en: "Recirculating", fr: "Circuit fermé", zh: "循环利用" },
+        label: {
+          en: "Water use", fr: "Consommation d'eau", zh: "用水方式",
+          es: "Uso de agua", pa: "ਪਾਣੀ ਦੀ ਵਰਤੋਂ", ar: "استخدام المياه", hi: "जल उपयोग",
+        },
+        value: {
+          en: "Recirculating", fr: "Circuit fermé", zh: "循环利用",
+          es: "Recirculante", pa: "ਮੁੜ-ਸੰਚਾਰੀ", ar: "إعادة تدوير", hi: "पुनर्चक्रित",
+        },
       },
       {
-        label: { en: "Best for", fr: "Idéal pour", zh: "适用场景" },
+        label: {
+          en: "Best for", fr: "Idéal pour", zh: "适用场景",
+          es: "Ideal para", pa: "ਸਭ ਤੋਂ ਵਧੀਆ ਲਈ", ar: "الأنسب لـ", hi: "इनके लिए सर्वोत्तम",
+        },
         value: {
           en: "Lobbies, offices, tall installs",
           fr: "Halls, bureaux, murs de grande hauteur",
           zh: "大堂、办公空间、超高墙面",
+          es: "Vestíbulos, oficinas, instalaciones altas",
+          pa: "ਲਾਬੀਆਂ, ਦਫ਼ਤਰ, ਉੱਚੀਆਂ ਸਥਾਪਨਾਵਾਂ",
+          ar: "الردهات، المكاتب، التركيبات العالية",
+          hi: "लॉबी, कार्यालय, ऊँचे इंस्टॉलेशन",
         },
       },
       {
-        label: { en: "Wall depth", fr: "Profondeur du mur", zh: "墙体厚度" },
-        value: { en: "4–6 in", fr: "10–15 cm", zh: "10–15 厘米" },
+        label: {
+          en: "Wall depth", fr: "Profondeur du mur", zh: "墙体厚度",
+          es: "Profundidad del muro", pa: "ਕੰਧ ਦੀ ਡੂੰਘਾਈ", ar: "عمق الجدار", hi: "दीवार की गहराई",
+        },
+        value: { en: "4–6 in", fr: "10–15 cm", zh: "10–15 厘米", es: "10–15 cm", pa: "10–15 ਸੈਮੀ", ar: "10–15 سم", hi: "10–15 सेमी" },
       },
     ],
     highlights: [
@@ -110,37 +149,69 @@ const SYSTEMS: {
         en: "Ultra-light felt matrix",
         fr: "Matrice de feutre ultralégère",
         zh: "超轻毛毡基质",
+        es: "Matriz de fieltro ultraligera",
+        pa: "ਅਤਿ-ਹਲਕਾ ਫੈਲਟ ਮੈਟ੍ਰਿਕਸ",
+        ar: "نسيج لباد فائق الخفة",
+        hi: "अत्यंत हल्का फेल्ट मैट्रिक्स",
       },
       {
         en: "Automated dosing + irrigation",
         fr: "Dosage et irrigation automatisés",
         zh: "自动配肥与灌溉",
+        es: "Dosificación e irrigación automatizadas",
+        pa: "ਆਟੋਮੇਟਿਡ ਡੋਜ਼ਿੰਗ + ਸਿੰਚਾਈ",
+        ar: "جرعات وري آلية",
+        hi: "स्वचालित डोज़िंग + सिंचाई",
       },
       {
         en: "Scales to any wall size",
         fr: "S'adapte à toutes les dimensions",
         zh: "可适配任意墙面尺寸",
+        es: "Se adapta a cualquier tamaño de muro",
+        pa: "ਕਿਸੇ ਵੀ ਕੰਧ ਦੇ ਆਕਾਰ ਲਈ ਢੁਕਵਾਂ",
+        ar: "يتكيف مع أي حجم جدار",
+        hi: "किसी भी दीवार आकार के अनुरूप",
       },
     ],
   },
   {
     key: "aquaponic",
-    title: { en: "Aquaponic", fr: "Aquaponique", zh: "鱼菜共生系统" },
+    title: {
+      en: "Aquaponic",
+      fr: "Aquaponique",
+      zh: "鱼菜共生系统",
+      es: "Acuapónico",
+      pa: "ਐਕੁਆਪੋਨਿਕ",
+      ar: "الاستزراع المائي التكافلي",
+      hi: "एक्वापोनिक",
+    },
     tag: {
       en: "Closed-loop · Fish + plants",
       fr: "Circuit fermé · Poissons et plantes",
       zh: "闭环生态 · 鱼与植物共生",
+      es: "Circuito cerrado · Peces y plantas",
+      pa: "ਬੰਦ-ਲੂਪ · ਮੱਛੀਆਂ + ਪੌਦੇ",
+      ar: "دورة مغلقة · أسماك ونباتات",
+      hi: "क्लोज़्ड-लूप · मछली + पौधे",
     },
     diagram: diagramAquaponic.url,
     tagline: {
       en: "One ecosystem. Zero waste.",
       fr: "Un écosystème. Zéro déchet.",
       zh: "一个生态系统，零浪费。",
+      es: "Un ecosistema. Cero desperdicio.",
+      pa: "ਇੱਕ ਇਕੋਸਿਸਟਮ। ਜ਼ੀਰੋ ਬਰਬਾਦੀ।",
+      ar: "نظام بيئي واحد. صفر هدر.",
+      hi: "एक पारिस्थितिकी तंत्र। शून्य बर्बादी।",
     },
     description: {
       en: "Plants and tilapia share a single closed loop. Fish waste becomes nutrients, roots polish the water, and the system self-regulates with minimal input.",
       fr: "Les plantes et les tilapias partagent un même circuit fermé. Les déjections des poissons deviennent des nutriments, les racines purifient l'eau et le système s'autorégule avec très peu d'intervention.",
       zh: "植物与罗非鱼共享同一闭环：鱼类排泄物转化为养分，根系净化水质，系统几乎无需人工干预即可自我调节。",
+      es: "Las plantas y la tilapia comparten un único circuito cerrado. Los desechos de los peces se convierten en nutrientes, las raíces purifican el agua y el sistema se autorregula con mínima intervención.",
+      pa: "ਪੌਦੇ ਅਤੇ ਟਿਲਾਪੀਆ ਇੱਕ ਹੀ ਬੰਦ-ਲੂਪ ਸਾਂਝਾ ਕਰਦੇ ਹਨ। ਮੱਛੀ ਦੀ ਰਹਿੰਦ-ਖੂੰਹਦ ਪੋਸ਼ਣ ਬਣ ਜਾਂਦੀ ਹੈ, ਜੜ੍ਹਾਂ ਪਾਣੀ ਨੂੰ ਸਾਫ਼ ਕਰਦੀਆਂ ਹਨ, ਅਤੇ ਸਿਸਟਮ ਘੱਟੋ-ਘੱਟ ਦਖਲ ਨਾਲ ਆਪਣੇ ਆਪ ਨੂੰ ਨਿਯਮਤ ਕਰਦਾ ਹੈ।",
+      ar: "تتشارك النباتات وسمك البلطي دورة مغلقة واحدة. تتحول فضلات الأسماك إلى مغذيات، وتنقّي الجذور الماء، ويعمل النظام على تنظيم نفسه بأقل تدخل.",
+      hi: "पौधे और तिलापिया मछली एक ही क्लोज़्ड-लूप साझा करते हैं। मछली का अपशिष्ट पोषक तत्व बन जाता है, जड़ें पानी को शुद्ध करती हैं, और सिस्टम न्यूनतम हस्तक्षेप के साथ स्वयं को नियंत्रित करता है।",
     },
     stats: [
       {
@@ -325,7 +396,7 @@ function SystemsShowcase() {
               href="#quote"
               className="group inline-flex items-center gap-2 rounded-full bg-forest-deep px-6 py-3 text-xs font-semibold uppercase tracking-[0.25em] text-cream shadow-lg transition hover:bg-forest-deep/90 md:text-sm"
             >
-              {t({ en: "Get a quote", fr: "Demander un devis", zh: "获取报价" })}
+              {t({ en: "Get a quote", fr: "Demander un devis", zh: "获取报价", es: "Solicitar una cotización", pa: "ਕੋਟੇਸ਼ਨ ਲਓ", ar: "احصل على عرض سعر", hi: "कोटेशन प्राप्त करें" })}
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </a>
             <button
@@ -333,7 +404,7 @@ function SystemsShowcase() {
               onClick={() => setActive((active + 1) % SYSTEMS.length)}
               className="group inline-flex items-center gap-2 rounded-full border border-charcoal/25 px-6 py-3 text-xs font-semibold uppercase tracking-[0.25em] text-charcoal transition hover:bg-charcoal hover:text-cream md:text-sm"
             >
-              {t({ en: "See", fr: "Voir", zh: "查看" })} {t(next.title)}
+              {t({ en: "See", fr: "Voir", zh: "查看", es: "Ver", pa: "ਦੇਖੋ", ar: "عرض", hi: "देखें" })} {t(next.title)}
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </button>
           </div>
@@ -353,7 +424,7 @@ function SystemsShowcase() {
             type="button"
             onClick={() => setLightbox(null)}
             className="absolute top-5 right-5 flex h-12 w-12 items-center justify-center rounded-full bg-cream/10 text-cream transition hover:bg-cream/20"
-            aria-label={t({ en: "Close", fr: "Fermer", zh: "关闭" })}
+            aria-label={t({ en: "Close", fr: "Fermer", zh: "关闭", es: "Cerrar", pa: "ਬੰਦ ਕਰੋ", ar: "إغلاق", hi: "बंद करें" })}
           >
             <X className="h-6 w-6" aria-hidden />
           </button>
@@ -462,6 +533,10 @@ function Index() {
                         en: "Installations across North America",
                         fr: "Installations partout en Amérique du Nord",
                         zh: "遍布北美的绿墙项目",
+                        es: "Instalaciones en toda Norteamérica",
+                        pa: "ਉੱਤਰੀ ਅਮਰੀਕਾ ਭਰ ਵਿੱਚ ਸਥਾਪਨਾਵਾਂ",
+                        ar: "تركيبات في جميع أنحاء أمريكا الشمالية",
+                        hi: "उत्तरी अमेरिका भर में इंस्टॉलेशन",
                       })}
                     </span>
                   </span>
@@ -472,6 +547,10 @@ function Index() {
                         en: "Living & moss walls",
                         fr: "Murs végétaux et murs de mousse",
                         zh: "植物墙与苔藓墙",
+                        es: "Muros vivos y de musgo",
+                        pa: "ਜੀਵੰਤ ਅਤੇ ਮੌਸ ਦੀਆਂ ਕੰਧਾਂ",
+                        ar: "الجدران الحية وجدران الطحالب",
+                        hi: "लिविंग व मॉस वॉल",
                       })}
                     </span>
                   </span>
@@ -499,45 +578,61 @@ function Index() {
                 <NavMenu
                   menus={[
                     {
-                      label: t({ en: "Work", fr: "Réalisations", zh: "项目" }),
+                      label: t({ en: "Work", fr: "Réalisations", zh: "项目", es: "Proyectos", pa: "ਕੰਮ", ar: "الأعمال", hi: "कार्य" }),
                       href: "#work",
                       items: [
                         {
-                          label: t({ en: "Our Systems", fr: "Nos systèmes", zh: "我们的系统" }),
+                          label: t({ en: "Our Systems", fr: "Nos systèmes", zh: "我们的系统", es: "Nuestros sistemas", pa: "ਸਾਡੇ ਸਿਸਟਮ", ar: "أنظمتنا", hi: "हमारे सिस्टम" }),
                           description: t({
                             en: "Hydroponic & aquaponic walls",
                             fr: "Murs hydroponiques et aquaponiques",
                             zh: "水培与鱼菜共生墙体",
+                            es: "Muros hidropónicos y acuapónicos",
+                            pa: "ਹਾਈਡ੍ਰੋਪੋਨਿਕ ਅਤੇ ਐਕੁਆਪੋਨਿਕ ਕੰਧਾਂ",
+                            ar: "جدران مائية وجدران أكوابونيك",
+                            hi: "हाइड्रोपोनिक और एक्वापोनिक वॉल",
                           }),
                           href: "#work",
                           image: iffWall.url,
                         },
                         {
-                          label: t({ en: "Recent Installations", fr: "Réalisations récentes", zh: "近期案例" }),
+                          label: t({ en: "Recent Installations", fr: "Réalisations récentes", zh: "近期案例", es: "Instalaciones recientes", pa: "ਹਾਲੀਆ ਸਥਾਪਨਾਵਾਂ", ar: "أحدث التركيبات", hi: "हाल की इंस्टॉलेशन" }),
                           description: t({
                             en: "Photos from real projects",
                             fr: "Photos de projets réels",
                             zh: "真实项目实拍",
+                            es: "Fotos de proyectos reales",
+                            pa: "ਅਸਲ ਪ੍ਰੋਜੈਕਟਾਂ ਦੀਆਂ ਫੋਟੋਆਂ",
+                            ar: "صور من مشاريع حقيقية",
+                            hi: "वास्तविक प्रोजेक्ट्स की तस्वीरें",
                           }),
                           href: "#motion",
                           image: lobbyPanels.url,
                         },
                         {
-                          label: t({ en: "Maintenance & Guarantee", fr: "Entretien et garantie", zh: "养护与保障" }),
+                          label: t({ en: "Maintenance & Guarantee", fr: "Entretien et garantie", zh: "养护与保障", es: "Mantenimiento y garantía", pa: "ਸਾਂਭ-ਸੰਭਾਲ ਅਤੇ ਗਾਰੰਟੀ", ar: "الصيانة والضمان", hi: "रखरखाव और गारंटी" }),
                           description: t({
                             en: "100% plant guarantee with service",
                             fr: "Garantie 100 % des plantes avec entretien",
                             zh: "含养护服务的 100% 植物保障",
+                            es: "Garantía del 100 % de las plantas con servicio",
+                            pa: "ਸਰਵਿਸ ਸਮੇਤ 100% ਪੌਦਿਆਂ ਦੀ ਗਾਰੰਟੀ",
+                            ar: "ضمان 100٪ على النباتات مع الخدمة",
+                            hi: "सेवा सहित 100% पौधों की गारंटी",
                           }),
                           href: "#maintenance",
                           image: higherHealth.url,
                         },
                         {
-                          label: t({ en: "Specifications", fr: "Fiche technique", zh: "技术规格" }),
+                          label: t({ en: "Specifications", fr: "Fiche technique", zh: "技术规格", es: "Especificaciones", pa: "ਵਿਸ਼ੇਸ਼ਤਾਵਾਂ", ar: "المواصفات", hi: "विनिर्देश" }),
                           description: t({
                             en: "Loads, water, fire ratings",
                             fr: "Charges, eau, résistance au feu",
                             zh: "荷载、给水与防火等级",
+                            es: "Cargas, agua, clasificaciones ignífugas",
+                            pa: "ਲੋਡ, ਪਾਣੀ, ਅੱਗ ਦਰਜਾਬੰਦੀ",
+                            ar: "الأحمال والمياه وتصنيفات مقاومة الحريق",
+                            hi: "लोड, पानी, फायर रेटिंग",
                           }),
                           href: "/specifications",
                           image: outdoorFrame.url,
@@ -545,7 +640,7 @@ function Index() {
                       ],
                     },
                     {
-                      label: t({ en: "Locations", fr: "Emplacements", zh: "服务城市" }),
+                      label: t({ en: "Locations", fr: "Emplacements", zh: "服务城市", es: "Ubicaciones", pa: "ਸਥਾਨ", ar: "المواقع", hi: "स्थान" }),
                       href: "#locations",
                       items: [
                         { label: "Vancouver", href: "#locations" },
@@ -573,23 +668,31 @@ function Index() {
                       ],
                     },
                     {
-                      label: t({ en: "About", fr: "À propos", zh: "关于我们" }),
+                      label: t({ en: "About", fr: "À propos", zh: "关于我们", es: "Sobre nosotros", pa: "ਸਾਡੇ ਬਾਰੇ", ar: "من نحن", hi: "हमारे बारे में" }),
                       href: "/about",
                       items: [],
                       description: t({
                         en: "Meet Nathalie Callede and Tim Suddaby — the woman-owned team behind Vertical Oxygen and every wall we've built.",
                         fr: "Rencontrez Nathalie Callede et Tim Suddaby — l'équipe détenue par une femme derrière Vertical Oxygen et chacun de nos murs.",
                         zh: "认识 Nathalie Callede 与 Tim Suddaby——这家由女性创办的团队，打造了 Vertical Oxygen 的每一面绿墙。",
+                        es: "Conoce a Nathalie Callede y Tim Suddaby — el equipo liderado por una mujer detrás de Vertical Oxygen y de cada muro que hemos construido.",
+                        pa: "ਨਥਾਲੀ ਕੈਲੇਡ ਅਤੇ ਟਿਮ ਸਡਬੀ ਨੂੰ ਮਿਲੋ — Vertical Oxygen ਅਤੇ ਸਾਡੀ ਹਰ ਕੰਧ ਪਿੱਛੇ ਔਰਤ ਦੀ ਮਲਕੀਅਤ ਵਾਲੀ ਟੀਮ।",
+                        ar: "تعرف على ناتالي كاليد وتيم سدابي — الفريق المملوك لسيدة والذي يقف وراء Vertical Oxygen وكل جدار قمنا ببنائه.",
+                        hi: "नथाली कैलेड और टिम सुडाबी से मिलें — Vertical Oxygen और हमारी हर दीवार के पीछे महिला-स्वामित्व वाली टीम।",
                       }),
                     },
                     {
-                      label: t({ en: "Specifications", fr: "Fiche technique", zh: "技术规格" }),
+                      label: t({ en: "Specifications", fr: "Fiche technique", zh: "技术规格", es: "Especificaciones", pa: "ਵਿਸ਼ੇਸ਼ਤਾਵਾਂ", ar: "المواصفات", hi: "विनिर्देश" }),
                       href: "/specifications",
                       items: [],
                       description: t({
                         en: "Technical datasheets, load and water specs, fire ratings, and CAD/BIM downloads for architects, engineers, and contractors.",
                         fr: "Fiches techniques, charges et alimentation en eau, résistance au feu et fichiers CAO/BIM pour architectes, ingénieurs et entrepreneurs.",
                         zh: "面向建筑师、工程师与承包商的技术数据表、荷载与给水参数、防火等级及 CAD/BIM 下载。",
+                        es: "Fichas técnicas, especificaciones de carga y agua, clasificaciones ignífugas y descargas CAD/BIM para arquitectos, ingenieros y contratistas.",
+                        pa: "ਆਰਕੀਟੈਕਟਾਂ, ਇੰਜੀਨੀਅਰਾਂ ਅਤੇ ਠੇਕੇਦਾਰਾਂ ਲਈ ਤਕਨੀਕੀ ਡੇਟਾਸ਼ੀਟਾਂ, ਲੋਡ ਅਤੇ ਪਾਣੀ ਦੀਆਂ ਵਿਸ਼ੇਸ਼ਤਾਵਾਂ, ਅੱਗ ਦਰਜਾਬੰਦੀ ਅਤੇ CAD/BIM ਡਾਊਨਲੋਡ।",
+                        ar: "أوراق بيانات فنية، مواصفات الأحمال والمياه، تصنيفات مقاومة الحريق، وملفات CAD/BIM قابلة للتنزيل للمهندسين المعماريين والمهندسين والمقاولين.",
+                        hi: "आर्किटेक्ट्स, इंजीनियरों और ठेकेदारों के लिए तकनीकी डेटाशीट, लोड व पानी विनिर्देश, फायर रेटिंग और CAD/BIM डाउनलोड।",
                       }),
                     },
                   ]}
@@ -603,7 +706,7 @@ function Index() {
                     <ArrowRight className="h-4 w-4" aria-hidden />
                   </span>
                   <span className="slide-cta-label">
-                    {t({ en: "Get a Quote", fr: "Demander un devis", zh: "获取报价" })}
+                    {t({ en: "Get a Quote", fr: "Demander un devis", zh: "获取报价", es: "Solicitar una cotización", pa: "ਕੋਟੇਸ਼ਨ ਲਓ", ar: "احصل على عرض سعر", hi: "कोटेशन प्राप्त करें" })}
                   </span>
                 </a>
               </div>
@@ -647,7 +750,7 @@ function Index() {
                   <ArrowRight className="h-4 w-4" aria-hidden />
                 </span>
                 <span className="slide-cta-label">
-                  {t({ en: "Get a Quote", fr: "Demander un devis", zh: "获取报价" })}
+                  {t({ en: "Get a Quote", fr: "Demander un devis", zh: "获取报价", es: "Solicitar una cotización", pa: "ਕੋਟੇਸ਼ਨ ਲਓ", ar: "احصل على عرض سعر", hi: "कोटेशन प्राप्त करें" })}
                 </span>
               </a>
               <a
@@ -658,7 +761,7 @@ function Index() {
                   <ArrowRight className="h-4 w-4" aria-hidden />
                 </span>
                 <span className="slide-cta-label">
-                  {t({ en: "Learn More", fr: "En savoir plus", zh: "了解更多" })}
+                  {t({ en: "Learn More", fr: "En savoir plus", zh: "了解更多", es: "Más información", pa: "ਹੋਰ ਜਾਣੋ", ar: "اعرف المزيد", hi: "और जानें" })}
                 </span>
               </a>
             </div>
@@ -789,7 +892,7 @@ function Index() {
           <div className="mb-14 grid gap-10 md:grid-cols-12 md:items-end">
             <Reveal className="md:col-span-7">
               <p className="mb-4 text-xs font-semibold uppercase tracking-[0.3em] text-terra-light">
-                {t({ en: "Recent Installations", fr: "Réalisations récentes", zh: "近期案例" })}
+                {t({ en: "Recent Installations", fr: "Réalisations récentes", zh: "近期案例", es: "Instalaciones recientes", pa: "ਹਾਲੀਆ ਸਥਾਪਨਾਵਾਂ", ar: "أحدث التركيبات", hi: "हाल की इंस्टॉलेशन" })}
               </p>
               <WordsReveal
                 as="h2"
@@ -817,11 +920,15 @@ function Index() {
               {
                 img: installGlenora.url,
                 key: "glenora",
-                title: t({ en: "Glenora Lobby", fr: "Hall Glenora", zh: "Glenora 大堂" }),
+                title: t({ en: "Glenora Lobby", fr: "Hall Glenora", zh: "Glenora 大堂", es: "Vestíbulo Glenora", pa: "ਗਲੇਨੋਰਾ ਲਾਬੀ", ar: "ردهة غلينورا", hi: "ग्लेनोरा लॉबी" }),
                 caption: t({
                   en: "Edmonton, AB · Five-panel feature wall",
                   fr: "Edmonton, AB · Mur signature de cinq panneaux",
                   zh: "阿尔伯塔省埃德蒙顿 · 五面板主题墙",
+                  es: "Edmonton, AB · Muro destacado de cinco paneles",
+                  pa: "ਐਡਮਿੰਟਨ, AB · ਪੰਜ-ਪੈਨਲ ਵਿਸ਼ੇਸ਼ ਕੰਧ",
+                  ar: "إدمونتون، ألبرتا · جدار مميز من خمس ألواح",
+                  hi: "एडमॉन्टन, AB · पाँच-पैनल फीचर वॉल",
                 }),
                 span: "md:col-span-8",
                 ratio: "aspect-[4/3]",
@@ -829,11 +936,15 @@ function Index() {
               {
                 img: install5215.url,
                 key: "atrium",
-                title: t({ en: "Atrium Column", fr: "Colonne d'atrium", zh: "中庭立柱" }),
+                title: t({ en: "Atrium Column", fr: "Colonne d'atrium", zh: "中庭立柱", es: "Columna del atrio", pa: "ਐਟ੍ਰੀਅਮ ਕਾਲਮ", ar: "عمود الأتريوم", hi: "एट्रियम कॉलम" }),
                 caption: t({
                   en: "Calgary, AB · Double-sided hydroponic",
                   fr: "Calgary, AB · Hydroponique double face",
                   zh: "阿尔伯塔省卡尔加里 · 双面水培",
+                  es: "Calgary, AB · Hidropónico de doble cara",
+                  pa: "ਕੈਲਗਰੀ, AB · ਦੋ-ਪਾਸੜ ਹਾਈਡ੍ਰੋਪੋਨਿਕ",
+                  ar: "كالغاري، ألبرتا · مائي مزدوج الوجه",
+                  hi: "कैलगरी, AB · दोहरी-तरफा हाइड्रोपोनिक",
                 }),
                 span: "md:col-span-4",
                 ratio: "aspect-[3/4]",
@@ -841,11 +952,15 @@ function Index() {
               {
                 img: install5221.url,
                 key: "reception",
-                title: t({ en: "Reception Wall", fr: "Mur de réception", zh: "前台绿墙" }),
+                title: t({ en: "Reception Wall", fr: "Mur de réception", zh: "前台绿墙", es: "Muro de recepción", pa: "ਰਿਸੈਪਸ਼ਨ ਦੀਵਾਰ", ar: "جدار الاستقبال", hi: "रिसेप्शन वॉल" }),
                 caption: t({
                   en: "Corporate office · Mixed tropical palette",
                   fr: "Bureaux d'entreprise · Palette tropicale mixte",
                   zh: "企业办公空间 · 混合热带植物配色",
+                  es: "Oficina corporativa · Paleta tropical mixta",
+                  pa: "ਕਾਰਪੋਰੇਟ ਦਫ਼ਤਰ · ਮਿਸ਼ਰਤ ਟ੍ਰੌਪੀਕਲ ਪੈਲੇਟ",
+                  ar: "مكتب الشركة · تشكيلة استوائية متنوعة",
+                  hi: "कॉर्पोरेट ऑफिस · मिश्रित उष्णकटिबंधीय पैलेट",
                 }),
                 span: "md:col-span-5",
                 ratio: "aspect-[4/3]",
@@ -853,11 +968,15 @@ function Index() {
               {
                 img: installCoaldale2.url,
                 key: "coaldale",
-                title: t({ en: "Coaldale, Alberta", fr: "Coaldale, Alberta", zh: "阿尔伯塔省 Coaldale" }),
+                title: t({ en: "Coaldale, Alberta", fr: "Coaldale, Alberta", zh: "阿尔伯塔省 Coaldale", es: "Coaldale, Alberta", pa: "ਕੋਲਡੇਲ, ਐਲਬਰਟਾ", ar: "كولديل، ألبرتا", hi: "कोलडेल, अल्बर्टा" }),
                 caption: t({
                   en: "Community hall · Full-height install",
                   fr: "Salle communautaire · Installation pleine hauteur",
                   zh: "社区活动厅 · 通高安装",
+                  es: "Salón comunitario · Instalación de altura completa",
+                  pa: "ਕਮਿਊਨਿਟੀ ਹਾਲ · ਪੂਰੀ-ਉਚਾਈ ਇੰਸਟਾਲੇਸ਼ਨ",
+                  ar: "قاعة مجتمعية · تركيب بارتفاع كامل",
+                  hi: "कम्युनिटी हॉल · पूर्ण-ऊँचाई इंस्टॉलेशन",
                 }),
                 span: "md:col-span-3",
                 ratio: "aspect-[3/4]",
@@ -865,11 +984,15 @@ function Index() {
               {
                 img: install5212.url,
                 key: "boardroom",
-                title: t({ en: "Boardroom Divider", fr: "Cloison de salle de réunion", zh: "会议室隔断" }),
+                title: t({ en: "Boardroom Divider", fr: "Cloison de salle de réunion", zh: "会议室隔断", es: "Divisor de sala de juntas", pa: "ਬੋਰਡਰੂਮ ਡਿਵਾਈਡਰ", ar: "فاصل قاعة الاجتماعات", hi: "बोर्डरूम डिवाइडर" }),
                 caption: t({
                   en: "Office interior · Free-standing panel",
                   fr: "Intérieur de bureau · Panneau autoportant",
                   zh: "办公室内部 · 独立式面板",
+                  es: "Interior de oficina · Panel independiente",
+                  pa: "ਦਫ਼ਤਰ ਅੰਦਰੂਨੀ · ਸੁਤੰਤਰ ਪੈਨਲ",
+                  ar: "داخل المكتب · لوحة قائمة بذاتها",
+                  hi: "कार्यालय आंतरिक · स्वतंत्र पैनल",
                 }),
                 span: "md:col-span-4",
                 ratio: "aspect-[4/3]",
@@ -886,7 +1009,7 @@ function Index() {
                       setInstallShot(p);
                     }
                   }}
-                  aria-label={`${t({ en: "View larger photo", fr: "Voir la photo en grand", zh: "查看大图" })}: ${p.title}`}
+                  aria-label={`${t({ en: "View larger photo", fr: "Voir la photo en grand", zh: "查看大图", es: "Ver foto ampliada", pa: "ਵੱਡੀ ਫੋਟੋ ਵੇਖੋ", ar: "عرض صورة أكبر", hi: "बड़ी फोटो देखें" })}: ${p.title}`}
                   className={`group relative cursor-zoom-in overflow-hidden rounded-[1.75rem] bg-charcoal/5 ring-1 ring-charcoal/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-forest-deep ${p.ratio}`}
                 >
                   <img
@@ -927,10 +1050,10 @@ function Index() {
             <button
               type="button"
               onClick={() => setInstallShot(null)}
-              aria-label={t({ en: "Close", fr: "Fermer", zh: "关闭" })}
+              aria-label={t({ en: "Close", fr: "Fermer", zh: "关闭", es: "Cerrar", pa: "ਬੰਦ ਕਰੋ", ar: "إغلاق", hi: "बंद करें" })}
               className="absolute right-5 top-5 rounded-full bg-cream/10 px-4 py-2 text-sm font-medium text-cream ring-1 ring-cream/25 transition-colors hover:bg-cream/20"
             >
-              {t({ en: "Close", fr: "Fermer", zh: "关闭" })} ✕
+              {t({ en: "Close", fr: "Fermer", zh: "关闭", es: "Cerrar", pa: "ਬੰਦ ਕਰੋ", ar: "إغلاق", hi: "बंद करें" })} ✕
             </button>
             <figure
               className="max-h-full w-full max-w-5xl"
@@ -959,16 +1082,20 @@ function Index() {
         <div className="mx-auto max-w-7xl px-6 py-20 md:py-28">
           <Reveal>
             <p className="mb-3 text-xs font-semibold uppercase tracking-[0.3em] text-forest">
-              {t({ en: "Maintenance & Guarantee", fr: "Entretien et garantie", zh: "养护与保障" })}
+              {t({ en: "Maintenance & Guarantee", fr: "Entretien et garantie", zh: "养护与保障", es: "Mantenimiento y garantía", pa: "ਰੱਖ-ਰਖਾਅ ਅਤੇ ਗਾਰੰਟੀ", ar: "الصيانة والضمان", hi: "रखरखाव और गारंटी" })}
             </p>
             <h2 className="display-heading max-w-3xl text-4xl leading-[1.05] text-charcoal md:text-6xl">
               {t({
                 en: "100% plant guarantee —",
                 fr: "Garantie 100 % des plantes —",
                 zh: "100% 植物保障——",
+                es: "Garantía del 100 % en plantas —",
+                pa: "100% ਪੌਦਾ ਗਾਰੰਟੀ —",
+                ar: "ضمان 100٪ للنباتات —",
+                hi: "100% प्लांट गारंटी —",
               })}{" "}
               <em>
-                {t({ en: "with maintenance.", fr: "avec l'entretien.", zh: "需搭配养护服务。" })}
+                {t({ en: "with maintenance.", fr: "avec l'entretien.", zh: "需搭配养护服务。", es: "con mantenimiento.", pa: "ਰੱਖ-ਰਖਾਅ ਦੇ ਨਾਲ।", ar: "مع خدمة الصيانة.", hi: "रखरखाव के साथ।" })}
               </em>
             </h2>
             <p className="mt-6 max-w-2xl text-base leading-relaxed text-charcoal/70">
@@ -976,6 +1103,10 @@ function Index() {
                 en: "A living wall is a living thing. Our maintenance program keeps every wall thriving — and every wall on an active maintenance agreement is covered by our 100% plant guarantee. If a plant fails, we replace it. No charge, no questions. The guarantee is available exclusively with maintenance service.",
                 fr: "Un mur végétal est un organisme vivant. Notre programme d'entretien garde chaque mur en pleine santé — et tout mur couvert par un contrat d'entretien actif bénéficie de notre garantie 100 % des plantes. Si une plante dépérit, nous la remplaçons. Sans frais, sans discussion. La garantie est offerte exclusivement avec le service d'entretien.",
                 zh: "植物墙是有生命的。我们的养护计划让每一面墙持续繁茂——凡在有效养护合约内的墙体，均享有 100% 植物保障。若有植物枯萎，我们免费更换，无需多问。该保障仅在订购养护服务时提供。",
+                es: "Un muro vegetal es un ser vivo. Nuestro programa de mantenimiento mantiene cada muro floreciente — y todo muro con un contrato de mantenimiento activo está cubierto por nuestra garantía del 100 % en plantas. Si una planta falla, la reemplazamos. Sin costo, sin preguntas. La garantía está disponible exclusivamente con el servicio de mantenimiento.",
+                pa: "ਇੱਕ ਜੀਵੰਤ ਕੰਧ ਇੱਕ ਜੀਵਤ ਚੀਜ਼ ਹੈ। ਸਾਡਾ ਰੱਖ-ਰਖਾਅ ਪ੍ਰੋਗਰਾਮ ਹਰ ਕੰਧ ਨੂੰ ਵਧਦੀ-ਫੁੱਲਦੀ ਰੱਖਦਾ ਹੈ — ਅਤੇ ਕਿਰਿਆਸ਼ੀਲ ਰੱਖ-ਰਖਾਅ ਸਮਝੌਤੇ ਵਾਲੀ ਹਰ ਕੰਧ ਸਾਡੀ 100% ਪੌਦਾ ਗਾਰੰਟੀ ਦੁਆਰਾ ਕਵਰ ਹੁੰਦੀ ਹੈ। ਜੇ ਕੋਈ ਪੌਦਾ ਖ਼ਰਾਬ ਹੁੰਦਾ ਹੈ, ਅਸੀਂ ਇਸਨੂੰ ਬਦਲ ਦਿੰਦੇ ਹਾਂ। ਕੋਈ ਖਰਚਾ ਨਹੀਂ, ਕੋਈ ਸਵਾਲ ਨਹੀਂ। ਇਹ ਗਾਰੰਟੀ ਸਿਰਫ਼ ਰੱਖ-ਰਖਾਅ ਸੇਵਾ ਨਾਲ ਹੀ ਉਪਲਬਧ ਹੈ।",
+                ar: "الجدار الأخضر كائن حي. برنامج الصيانة لدينا يحافظ على ازدهار كل جدار — وكل جدار ضمن اتفاقية صيانة سارية مشمول بضماننا 100٪ للنباتات. إذا فشلت نبتة، نستبدلها دون أي تكلفة أو أسئلة. الضمان متاح حصريًا مع خدمة الصيانة.",
+                hi: "एक लिविंग वॉल एक जीवित वस्तु है। हमारा रखरखाव कार्यक्रम हर वॉल को फलता-फूलता रखता है — और सक्रिय रखरखाव समझौते वाली हर वॉल हमारी 100% प्लांट गारंटी द्वारा कवर होती है। यदि कोई पौधा खराब होता है, तो हम उसे बदल देते हैं। कोई शुल्क नहीं, कोई सवाल नहीं। यह गारंटी केवल रखरखाव सेवा के साथ ही उपलब्ध है।",
               })}
             </p>
           </Reveal>
@@ -984,29 +1115,41 @@ function Index() {
             {[
               {
                 key: "guarantee",
-                title: t({ en: "100% Plant Guarantee", fr: "Garantie 100 % des plantes", zh: "100% 植物保障" }),
+                title: t({ en: "100% Plant Guarantee", fr: "Garantie 100 % des plantes", zh: "100% 植物保障", es: "Garantía del 100 % en plantas", pa: "100% ਪੌਦਾ ਗਾਰੰਟੀ", ar: "ضمان 100٪ للنباتات", hi: "100% प्लांट गारंटी" }),
                 body: t({
                   en: "Any plant that declines or dies is replaced at no cost for the life of your maintenance agreement.",
                   fr: "Toute plante qui dépérit ou meurt est remplacée sans frais pendant toute la durée de votre contrat d'entretien.",
                   zh: "在养护合约有效期内，任何衰弱或枯死的植物均免费更换。",
+                  es: "Toda planta que decaiga o muera se reemplaza sin costo durante la vigencia de su contrato de mantenimiento.",
+                  pa: "ਕੋਈ ਵੀ ਪੌਦਾ ਜੋ ਕਮਜ਼ੋਰ ਹੁੰਦਾ ਜਾਂ ਮਰ ਜਾਂਦਾ ਹੈ, ਤੁਹਾਡੇ ਰੱਖ-ਰਖਾਅ ਸਮਝੌਤੇ ਦੌਰਾਨ ਬਿਨਾਂ ਕਿਸੇ ਖਰਚੇ ਦੇ ਬਦਲਿਆ ਜਾਂਦਾ ਹੈ।",
+                  ar: "يتم استبدال أي نبتة تضعف أو تموت مجانًا طوال مدة اتفاقية الصيانة الخاصة بك.",
+                  hi: "कोई भी पौधा जो कमजोर हो जाए या मर जाए, आपके रखरखाव समझौते की अवधि के दौरान बिना किसी शुल्क के बदल दिया जाता है।",
                 }),
               },
               {
                 key: "scheduled",
-                title: t({ en: "Scheduled Maintenance", fr: "Entretien planifié", zh: "定期养护" }),
+                title: t({ en: "Scheduled Maintenance", fr: "Entretien planifié", zh: "定期养护", es: "Mantenimiento programado", pa: "ਨਿਯਤ ਰੱਖ-ਰਖਾਅ", ar: "صيانة مجدولة", hi: "निर्धारित रखरखाव" }),
                 body: t({
                   en: "Regular visits for pruning, feeding, pest management, irrigation checks, and system calibration.",
                   fr: "Visites régulières pour la taille, la fertilisation, la gestion des nuisibles, la vérification de l'irrigation et le calibrage du système.",
                   zh: "定期上门进行修剪、施肥、病虫害防治、灌溉检查与系统校准。",
+                  es: "Visitas periódicas para poda, fertilización, control de plagas, revisión del riego y calibración del sistema.",
+                  pa: "ਛਾਂਟਣ, ਖਾਦ ਦੇਣ, ਕੀੜੇ-ਮਕੌੜੇ ਪ੍ਰਬੰਧਨ, ਸਿੰਚਾਈ ਜਾਂਚ ਅਤੇ ਸਿਸਟਮ ਕੈਲੀਬ੍ਰੇਸ਼ਨ ਲਈ ਨਿਯਮਤ ਦੌਰੇ।",
+                  ar: "زيارات منتظمة للتقليم والتغذية ومكافحة الآفات وفحص الري ومعايرة النظام.",
+                  hi: "छंटाई, पोषण, कीट प्रबंधन, सिंचाई जांच और सिस्टम कैलिब्रेशन के लिए नियमित दौरे।",
                 }),
               },
               {
                 key: "terms",
-                title: t({ en: "Plant Warranty Terms", fr: "Conditions de la garantie", zh: "植物保修条款" }),
+                title: t({ en: "Plant Warranty Terms", fr: "Conditions de la garantie", zh: "植物保修条款", es: "Condiciones de la garantía", pa: "ਪੌਦਾ ਵਾਰੰਟੀ ਸ਼ਰਤਾਂ", ar: "شروط ضمان النباتات", hi: "प्लांट वारंटी शर्तें" }),
                 body: t({
                   en: "Coverage stays active as long as maintenance is current. Without a maintenance plan, the guarantee does not apply.",
                   fr: "La couverture demeure active tant que l'entretien est à jour. Sans forfait d'entretien, la garantie ne s'applique pas.",
                   zh: "只要养护服务持续有效，保障即持续生效；未订购养护计划则不适用该保障。",
+                  es: "La cobertura permanece activa mientras el mantenimiento esté al día. Sin un plan de mantenimiento, la garantía no aplica.",
+                  pa: "ਕਵਰੇਜ ਓਦੋਂ ਤੱਕ ਕਿਰਿਆਸ਼ੀਲ ਰਹਿੰਦੀ ਹੈ ਜਦੋਂ ਤੱਕ ਰੱਖ-ਰਖਾਅ ਚਾਲੂ ਹੈ। ਰੱਖ-ਰਖਾਅ ਯੋਜਨਾ ਤੋਂ ਬਿਨਾਂ, ਗਾਰੰਟੀ ਲਾਗੂ ਨਹੀਂ ਹੁੰਦੀ।",
+                  ar: "تبقى التغطية سارية طالما الصيانة مستمرة. بدون خطة صيانة، لا ينطبق الضمان.",
+                  hi: "जब तक रखरखाव जारी है, तब तक कवरेज सक्रिय रहता है। रखरखाव योजना के बिना, गारंटी लागू नहीं होती।",
                 }),
               },
             ].map((c, i) => (
@@ -1026,14 +1169,14 @@ function Index() {
                 href="#quote"
                 className="inline-flex items-center gap-2 rounded-full bg-forest-deep px-7 py-3 text-sm font-semibold text-cream transition hover:opacity-90"
               >
-                {t({ en: "Ask about maintenance", fr: "Renseignez-vous sur l'entretien", zh: "咨询养护服务" })}{" "}
+                {t({ en: "Ask about maintenance", fr: "Renseignez-vous sur l'entretien", zh: "咨询养护服务", es: "Consulta sobre mantenimiento", pa: "ਰੱਖ-ਰਖਾਅ ਬਾਰੇ ਪੁੱਛੋ", ar: "اسأل عن الصيانة", hi: "रखरखाव के बारे में पूछें" })}{" "}
                 <ArrowRight className="h-4 w-4" />
               </a>
               <Link
                 to="/specifications"
                 className="text-sm font-semibold uppercase tracking-[0.18em] text-forest underline underline-offset-4"
               >
-                {t({ en: "Full warranty terms", fr: "Conditions complètes de garantie", zh: "完整保修条款" })}
+                {t({ en: "Full warranty terms", fr: "Conditions complètes de garantie", zh: "完整保修条款", es: "Condiciones completas de la garantía", pa: "ਪੂਰੀਆਂ ਵਾਰੰਟੀ ਸ਼ਰਤਾਂ", ar: "الشروط الكاملة للضمان", hi: "पूर्ण वारंटी शर्तें" })}
               </Link>
             </div>
           </Reveal>
@@ -1072,6 +1215,10 @@ function Index() {
                     en: "Spider plant and pothos texture close-up",
                     fr: "Gros plan sur la texture d'une plante araignée et d'un pothos",
                     zh: "吊兰与绿萝纹理特写",
+                    es: "Primer plano de la textura de cinta y potos",
+                    pa: "ਸਪਾਈਡਰ ਪਲਾਂਟ ਅਤੇ ਪੋਥੋਸ ਟੈਕਸਚਰ ਦਾ ਨਜ਼ਦੀਕੀ ਦ੍ਰਿਸ਼",
+                    ar: "لقطة مقربة لنسيج نبات العنكبوت والبوتوس",
+                    hi: "स्पाइडर प्लांट और पोथोस बनावट का क्लोज़-अप",
                   })}
                   className="aspect-[4/5] h-full w-full object-cover"
                   loading="lazy"
@@ -1080,7 +1227,7 @@ function Index() {
             </Reveal>
             <Reveal>
               <p className="mb-3 text-xs font-semibold uppercase tracking-[0.3em] text-primary">
-                {t({ en: "Our Philosophy", fr: "Notre philosophie", zh: "我们的理念" })}
+                {t({ en: "Our Philosophy", fr: "Notre philosophie", zh: "我们的理念", es: "Nuestra filosofía", pa: "ਸਾਡਾ ਦਰਸ਼ਨ", ar: "فلسفتنا", hi: "हमारा दर्शन" })}
               </p>
               <WordsReveal
                 as="h2"
@@ -1088,6 +1235,10 @@ function Index() {
                   en: "Beauty with simplicity.",
                   fr: "La beauté dans la simplicité.",
                   zh: "以简约成就美感。",
+                  es: "Belleza con simplicidad.",
+                  pa: "ਸਾਦਗੀ ਵਿੱਚ ਸੁੰਦਰਤਾ।",
+                  ar: "الجمال في البساطة.",
+                  hi: "सादगी में सुंदरता।",
                 })}
                 className="display-heading text-4xl leading-[1.02] text-foreground md:text-6xl"
               />
@@ -1097,6 +1248,10 @@ function Index() {
                     en: "Living walls couple beauty with simplicity to create healthy, living works of art. They are composed of a variety of tropical plants that are grown hydroponically or soil based.",
                     fr: "Les murs végétaux allient beauté et simplicité pour créer des œuvres d'art vivantes et saines. Ils réunissent une variété de plantes tropicales cultivées en hydroponie ou en substrat.",
                     zh: "植物墙将美感与简约融为一体，成为健康而有生命力的艺术作品。它们由多种热带植物组成，采用水培或基质栽培。",
+                    es: "Los muros vegetales combinan belleza y simplicidad para crear obras de arte vivas y saludables. Están compuestos por una variedad de plantas tropicales cultivadas de forma hidropónica o en tierra.",
+                    pa: "ਜੀਵੰਤ ਕੰਧਾਂ ਸਾਦਗੀ ਨਾਲ ਸੁੰਦਰਤਾ ਨੂੰ ਜੋੜ ਕੇ ਸਿਹਤਮੰਦ, ਜੀਵਤ ਕਲਾ ਦੀਆਂ ਰਚਨਾਵਾਂ ਬਣਾਉਂਦੀਆਂ ਹਨ। ਇਹ ਕਈ ਤਰ੍ਹਾਂ ਦੇ ਟ੍ਰੌਪੀਕਲ ਪੌਦਿਆਂ ਤੋਂ ਬਣੀਆਂ ਹੁੰਦੀਆਂ ਹਨ ਜੋ ਹਾਈਡ੍ਰੋਪੋਨਿਕ ਜਾਂ ਮਿੱਟੀ-ਆਧਾਰਿਤ ਤਰੀਕੇ ਨਾਲ ਉਗਾਈਆਂ ਜਾਂਦੀਆਂ ਹਨ।",
+                    ar: "تجمع الجدران الخضراء بين الجمال والبساطة لخلق أعمال فنية حية وصحية. وهي مكونة من مجموعة متنوعة من النباتات الاستوائية التي تُزرع مائيًا أو في التربة.",
+                    hi: "लिविंग वॉल सुंदरता और सादगी को जोड़कर स्वस्थ, जीवंत कला कृतियाँ बनाती हैं। ये विभिन्न प्रकार के उष्णकटिबंधीय पौधों से बनी होती हैं जिन्हें हाइड्रोपोनिक या मिट्टी आधारित तरीके से उगाया जाता है।",
                   })}
                 </p>
                 <p>
@@ -1104,6 +1259,10 @@ function Index() {
                     en: "Each living wall is custom made to satisfy our clients' dreams. We believe that bringing nature indoors should feel effortless — a seamless extension of your space and your vision.",
                     fr: "Chaque mur végétal est réalisé sur mesure pour concrétiser les rêves de nos clients. Nous croyons que faire entrer la nature à l'intérieur doit être sans effort — un prolongement naturel de votre espace et de votre vision.",
                     zh: "每一面植物墙都为客户的梦想量身定制。我们相信，把自然引入室内应当毫不费力——成为空间与愿景的自然延伸。",
+                    es: "Cada muro vegetal se fabrica a medida para cumplir los sueños de nuestros clientes. Creemos que traer la naturaleza al interior debe sentirse sin esfuerzo — una extensión natural de su espacio y su visión.",
+                    pa: "ਹਰ ਜੀਵੰਤ ਕੰਧ ਸਾਡੇ ਗਾਹਕਾਂ ਦੇ ਸੁਪਨਿਆਂ ਨੂੰ ਪੂਰਾ ਕਰਨ ਲਈ ਖਾਸ ਤੌਰ 'ਤੇ ਬਣਾਈ ਜਾਂਦੀ ਹੈ। ਸਾਡਾ ਮੰਨਣਾ ਹੈ ਕਿ ਕੁਦਰਤ ਨੂੰ ਘਰ ਦੇ ਅੰਦਰ ਲਿਆਉਣਾ ਸੌਖਾ ਮਹਿਸੂਸ ਹੋਣਾ ਚਾਹੀਦਾ ਹੈ — ਤੁਹਾਡੀ ਥਾਂ ਅਤੇ ਦ੍ਰਿਸ਼ਟੀ ਦਾ ਇੱਕ ਸਹਿਜ ਵਿਸਥਾਰ।",
+                    ar: "يُصنع كل جدار أخضر خصيصًا لتحقيق أحلام عملائنا. نؤمن بأن إدخال الطبيعة إلى الداخل يجب أن يكون سلسًا — امتدادًا طبيعيًا لمساحتك ورؤيتك.",
+                    hi: "हर लिविंग वॉल हमारे ग्राहकों के सपनों को पूरा करने के लिए विशेष रूप से बनाई जाती है। हमारा मानना है कि प्रकृति को घर के अंदर लाना सहज लगना चाहिए — आपकी जगह और दृष्टिकोण का एक निर्बाध विस्तार।",
                   })}
                 </p>
               </div>
@@ -1124,21 +1283,29 @@ function Index() {
         <div className="mx-auto grid max-w-7xl gap-12 px-6 py-20 md:py-28 lg:grid-cols-5 lg:gap-16">
           <Reveal className="lg:col-span-2">
             <p className="mb-4 text-sm font-semibold uppercase tracking-widest text-forest">
-              {t({ en: "Request a Quote", fr: "Demander un devis", zh: "索取报价" })}
+              {t({ en: "Request a Quote", fr: "Demander un devis", zh: "索取报价", es: "Solicitar una cotización", pa: "ਕੋਟੇਸ਼ਨ ਦੀ ਬੇਨਤੀ ਕਰੋ", ar: "طلب عرض سعر", hi: "कोटेशन का अनुरोध करें" })}
             </p>
             <h2 className="display-heading text-4xl text-charcoal md:text-5xl lg:text-6xl">
               {t({
                 en: "Ready to bring your wall to",
                 fr: "Prêt à donner",
                 zh: "准备好让您的墙面",
+                es: "¿Listo para darle vida a",
+                pa: "ਕੀ ਤੁਸੀਂ ਆਪਣੀ ਕੰਧ ਵਿੱਚ",
+                ar: "هل أنت مستعد لإضفاء الحياة على",
+                hi: "क्या आप अपनी वॉल में",
               })}{" "}
-              <em>{t({ en: "life?", fr: "vie à votre mur ?", zh: "焕发生机了吗？" })}</em>
+              <em>{t({ en: "life?", fr: "vie à votre mur ?", zh: "焕发生机了吗？", es: "su muro?", pa: "ਜ਼ਿੰਦਗੀ ਲਿਆਉਣ ਲਈ ਤਿਆਰ ਹੋ?", ar: "جدارك؟", hi: "जान डालने के लिए तैयार हैं?" })}</em>
             </h2>
             <p className="mt-6 text-charcoal/75">
               {t({
                 en: "Tell us about your space and share a few photos if you have them. We'll get back to you within 1–2 business days with a tailored proposal.",
                 fr: "Parlez-nous de votre espace et joignez quelques photos si vous en avez. Nous vous répondrons sous 1 à 2 jours ouvrables avec une proposition sur mesure.",
                 zh: "告诉我们您的空间情况，如有照片也欢迎一并提供。我们将在 1–2 个工作日内回复您的专属方案。",
+                es: "Cuéntenos sobre su espacio y comparta algunas fotos si las tiene. Le responderemos dentro de 1 a 2 días hábiles con una propuesta personalizada.",
+                pa: "ਸਾਨੂੰ ਆਪਣੀ ਥਾਂ ਬਾਰੇ ਦੱਸੋ ਅਤੇ ਜੇ ਹੋਵੇ ਤਾਂ ਕੁਝ ਫੋਟੋਆਂ ਸਾਂਝੀਆਂ ਕਰੋ। ਅਸੀਂ 1–2 ਕਾਰੋਬਾਰੀ ਦਿਨਾਂ ਵਿੱਚ ਇੱਕ ਖਾਸ ਪ੍ਰਸਤਾਵ ਨਾਲ ਤੁਹਾਡੇ ਨਾਲ ਸੰਪਰਕ ਕਰਾਂਗੇ।",
+                ar: "أخبرنا عن مساحتك وشارك بعض الصور إن توفرت لديك. سنعاود التواصل معك خلال 1-2 يوم عمل بعرض مخصص.",
+                hi: "हमें अपनी जगह के बारे में बताएं और यदि आपके पास हों तो कुछ तस्वीरें साझा करें। हम 1–2 कार्य दिवसों के भीतर एक अनुकूलित प्रस्ताव के साथ आपसे संपर्क करेंगे।",
               })}
             </p>
             <div className="mt-8 space-y-3 text-sm text-charcoal/75">
@@ -1146,14 +1313,14 @@ function Index() {
                 <Phone className="h-4 w-4 text-forest" aria-hidden />
                 604-997-1760{" "}
                 <span className="text-charcoal/50">
-                  — {t({ en: "English", fr: "anglais", zh: "英语" })}
+                  — {t({ en: "English", fr: "anglais", zh: "英语", es: "inglés", pa: "ਅੰਗਰੇਜ਼ੀ", ar: "الإنجليزية", hi: "अंग्रेज़ी" })}
                 </span>
               </a>
               <a href="tel:+14038613732" className="flex items-center gap-3 hover:text-charcoal">
                 <Phone className="h-4 w-4 text-forest" aria-hidden />
                 403-861-3732{" "}
                 <span className="text-charcoal/50">
-                  — {t({ en: "French", fr: "français", zh: "法语" })}
+                  — {t({ en: "French", fr: "français", zh: "法语", es: "francés", pa: "ਫ੍ਰੈਂਚ", ar: "الفرنسية", hi: "फ़्रेंच" })}
                 </span>
               </a>
               <a href="mailto:verticaloxygen@gmail.com" className="flex items-center gap-3 hover:text-charcoal">
@@ -1186,7 +1353,7 @@ function Index() {
               />
             </a>
             <p className="text-sm text-cream/60">
-              {t({ en: "Custom living walls.", fr: "Murs végétaux sur mesure.", zh: "定制植物墙。" })}
+              {t({ en: "Custom living walls.", fr: "Murs végétaux sur mesure.", zh: "定制植物墙。", es: "Muros vegetales personalizados.", pa: "ਕਸਟਮ ਜੀਵੰਤ ਕੰਧਾਂ।", ar: "جدران خضراء مخصصة.", hi: "कस्टम लिविंग वॉल्स।" })}
             </p>
             <div className="flex items-center gap-3">
               <a
