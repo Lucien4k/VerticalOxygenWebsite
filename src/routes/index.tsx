@@ -310,7 +310,15 @@ function SystemsShowcase() {
       <div className="mb-14 flex flex-col gap-10 md:flex-row md:items-end md:justify-between">
         <div>
           <p className="mb-3 text-xs font-semibold uppercase tracking-[0.3em] text-forest">
-            {t({ en: "Our Systems", fr: "Nos systèmes", zh: "我们的系统" })}
+            {t({
+              en: "Our Systems",
+              fr: "Nos systèmes",
+              zh: "我们的系统",
+              es: "Nuestros sistemas",
+              pa: "ਸਾਡੇ ਸਿਸਟਮ",
+              ar: "أنظمتنا",
+              hi: "हमारे सिस्टम",
+            })}
           </p>
           <WordsReveal
             as="h2"
@@ -318,6 +326,10 @@ function SystemsShowcase() {
               en: "Two ways to grow a wall.",
               fr: "Deux façons de faire pousser un mur.",
               zh: "两种打造绿墙的方式。",
+              es: "Dos formas de cultivar un muro.",
+              pa: "ਕੰਧ ਉਗਾਉਣ ਦੇ ਦੋ ਤਰੀਕੇ।",
+              ar: "طريقتان لزراعة جدار.",
+              hi: "दीवार उगाने के दो तरीके।",
             })}
             className="display-heading text-5xl leading-[1] text-charcoal md:text-7xl lg:text-[5.5rem]"
           />
@@ -326,6 +338,10 @@ function SystemsShowcase() {
               en: "Every Vertical Oxygen wall is built on one of two engineered systems. Tap through to see how each works and where it fits best.",
               fr: "Chaque mur Vertical Oxygen repose sur l'un de nos deux systèmes d'ingénierie. Parcourez-les pour découvrir leur fonctionnement et leurs usages idéaux.",
               zh: "每一面 Vertical Oxygen 绿墙都基于两套工程化系统之一。点击切换，了解各自的原理与适用场景。",
+              es: "Cada muro de Vertical Oxygen se construye sobre uno de dos sistemas de ingeniería. Explóralos para ver cómo funciona cada uno y dónde encaja mejor.",
+              pa: "ਹਰ Vertical Oxygen ਕੰਧ ਦੋ ਇੰਜੀਨੀਅਰਡ ਸਿਸਟਮਾਂ ਵਿੱਚੋਂ ਇੱਕ ਉੱਤੇ ਬਣੀ ਹੁੰਦੀ ਹੈ। ਦੇਖੋ ਕਿ ਹਰ ਇੱਕ ਕਿਵੇਂ ਕੰਮ ਕਰਦਾ ਹੈ ਅਤੇ ਕਿੱਥੇ ਸਭ ਤੋਂ ਵਧੀਆ ਢੁਕਦਾ ਹੈ।",
+              ar: "كل جدار من Vertical Oxygen مبني على أحد نظامين هندسيين. تصفّحهما لمعرفة آلية عمل كل نظام وأين يناسب أكثر.",
+              hi: "हर Vertical Oxygen दीवार दो इंजीनियर्ड सिस्टम में से एक पर बनी होती है। देखें कि प्रत्येक कैसे काम करता है और कहाँ सबसे उपयुक्त है।",
             })}
           </p>
         </div>
@@ -333,7 +349,15 @@ function SystemsShowcase() {
         {/* Tab switcher with sliding pill */}
         <div
           role="tablist"
-          aria-label={t({ en: "Living wall systems", fr: "Systèmes de murs végétaux", zh: "植物墙系统" })}
+          aria-label={t({
+            en: "Living wall systems",
+            fr: "Systèmes de murs végétaux",
+            zh: "植物墙系统",
+            es: "Sistemas de muros vivos",
+            pa: "ਲਿਵਿੰਗ ਵਾਲ ਸਿਸਟਮ",
+            ar: "أنظمة الجدران الحية",
+            hi: "लिविंग वॉल सिस्टम",
+          })}
           className="relative inline-flex self-start rounded-full bg-charcoal/5 p-1.5 ring-1 ring-charcoal/10 backdrop-blur md:self-auto"
         >
           <div
@@ -366,11 +390,19 @@ function SystemsShowcase() {
             onClick={() =>
               setLightbox({
                 src: sys.diagram,
-                title: `${t(sys.title)} — ${t({ en: "living wall diagram", fr: "schéma de mur végétal", zh: "植物墙示意图" })}`,
+                title: `${t(sys.title)} — ${t(DIAGRAM_LABEL)}`,
               })
             }
             className="group relative block w-full overflow-hidden rounded-3xl p-3 text-left ring-1 ring-charcoal/10 transition-shadow hover:shadow-xl md:p-4"
-            aria-label={`${t({ en: "Enlarge", fr: "Agrandir", zh: "放大" })} — ${t(sys.title)}`}
+            aria-label={`${t({
+              en: "Enlarge",
+              fr: "Agrandir",
+              zh: "放大",
+              es: "Ampliar",
+              pa: "ਵੱਡਾ ਕਰੋ",
+              ar: "تكبير",
+              hi: "बड़ा करें",
+            })} — ${t(sys.title)}`}
           >
             <div
               className="absolute inset-0 bg-cover bg-center"
@@ -381,7 +413,7 @@ function SystemsShowcase() {
             <div className="relative overflow-hidden rounded-2xl bg-white">
               <img
                 src={sys.diagram}
-                alt={`${t(sys.title)} — ${t({ en: "living wall diagram", fr: "schéma de mur végétal", zh: "植物墙示意图" })}`}
+                alt={`${t(sys.title)} — ${t(DIAGRAM_LABEL)}`}
                 className="h-auto w-full object-contain transition-transform duration-700 group-hover:scale-[1.02] md:max-h-[46rem]"
                 loading="lazy"
               />
