@@ -817,7 +817,7 @@ function Index() {
         overlay={
           <div className="max-w-2xl">
             <p className="text-shadow-hero mb-4 text-xs font-bold uppercase tracking-[0.3em] text-white">
-              {t({ en: "Engineered in layers", fr: "Conçu par couches", zh: "分层工程结构" })}
+              {t({ en: "Engineered in layers", fr: "Conçu par couches", zh: "分层工程结构", es: "Diseñado por capas", pa: "ਪਰਤਾਂ ਵਿੱਚ ਇੰਜੀਨੀਅਰਡ", ar: "مصمم بطبقات", hi: "परतों में इंजीनियर्ड" })}
             </p>
             <WordsReveal
               as="h2"
@@ -825,6 +825,10 @@ function Index() {
                 en: "Panels that come together as one.",
                 fr: "Des panneaux qui n'en forment qu'un.",
                 zh: "块块面板，浑然一体。",
+                es: "Paneles que se unen en uno solo.",
+                pa: "ਪੈਨਲ ਜੋ ਮਿਲ ਕੇ ਇੱਕ ਬਣਦੇ ਹਨ।",
+                ar: "ألواح تتحد لتصبح واحدة.",
+                hi: "पैनल जो मिलकर एक बनते हैं।",
               })}
               className="display-heading-hero text-4xl text-cream md:text-6xl lg:text-7xl"
             />
@@ -833,6 +837,10 @@ function Index() {
                 en: "Every wall is built from modular panels — designed, planted, and assembled on-site. Scroll to see how the pieces come together.",
                 fr: "Chaque mur est constitué de panneaux modulaires — conçus, plantés et assemblés sur place. Faites défiler pour voir les pièces s'assembler.",
                 zh: "每一面墙都由模块化面板组成——设计、栽植并在现场组装。向下滚动，看它们如何合而为一。",
+                es: "Cada muro se construye con paneles modulares: diseñados, plantados y ensamblados en el sitio. Desplázate para ver cómo se unen las piezas.",
+                pa: "ਹਰ ਕੰਧ ਮਾਡਿਊਲਰ ਪੈਨਲਾਂ ਤੋਂ ਬਣਾਈ ਜਾਂਦੀ ਹੈ — ਡਿਜ਼ਾਈਨ, ਪੌਦੇ ਲਾਏ ਅਤੇ ਸਾਈਟ 'ਤੇ ਜੋੜੇ ਜਾਂਦੇ ਹਨ। ਟੁਕੜੇ ਕਿਵੇਂ ਜੁੜਦੇ ਹਨ ਵੇਖਣ ਲਈ ਸਕ੍ਰੋਲ ਕਰੋ।",
+                ar: "يُبنى كل جدار من ألواح معيارية — يتم تصميمها وزراعتها وتركيبها في الموقع. مرر للأسفل لترى كيف تتجمع القطع معًا.",
+                hi: "हर दीवार मॉड्यूलर पैनलों से बनती है — डिज़ाइन, रोपित और साइट पर असेंबल की जाती है। टुकड़े कैसे जुड़ते हैं यह देखने के लिए स्क्रॉल करें।",
               })}
             </p>
           </div>
@@ -878,7 +886,7 @@ function Index() {
           <Reveal>
             <div className="mb-14 max-w-2xl">
               <p className="mb-3 text-xs font-semibold uppercase tracking-[0.3em] text-forest">
-                {t({ en: "Where We Grow", fr: "Où nous cultivons", zh: "我们的足迹" })}
+                {t({ en: "Where We Grow", fr: "Où nous cultivons", zh: "我们的足迹", es: "Dónde crecemos", pa: "ਅਸੀਂ ਕਿੱਥੇ ਵਧਦੇ ਹਾਂ", ar: "أين ننمو", hi: "हम कहाँ बढ़ते हैं" })}
               </p>
               <WordsReveal
                 as="h2"
@@ -886,6 +894,10 @@ function Index() {
                   en: "Living walls, coast to coast.",
                   fr: "Des murs végétaux, d'un océan à l'autre.",
                   zh: "植物墙，横贯东西两岸。",
+                  es: "Muros vivos, de costa a costa.",
+                  pa: "ਜੀਵੰਤ ਕੰਧਾਂ, ਤੱਟ ਤੋਂ ਤੱਟ ਤੱਕ।",
+                  ar: "جدران حية، من ساحل إلى ساحل.",
+                  hi: "जीवंत दीवारें, तट से तट तक।",
                 })}
                 className="display-heading text-4xl leading-[1.05] text-charcoal md:text-6xl"
               />
@@ -894,6 +906,10 @@ function Index() {
                   en: "Hover any pin to see the installation — from Vancouver lofts to Halifax lobbies, Yellowknife to St. John's.",
                   fr: "Survolez un repère pour découvrir l'installation — des lofts de Vancouver aux halls d'Halifax, de Yellowknife à St. John's.",
                   zh: "将鼠标悬停在任意标记上即可查看项目——从温哥华的公寓到哈利法克斯的大堂，从黄刀镇到圣约翰斯。",
+                  es: "Pasa el cursor sobre cualquier marcador para ver la instalación — desde lofts en Vancouver hasta vestíbulos en Halifax, de Yellowknife a St. John's.",
+                  pa: "ਸਥਾਪਨਾ ਵੇਖਣ ਲਈ ਕਿਸੇ ਵੀ ਪਿੰਨ 'ਤੇ ਹੋਵਰ ਕਰੋ — ਵੈਨਕੂਵਰ ਦੇ ਲੌਫਟਾਂ ਤੋਂ ਹੈਲੀਫੈਕਸ ਦੇ ਲਾਬੀਆਂ ਤੱਕ, ਯੈਲੋਨਾਈਫ ਤੋਂ ਸੇਂਟ ਜੌਨਸ ਤੱਕ।",
+                  ar: "مرر فوق أي علامة لرؤية التركيب — من شقق فانكوفر إلى ردهات هاليفاكس، من يلونايف إلى سانت جونز.",
+                  hi: "इंस्टॉलेशन देखने के लिए किसी भी पिन पर होवर करें — वैंकूवर के लॉफ्ट्स से लेकर हैलिफ़ैक्स की लॉबी तक, येलोनाइफ़ से सेंट जॉन्स तक।",
                 })}
               </p>
             </div>
@@ -938,6 +954,10 @@ function Index() {
                   en: "Living, breathing installations.",
                   fr: "Des installations vivantes qui respirent.",
                   zh: "会呼吸的生命装置。",
+                  es: "Instalaciones vivas que respiran.",
+                  pa: "ਜੀਵੰਤ, ਸਾਹ ਲੈਂਦੀਆਂ ਸਥਾਪਨਾਵਾਂ।",
+                  ar: "تركيبات حية تتنفس.",
+                  hi: "जीवंत, सांस लेती इंस्टॉलेशन।",
                 })}
                 className="display-heading text-4xl leading-[1.02] text-charcoal md:text-7xl"
               />
@@ -948,6 +968,10 @@ function Index() {
                   en: "A few of our walls, photographed on site — lobbies, offices and community spaces where the planting has fully settled in.",
                   fr: "Quelques-uns de nos murs photographiés sur place — halls, bureaux et espaces communautaires où la végétation s'est pleinement établie.",
                   zh: "部分绿墙的现场实拍——大堂、办公室与公共空间中，植物已完全扎根生长。",
+                  es: "Algunos de nuestros muros, fotografiados en el sitio — vestíbulos, oficinas y espacios comunitarios donde la vegetación ya se ha establecido por completo.",
+                  pa: "ਸਾਡੀਆਂ ਕੁਝ ਕੰਧਾਂ, ਸਾਈਟ 'ਤੇ ਫੋਟੋ ਖਿੱਚੀਆਂ ਗਈਆਂ — ਲਾਬੀਆਂ, ਦਫਤਰ ਅਤੇ ਕਮਿਊਨਿਟੀ ਥਾਵਾਂ ਜਿੱਥੇ ਪੌਦੇ ਪੂਰੀ ਤਰ੍ਹਾਂ ਸੈਟਲ ਹੋ ਚੁੱਕੇ ਹਨ।",
+                  ar: "بعض جدراننا، مصورة في الموقع — ردهات ومكاتب ومساحات مجتمعية استقرت فيها النباتات تمامًا.",
+                  hi: "हमारी कुछ दीवारें, साइट पर फोटो खींची गईं — लॉबी, कार्यालय और सामुदायिक स्थान जहाँ पौधे पूरी तरह जम चुके हैं।",
                 })}
               </p>
             </Reveal>
