@@ -722,15 +722,15 @@ function Index() {
           <div className="max-w-2xl">
             <div className="reveal-fade is-visible">
               <span className="text-shadow-hero mb-4 inline-flex items-center gap-2 rounded-full border border-cream/30 bg-cream/10 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.25em] text-cream backdrop-blur-sm">
-                {t({ en: "Since 2011", fr: "Depuis 2011", zh: "始于 2011 年" })}
+                {t({ en: "Since 2011", fr: "Depuis 2011", zh: "始于 2011 年", es: "Desde 2011", pa: "2011 ਤੋਂ", ar: "منذ عام 2011", hi: "2011 से" })}
               </span>
               <p className="text-shadow-hero mb-4 text-xs font-bold uppercase tracking-[0.3em] text-cream">
-                {t({ en: "Custom Living Walls", fr: "Murs végétaux sur mesure", zh: "定制植物墙" })}
+                {t({ en: "Custom Living Walls", fr: "Murs végétaux sur mesure", zh: "定制植物墙", es: "Muros vivos personalizados", pa: "ਕਸਟਮ ਲਿਵਿੰਗ ਵਾਲਾਂ", ar: "جدران حية مخصصة", hi: "कस्टम लिविंग वॉल" })}
               </p>
               <h1 className="display-heading-hero text-5xl text-cream md:text-7xl lg:text-8xl">
-                {t({ en: "Living works", fr: "Des œuvres d'art", zh: "有生命的" })}{" "}
+                {t({ en: "Living works", fr: "Des œuvres d'art", zh: "有生命的", es: "Obras vivas", pa: "ਜੀਵੰਤ ਰਚਨਾਵਾਂ", ar: "أعمال حية", hi: "जीवंत कृतियाँ" })}{" "}
                 <span className="whitespace-nowrap">
-                  {t({ en: "of art", fr: "vivantes", zh: "艺术作品" })}
+                  {t({ en: "of art", fr: "vivantes", zh: "艺术作品", es: "de arte", pa: "ਕਲਾ ਦੀਆਂ", ar: "من الفن", hi: "कला की" })}
                 </span>
               </h1>
               <p className="text-shadow-hero mt-6 max-w-xl text-lg font-medium leading-relaxed text-cream">
@@ -738,6 +738,10 @@ function Index() {
                   en: "We couple beauty with simplicity to create healthy, living works of art. Each wall is custom made to satisfy your dreams.",
                   fr: "Nous allions beauté et simplicité pour créer des œuvres d'art vivantes et saines. Chaque mur est conçu sur mesure pour concrétiser vos rêves.",
                   zh: "我们将美感与简约结合，创造健康而富有生命力的艺术作品。每一面绿墙都为您的构想量身打造。",
+                  es: "Combinamos belleza y sencillez para crear obras de arte vivas y saludables. Cada muro se fabrica a medida para hacer realidad tus sueños.",
+                  pa: "ਅਸੀਂ ਸਿਹਤਮੰਦ, ਜੀਵੰਤ ਕਲਾ ਦੀਆਂ ਰਚਨਾਵਾਂ ਬਣਾਉਣ ਲਈ ਸੁੰਦਰਤਾ ਅਤੇ ਸਾਦਗੀ ਨੂੰ ਜੋੜਦੇ ਹਾਂ। ਹਰ ਕੰਧ ਤੁਹਾਡੇ ਸੁਪਨਿਆਂ ਨੂੰ ਪੂਰਾ ਕਰਨ ਲਈ ਕਸਟਮ ਬਣਾਈ ਜਾਂਦੀ ਹੈ।",
+                  ar: "نجمع بين الجمال والبساطة لخلق أعمال فنية حية وصحية. كل جدار مصنوع خصيصًا لتحقيق أحلامك.",
+                  hi: "हम सुंदरता और सरलता को जोड़कर स्वस्थ, जीवंत कला-कृतियाँ बनाते हैं। हर दीवार आपके सपनों को पूरा करने के लिए विशेष रूप से बनाई जाती है।",
                 })}
               </p>
             </div>
