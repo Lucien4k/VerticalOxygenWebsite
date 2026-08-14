@@ -215,24 +215,46 @@ const SYSTEMS: {
     },
     stats: [
       {
-        label: { en: "Water use", fr: "Consommation d'eau", zh: "用水量" },
-        value: { en: "~90% less", fr: "~90 % de moins", zh: "减少约 90%" },
+        label: {
+          en: "Water use", fr: "Consommation d'eau", zh: "用水量",
+          es: "Uso de agua", pa: "ਪਾਣੀ ਦੀ ਵਰਤੋਂ", ar: "استخدام المياه", hi: "जल उपयोग",
+        },
+        value: {
+          en: "~90% less", fr: "~90 % de moins", zh: "减少约 90%",
+          es: "~90% menos", pa: "~90% ਘੱਟ", ar: "أقل بنسبة ~90٪", hi: "~90% कम",
+        },
       },
       {
-        label: { en: "Fertilizer", fr: "Engrais", zh: "肥料" },
-        value: { en: "None added", fr: "Aucun ajout", zh: "无需额外添加" },
+        label: {
+          en: "Fertilizer", fr: "Engrais", zh: "肥料",
+          es: "Fertilizante", pa: "ਖਾਦ", ar: "السماد", hi: "उर्वरक",
+        },
+        value: {
+          en: "None added", fr: "Aucun ajout", zh: "无需额外添加",
+          es: "Ninguno añadido", pa: "ਕੋਈ ਨਹੀਂ ਜੋੜਿਆ", ar: "بدون إضافة", hi: "कोई नहीं जोड़ा गया",
+        },
       },
       {
-        label: { en: "Best for", fr: "Idéal pour", zh: "适用场景" },
+        label: {
+          en: "Best for", fr: "Idéal pour", zh: "适用场景",
+          es: "Ideal para", pa: "ਸਭ ਤੋਂ ਵਧੀਆ ਲਈ", ar: "الأنسب لـ", hi: "इनके लिए सर्वोत्तम",
+        },
         value: {
           en: "Feature walls, cafés, showrooms",
           fr: "Murs signatures, cafés, salles d'exposition",
           zh: "主题墙、咖啡馆、展厅",
+          es: "Muros destacados, cafés, salas de exposición",
+          pa: "ਵਿਸ਼ੇਸ਼ ਕੰਧਾਂ, ਕੈਫੇ, ਸ਼ੋਰੂਮ",
+          ar: "الجدران المميزة، المقاهي، صالات العرض",
+          hi: "फीचर वॉल, कैफे, शोरूम",
         },
       },
       {
-        label: { en: "Wall depth", fr: "Profondeur du mur", zh: "墙体厚度" },
-        value: { en: "8–12 in", fr: "20–30 cm", zh: "20–30 厘米" },
+        label: {
+          en: "Wall depth", fr: "Profondeur du mur", zh: "墙体厚度",
+          es: "Profundidad del muro", pa: "ਕੰਧ ਦੀ ਡੂੰਘਾਈ", ar: "عمق الجدار", hi: "दीवार की गहराई",
+        },
+        value: { en: "8–12 in", fr: "20–30 cm", zh: "20–30 厘米", es: "20–30 cm", pa: "20–30 ਸੈਮੀ", ar: "20–30 سم", hi: "20–30 सेमी" },
       },
     ],
     highlights: [
@@ -240,16 +262,28 @@ const SYSTEMS: {
         en: "Live fish tank integrated at base",
         fr: "Aquarium vivant intégré à la base",
         zh: "底部集成活体鱼缸",
+        es: "Acuario vivo integrado en la base",
+        pa: "ਅਧਾਰ ਵਿੱਚ ਲਾਈਵ ਮੱਛੀ ਟੈਂਕ ਏਕੀਕ੍ਰਿਤ",
+        ar: "حوض سمك حي مدمج في القاعدة",
+        hi: "आधार में एकीकृत जीवित मछली टैंक",
       },
       {
         en: "Fully soilless, gravel media beds",
         fr: "Entièrement sans terre, lits de gravier",
         zh: "完全无土，砾石基质床",
+        es: "Completamente sin tierra, lechos de grava",
+        pa: "ਪੂਰੀ ਤਰ੍ਹਾਂ ਮਿੱਟੀ ਰਹਿਤ, ਬੱਜਰੀ ਦੇ ਬੈੱਡ",
+        ar: "بدون تربة تمامًا، أسرة من الحصى",
+        hi: "पूर्णतः मिट्टी रहित, बजरी मीडिया बेड",
       },
       {
         en: "Continuous nutrient cycle",
         fr: "Cycle nutritif continu",
         zh: "持续循环的养分体系",
+        es: "Ciclo continuo de nutrientes",
+        pa: "ਨਿਰੰਤਰ ਪੋਸ਼ਣ ਚੱਕਰ",
+        ar: "دورة مغذيات مستمرة",
+        hi: "निरंतर पोषक चक्र",
       },
     ],
   },
