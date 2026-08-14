@@ -121,7 +121,7 @@ export function LocationsMap() {
       <div className="space-y-6">
         <div className="rounded-2xl border border-border bg-white p-6">
           <p className="text-xs font-semibold uppercase tracking-widest text-forest">
-            {t({ en: "Cities across Canada", fr: "Villes à travers le Canada", zh: "遍布加拿大的城市" })}
+            {t({ en: "Cities across Canada", fr: "Villes à travers le Canada", zh: "遍布加拿大的城市", es: "Ciudades en todo Canadá", pa: "ਕੈਨੇਡਾ ਭਰ ਦੇ ਸ਼ਹਿਰ", ar: "مدن في جميع أنحاء كندا", hi: "पूरे कनाडा के शहर" })}
           </p>
           <p className="mt-3 font-serif text-4xl font-light text-foreground">
             {LOCATIONS.length}
@@ -131,6 +131,10 @@ export function LocationsMap() {
               en: "Communities served, coast to coast",
               fr: "Communautés desservies, d'un océan à l'autre",
               zh: "服务遍及加拿大各地社区",
+              es: "Comunidades atendidas, de costa a costa",
+              pa: "ਤੱਟ ਤੋਂ ਤੱਟ ਤੱਕ ਸੇਵਾ ਪ੍ਰਾਪਤ ਭਾਈਚਾਰੇ",
+              ar: "مجتمعات مخدومة من ساحل إلى ساحل",
+              hi: "तट से तट तक सेवा प्राप्त समुदाय",
             })}
           </p>
         </div>
@@ -142,7 +146,7 @@ export function LocationsMap() {
               <div className="min-w-0">
                 <h3 className="font-serif text-2xl text-foreground">{active.city}</h3>
                 <p className="text-sm text-muted-foreground">
-                  {active.province}, {t({ en: "Canada", fr: "Canada", zh: "加拿大" })}
+                  {active.province}, {t({ en: "Canada", fr: "Canada", zh: "加拿大", es: "Canadá", pa: "ਕੈਨੇਡਾ", ar: "كندا", hi: "कनाडा" })}
                 </p>
               </div>
             </div>
