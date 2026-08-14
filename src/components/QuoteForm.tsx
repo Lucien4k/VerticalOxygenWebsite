@@ -90,7 +90,9 @@ export function QuoteForm() {
       const stamp = Date.now();
       for (let i = 0; i < photos.length; i++) {
         const file = photos[i];
-        const ext = file.name.split(".").pop() ?? "jpg";
+        const rawExt = (file.name.includes(".") ? file.name.split(".").pop()! : "").toLowerCase();
+        const allowed = ["jpg", "jpeg", "png", "webp", "gif", "heic", "heif"];
+        const ext = allowed.includes(rawExt) ? rawExt : "jpg";
         const path = `${stamp}-${i}-${crypto.randomUUID()}.${ext}`;
         const { error: upErr } = await supabase.storage
           .from("quote-photos")
