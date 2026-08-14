@@ -289,6 +289,16 @@ const SYSTEMS: {
   },
 ];
 
+const DIAGRAM_LABEL = {
+  en: "living wall diagram",
+  fr: "schéma de mur végétal",
+  zh: "植物墙示意图",
+  es: "diagrama de muro vivo",
+  pa: "ਲਿਵਿੰਗ ਵਾਲ ਡਾਇਗ੍ਰਾਮ",
+  ar: "مخطط الجدار الحي",
+  hi: "लिविंग वॉल आरेख",
+};
+
 function SystemsShowcase() {
   const t = useT();
   const [active, setActive] = useState(0);
