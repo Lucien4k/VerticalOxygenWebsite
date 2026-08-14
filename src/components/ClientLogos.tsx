@@ -93,13 +93,17 @@ export function ClientLogos() {
     <div>
       <div className="mx-auto mb-12 max-w-2xl px-6 text-center">
         <p className="mb-3 text-xs font-semibold uppercase tracking-[0.3em] text-forest">
-          {t({ en: "Trusted By", fr: "Ils nous font confiance", zh: "合作伙伴" })}
+          {t({ en: "Trusted By", fr: "Ils nous font confiance", zh: "合作伙伴", es: "Confían en nosotros", pa: "ਭਰੋਸੇਯੋਗ", ar: "موثوق به من قبل", hi: "विश्वसनीय" })}
         </p>
         <h2 className="display-heading text-4xl leading-[1.05] text-charcoal md:text-5xl">
           {t({
             en: "Walls we've grown for great companies.",
             fr: "Des murs cultivés pour de grandes entreprises.",
             zh: "我们为众多知名企业打造植物墙。",
+            es: "Muros que hemos cultivado para grandes empresas.",
+            pa: "ਦੀਵਾਰਾਂ ਜੋ ਅਸੀਂ ਵਧੀਆ ਕੰਪਨੀਆਂ ਲਈ ਉਗਾਈਆਂ ਹਨ।",
+            ar: "جدران زرعناها لشركات رائعة.",
+            hi: "दीवारें जो हमने बेहतरीन कंपनियों के लिए उगाई हैं।",
           })}
         </h2>
         <p className="mt-4 text-charcoal/70">
@@ -107,6 +111,10 @@ export function ClientLogos() {
             en: "From national retailers and hotels to schools, clinics and civic buildings across Canada.",
             fr: "Des détaillants nationaux et hôtels aux écoles, cliniques et bâtiments publics partout au Canada.",
             zh: "从全国零售商与酒店，到加拿大各地的学校、诊所和公共建筑。",
+            es: "Desde minoristas nacionales y hoteles hasta escuelas, clínicas y edificios públicos en todo Canadá.",
+            pa: "ਰਾਸ਼ਟਰੀ ਰਿਟੇਲਰਾਂ ਅਤੇ ਹੋਟਲਾਂ ਤੋਂ ਲੈ ਕੇ ਸਕੂਲਾਂ, ਕਲੀਨਿਕਾਂ ਅਤੇ ਕੈਨੇਡਾ ਭਰ ਦੀਆਂ ਸਿਵਿਕ ਇਮਾਰਤਾਂ ਤੱਕ।",
+            ar: "من تجار التجزئة الوطنيين والفنادق إلى المدارس والعيادات والمباني المدنية في جميع أنحاء كندا.",
+            hi: "राष्ट्रीय रिटेलर्स और होटलों से लेकर स्कूलों, क्लीनिकों और कनाडा भर की सार्वजनिक इमारतों तक।",
           })}
         </p>
       </div>
