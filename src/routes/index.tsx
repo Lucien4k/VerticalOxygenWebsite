@@ -1179,11 +1179,24 @@ function Index() {
               className="max-h-full w-full max-w-5xl"
               onClick={(e) => e.stopPropagation()}
             >
-              <img
-                src={installShot.img}
-                alt={`${installShot.title} — ${installShot.caption}`}
-                className="mx-auto max-h-[80vh] w-auto max-w-full rounded-2xl object-contain shadow-2xl"
-              />
+              {installShot.video ? (
+                <video
+                  src={installShot.video}
+                  poster={installShot.img}
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  controls
+                  className="mx-auto max-h-[80vh] w-auto max-w-full rounded-2xl object-contain shadow-2xl"
+                />
+              ) : (
+                <img
+                  src={installShot.img}
+                  alt={`${installShot.title} — ${installShot.caption}`}
+                  className="mx-auto max-h-[80vh] w-auto max-w-full rounded-2xl object-contain shadow-2xl"
+                />
+              )}
               <figcaption className="mt-4 text-center">
                 <p className="font-serif text-xl text-cream md:text-2xl">
                   {installShot.title}
