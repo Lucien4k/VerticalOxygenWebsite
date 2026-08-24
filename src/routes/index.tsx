@@ -1119,13 +1119,26 @@ function Index() {
                   aria-label={`${t({ en: "View larger photo", fr: "Voir la photo en grand", zh: "查看大图", es: "Ver foto ampliada", pa: "ਵੱਡੀ ਫੋਟੋ ਵੇਖੋ", ar: "عرض صورة أكبر", hi: "बड़ी फोटो देखें" })}: ${p.title}`}
                   className={`group relative cursor-zoom-in overflow-hidden rounded-[1.75rem] bg-charcoal/5 ring-1 ring-charcoal/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-forest-deep ${p.ratio}`}
                 >
-                  <img
-                    src={p.img}
-                    alt={`${p.title} — ${p.caption}`}
-                    loading="lazy"
-                    decoding="async"
-                    className="absolute inset-0 h-full w-full object-cover transition-transform duration-[1200ms] ease-out will-change-transform group-hover:scale-[1.06]"
-                  />
+                  {"video" in p && p.video ? (
+                    <video
+                      src={p.video}
+                      poster={p.img}
+                      autoPlay
+                      muted
+                      loop
+                      playsInline
+                      preload="metadata"
+                      className="absolute inset-0 h-full w-full object-cover transition-transform duration-[1200ms] ease-out will-change-transform group-hover:scale-[1.06]"
+                    />
+                  ) : (
+                    <img
+                      src={p.img}
+                      alt={`${p.title} — ${p.caption}`}
+                      loading="lazy"
+                      decoding="async"
+                      className="absolute inset-0 h-full w-full object-cover transition-transform duration-[1200ms] ease-out will-change-transform group-hover:scale-[1.06]"
+                    />
+                  )}
                   <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-charcoal/80 via-charcoal/5 to-transparent opacity-70 transition-opacity duration-500 group-hover:opacity-95" />
                   <figcaption className="pointer-events-none absolute inset-x-0 bottom-0 flex items-end justify-between gap-4 p-5 md:p-7">
                     <div className="translate-y-1 transition-transform duration-500 group-hover:translate-y-0">
