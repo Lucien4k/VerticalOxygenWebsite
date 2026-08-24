@@ -153,8 +153,6 @@ function SpecificationsPage() {
                 <dd className="text-neutral-900">2026-07-20</dd>
                 <dt>{t({ en: "Systems", fr: "Systèmes", zh: "系统", es: "Sistemas", pa: "ਸਿਸਟਮ", ar: "الأنظمة", hi: "सिस्टम" })}</dt>
                 <dd className="text-neutral-900">{t({ en: "Aquaponic / Hydroponic", fr: "Aquaponique / Hydroponique", zh: "鱼菜共生 / 水培", es: "Acuapónico / Hidropónico", pa: "ਐਕੁਆਪੋਨਿਕ / ਹਾਈਡ੍ਰੋਪੋਨਿਕ", ar: "أكوابونيك / هيدروبونيك", hi: "एक्वापोनिक / हाइड्रोपोनिक" })}</dd>
-                <dt>{t({ en: "Units", fr: "Unités", zh: "单位制", es: "Unidades", pa: "ਯੂਨਿਟ", ar: "الوحدات", hi: "इकाइयाँ" })}</dt>
-                <dd className="text-neutral-900">{t({ en: "IP", fr: "Impérial", zh: "英制", es: "Imperial", pa: "IP", ar: "النظام الإمبراطوري", hi: "IP" })}</dd>
                 <dt>{t({ en: "Region", fr: "Région", zh: "地区", es: "Región", pa: "ਖੇਤਰ", ar: "المنطقة", hi: "क्षेत्र" })}</dt>
                 <dd className="text-neutral-900">{t({ en: "Canada / NA", fr: "Canada / Amérique du Nord", zh: "加拿大 / 北美", es: "Canadá / AN", pa: "ਕੈਨੇਡਾ / NA", ar: "كندا / أمريكا الشمالية", hi: "कनाडा / NA" })}</dd>
               </dl>
