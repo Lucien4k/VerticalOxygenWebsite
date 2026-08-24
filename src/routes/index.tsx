@@ -1211,7 +1211,7 @@ function Index() {
 
       {/* Sustainability */}
       <section id="sustainability" className="relative overflow-hidden bg-charcoal text-cream">
-        <FloatingLeaves density={6} />
+        <FloatingLeaves />
         <div className="relative mx-auto max-w-7xl px-6 py-20 md:py-28">
           <Reveal>
             <p className="mb-3 text-xs font-semibold uppercase tracking-[0.3em] text-forest">
