@@ -354,9 +354,20 @@ function SpecificationsPage() {
                 en: "All living wall installations require a scheduled maintenance agreement to remain under plant warranty. The 100% plant guarantee is issued in conjunction with an active maintenance contract.",
                 fr: "Toutes les installations de murs végétaux nécessitent une entente d'entretien planifiée pour demeurer couvertes par la garantie des plantes. La garantie de 100 % sur les plantes est offerte en association avec un contrat d'entretien actif.",
                 zh: "所有活体植物墙装置均须签订定期维护协议方可享有植物质保。100%植物保障与有效维护合同一并提供。", es: "Todas las instalaciones de muros vegetales requieren un contrato de mantenimiento programado para permanecer bajo la garantía de las plantas. La garantía del 100 % de las plantas se otorga junto con un contrato de mantenimiento activo.", pa: "ਪੌਦੇ ਦੀ ਵਾਰੰਟੀ ਅਧੀਨ ਰਹਿਣ ਲਈ ਸਾਰੀਆਂ ਲਿਵਿੰਗ ਵਾਲ ਸਥਾਪਨਾਵਾਂ ਲਈ ਇੱਕ ਨਿਯਤ ਰੱਖ-ਰਖਾਅ ਸਮਝੌਤਾ ਲੋੜੀਂਦਾ ਹੈ। 100% ਪੌਦਾ ਗਾਰੰਟੀ ਸਰਗਰਮ ਰੱਖ-ਰਖਾਅ ਇਕਰਾਰਨਾਮੇ ਨਾਲ ਜਾਰੀ ਕੀਤੀ ਜਾਂਦੀ ਹੈ।", ar: "تتطلب جميع تركيبات الجدران الحية اتفاقية صيانة مجدولة للبقاء ضمن ضمان النباتات. يُصدر ضمان النباتات بنسبة 100% بالاقتران مع عقد صيانة نشط.", hi: "पौधे की वारंटी के अंतर्गत बने रहने के लिए सभी लिविंग वॉल इंस्टॉलेशन के लिए एक निर्धारित रखरखाव अनुबंध आवश्यक है। 100% पौध गारंटी सक्रिय रखरखाव अनुबंध के साथ जारी की जाती है।",
-              })}
-            </p>
-          </div>
+               })}
+             </p>
+             <p className="mt-4 font-mono text-[11px] uppercase tracking-[0.2em] text-neutral-500">
+               {t({
+                 en: "Since 2011, we have stood behind every wall we have created.",
+                 fr: "Depuis 2011, nous garantissons chaque mur que nous avons créé.",
+                 zh: "自2011年以来，我们为我们建造的每一面墙提供保障。",
+                 es: "Desde 2011, respaldamos cada muro que hemos creado.",
+                 pa: "2011 ਤੋਂ, ਅਸੀਂ ਆਪਣੇ ਬਣਾਏ ਹਰ ਕੰਧ ਦੇ ਪਿੱਛੇ ਖੜ੍ਹੇ ਹਾਂ।",
+                 ar: "منذ 2011، نقف خلف كل جدار أنشأناه.",
+                 hi: "2011 से, हमने अपने द्वारा बनाई गई हर दीवार का समर्थन किया है।",
+               })}
+             </p>
+           </div>
           <div className="md:col-span-8">
             <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
               <SpecBlock
