@@ -41,7 +41,8 @@ import { useT, type Tr } from "@/lib/i18n";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import installGlenora from "../assets/installs/glenora-1.jpg.asset.json";
 import installCoaldale2 from "../assets/installs/coaldale-2-2.jpg.asset.json";
-import install5212 from "../assets/installs/img-5212.jpg.asset.json";
+import delaSalleVideo from "../assets/videos/de-la-salle.mp4.asset.json";
+import delaSallePoster from "../assets/videos/de-la-salle.jpg.asset.json";
 import install5215 from "../assets/installs/img-5215.jpg.asset.json";
 import install5221 from "../assets/installs/img-5221.jpg.asset.json";
 import install0628 from "../assets/installs/img-0628.jpg.asset.json";
@@ -534,7 +535,7 @@ function Index() {
   const t = useT();
   const [heroDone, setHeroDone] = useState(false);
   const [installShot, setInstallShot] = useState<
-    { img: string; title: string; caption: string } | null
+    { img: string; title: string; caption: string; video?: string } | null
   >(null);
   useEffect(() => {
     if (!installShot) return;
@@ -1086,17 +1087,18 @@ function Index() {
                 ratio: "aspect-[3/4]",
               },
               {
-                img: install5212.url,
-                key: "boardroom",
-                title: t({ en: "Boardroom Divider", fr: "Cloison de salle de réunion", zh: "会议室隔断", es: "Divisor de sala de juntas", pa: "ਬੋਰਡਰੂਮ ਡਿਵਾਈਡਰ", ar: "فاصل قاعة الاجتماعات", hi: "बोर्डरूम डिवाइडर" }),
+                img: delaSallePoster.url,
+                video: delaSalleVideo.url,
+                key: "de-la-salle",
+                title: t({ en: "De La Salle", fr: "De La Salle", zh: "De La Salle", es: "De La Salle", pa: "ਡੀ ਲਾ ਸਾਲ", ar: "دي لا سال", hi: "डे ला सैल" }),
                 caption: t({
-                  en: "Office interior · Free-standing panel",
-                  fr: "Intérieur de bureau · Panneau autoportant",
-                  zh: "办公室内部 · 独立式面板",
-                  es: "Interior de oficina · Panel independiente",
-                  pa: "ਦਫ਼ਤਰ ਅੰਦਰੂਨੀ · ਸੁਤੰਤਰ ਪੈਨਲ",
-                  ar: "داخل المكتب · لوحة قائمة بذاتها",
-                  hi: "कार्यालय आंतरिक · स्वतंत्र पैनल",
+                  en: "School interior · Living wall in motion",
+                  fr: "Intérieur scolaire · Mur végétal en mouvement",
+                  zh: "校园室内 · 动态植物墙",
+                  es: "Interior escolar · Muro vivo en movimiento",
+                  pa: "ਸਕੂਲ ਅੰਦਰੂਨੀ · ਚਲਦੀ ਹੋਈ ਜੀਵੰਤ ਕੰਧ",
+                  ar: "داخل المدرسة · جدار حي متحرك",
+                  hi: "स्कूल आंतरिक · गतिमान लिविंग वॉल",
                 }),
                 span: "md:col-span-4",
                 ratio: "aspect-[4/3]",
@@ -1116,13 +1118,26 @@ function Index() {
                   aria-label={`${t({ en: "View larger photo", fr: "Voir la photo en grand", zh: "查看大图", es: "Ver foto ampliada", pa: "ਵੱਡੀ ਫੋਟੋ ਵੇਖੋ", ar: "عرض صورة أكبر", hi: "बड़ी फोटो देखें" })}: ${p.title}`}
                   className={`group relative cursor-zoom-in overflow-hidden rounded-[1.75rem] bg-charcoal/5 ring-1 ring-charcoal/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-forest-deep ${p.ratio}`}
                 >
-                  <img
-                    src={p.img}
-                    alt={`${p.title} — ${p.caption}`}
-                    loading="lazy"
-                    decoding="async"
-                    className="absolute inset-0 h-full w-full object-cover transition-transform duration-[1200ms] ease-out will-change-transform group-hover:scale-[1.06]"
-                  />
+                  {"video" in p && p.video ? (
+                    <video
+                      src={p.video}
+                      poster={p.img}
+                      autoPlay
+                      muted
+                      loop
+                      playsInline
+                      preload="metadata"
+                      className="absolute inset-0 h-full w-full object-cover transition-transform duration-[1200ms] ease-out will-change-transform group-hover:scale-[1.06]"
+                    />
+                  ) : (
+                    <img
+                      src={p.img}
+                      alt={`${p.title} — ${p.caption}`}
+                      loading="lazy"
+                      decoding="async"
+                      className="absolute inset-0 h-full w-full object-cover transition-transform duration-[1200ms] ease-out will-change-transform group-hover:scale-[1.06]"
+                    />
+                  )}
                   <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-charcoal/80 via-charcoal/5 to-transparent opacity-70 transition-opacity duration-500 group-hover:opacity-95" />
                   <figcaption className="pointer-events-none absolute inset-x-0 bottom-0 flex items-end justify-between gap-4 p-5 md:p-7">
                     <div className="translate-y-1 transition-transform duration-500 group-hover:translate-y-0">
@@ -1163,11 +1178,24 @@ function Index() {
               className="max-h-full w-full max-w-5xl"
               onClick={(e) => e.stopPropagation()}
             >
-              <img
-                src={installShot.img}
-                alt={`${installShot.title} — ${installShot.caption}`}
-                className="mx-auto max-h-[80vh] w-auto max-w-full rounded-2xl object-contain shadow-2xl"
-              />
+              {installShot.video ? (
+                <video
+                  src={installShot.video}
+                  poster={installShot.img}
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  controls
+                  className="mx-auto max-h-[80vh] w-auto max-w-full rounded-2xl object-contain shadow-2xl"
+                />
+              ) : (
+                <img
+                  src={installShot.img}
+                  alt={`${installShot.title} — ${installShot.caption}`}
+                  className="mx-auto max-h-[80vh] w-auto max-w-full rounded-2xl object-contain shadow-2xl"
+                />
+              )}
               <figcaption className="mt-4 text-center">
                 <p className="font-serif text-xl text-cream md:text-2xl">
                   {installShot.title}
