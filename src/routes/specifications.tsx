@@ -307,15 +307,6 @@ function SpecificationsPage() {
           <div className="md:col-span-8">
             <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
               <SpecBlock
-                label={t({ en: "CSI MasterFormat", fr: "CSI MasterFormat", zh: "CSI MasterFormat 分类", es: "CSI MasterFormat", pa: "CSI MasterFormat", ar: "CSI MasterFormat", hi: "CSI MasterFormat" })}
-                rows={[
-                  ["12 93 00", t({ en: "Site Furnishings — Interior Plants", fr: "Aménagement de site — Plantes intérieures", zh: "场地设施 — 室内植物", es: "Mobiliario de sitio — Plantas de interior", pa: "ਸਾਈਟ ਫਰਨੀਸ਼ਿੰਗ — ਅੰਦਰੂਨੀ ਪੌਦੇ", ar: "تجهيزات الموقع — نباتات داخلية", hi: "साइट फ़र्निशिंग — इंटीरियर पौधे" })],
-                  ["12 93 43", t({ en: "Interior Planters", fr: "Jardinières intérieures", zh: "室内花池", es: "Jardineras interiores", pa: "ਅੰਦਰੂਨੀ ਪਲਾਂਟਰ", ar: "أحواض داخلية", hi: "इंटीरियर प्लांटर" })],
-                  ["32 94 33", t({ en: "Planters — Exterior", fr: "Jardinières — Extérieur", zh: "花池 — 室外", es: "Jardineras — Exterior", pa: "ਪਲਾਂਟਰ — ਬਾਹਰੀ", ar: "أحواض — خارجية", hi: "प्लांटर — बाहरी" })],
-                  ["09 77 00", t({ en: "Special Wall Surfacing (moss)", fr: "Revêtement mural spécial (mousse)", zh: "特殊墙面饰面（苔藓）", es: "Revestimiento mural especial (musgo)", pa: "ਵਿਸ਼ੇਸ਼ ਕੰਧ ਸਤਹ (ਮੌਸ)", ar: "تكسية جدارية خاصة (طحلب)", hi: "विशेष दीवार सतह (मॉस)" })],
-                ]}
-              />
-              <SpecBlock
                 label={t({ en: "Certifications & Credits", fr: "Certifications et crédits", zh: "认证与积分", es: "Certificaciones y créditos", pa: "ਸਰਟੀਫਿਕੇਸ਼ਨ ਅਤੇ ਕ੍ਰੈਡਿਟ", ar: "الشهادات والاعتمادات", hi: "प्रमाणन और क्रेडिट" })}
                 rows={[
                   ["LEED v4.1", t({ en: "IEQ Credit — Interior Air Quality", fr: "Crédit IEQ — Qualité de l'air intérieur", zh: "IEQ积分 — 室内空气质量", es: "Crédito IEQ — Calidad del aire interior", pa: "IEQ ਕ੍ਰੈਡਿਟ — ਅੰਦਰੂਨੀ ਹਵਾ ਦੀ ਗੁਣਵੱਤਾ", ar: "اعتماد IEQ — جودة الهواء الداخلي", hi: "IEQ क्रेडिट — आंतरिक वायु गुणवत्ता" })],
