@@ -298,9 +298,9 @@ function SpecificationsPage() {
             </h2>
             <p className="mt-4 font-mono text-[12px] leading-relaxed text-neutral-700">
               {t({
-                en: "Vertical Oxygen systems are specified under multiple CSI MasterFormat divisions depending on interior/exterior use and structural integration.",
-                fr: "Les systèmes Vertical Oxygen sont spécifiés sous plusieurs divisions CSI MasterFormat selon l'usage intérieur/extérieur et l'intégration structurale.",
-                zh: "Vertical Oxygen系统根据室内/室外用途及结构集成方式，分属多个CSI MasterFormat分部进行规格说明。", es: "Los sistemas Vertical Oxygen se especifican bajo múltiples divisiones de CSI MasterFormat según el uso interior/exterior y la integración estructural.", pa: "Vertical Oxygen ਸਿਸਟਮ ਅੰਦਰੂਨੀ/ਬਾਹਰੀ ਵਰਤੋਂ ਅਤੇ ਸਟ੍ਰਕਚਰਲ ਏਕੀਕਰਨ ਦੇ ਆਧਾਰ 'ਤੇ ਕਈ CSI MasterFormat ਡਿਵੀਜ਼ਨਾਂ ਅਧੀਨ ਨਿਰਧਾਰਤ ਕੀਤੇ ਜਾਂਦੇ ਹਨ।", ar: "تُحدد أنظمة Vertical Oxygen ضمن أقسام متعددة من CSI MasterFormat حسب الاستخدام الداخلي/الخارجي والتكامل الإنشائي.", hi: "Vertical Oxygen सिस्टम इंटीरियर/बाहरी उपयोग और संरचनात्मक एकीकरण के आधार पर कई CSI MasterFormat डिवीज़नों के अंतर्गत निर्दिष्ट किए जाते हैं।",
+                en: "Vertical Oxygen aquaponic and hydroponic systems are engineered to recognized green-building and safety standards for interior and exterior installations.",
+                fr: "Les systèmes aquaponiques et hydroponiques Vertical Oxygen sont conçus selon des normes reconnues de bâtiment durable et de sécurité, pour des installations intérieures et extérieures.",
+                zh: "Vertical Oxygen 的鱼菜共生与水培系统按公认的绿色建筑与安全标准设计，适用于室内外安装。", es: "Los sistemas acuapónicos e hidropónicos de Vertical Oxygen se diseñan conforme a normas reconocidas de construcción sostenible y seguridad para instalaciones interiores y exteriores.", pa: "Vertical Oxygen ਦੇ ਐਕੁਆਪੋਨਿਕ ਅਤੇ ਹਾਈਡ੍ਰੋਪੋਨਿਕ ਸਿਸਟਮ ਅੰਦਰੂਨੀ ਅਤੇ ਬਾਹਰੀ ਸਥਾਪਨਾਵਾਂ ਲਈ ਮਾਨਤਾ ਪ੍ਰਾਪਤ ਗ੍ਰੀਨ-ਬਿਲਡਿੰਗ ਅਤੇ ਸੁਰੱਖਿਆ ਮਿਆਰਾਂ ਅਨੁਸਾਰ ਤਿਆਰ ਕੀਤੇ ਗਏ ਹਨ।", ar: "تُصمم أنظمة Vertical Oxygen الأكوابونيك والهيدروبونيك وفق معايير معتمدة للبناء الأخضر والسلامة للتركيبات الداخلية والخارجية.", hi: "Vertical Oxygen के एक्वापोनिक और हाइड्रोपोनिक सिस्टम आंतरिक और बाहरी इंस्टॉलेशन के लिए मान्यता प्राप्त ग्रीन-बिल्डिंग और सुरक्षा मानकों के अनुसार इंजीनियर किए गए हैं।",
               })}
             </p>
           </div>
