@@ -1,16 +1,34 @@
 import { useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import { LANGS, useLang } from "@/lib/i18n";
 
 export function LanguageSwitcher({ className = "" }: { className?: string }) {
   const { lang, setLang } = useLang();
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
+  const buttonRef = useRef<HTMLButtonElement>(null);
+  const menuRef = useRef<HTMLUListElement>(null);
+  const [menuPosition, setMenuPosition] = useState({ top: 0, left: 0 });
   const current = LANGS.find((l) => l.code === lang) ?? LANGS[0];
+
+  const toggleMenu = () => {
+    if (!open) {
+      const rect = buttonRef.current?.getBoundingClientRect();
+      if (rect) {
+        setMenuPosition({
+          top: rect.bottom + 8,
+          left: Math.max(12, Math.min(rect.right - 160, window.innerWidth - 172)),
+        });
+      }
+    }
+    setOpen((value) => !value);
+  };
 
   useEffect(() => {
     if (!open) return;
     const onDown = (e: MouseEvent) => {
-      if (ref.current && !ref.current.contains(e.target as Node)) setOpen(false);
+      const target = e.target as Node;
+      if (!ref.current?.contains(target) && !menuRef.current?.contains(target)) setOpen(false);
     };
     const onKey = (e: KeyboardEvent) => e.key === "Escape" && setOpen(false);
     document.addEventListener("mousedown", onDown);
@@ -24,8 +42,9 @@ export function LanguageSwitcher({ className = "" }: { className?: string }) {
   return (
     <div ref={ref} className={`relative ${className}`}>
       <button
+        ref={buttonRef}
         type="button"
-        onClick={() => setOpen((o) => !o)}
+        onClick={toggleMenu}
         aria-haspopup="listbox"
         aria-expanded={open}
         aria-label="Language"
@@ -48,10 +67,12 @@ export function LanguageSwitcher({ className = "" }: { className?: string }) {
         </svg>
       </button>
 
-      {open && (
+      {open && typeof document !== "undefined" && createPortal(
         <ul
+          ref={menuRef}
           role="listbox"
-          className="absolute right-0 z-50 mt-2 min-w-[10rem] overflow-hidden rounded-xl border border-charcoal/10 bg-white/95 py-1 shadow-xl backdrop-blur-md"
+          style={{ top: menuPosition.top, left: menuPosition.left }}
+          className="fixed z-[200] min-w-[10rem] overflow-hidden rounded-xl border border-charcoal/10 bg-white/95 py-1 shadow-xl backdrop-blur-md"
         >
           {LANGS.map((l) => {
             const active = l.code === lang;
@@ -79,7 +100,8 @@ export function LanguageSwitcher({ className = "" }: { className?: string }) {
               </li>
             );
           })}
-        </ul>
+        </ul>,
+        document.body,
       )}
     </div>
   );
