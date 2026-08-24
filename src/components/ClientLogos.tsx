@@ -23,6 +23,7 @@ import saje from "@/assets/clients/saje.png.asset.json";
 import sunLife from "@/assets/clients/sun-life.png.asset.json";
 import telusSpark from "@/assets/clients/telus-spark.png.asset.json";
 import coaldale from "@/assets/clients/town-of-coaldale.png.asset.json";
+import pcl from "@/assets/clients/pcl.png.asset.json";
 import vancity from "@/assets/clients/vancity.png.asset.json";
 import westin from "@/assets/clients/westin.png.asset.json";
 
