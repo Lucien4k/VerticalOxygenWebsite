@@ -206,13 +206,13 @@ const SYSTEMS: {
       hi: "एक पारिस्थितिकी तंत्र। शून्य बर्बादी।",
     },
     description: {
-      en: "Plants and tilapia share a single closed loop. Fish waste becomes nutrients, roots polish the water, and the system self-regulates with minimal input.",
-      fr: "Les plantes et les tilapias partagent un même circuit fermé. Les déjections des poissons deviennent des nutriments, les racines purifient l'eau et le système s'autorégule avec très peu d'intervention.",
-      zh: "植物与罗非鱼共享同一闭环：鱼类排泄物转化为养分，根系净化水质，系统几乎无需人工干预即可自我调节。",
-      es: "Las plantas y la tilapia comparten un único circuito cerrado. Los desechos de los peces se convierten en nutrientes, las raíces purifican el agua y el sistema se autorregula con mínima intervención.",
-      pa: "ਪੌਦੇ ਅਤੇ ਟਿਲਾਪੀਆ ਇੱਕ ਹੀ ਬੰਦ-ਲੂਪ ਸਾਂਝਾ ਕਰਦੇ ਹਨ। ਮੱਛੀ ਦੀ ਰਹਿੰਦ-ਖੂੰਹਦ ਪੋਸ਼ਣ ਬਣ ਜਾਂਦੀ ਹੈ, ਜੜ੍ਹਾਂ ਪਾਣੀ ਨੂੰ ਸਾਫ਼ ਕਰਦੀਆਂ ਹਨ, ਅਤੇ ਸਿਸਟਮ ਘੱਟੋ-ਘੱਟ ਦਖਲ ਨਾਲ ਆਪਣੇ ਆਪ ਨੂੰ ਨਿਯਮਤ ਕਰਦਾ ਹੈ।",
-      ar: "تتشارك النباتات وسمك البلطي دورة مغلقة واحدة. تتحول فضلات الأسماك إلى مغذيات، وتنقّي الجذور الماء، ويعمل النظام على تنظيم نفسه بأقل تدخل.",
-      hi: "पौधे और तिलापिया मछली एक ही क्लोज़्ड-लूप साझा करते हैं। मछली का अपशिष्ट पोषक तत्व बन जाता है, जड़ें पानी को शुद्ध करती हैं, और सिस्टम न्यूनतम हस्तक्षेप के साथ स्वयं को नियंत्रित करता है।",
+      en: "Freshwater fish — most often African cichlids — and freshwater plants share a single closed loop. Fish waste nourishes the roots, the roots in turn purify the water, and the ecosystem self-regulates with minimal input.",
+      fr: "Des poissons d'eau douce — le plus souvent des cichlidés africains — et des plantes aquatiques partagent un même circuit fermé. Les déjections des poissons nourrissent les racines, qui à leur tour purifient l'eau, et l'écosystème s'autorégule avec très peu d'intervention.",
+      zh: "淡水鱼（多为非洲慈鲷）与水生植物共享同一闭环：鱼类排泄物滋养根系，根系反过来净化水质，整个生态系统几乎无需人工干预即可自我调节。",
+      es: "Peces de agua dulce —por lo general cíclidos africanos— y plantas acuáticas comparten un único circuito cerrado. Los desechos de los peces nutren las raíces, que a su vez purifican el agua, y el ecosistema se autorregula con mínima intervención.",
+      pa: "ਤਾਜ਼ੇ ਪਾਣੀ ਦੀਆਂ ਮੱਛੀਆਂ — ਆਮ ਤੌਰ 'ਤੇ ਅਫ਼ਰੀਕੀ ਸਿਕਲਿਡ — ਅਤੇ ਤਾਜ਼ੇ ਪਾਣੀ ਦੇ ਪੌਦੇ ਇੱਕ ਹੀ ਬੰਦ-ਲੂਪ ਸਾਂਝਾ ਕਰਦੇ ਹਨ। ਮੱਛੀ ਦੀ ਰਹਿੰਦ-ਖੂੰਹਦ ਜੜ੍ਹਾਂ ਨੂੰ ਖੁਰਾਕ ਦਿੰਦੀ ਹੈ, ਜੜ੍ਹਾਂ ਆਪਣੇ ਆਪ ਪਾਣੀ ਨੂੰ ਸਾਫ਼ ਕਰਦੀਆਂ ਹਨ, ਅਤੇ ਇਕੋਸਿਸਟਮ ਘੱਟੋ-ਘੱਟ ਦਖਲ ਨਾਲ ਆਪਣੇ ਆਪ ਨੂੰ ਨਿਯਮਤ ਕਰਦਾ ਹੈ।",
+      ar: "تتشارك أسماك المياه العذبة —غالبًا سمك السيكليد الإفريقي— والنباتات المائية دورة مغلقة واحدة. تغذي فضلات الأسماك الجذور، وتنقّي الجذور الماء بدورها، وينظم النظام البيئي نفسه بأقل تدخل.",
+      hi: "मीठे पानी की मछलियाँ —आमतौर पर अफ़्रीकी सिक्लिड— और मीठे पानी के पौधे एक ही क्लोज़्ड-लूप साझा करते हैं। मछली का अपशिष्ट जड़ों को पोषण देता है, जड़ें बदले में पानी को शुद्ध करती हैं, और पारिस्थितिकी तंत्र न्यूनतम हस्तक्षेप के साथ स्वयं को नियंत्रित करता है।",
     },
     stats: [
       {
