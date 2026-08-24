@@ -1,24 +1,31 @@
-Update the quote section so it no longer reads as pink/warm. Switch the background to a light sage wash, keep the form card light and readable, and ensure all text and inputs maintain contrast.
+# Specifications page cleanup
 
-### What will change
+Trim the Specifications page down to the two systems you actually sell and remove the US-centric / unclear technical items.
 
-1. **New colour token in `src/styles.css`**
-   - Add `--sage-wash: oklch(0.94 0.02 125)` mapped to `--color-sage-wash` so it is available as `bg-sage-wash` / `text-sage-wash`.
+## Systems
 
-2. **Quote section background (`src/routes/index.tsx`)**
-   - Change the outer `#quote` section from `bg-cream` to `bg-sage-wash`.
-   - Keep the section text as `text-charcoal` for readability.
+- Keep only two entries: the Aquaponic wall and the Hydroponic wall (the existing "Modular Hydroponic Panel" row becomes the Hydroponic system; a matching Aquaponic row replaces the others).
+- Remove Preserved Moss Wall, Freestanding Divider and Vertical Tower everywhere they appear (table, mobile cards, category filter chips).
+- Category filter reduces to All / Aquaponic / Hydroponic.
+- Load stays at 18.4 psf (saturated) for hydroponic; the aquaponic row gets its own comparable saturated load figure.
+- Water use changes from gallons to litres: 0.35 L/day per sq ft.
 
-3. **Form card background**
-   - Change the form card from `bg-card` (warm pinkish tone) to `bg-white` with a very subtle sage border (`border-sage/30`).
-   - Keep the existing rounded-2xl padding and shadow.
+## Removals
 
-4. **Form inputs (`src/components/QuoteForm.tsx`)**
-   - Ensure input/select backgrounds are `bg-white` and borders use `border-sage/40` so they sit cleanly on the sage page.
-   - Keep placeholder text muted charcoal.
+- NRC column, NRC values, the ASTM C423 sound-absorption standard row, and the NRC mention in the table footnote.
+- CSI column, CSI values, the "CSI 3-Part" summary line, the whole CSI MasterFormat block, and CSI wording in the page meta description and search placeholder.
+- Downloads column plus the CAD.dwg / BIM.rvt buttons on both desktop and mobile.
+- The "Reporting" row in the maintenance table.
+- The sentence saying the plant guarantee "lapses if service is discontinued" — the section still states the 100% guarantee only applies with an active maintenance agreement.
 
-5. **Submit button**
-   - No change — it already uses the forest-deep primary colour, which works on sage.
+## IPM detail
 
-### Result
-The quote page will feel calm, botanical, and premium rather than warm/pink. The form will remain easy to read with white fields floating on the soft sage background.
+Expand the pest-management row into a fuller description: scheduled inspection of foliage and root zone, early identification of common pests (spider mite, aphid, mealybug, fungus gnat), preference for biological and low-toxicity controls such as beneficial insects and insecticidal soap, targeted spot treatment rather than blanket spraying, and follow-up checks on the next visit until the issue clears.
+
+## Spec email
+
+Yes — specs@verticaloxygen.com can forward to your Gmail, but that forward is created where your domain's email is hosted (your registrar or mail provider), not in the website code. Until it's live, the page will show verticaloxygen@gmail.com so nothing bounces; once you confirm the forward works, it switches back to specs@verticaloxygen.com in one edit.
+
+## Technical notes
+
+All changes are in `src/routes/specifications.tsx`: the `SYSTEMS` array, `CATEGORIES`, table/card markup, standards list, and maintenance section. All new and edited copy gets the full seven-language translations already used on the page.
