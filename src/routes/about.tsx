@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, Leaf, Sprout, Instagram } from "lucide-react";
+import { ArrowRight, Leaf, Sprout, Instagram, Recycle } from "lucide-react";
 import logoHeader from "../assets/logo-header.png.asset.json";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import nathaliePhoto from "../assets/team/nathalie.jpg.asset.json";
@@ -215,7 +215,8 @@ function AboutPage() {
           <span className="text-xs font-semibold uppercase tracking-[0.18em] text-forest-deep">
             {t({ en: "Environmental policy", fr: "Politique environnementale", zh: "环境政策", es: "Política ambiental", pa: "ਵਾਤਾਵਰਣ ਨੀਤੀ", ar: "السياسة البيئية", hi: "पर्यावरण नीति" })}
           </span>
-          <h2 className="mt-3 font-serif text-4xl text-charcoal">
+          <h2 className="mt-3 flex items-center gap-3 font-serif text-4xl text-charcoal">
+            <Recycle className="h-8 w-8 shrink-0 text-forest-deep" />
             {t({ en: "A small footprint, on purpose.", fr: "Une empreinte réduite, volontairement.", zh: "刻意追求，轻装前行。", es: "Una huella reducida, a propósito.", pa: "ਇੱਕ ਛੋਟਾ ਪੈਰਾਂ ਦਾ ਨਿਸ਼ਾਨ, ਜਾਣਬੁੱਝ ਕੇ।", ar: "بصمة صغيرة، عن قصد.", hi: "एक छोटा पदचिह्न, जानबूझकर।" })}
           </h2>
           <p className="mt-4 max-w-2xl text-[15px] leading-relaxed text-charcoal/75">
