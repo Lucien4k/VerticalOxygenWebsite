@@ -121,6 +121,7 @@ export function LocationsMap() {
             );
           })}
         </ComposableMap>
+        )}
       </div>
 
       <div className="space-y-6">
