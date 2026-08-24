@@ -534,7 +534,7 @@ function Index() {
   const t = useT();
   const [heroDone, setHeroDone] = useState(false);
   const [installShot, setInstallShot] = useState<
-    { img: string; title: string; caption: string } | null
+    { img: string; title: string; caption: string; video?: string } | null
   >(null);
   useEffect(() => {
     if (!installShot) return;
