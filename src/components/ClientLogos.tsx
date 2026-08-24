@@ -54,6 +54,7 @@ const CLIENTS: Client[] = [
   { name: "Berezan", url: berezan.url },
   { name: "Karen King & Associates", url: karenKing.url },
   { name: "ARI Dental Office", url: ariDental.url },
+  { name: "PCL Construction", url: pcl.url },
   { name: "Client partner", url: partner.url },
 ];
 
