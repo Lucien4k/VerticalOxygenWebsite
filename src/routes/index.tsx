@@ -1025,7 +1025,7 @@ function Index() {
               {
                 img: installGlenora.url,
                 key: "glenora",
-                title: t({ en: "Glenora Lobby", fr: "Hall Glenora", zh: "Glenora 大堂", es: "Vestíbulo Glenora", pa: "ਗਲੇਨੋਰਾ ਲਾਬੀ", ar: "ردهة غلينورا", hi: "ग्लेनोरा लॉबी" }),
+                title: t({ en: "Glenora Seniors' Home Lobby", fr: "Hall de la résidence pour aînés Glenora", zh: "Glenora 长者之家大堂", es: "Vestíbulo de residencia para mayores Glenora", pa: "ਗਲੇਨੋਰਾ ਸੀਨੀਅਰਜ਼ ਹੋਮ ਲਾਬੀ", ar: "ردهة دار مسنين غلينورا", hi: "ग्लेनोरा सीनियर्स होम लॉबी" }),
                 caption: t({
                   en: "Edmonton, AB · Five-panel feature wall",
                   fr: "Edmonton, AB · Mur signature de cinq panneaux",
