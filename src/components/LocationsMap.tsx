@@ -53,10 +53,15 @@ function radiusFor(count: number): number {
 export function LocationsMap() {
   const t = useT();
   const [active, setActive] = useState<Location | null>(LOCATIONS[0]);
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
 
   return (
     <div className="grid gap-8 lg:grid-cols-[1fr_320px] lg:items-center">
       <div className="relative overflow-hidden rounded-2xl bg-white p-2 md:p-4">
+        {!mounted ? (
+          <div className="aspect-[880/560] w-full rounded-xl bg-background" aria-hidden />
+        ) : (
         <ComposableMap
           projection="geoAzimuthalEqualArea"
           projectionConfig={{ rotate: [96, -62, 0], scale: 780 }}
