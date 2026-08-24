@@ -58,7 +58,7 @@ const SYSTEMS: System[] = [
     waterGpdSf: "0.35 L/day·sf",
     electrical: { en: "120V / 1.5A per 40 sf zone", fr: "120 V / 1,5 A par zone de 40 pi²", zh: "每40平方英尺分区120V / 1.5A", es: "120 V / 1,5 A por zona de 40 pie²", pa: "40 sf ਜ਼ੋਨ ਪ੍ਰਤੀ 120V / 1.5A", ar: "120 فولت / 1.5 أمبير لكل منطقة 40 قدم مربع", hi: "प्रति 40 sf ज़ोन 120V / 1.5A" },
     fireRating: { en: "ASTM E84 Class A backer", fr: "Support ASTM E84 Classe A", zh: "ASTM E84 A级基板", es: "Soporte ASTM E84 Clase A", pa: "ASTM E84 ਕਲਾਸ A ਬੈਕਰ", ar: "طبقة خلفية ASTM E84 فئة A", hi: "ASTM E84 क्लास A बैकर" },
-    substrate: { en: "Fish-tank fed recirculating media beds", fr: "Lits de culture à recirculation alimentés par bassin à poissons", zh: "由鱼缸供液的循环式基质床", es: "Lechos de cultivo recirculantes alimentados por acuario", pa: "ਮੱਛੀ-ਟੈਂਕ ਨਾਲ ਭਰੇ ਰੀਸਰਕੁਲੇਟਿੰਗ ਮੀਡੀਆ ਬੈੱਡ", ar: "أحواض وسائط معاد تدويرها تغذيها خزانات الأسماك", hi: "फ़िश-टैंक द्वारा पोषित रीसर्कुलेटिंग मीडिया बेड" },
+    substrate: { en: "Recirculating felt with drip line", fr: "Feutre à recirculation avec ligne de goutte-à-goutte", zh: "带滴灌管路的循环式无纺布基质", es: "Fieltro recirculante con línea de goteo", pa: "ਡ੍ਰਿਪ ਲਾਈਨ ਨਾਲ ਰੀਸਰਕੁਲੇਟਿੰਗ ਫੈਲਟ", ar: "لباد معاد تدويره مع خط تنقيط", hi: "ड्रिप लाइन के साथ रीसर्कुलेटिंग फेल्ट" },
     depth: { en: '7.0" total (excl. tank)', fr: '7,0 po au total (hors bassin)', zh: '总厚度 7.0 英寸（不含水箱）', es: '7,0" en total (sin depósito)', pa: 'ਕੁੱਲ 7.0" (ਟੈਂਕ ਤੋਂ ਬਿਨਾਂ)', ar: 'إجمالي 7.0 بوصة (بدون الخزان)', hi: 'कुल 7.0" (टैंक को छोड़कर)' },
   },
   {
