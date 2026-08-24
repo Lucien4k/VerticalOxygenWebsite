@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
-import { Download, FileText, ArrowUpRight } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import logoHeader from "../assets/logo-header.png.asset.json";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { useT, type Tr } from "@/lib/i18n";
@@ -13,13 +13,13 @@ export const Route = createFileRoute("/specifications")({
       {
         name: "description",
         content:
-          "Technical specifications, CAD/BIM downloads, and CSI MasterFormat data for Vertical Oxygen living wall systems. Reference documentation for architects, engineers, and contractors.",
+          "Technical specifications for Vertical Oxygen aquaponic and hydroponic living wall systems — loads, water use, electrical, fire ratings and maintenance. Reference data for architects, engineers, and contractors.",
       },
       { property: "og:title", content: "Specifications — Vertical Oxygen" },
       {
         property: "og:description",
         content:
-          "Technical specifications, CAD/BIM downloads, and CSI MasterFormat data for Vertical Oxygen living wall systems.",
+          "Loads, water use, electrical and maintenance data for Vertical Oxygen aquaponic and hydroponic living wall systems.",
       },
       { name: "robots", content: "index,follow" },
     ],
@@ -27,7 +27,7 @@ export const Route = createFileRoute("/specifications")({
   }),
 });
 
-type CategoryKey = "Interior" | "Exterior" | "Freestanding" | "Modular";
+type CategoryKey = "Aquaponic" | "Hydroponic";
 
 type System = {
   id: string;
@@ -38,95 +38,44 @@ type System = {
   waterGpdSf: string;
   electrical: Tr;
   fireRating: Tr;
-  nrc: string;
   substrate: Tr;
   depth: Tr;
-  csi: string;
-  spec: string;
-  cad: string;
-  bim: string;
 };
 
 const CATEGORY_LABELS: Record<CategoryKey | "All", Tr> = {
   All: { en: "All", fr: "Tous", zh: "全部", es: "Todos", pa: "ਸਾਰੇ", ar: "الكل", hi: "सभी" },
-  Interior: { en: "Interior", fr: "Intérieur", zh: "室内", es: "Interior", pa: "ਅੰਦਰੂਨੀ", ar: "داخلي", hi: "इंटीरियर" },
-  Exterior: { en: "Exterior", fr: "Extérieur", zh: "室外", es: "Exterior", pa: "ਬਾਹਰੀ", ar: "خارجي", hi: "बाहरी" },
-  Freestanding: { en: "Freestanding", fr: "Autoportant", zh: "独立式", es: "Autoportante", pa: "ਫ੍ਰੀਸਟੈਂਡਿੰਗ", ar: "قائم بذاته", hi: "फ्रीस्टैंडिंग" },
-  Modular: { en: "Modular", fr: "Modulaire", zh: "模块化", es: "Modular", pa: "ਮਾਡਿਊਲਰ", ar: "معياري", hi: "मॉड्यूलर" },
+  Aquaponic: { en: "Aquaponic", fr: "Aquaponique", zh: "鱼菜共生", es: "Acuapónico", pa: "ਐਕੁਆਪੋਨਿਕ", ar: "أكوابونيك", hi: "एक्वापोनिक" },
+  Hydroponic: { en: "Hydroponic", fr: "Hydroponique", zh: "水培", es: "Hidropónico", pa: "ਹਾਈਡ੍ਰੋਪੋਨਿਕ", ar: "هيدروبونيك", hi: "हाइड्रोपोनिक" },
 };
 
 const SYSTEMS: System[] = [
   {
-    id: "moss-wall",
-    code: "VO-MW-01",
-    name: { en: "Preserved Moss Wall", fr: "Mur de mousse stabilisée", zh: "保鲜苔藓墙", es: "Muro de musgo preservado", pa: "ਸੁਰੱਖਿਅਤ ਮੌਸ ਵਾਲ", ar: "جدار طحلب محفوظ", hi: "प्रिज़र्व्ड मॉस वॉल" },
-    category: "Interior",
-    loadPsf: "3.2 psf",
-    waterGpdSf: "0.0 gal/day·sf",
-    electrical: { en: "None required", fr: "Aucune alimentation requise", zh: "无需电力", es: "No se requiere ninguna", pa: "ਕੋਈ ਲੋੜ ਨਹੀਂ", ar: "لا يلزم شيء", hi: "कुछ भी आवश्यक नहीं" },
-    fireRating: { en: "ASTM E84 Class A", fr: "ASTM E84 Classe A", zh: "ASTM E84 A级", es: "ASTM E84 Clase A", pa: "ASTM E84 ਕਲਾਸ A", ar: "ASTM E84 فئة A", hi: "ASTM E84 क्लास A" },
-    nrc: "0.75",
-    substrate: { en: "Reindeer moss on rigid backer", fr: "Mousse de renne sur support rigide", zh: "驯鹿苔藓固定于硬质基板", es: "Musgo de reno sobre soporte rígido", pa: "ਸਖ਼ਤ ਬੈਕਰ 'ਤੇ ਰੇਂਡੀਅਰ ਮੌਸ", ar: "طحلب الرنة على دعامة صلبة", hi: "रिजिड बैकर पर रेनडियर मॉस" },
-    depth: { en: '2.25" total', fr: '2,25 po au total', zh: '总厚度 2.25 英寸', es: '2,25" en total', pa: 'ਕੁੱਲ 2.25"', ar: 'إجمالي 2.25 بوصة', hi: 'कुल 2.25"' },
-    csi: "12 93 00",
-    spec: "#",
-    cad: "#",
-    bim: "#",
+    id: "aquaponic-wall",
+    code: "VO-AQ-01",
+    name: { en: "Aquaponic Living Wall", fr: "Mur végétal aquaponique", zh: "鱼菜共生植物墙", es: "Muro vegetal acuapónico", pa: "ਐਕੁਆਪੋਨਿਕ ਲਿਵਿੰਗ ਵਾਲ", ar: "جدار حي أكوابونيك", hi: "एक्वापोनिक लिविंग वॉल" },
+    category: "Aquaponic",
+    loadPsf: "21.6 psf (saturated)",
+    waterGpdSf: "0.35 L/day·sf",
+    electrical: { en: "120V / 1.5A per 40 sf zone", fr: "120 V / 1,5 A par zone de 40 pi²", zh: "每40平方英尺分区120V / 1.5A", es: "120 V / 1,5 A por zona de 40 pie²", pa: "40 sf ਜ਼ੋਨ ਪ੍ਰਤੀ 120V / 1.5A", ar: "120 فولت / 1.5 أمبير لكل منطقة 40 قدم مربع", hi: "प्रति 40 sf ज़ोन 120V / 1.5A" },
+    fireRating: { en: "ASTM E84 Class A backer", fr: "Support ASTM E84 Classe A", zh: "ASTM E84 A级基板", es: "Soporte ASTM E84 Clase A", pa: "ASTM E84 ਕਲਾਸ A ਬੈਕਰ", ar: "طبقة خلفية ASTM E84 فئة A", hi: "ASTM E84 क्लास A बैकर" },
+    substrate: { en: "Fish-tank fed recirculating media beds", fr: "Lits de culture à recirculation alimentés par bassin à poissons", zh: "由鱼缸供液的循环式基质床", es: "Lechos de cultivo recirculantes alimentados por acuario", pa: "ਮੱਛੀ-ਟੈਂਕ ਨਾਲ ਭਰੇ ਰੀਸਰਕੁਲੇਟਿੰਗ ਮੀਡੀਆ ਬੈੱਡ", ar: "أحواض وسائط معاد تدويرها تغذيها خزانات الأسماك", hi: "फ़िश-टैंक द्वारा पोषित रीसर्कुलेटिंग मीडिया बेड" },
+    depth: { en: '7.0" total (excl. tank)', fr: '7,0 po au total (hors bassin)', zh: '总厚度 7.0 英寸（不含水箱）', es: '7,0" en total (sin depósito)', pa: 'ਕੁੱਲ 7.0" (ਟੈਂਕ ਤੋਂ ਬਿਨਾਂ)', ar: 'إجمالي 7.0 بوصة (بدون الخزان)', hi: 'कुल 7.0" (टैंक को छोड़कर)' },
   },
   {
-    id: "modular-panel",
-    code: "VO-MP-04",
-    name: { en: "Modular Hydroponic Panel", fr: "Panneau hydroponique modulaire", zh: "模块化水培植物墙板", es: "Panel hidropónico modular", pa: "ਮਾਡਿਊਲਰ ਹਾਈਡ੍ਰੋਪੋਨਿਕ ਪੈਨਲ", ar: "لوحة هيدروبونيك معيارية", hi: "मॉड्यूलर हाइड्रोपोनिक पैनल" },
-    category: "Modular",
+    id: "hydroponic-wall",
+    code: "VO-HY-01",
+    name: { en: "Hydroponic Living Wall", fr: "Mur végétal hydroponique", zh: "水培植物墙", es: "Muro vegetal hidropónico", pa: "ਹਾਈਡ੍ਰੋਪੋਨਿਕ ਲਿਵਿੰਗ ਵਾਲ", ar: "جدار حي هيدروبونيك", hi: "हाइड्रोपोनिक लिविंग वॉल" },
+    category: "Hydroponic",
     loadPsf: "18.4 psf (saturated)",
-    waterGpdSf: "0.35 gal/day·sf",
+    waterGpdSf: "0.35 L/day·sf",
     electrical: { en: "120V / 1.2A per 40 sf zone", fr: "120 V / 1,2 A par zone de 40 pi²", zh: "每40平方英尺分区120V / 1.2A", es: "120 V / 1,2 A por zona de 40 pie²", pa: "40 sf ਜ਼ੋਨ ਪ੍ਰਤੀ 120V / 1.2A", ar: "120 فولت / 1.2 أمبير لكل منطقة 40 قدم مربع", hi: "प्रति 40 sf ज़ोन 120V / 1.2A" },
     fireRating: { en: "ASTM E84 Class A backer", fr: "Support ASTM E84 Classe A", zh: "ASTM E84 A级基板", es: "Soporte ASTM E84 Clase A", pa: "ASTM E84 ਕਲਾਸ A ਬੈਕਰ", ar: "طبقة خلفية ASTM E84 فئة A", hi: "ASTM E84 क्लास A बैकर" },
-    nrc: "0.45",
     substrate: { en: "Recirculating felt with drip line", fr: "Feutre à recirculation avec ligne de goutte-à-goutte", zh: "带滴灌管路的循环式无纺布基质", es: "Fieltro recirculante con línea de goteo", pa: "ਡ੍ਰਿਪ ਲਾਈਨ ਨਾਲ ਰੀਸਰਕੁਲੇਟਿੰਗ ਫੈਲਟ", ar: "لباد معاد تدويره مع خط تنقيط", hi: "ड्रिप लाइन के साथ रीसर्कुलेटिंग फेल्ट" },
     depth: { en: '5.5" total', fr: '5,5 po au total', zh: '总厚度 5.5 英寸', es: '5,5" en total', pa: 'ਕੁੱਲ 5.5"', ar: 'إجمالي 5.5 بوصة', hi: 'कुल 5.5"' },
-    csi: "32 94 33",
-    spec: "#",
-    cad: "#",
-    bim: "#",
-  },
-  {
-    id: "freestanding-divider",
-    code: "VO-FD-02",
-    name: { en: "Freestanding Divider", fr: "Cloison autoportante", zh: "独立式隔断墙", es: "Divisor autoportante", pa: "ਫ੍ਰੀਸਟੈਂਡਿੰਗ ਡਿਵਾਈਡਰ", ar: "فاصل قائم بذاته", hi: "फ्रीस्टैंडिंग डिवाइडर" },
-    category: "Freestanding",
-    loadPsf: "14.1 psf (saturated)",
-    waterGpdSf: "0.28 gal/day·sf",
-    electrical: { en: "120V / 0.8A integrated pump", fr: "120 V / 0,8 A, pompe intégrée", zh: "内置水泵 120V / 0.8A", es: "Bomba integrada de 120 V / 0,8 A", pa: "120V / 0.8A ਏਕੀਕ੍ਰਿਤ ਪੰਪ", ar: "مضخة مدمجة 120 فولت / 0.8 أمبير", hi: "120V / 0.8A एकीकृत पंप" },
-    fireRating: { en: "ASTM E84 Class B", fr: "ASTM E84 Classe B", zh: "ASTM E84 B级", es: "ASTM E84 Clase B", pa: "ASTM E84 ਕਲਾਸ B", ar: "ASTM E84 فئة B", hi: "ASTM E84 क्लास B" },
-    nrc: "0.55",
-    substrate: { en: "Double-sided felt over steel frame", fr: "Feutre double face sur cadre en acier", zh: "钢架双面无纺布基质", es: "Fieltro de doble cara sobre marco de acero", pa: "ਸਟੀਲ ਫਰੇਮ ਉੱਤੇ ਦੋ-ਪਾਸੜ ਫੈਲਟ", ar: "لباد ثنائي الوجه فوق إطار فولاذي", hi: "स्टील फ्रेम पर दोहरी परत वाला फेल्ट" },
-    depth: { en: '9.0" total', fr: '9,0 po au total', zh: '总厚度 9.0 英寸', es: '9,0" en total', pa: 'ਕੁੱਲ 9.0"', ar: 'إجمالي 9.0 بوصة', hi: 'कुल 9.0"' },
-    csi: "12 93 43",
-    spec: "#",
-    cad: "#",
-    bim: "#",
-  },
-  {
-    id: "tower",
-    code: "VO-TW-03",
-    name: { en: "Vertical Tower", fr: "Tour végétale verticale", zh: "垂直塔式植物墙", es: "Torre vertical", pa: "ਵਰਟੀਕਲ ਟਾਵਰ", ar: "برج عمودي", hi: "वर्टिकल टावर" },
-    category: "Freestanding",
-    loadPsf: "22.0 psf (saturated)",
-    waterGpdSf: "0.42 gal/day·sf",
-    electrical: { en: "120V / 1.5A per tower", fr: "120 V / 1,5 A par tour", zh: "每座塔 120V / 1.5A", es: "120 V / 1,5 A por torre", pa: "ਹਰੇਕ ਟਾਵਰ ਲਈ 120V / 1.5A", ar: "120 فولت / 1.5 أمبير لكل برج", hi: "प्रति टावर 120V / 1.5A" },
-    fireRating: { en: "ASTM E84 Class A", fr: "ASTM E84 Classe A", zh: "ASTM E84 A级", es: "ASTM E84 Clase A", pa: "ASTM E84 ਕਲਾਸ A", ar: "ASTM E84 فئة A", hi: "ASTM E84 क्लास A" },
-    nrc: "0.35",
-    substrate: { en: "Stacked hydroponic pods, aluminum column", fr: "Modules hydroponiques empilés, colonne en aluminium", zh: "叠层水培模块，铝制立柱", es: "Cápsulas hidropónicas apiladas, columna de aluminio", pa: "ਸਟੈਕਡ ਹਾਈਡ੍ਰੋਪੋਨਿਕ ਪੌਡ, ਐਲੂਮੀਨੀਅਮ ਕਾਲਮ", ar: "كبسولات هيدروبونيك مكدسة، عمود ألومنيوم", hi: "स्टैक्ड हाइड्रोपोनिक पॉड्स, एल्युमिनियम कॉलम" },
-    depth: { en: '18" dia.', fr: '18 po de diamètre', zh: '直径 18 英寸', es: '18" de diám.', pa: '18" ਵਿਆਸ।', ar: 'قطر 18 بوصة', hi: '18" व्यास' },
-    csi: "12 93 00",
-    spec: "#",
-    cad: "#",
-    bim: "#",
   },
 ];
 
-const CATEGORIES = ["All", "Interior", "Modular", "Freestanding"] as const;
+const CATEGORIES = ["All", "Aquaponic", "Hydroponic"] as const;
 
 function SpecificationsPage() {
   const t = useT();
@@ -142,8 +91,7 @@ function SpecificationsPage() {
         s.name.en.toLowerCase().includes(q) ||
         (s.name.fr ?? "").toLowerCase().includes(q) ||
         (s.name.zh ?? "").toLowerCase().includes(q) ||
-        s.code.toLowerCase().includes(q) ||
-        s.csi.toLowerCase().includes(q);
+        s.code.toLowerCase().includes(q);
       return catOk && qOk;
     });
   }, [filter, query]);
@@ -180,9 +128,9 @@ function SpecificationsPage() {
             <div className="md:col-span-8">
               <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-neutral-500">
                 {t({
-                  en: "Section 12 93 00 / 32 94 33 — Living Wall Systems",
-                  fr: "Section 12 93 00 / 32 94 33 — Systèmes de murs végétaux",
-                  zh: "章节 12 93 00 / 32 94 33 — 活体植物墙系统", es: "Sección 12 93 00 / 32 94 33 — Sistemas de muros vegetales", pa: "ਸੈਕਸ਼ਨ 12 93 00 / 32 94 33 — ਲਿਵਿੰਗ ਵਾਲ ਸਿਸਟਮ", ar: "القسم 12 93 00 / 32 94 33 — أنظمة الجدران الحية", hi: "अनुभाग 12 93 00 / 32 94 33 — लिविंग वॉल सिस्टम",
+                  en: "Aquaponic & Hydroponic Living Wall Systems",
+                  fr: "Systèmes de murs végétaux aquaponiques et hydroponiques",
+                  zh: "鱼菜共生与水培活体植物墙系统", es: "Sistemas de muros vegetales acuapónicos e hidropónicos", pa: "ਐਕੁਆਪੋਨਿਕ ਅਤੇ ਹਾਈਡ੍ਰੋਪੋਨਿਕ ਲਿਵਿੰਗ ਵਾਲ ਸਿਸਟਮ", ar: "أنظمة الجدران الحية الأكوابونيك والهيدروبونيك", hi: "एक्वापोनिक और हाइड्रोपोनिक लिविंग वॉल सिस्टम",
                 })}
               </p>
               <h1
@@ -203,8 +151,8 @@ function SpecificationsPage() {
               <dl className="grid grid-cols-2 gap-x-6 gap-y-3 font-mono text-[11px] uppercase tracking-[0.14em] text-neutral-600">
                 <dt>{t({ en: "Issued", fr: "Émis", zh: "发布日期", es: "Emitido", pa: "ਜਾਰੀ ਕੀਤਾ", ar: "تاريخ الإصدار", hi: "जारी किया गया" })}</dt>
                 <dd className="text-neutral-900">2026-07-20</dd>
-                <dt>{t({ en: "Format", fr: "Format", zh: "格式", es: "Formato", pa: "ਫਾਰਮੈਟ", ar: "التنسيق", hi: "प्रारूप" })}</dt>
-                <dd className="text-neutral-900">{t({ en: "CSI 3-Part", fr: "CSI en 3 parties", zh: "CSI 三段式", es: "CSI de 3 partes", pa: "CSI 3-ਭਾਗ", ar: "CSI من 3 أجزاء", hi: "CSI 3-भाग" })}</dd>
+                <dt>{t({ en: "Systems", fr: "Systèmes", zh: "系统", es: "Sistemas", pa: "ਸਿਸਟਮ", ar: "الأنظمة", hi: "सिस्टम" })}</dt>
+                <dd className="text-neutral-900">{t({ en: "Aquaponic / Hydroponic", fr: "Aquaponique / Hydroponique", zh: "鱼菜共生 / 水培", es: "Acuapónico / Hidropónico", pa: "ਐਕੁਆਪੋਨਿਕ / ਹਾਈਡ੍ਰੋਪੋਨਿਕ", ar: "أكوابونيك / هيدروبونيك", hi: "एक्वापोनिक / हाइड्रोपोनिक" })}</dd>
                 <dt>{t({ en: "Units", fr: "Unités", zh: "单位制", es: "Unidades", pa: "ਯੂਨਿਟ", ar: "الوحدات", hi: "इकाइयाँ" })}</dt>
                 <dd className="text-neutral-900">{t({ en: "IP", fr: "Impérial", zh: "英制", es: "Imperial", pa: "IP", ar: "النظام الإمبراطوري", hi: "IP" })}</dd>
                 <dt>{t({ en: "Region", fr: "Région", zh: "地区", es: "Región", pa: "ਖੇਤਰ", ar: "المنطقة", hi: "क्षेत्र" })}</dt>
@@ -251,7 +199,7 @@ function SpecificationsPage() {
                 type="search"
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
-                placeholder={t({ en: "Search code, name, CSI", fr: "Rechercher par code, nom, CSI", zh: "按代码、名称、CSI搜索", es: "Buscar código, nombre, CSI", pa: "ਕੋਡ, ਨਾਮ, CSI ਖੋਜੋ", ar: "بحث عن الرمز، الاسم، CSI", hi: "कोड, नाम, CSI खोजें" })}
+                placeholder={t({ en: "Search code or name", fr: "Rechercher par code ou nom", zh: "按代码或名称搜索", es: "Buscar código o nombre", pa: "ਕੋਡ ਜਾਂ ਨਾਮ ਖੋਜੋ", ar: "بحث عن الرمز أو الاسم", hi: "कोड या नाम खोजें" })}
                 className="w-full rounded-none border border-neutral-300 bg-white px-3 py-2 font-mono text-[12px] text-neutral-900 placeholder:text-neutral-400 focus:border-neutral-900 focus:outline-none sm:w-64"
               />
             </div>
@@ -268,9 +216,7 @@ function SpecificationsPage() {
                   <th className="py-3 pr-4 font-normal">{t({ en: "Water", fr: "Eau", zh: "用水量", es: "Agua", pa: "ਪਾਣੀ", ar: "الماء", hi: "पानी" })}</th>
                   <th className="py-3 pr-4 font-normal">{t({ en: "Electrical", fr: "Électricité", zh: "电气", es: "Eléctrico", pa: "ਇਲੈਕਟ੍ਰੀਕਲ", ar: "الكهرباء", hi: "इलेक्ट्रिकल" })}</th>
                   <th className="py-3 pr-4 font-normal">{t({ en: "Fire", fr: "Feu", zh: "防火", es: "Fuego", pa: "ਅੱਗ", ar: "الحريق", hi: "अग्नि" })}</th>
-                  <th className="py-3 pr-4 font-normal">NRC</th>
-                  <th className="py-3 pr-4 font-normal">CSI</th>
-                  <th className="py-3 pr-0 font-normal">{t({ en: "Downloads", fr: "Téléchargements", zh: "下载", es: "Descargas", pa: "ਡਾਊਨਲੋਡ", ar: "التنزيلات", hi: "डाउनलोड" })}</th>
+                  <th className="py-3 pr-0 font-normal">{t({ en: "Substrate", fr: "Substrat", zh: "基质", es: "Sustrato", pa: "ਸਬਸਟਰੇਟ", ar: "الركيزة", hi: "सब्सट्रेट" })}</th>
                 </tr>
               </thead>
               <tbody>
@@ -289,26 +235,12 @@ function SpecificationsPage() {
                     <td className="py-4 pr-4">{s.waterGpdSf}</td>
                     <td className="py-4 pr-4">{t(s.electrical)}</td>
                     <td className="py-4 pr-4">{t(s.fireRating)}</td>
-                    <td className="py-4 pr-4">{s.nrc}</td>
-                    <td className="py-4 pr-4">{s.csi}</td>
-                    <td className="py-4 pr-0">
-                      <div className="flex flex-col gap-1">
-                        <a href={s.spec} className="inline-flex items-center gap-1.5 text-neutral-900 underline-offset-2 hover:underline">
-                          <FileText className="h-3.5 w-3.5" aria-hidden /> SPEC.pdf
-                        </a>
-                        <a href={s.cad} className="inline-flex items-center gap-1.5 text-neutral-900 underline-offset-2 hover:underline">
-                          <Download className="h-3.5 w-3.5" aria-hidden /> CAD.dwg
-                        </a>
-                        <a href={s.bim} className="inline-flex items-center gap-1.5 text-neutral-900 underline-offset-2 hover:underline">
-                          <Download className="h-3.5 w-3.5" aria-hidden /> BIM.rvt
-                        </a>
-                      </div>
-                    </td>
+                    <td className="py-4 pr-0">{t(s.substrate)}</td>
                   </tr>
                 ))}
                 {rows.length === 0 ? (
                   <tr>
-                    <td colSpan={9} className="py-8 text-center text-neutral-500">
+                    <td colSpan={7} className="py-8 text-center text-neutral-500">
                       {t({ en: "No systems match the current filter.", fr: "Aucun système ne correspond au filtre actuel.", zh: "没有符合当前筛选条件的系统。", es: "Ningún sistema coincide con el filtro actual.", pa: "ਮੌਜੂਦਾ ਫਿਲਟਰ ਨਾਲ ਕੋਈ ਸਿਸਟਮ ਮੇਲ ਨਹੀਂ ਖਾਂਦਾ।", ar: "لا توجد أنظمة تطابق عامل التصفية الحالي.", hi: "वर्तमान फ़िल्टर से कोई सिस्टम मेल नहीं खाता।" })}
                     </td>
                   </tr>
@@ -336,30 +268,18 @@ function SpecificationsPage() {
                   <dt className="text-neutral-500">{t({ en: "Water", fr: "Eau", zh: "用水量", es: "Agua", pa: "ਪਾਣੀ", ar: "الماء", hi: "पानी" })}</dt><dd>{s.waterGpdSf}</dd>
                   <dt className="text-neutral-500">{t({ en: "Electrical", fr: "Électricité", zh: "电气", es: "Eléctrico", pa: "ਇਲੈਕਟ੍ਰੀਕਲ", ar: "الكهرباء", hi: "इलेक्ट्रिकल" })}</dt><dd>{t(s.electrical)}</dd>
                   <dt className="text-neutral-500">{t({ en: "Fire", fr: "Feu", zh: "防火", es: "Fuego", pa: "ਅੱਗ", ar: "الحريق", hi: "अग्नि" })}</dt><dd>{t(s.fireRating)}</dd>
-                  <dt className="text-neutral-500">NRC</dt><dd>{s.nrc}</dd>
-                  <dt className="text-neutral-500">CSI</dt><dd>{s.csi}</dd>
+                  <dt className="text-neutral-500">{t({ en: "Substrate", fr: "Substrat", zh: "基质", es: "Sustrato", pa: "ਸਬਸਟਰੇਟ", ar: "الركيزة", hi: "सब्सट्रेट" })}</dt><dd>{t(s.substrate)}</dd>
                   <dt className="text-neutral-500">{t({ en: "Depth", fr: "Épaisseur", zh: "厚度", es: "Profundidad", pa: "ਡੂੰਘਾਈ", ar: "العمق", hi: "गहराई" })}</dt><dd>{t(s.depth)}</dd>
                 </dl>
-                <div className="mt-4 flex flex-wrap gap-3 font-mono text-[12px]">
-                  <a href={s.spec} className="inline-flex items-center gap-1.5 text-neutral-900 underline underline-offset-2">
-                    <FileText className="h-3.5 w-3.5" aria-hidden /> SPEC.pdf
-                  </a>
-                  <a href={s.cad} className="inline-flex items-center gap-1.5 text-neutral-900 underline underline-offset-2">
-                    <Download className="h-3.5 w-3.5" aria-hidden /> CAD.dwg
-                  </a>
-                  <a href={s.bim} className="inline-flex items-center gap-1.5 text-neutral-900 underline underline-offset-2">
-                    <Download className="h-3.5 w-3.5" aria-hidden /> BIM.rvt
-                  </a>
-                </div>
               </article>
             ))}
           </div>
 
           <p className="mt-6 font-mono text-[11px] uppercase tracking-[0.14em] text-neutral-500">
             {t({
-              en: "Saturated load values include water, substrate, and mature plant mass at 100% capacity. NRC ratings tested per ASTM C423. Fire ratings per ASTM E84 surface burning characteristics.",
-              fr: "Les valeurs de charge saturée comprennent l'eau, le substrat et la masse végétale mature à pleine capacité. Les cotes NRC sont testées selon ASTM C423. Les cotes de résistance au feu sont établies selon les caractéristiques de combustion de surface ASTM E84.",
-              zh: "饱和荷载值包含水分、基质及成熟植物在100%容量下的质量。NRC吸声系数依据ASTM C423测试，防火等级依据ASTM E84表面燃烧特性测试确定。", es: "Los valores de carga saturada incluyen agua, sustrato y masa vegetal madura al 100 % de capacidad. Las calificaciones NRC se prueban según ASTM C423. Las calificaciones de fuego según las características de combustión superficial ASTM E84.", pa: "ਸੰਤ੍ਰਿਪਤ ਲੋਡ ਮੁੱਲਾਂ ਵਿੱਚ ਪਾਣੀ, ਸਬਸਟਰੇਟ, ਅਤੇ 100% ਸਮਰੱਥਾ 'ਤੇ ਪਰਿਪੱਕ ਪੌਦਿਆਂ ਦਾ ਪੁੰਜ ਸ਼ਾਮਲ ਹੈ। NRC ਰੇਟਿੰਗ ASTM C423 ਅਨੁਸਾਰ ਟੈਸਟ ਕੀਤੀ ਗਈ। ਅੱਗ ਰੇਟਿੰਗ ASTM E84 ਸਤ੍ਹਾ ਬਲਣ ਵਿਸ਼ੇਸ਼ਤਾਵਾਂ ਅਨੁਸਾਰ।", ar: "تشمل قيم الحمل المشبع الماء والركيزة وكتلة النباتات الناضجة عند سعة 100%. تم اختبار تصنيفات NRC وفق معيار ASTM C423. تصنيفات الحريق وفق خصائص احتراق السطح ASTM E84.", hi: "संतृप्त लोड मूल्यों में पानी, सब्सट्रेट, और 100% क्षमता पर परिपक्व पौध द्रव्यमान शामिल है। NRC रेटिंग ASTM C423 के अनुसार परीक्षण की गई। अग्नि रेटिंग ASTM E84 सतह दहन विशेषताओं के अनुसार।",
+              en: "Saturated load values include water, substrate, and mature plant mass at 100% capacity. Water figures are litres per day per square foot of wall face. Fire ratings per ASTM E84 surface burning characteristics.",
+              fr: "Les valeurs de charge saturée comprennent l'eau, le substrat et la masse végétale mature à pleine capacité. Les valeurs d'eau sont exprimées en litres par jour par pied carré de surface de mur. Les cotes de résistance au feu sont établies selon les caractéristiques de combustion de surface ASTM E84.",
+              zh: "饱和荷载值包含水分、基质及成熟植物在100%容量下的质量。用水量以每平方英尺墙面每日升数计。防火等级依据ASTM E84表面燃烧特性测试确定。", es: "Los valores de carga saturada incluyen agua, sustrato y masa vegetal madura al 100 % de capacidad. Las cifras de agua son litros por día por pie cuadrado de superficie de muro. Las calificaciones de fuego según las características de combustión superficial ASTM E84.", pa: "ਸੰਤ੍ਰਿਪਤ ਲੋਡ ਮੁੱਲਾਂ ਵਿੱਚ ਪਾਣੀ, ਸਬਸਟਰੇਟ, ਅਤੇ 100% ਸਮਰੱਥਾ 'ਤੇ ਪਰਿਪੱਕ ਪੌਦਿਆਂ ਦਾ ਪੁੰਜ ਸ਼ਾਮਲ ਹੈ। ਪਾਣੀ ਦੇ ਅੰਕੜੇ ਪ੍ਰਤੀ ਵਰਗ ਫੁੱਟ ਕੰਧ ਸਤ੍ਹਾ ਪ੍ਰਤੀ ਦਿਨ ਲੀਟਰ ਵਿੱਚ ਹਨ। ਅੱਗ ਰੇਟਿੰਗ ASTM E84 ਸਤ੍ਹਾ ਬਲਣ ਵਿਸ਼ੇਸ਼ਤਾਵਾਂ ਅਨੁਸਾਰ।", ar: "تشمل قيم الحمل المشبع الماء والركيزة وكتلة النباتات الناضجة عند سعة 100%. أرقام المياه باللتر يومياً لكل قدم مربع من واجهة الجدار. تصنيفات الحريق وفق خصائص احتراق السطح ASTM E84.", hi: "संतृप्त लोड मूल्यों में पानी, सब्सट्रेट, और 100% क्षमता पर परिपक्व पौध द्रव्यमान शामिल है। पानी के आंकड़े प्रति वर्ग फुट दीवार सतह प्रति दिन लीटर में हैं। अग्नि रेटिंग ASTM E84 सतह दहन विशेषताओं के अनुसार।",
             })}
           </p>
         </div>
@@ -378,23 +298,14 @@ function SpecificationsPage() {
             </h2>
             <p className="mt-4 font-mono text-[12px] leading-relaxed text-neutral-700">
               {t({
-                en: "Vertical Oxygen systems are specified under multiple CSI MasterFormat divisions depending on interior/exterior use and structural integration.",
-                fr: "Les systèmes Vertical Oxygen sont spécifiés sous plusieurs divisions CSI MasterFormat selon l'usage intérieur/extérieur et l'intégration structurale.",
-                zh: "Vertical Oxygen系统根据室内/室外用途及结构集成方式，分属多个CSI MasterFormat分部进行规格说明。", es: "Los sistemas Vertical Oxygen se especifican bajo múltiples divisiones de CSI MasterFormat según el uso interior/exterior y la integración estructural.", pa: "Vertical Oxygen ਸਿਸਟਮ ਅੰਦਰੂਨੀ/ਬਾਹਰੀ ਵਰਤੋਂ ਅਤੇ ਸਟ੍ਰਕਚਰਲ ਏਕੀਕਰਨ ਦੇ ਆਧਾਰ 'ਤੇ ਕਈ CSI MasterFormat ਡਿਵੀਜ਼ਨਾਂ ਅਧੀਨ ਨਿਰਧਾਰਤ ਕੀਤੇ ਜਾਂਦੇ ਹਨ।", ar: "تُحدد أنظمة Vertical Oxygen ضمن أقسام متعددة من CSI MasterFormat حسب الاستخدام الداخلي/الخارجي والتكامل الإنشائي.", hi: "Vertical Oxygen सिस्टम इंटीरियर/बाहरी उपयोग और संरचनात्मक एकीकरण के आधार पर कई CSI MasterFormat डिवीज़नों के अंतर्गत निर्दिष्ट किए जाते हैं।",
+                en: "Vertical Oxygen aquaponic and hydroponic systems are engineered to recognized green-building and safety standards for interior and exterior installations.",
+                fr: "Les systèmes aquaponiques et hydroponiques Vertical Oxygen sont conçus selon des normes reconnues de bâtiment durable et de sécurité, pour des installations intérieures et extérieures.",
+                zh: "Vertical Oxygen 的鱼菜共生与水培系统按公认的绿色建筑与安全标准设计，适用于室内外安装。", es: "Los sistemas acuapónicos e hidropónicos de Vertical Oxygen se diseñan conforme a normas reconocidas de construcción sostenible y seguridad para instalaciones interiores y exteriores.", pa: "Vertical Oxygen ਦੇ ਐਕੁਆਪੋਨਿਕ ਅਤੇ ਹਾਈਡ੍ਰੋਪੋਨਿਕ ਸਿਸਟਮ ਅੰਦਰੂਨੀ ਅਤੇ ਬਾਹਰੀ ਸਥਾਪਨਾਵਾਂ ਲਈ ਮਾਨਤਾ ਪ੍ਰਾਪਤ ਗ੍ਰੀਨ-ਬਿਲਡਿੰਗ ਅਤੇ ਸੁਰੱਖਿਆ ਮਿਆਰਾਂ ਅਨੁਸਾਰ ਤਿਆਰ ਕੀਤੇ ਗਏ ਹਨ।", ar: "تُصمم أنظمة Vertical Oxygen الأكوابونيك والهيدروبونيك وفق معايير معتمدة للبناء الأخضر والسلامة للتركيبات الداخلية والخارجية.", hi: "Vertical Oxygen के एक्वापोनिक और हाइड्रोपोनिक सिस्टम आंतरिक और बाहरी इंस्टॉलेशन के लिए मान्यता प्राप्त ग्रीन-बिल्डिंग और सुरक्षा मानकों के अनुसार इंजीनियर किए गए हैं।",
               })}
             </p>
           </div>
           <div className="md:col-span-8">
             <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-              <SpecBlock
-                label={t({ en: "CSI MasterFormat", fr: "CSI MasterFormat", zh: "CSI MasterFormat 分类", es: "CSI MasterFormat", pa: "CSI MasterFormat", ar: "CSI MasterFormat", hi: "CSI MasterFormat" })}
-                rows={[
-                  ["12 93 00", t({ en: "Site Furnishings — Interior Plants", fr: "Aménagement de site — Plantes intérieures", zh: "场地设施 — 室内植物", es: "Mobiliario de sitio — Plantas de interior", pa: "ਸਾਈਟ ਫਰਨੀਸ਼ਿੰਗ — ਅੰਦਰੂਨੀ ਪੌਦੇ", ar: "تجهيزات الموقع — نباتات داخلية", hi: "साइट फ़र्निशिंग — इंटीरियर पौधे" })],
-                  ["12 93 43", t({ en: "Interior Planters", fr: "Jardinières intérieures", zh: "室内花池", es: "Jardineras interiores", pa: "ਅੰਦਰੂਨੀ ਪਲਾਂਟਰ", ar: "أحواض داخلية", hi: "इंटीरियर प्लांटर" })],
-                  ["32 94 33", t({ en: "Planters — Exterior", fr: "Jardinières — Extérieur", zh: "花池 — 室外", es: "Jardineras — Exterior", pa: "ਪਲਾਂਟਰ — ਬਾਹਰੀ", ar: "أحواض — خارجية", hi: "प्लांटर — बाहरी" })],
-                  ["09 77 00", t({ en: "Special Wall Surfacing (moss)", fr: "Revêtement mural spécial (mousse)", zh: "特殊墙面饰面（苔藓）", es: "Revestimiento mural especial (musgo)", pa: "ਵਿਸ਼ੇਸ਼ ਕੰਧ ਸਤਹ (ਮੌਸ)", ar: "تكسية جدارية خاصة (طحلب)", hi: "विशेष दीवार सतह (मॉस)" })],
-                ]}
-              />
               <SpecBlock
                 label={t({ en: "Certifications & Credits", fr: "Certifications et crédits", zh: "认证与积分", es: "Certificaciones y créditos", pa: "ਸਰਟੀਫਿਕੇਸ਼ਨ ਅਤੇ ਕ੍ਰੈਡਿਟ", ar: "الشهادات والاعتمادات", hi: "प्रमाणन और क्रेडिट" })}
                 rows={[
@@ -402,14 +313,14 @@ function SpecificationsPage() {
                   ["LEED v4.1", t({ en: "IEQ Credit — Daylight & Views", fr: "Crédit IEQ — Éclairage naturel et vues", zh: "IEQ积分 — 采光与视野", es: "Crédito IEQ — Luz natural y vistas", pa: "IEQ ਕ੍ਰੈਡਿਟ — ਦਿਨ ਦੀ ਰੌਸ਼ਨੀ ਅਤੇ ਦ੍ਰਿਸ਼", ar: "اعتماد IEQ — الإضاءة النهارية والإطلالات", hi: "IEQ क्रेडिट — डेलाइट और व्यू" })],
                   ["WELL v2", t({ en: "Feature M09 — Biophilia I", fr: "Caractéristique M09 — Biophilie I", zh: "特征 M09 — 亲生物设计 I", es: "Característica M09 — Biofilia I", pa: "ਫੀਚਰ M09 — ਬਾਇਓਫਿਲੀਆ I", ar: "الميزة M09 — الانتماء الحيوي I", hi: "फ़ीचर M09 — बायोफिलिया I" })],
                   ["WELL v2", t({ en: "Feature M02 — Biophilia II Qualitative", fr: "Caractéristique M02 — Biophilie II Qualitative", zh: "特征 M02 — 亲生物设计 II（定性）", es: "Característica M02 — Biofilia II cualitativa", pa: "ਫੀਚਰ M02 — ਬਾਇਓਫਿਲੀਆ II ਗੁਣਾਤਮਕ", ar: "الميزة M02 — الانتماء الحيوي II النوعي", hi: "फ़ीचर M02 — बायोफिलिया II गुणात्मक" })],
-                  ["Living Product", t({ en: "Declare Label: LBC Red List Free (moss)", fr: "Étiquette Declare : LBC Red List Free (mousse)", zh: "Declare标签：LBC红名单免除（苔藓）", es: "Etiqueta Declare: libre de la Lista Roja LBC (musgo)", pa: "Declare ਲੇਬਲ: LBC ਰੈੱਡ ਲਿਸਟ ਮੁਕਤ (ਮੌਸ)", ar: "ملصق Declare: خالٍ من القائمة الحمراء LBC (الطحلب)", hi: "Declare लेबल: LBC रेड लिस्ट मुक्त (मॉस)" })],
+                  ["Living Product", t({ en: "Declare Label: LBC Red List Free (panel materials)", fr: "Étiquette Declare : LBC Red List Free (matériaux de panneau)", zh: "Declare标签：LBC红名单免除（面板材料）", es: "Etiqueta Declare: libre de la Lista Roja LBC (materiales del panel)", pa: "Declare ਲੇਬਲ: LBC ਰੈੱਡ ਲਿਸਟ ਮੁਕਤ (ਪੈਨਲ ਸਮੱਗਰੀ)", ar: "ملصق Declare: خالٍ من القائمة الحمراء LBC (مواد الألواح)", hi: "Declare लेबल: LBC रेड लिस्ट मुक्त (पैनल सामग्री)" })],
                 ]}
               />
               <SpecBlock
                 label={t({ en: "Standards Referenced", fr: "Normes de référence", zh: "参考标准", es: "Normas de referencia", pa: "ਹਵਾਲਾ ਮਿਆਰ", ar: "المعايير المرجعية", hi: "संदर्भित मानक" })}
                 rows={[
                   ["ASTM E84", t({ en: "Surface Burning Characteristics", fr: "Caractéristiques de combustion de surface", zh: "表面燃烧特性", es: "Características de combustión superficial", pa: "ਸਤ੍ਹਾ ਬਲਣ ਵਿਸ਼ੇਸ਼ਤਾਵਾਂ", ar: "خصائص احتراق السطح", hi: "सतह दहन विशेषताएँ" })],
-                  ["ASTM C423", t({ en: "Sound Absorption (NRC)", fr: "Absorption acoustique (NRC)", zh: "吸声系数（NRC）", es: "Absorción acústica (NRC)", pa: "ਧੁਨੀ ਸ਼ੋਸ਼ਣ (NRC)", ar: "امتصاص الصوت (NRC)", hi: "ध्वनि अवशोषण (NRC)" })],
+                  
                   ["ASTM E90", t({ en: "Sound Transmission (STC)", fr: "Transmission acoustique (STC)", zh: "隔声等级（STC）", es: "Transmisión de sonido (STC)", pa: "ਧੁਨੀ ਸੰਚਾਰ (STC)", ar: "انتقال الصوت (STC)", hi: "ध्वनि संचरण (STC)" })],
                   ["CSA B64.10", t({ en: "Backflow Prevention", fr: "Prévention du refoulement", zh: "防回流装置", es: "Prevención de reflujo", pa: "ਬੈਕਫਲੋ ਰੋਕਥਾਮ", ar: "منع الرجوع الخلفي للمياه", hi: "बैकफ़्लो रोकथाम" })],
                 ]}
@@ -440,9 +351,9 @@ function SpecificationsPage() {
             </h2>
             <p className="mt-4 font-mono text-[12px] leading-relaxed text-neutral-700">
               {t({
-                en: "All living wall installations require a scheduled maintenance agreement to remain under plant warranty. The 100% plant guarantee is issued only in conjunction with an active maintenance contract and lapses if service is discontinued.",
-                fr: "Toutes les installations de murs végétaux nécessitent une entente d'entretien planifiée pour demeurer couvertes par la garantie des plantes. La garantie de 100 % sur les plantes n'est offerte qu'en association avec un contrat d'entretien actif et devient caduque si le service est interrompu.",
-                zh: "所有活体植物墙装置均须签订定期维护协议方可享有植物质保。100%植物保障仅在维护合同持续有效期间提供，若服务中止则保障失效。", es: "Todas las instalaciones de muros vegetales requieren un contrato de mantenimiento programado para permanecer bajo la garantía de las plantas. La garantía del 100 % de las plantas se otorga únicamente junto con un contrato de mantenimiento activo y caduca si el servicio se interrumpe.", pa: "ਪੌਦੇ ਦੀ ਵਾਰੰਟੀ ਅਧੀਨ ਰਹਿਣ ਲਈ ਸਾਰੀਆਂ ਲਿਵਿੰਗ ਵਾਲ ਸਥਾਪਨਾਵਾਂ ਲਈ ਇੱਕ ਨਿਯਤ ਰੱਖ-ਰਖਾਅ ਸਮਝੌਤਾ ਲੋੜੀਂਦਾ ਹੈ। 100% ਪੌਦਾ ਗਾਰੰਟੀ ਸਿਰਫ਼ ਇੱਕ ਸਰਗਰਮ ਰੱਖ-ਰਖਾਅ ਇਕਰਾਰਨਾਮੇ ਨਾਲ ਹੀ ਜਾਰੀ ਕੀਤੀ ਜਾਂਦੀ ਹੈ ਅਤੇ ਸੇਵਾ ਬੰਦ ਹੋਣ 'ਤੇ ਖਤਮ ਹੋ ਜਾਂਦੀ ਹੈ।", ar: "تتطلب جميع تركيبات الجدران الحية اتفاقية صيانة مجدولة للبقاء ضمن ضمان النباتات. يُصدر ضمان النباتات بنسبة 100% فقط بالاقتران مع عقد صيانة نشط وينتهي في حال توقف الخدمة.", hi: "पौधे की वारंटी के अंतर्गत बने रहने के लिए सभी लिविंग वॉल इंस्टॉलेशन के लिए एक निर्धारित रखरखाव अनुबंध आवश्यक है। 100% पौध गारंटी केवल सक्रिय रखरखाव अनुबंध के साथ ही जारी की जाती है और सेवा बंद होने पर समाप्त हो जाती है।",
+                en: "All living wall installations require a scheduled maintenance agreement to remain under plant warranty. The 100% plant guarantee is issued in conjunction with an active maintenance contract.",
+                fr: "Toutes les installations de murs végétaux nécessitent une entente d'entretien planifiée pour demeurer couvertes par la garantie des plantes. La garantie de 100 % sur les plantes est offerte en association avec un contrat d'entretien actif.",
+                zh: "所有活体植物墙装置均须签订定期维护协议方可享有植物质保。100%植物保障与有效维护合同一并提供。", es: "Todas las instalaciones de muros vegetales requieren un contrato de mantenimiento programado para permanecer bajo la garantía de las plantas. La garantía del 100 % de las plantas se otorga junto con un contrato de mantenimiento activo.", pa: "ਪੌਦੇ ਦੀ ਵਾਰੰਟੀ ਅਧੀਨ ਰਹਿਣ ਲਈ ਸਾਰੀਆਂ ਲਿਵਿੰਗ ਵਾਲ ਸਥਾਪਨਾਵਾਂ ਲਈ ਇੱਕ ਨਿਯਤ ਰੱਖ-ਰਖਾਅ ਸਮਝੌਤਾ ਲੋੜੀਂਦਾ ਹੈ। 100% ਪੌਦਾ ਗਾਰੰਟੀ ਸਰਗਰਮ ਰੱਖ-ਰਖਾਅ ਇਕਰਾਰਨਾਮੇ ਨਾਲ ਜਾਰੀ ਕੀਤੀ ਜਾਂਦੀ ਹੈ।", ar: "تتطلب جميع تركيبات الجدران الحية اتفاقية صيانة مجدولة للبقاء ضمن ضمان النباتات. يُصدر ضمان النباتات بنسبة 100% بالاقتران مع عقد صيانة نشط.", hi: "पौधे की वारंटी के अंतर्गत बने रहने के लिए सभी लिविंग वॉल इंस्टॉलेशन के लिए एक निर्धारित रखरखाव अनुबंध आवश्यक है। 100% पौध गारंटी सक्रिय रखरखाव अनुबंध के साथ जारी की जाती है।",
               })}
             </p>
           </div>
@@ -454,7 +365,7 @@ function SpecificationsPage() {
                   [t({ en: "Coverage", fr: "Couverture", zh: "保障范围", es: "Cobertura", pa: "ਕਵਰੇਜ", ar: "التغطية", hi: "कवरेज" }), t({ en: "100% of installed plant material", fr: "100 % du matériel végétal installé", zh: "100%已安装植物材料", es: "100 % del material vegetal instalado", pa: "ਸਥਾਪਿਤ ਪੌਦੇ ਦੀ ਸਮੱਗਰੀ ਦਾ 100%", ar: "100% من المواد النباتية المركّبة", hi: "स्थापित पौध सामग्री का 100%" })],
                   [t({ en: "Replacement", fr: "Remplacement", zh: "更换", es: "Reemplazo", pa: "ਬਦਲੀ", ar: "الاستبدال", hi: "प्रतिस्थापन" }), t({ en: "No cost — labour & material included", fr: "Sans frais — main-d'œuvre et matériel inclus", zh: "免费 — 含人工与材料", es: "Sin costo — mano de obra y material incluidos", pa: "ਕੋਈ ਕੀਮਤ ਨਹੀਂ — ਲੇਬਰ ਅਤੇ ਸਮੱਗਰੀ ਸ਼ਾਮਲ", ar: "بدون تكلفة — تشمل العمالة والمواد", hi: "कोई लागत नहीं — श्रम और सामग्री शामिल" })],
                   [t({ en: "Condition", fr: "Condition", zh: "条件", es: "Condición", pa: "ਸ਼ਰਤ", ar: "الشرط", hi: "शर्त" }), t({ en: "Active maintenance contract required", fr: "Contrat d'entretien actif requis", zh: "须持有有效维护合同", es: "Se requiere contrato de mantenimiento activo", pa: "ਸਰਗਰਮ ਰੱਖ-ਰਖਾਅ ਇਕਰਾਰਨਾਮਾ ਲੋੜੀਂਦਾ ਹੈ", ar: "يلزم وجود عقد صيانة نشط", hi: "सक्रिय रखरखाव अनुबंध आवश्यक" })],
-                  [t({ en: "Lapse", fr: "Caducité", zh: "失效", es: "Caducidad", pa: "ਸਮਾਪਤੀ", ar: "الانتهاء", hi: "समाप्ति" }), t({ en: "Void 30 days after service discontinued", fr: "Nulle 30 jours après l'interruption du service", zh: "服务中止30天后失效", es: "Nula 30 días después de la interrupción del servicio", pa: "ਸੇਵਾ ਬੰਦ ਹੋਣ ਤੋਂ 30 ਦਿਨਾਂ ਬਾਅਦ ਰੱਦ", ar: "تصبح لاغية بعد 30 يوماً من توقف الخدمة", hi: "सेवा बंद होने के 30 दिन बाद अमान्य" })],
+                  
                 ]}
               />
               <SpecBlock
@@ -462,9 +373,8 @@ function SpecificationsPage() {
                 rows={[
                   [t({ en: "Pruning & grooming", fr: "Taille et entretien esthétique", zh: "修剪与整形", es: "Poda y arreglo", pa: "ਕਟਾਈ ਅਤੇ ਸਵਾਰਨਾ", ar: "التقليم والعناية", hi: "छंटाई और सँवारना" }), t({ en: "Every scheduled visit", fr: "À chaque visite planifiée", zh: "每次例行访视", es: "Cada visita programada", pa: "ਹਰ ਨਿਯਤ ਫੇਰੀ", ar: "كل زيارة مجدولة", hi: "प्रत्येक निर्धारित विज़िट" })],
                   [t({ en: "Nutrient dosing", fr: "Dosage des nutriments", zh: "养分投配", es: "Dosificación de nutrientes", pa: "ਪੋਸ਼ਕ ਤੱਤ ਖੁਰਾਕ", ar: "جرعات المغذيات", hi: "पोषक तत्व खुराक" }), t({ en: "Reservoir feed adjustment", fr: "Ajustement de l'alimentation du réservoir", zh: "调整水箱供液", es: "Ajuste de alimentación del depósito", pa: "ਰਿਜ਼ਰਵਾਇਰ ਫੀਡ ਵਿਵਸਥਾ", ar: "ضبط تغذية الخزان", hi: "रिज़र्वॉयर फ़ीड समायोजन" })],
-                  [t({ en: "Pest management", fr: "Gestion des ravageurs", zh: "病虫害防治", es: "Manejo de plagas", pa: "ਕੀਟ ਪ੍ਰਬੰਧਨ", ar: "إدارة الآفات", hi: "कीट प्रबंधन" }), t({ en: "Inspection & IPM treatment", fr: "Inspection et traitement de lutte antiparasitaire intégrée", zh: "检查与综合虫害管理（IPM）处理", es: "Inspección y tratamiento de MIP", pa: "ਇੰਸਪੈਕਸ਼ਨ ਅਤੇ IPM ਇਲਾਜ", ar: "الفحص ومعالجة الإدارة المتكاملة للآفات", hi: "निरीक्षण और IPM उपचार" })],
+                  [t({ en: "Pest management (IPM)", fr: "Gestion des ravageurs (IPM)", zh: "病虫害综合防治（IPM）", es: "Manejo de plagas (MIP)", pa: "ਕੀਟ ਪ੍ਰਬੰਧਨ (IPM)", ar: "إدارة الآفات (IPM)", hi: "कीट प्रबंधन (IPM)" }), t({ en: "Every visit we inspect foliage undersides and the root zone for spider mite, aphid, mealybug, scale and fungus gnat. Issues are treated first with biological and low-toxicity controls — beneficial predatory insects, insecticidal soap, horticultural oil and neem — applied as targeted spot treatments rather than blanket spraying, so the space stays safe for occupants. Affected plants are isolated or replaced under the plant guarantee, and the same area is re-checked on the following visit until the population is cleared.", fr: "À chaque visite, nous inspectons le dessous du feuillage et la zone racinaire à la recherche de tétranyques, pucerons, cochenilles farineuses, cochenilles à carapace et sciarides. Les problèmes sont d'abord traités par des moyens biologiques et à faible toxicité — insectes prédateurs utiles, savon insecticide, huile horticole et neem — appliqués en traitements localisés plutôt qu'en pulvérisation générale, afin que le lieu demeure sécuritaire pour les occupants. Les plantes atteintes sont isolées ou remplacées sous la garantie des plantes, et la zone est revérifiée à la visite suivante jusqu'à l'élimination complète.", zh: "每次访视我们都会检查叶背和根区，排查红蜘蛛、蚜虫、粉蚧、介壳虫和蕈蚊。发现问题优先采用生物与低毒手段处理——释放益虫天敌、使用杀虫皂、园艺油和印楝油——以定点处理替代整体喷洒，确保空间对使用者安全。受影响植物在植物保障范围内隔离或更换，并在下次访视时复查该区域，直至虫害彻底清除。", es: "En cada visita inspeccionamos el envés del follaje y la zona radicular en busca de ácaros, pulgones, cochinilla algodonosa, escamas y mosquitos del sustrato. Los problemas se tratan primero con controles biológicos y de baja toxicidad — insectos depredadores beneficiosos, jabón insecticida, aceite hortícola y neem — aplicados de forma localizada en lugar de fumigación general, para que el espacio siga siendo seguro para los ocupantes. Las plantas afectadas se aíslan o se reemplazan bajo la garantía de plantas, y la zona se vuelve a revisar en la siguiente visita hasta eliminar la plaga.", pa: "ਹਰ ਫੇਰੀ 'ਤੇ ਅਸੀਂ ਪੱਤਿਆਂ ਦੇ ਹੇਠਲੇ ਪਾਸੇ ਅਤੇ ਜੜ੍ਹ ਖੇਤਰ ਦੀ ਜਾਂਚ ਕਰਦੇ ਹਾਂ — ਸਪਾਈਡਰ ਮਾਈਟ, ਏਫਿਡ, ਮੀਲੀਬੱਗ, ਸਕੇਲ ਅਤੇ ਫੰਗਸ ਗਨੈਟ ਲਈ। ਸਮੱਸਿਆਵਾਂ ਦਾ ਇਲਾਜ ਪਹਿਲਾਂ ਜੈਵਿਕ ਅਤੇ ਘੱਟ-ਜ਼ਹਿਰੀਲੇ ਤਰੀਕਿਆਂ ਨਾਲ ਕੀਤਾ ਜਾਂਦਾ ਹੈ — ਲਾਭਦਾਇਕ ਸ਼ਿਕਾਰੀ ਕੀੜੇ, ਇਨਸੈਕਟੀਸਾਈਡਲ ਸਾਬਣ, ਹਾਰਟੀਕਲਚਰਲ ਤੇਲ ਅਤੇ ਨਿੰਮ — ਪੂਰੇ ਛਿੜਕਾਅ ਦੀ ਬਜਾਏ ਨਿਸ਼ਾਨਾਬੱਧ ਸਪਾਟ ਇਲਾਜ ਵਜੋਂ, ਤਾਂ ਜੋ ਥਾਂ ਵਰਤਣ ਵਾਲਿਆਂ ਲਈ ਸੁਰੱਖਿਅਤ ਰਹੇ। ਪ੍ਰਭਾਵਿਤ ਪੌਦੇ ਪੌਦਾ ਗਾਰੰਟੀ ਅਧੀਨ ਵੱਖ ਕੀਤੇ ਜਾਂ ਬਦਲੇ ਜਾਂਦੇ ਹਨ, ਅਤੇ ਅਗਲੀ ਫੇਰੀ 'ਤੇ ਉਸੇ ਖੇਤਰ ਦੀ ਮੁੜ ਜਾਂਚ ਕੀਤੀ ਜਾਂਦੀ ਹੈ।", ar: "في كل زيارة نفحص الجهة السفلية للأوراق ومنطقة الجذور بحثاً عن العنكبوت الأحمر والمنّ والبق الدقيقي والحشرات القشرية وذباب الفطر. تُعالج المشكلات أولاً بوسائل بيولوجية ومنخفضة السمية — حشرات مفترسة نافعة، وصابون مبيد، وزيت بستاني، والنيم — تُطبق كمعالجات موضعية محددة بدل الرش الشامل، ليبقى المكان آمناً لشاغليه. تُعزل النباتات المصابة أو تُستبدل ضمن ضمان النباتات، ويُعاد فحص المنطقة في الزيارة التالية حتى زوال الإصابة.", hi: "हर विज़िट पर हम पत्तियों की निचली सतह और रूट ज़ोन की जाँच करते हैं — स्पाइडर माइट, एफिड, मीलीबग, स्केल और फंगस ग्नैट के लिए। समस्याओं का उपचार पहले जैविक और कम-विषाक्त तरीकों से किया जाता है — लाभकारी परभक्षी कीट, इंसेक्टिसाइडल सोप, हॉर्टिकल्चरल ऑयल और नीम — पूरे छिड़काव के बजाय लक्षित स्पॉट उपचार के रूप में, ताकि स्थान उपयोगकर्ताओं के लिए सुरक्षित रहे। प्रभावित पौधे पौध गारंटी के तहत अलग या प्रतिस्थापित किए जाते हैं, और अगली विज़िट पर उसी क्षेत्र की पुनः जाँच की जाती है।" })],
                   [t({ en: "Irrigation service", fr: "Entretien de l'irrigation", zh: "灌溉系统维护", es: "Servicio de riego", pa: "ਸਿੰਚਾਈ ਸੇਵਾ", ar: "خدمة الري", hi: "सिंचाई सेवा" }), t({ en: "Pump, emitter & filter check", fr: "Vérification de la pompe, des goutteurs et du filtre", zh: "检查水泵、滴头与过滤器", es: "Verificación de bomba, emisor y filtro", pa: "ਪੰਪ, ਐਮਿਟਰ ਅਤੇ ਫਿਲਟਰ ਦੀ ਜਾਂਚ", ar: "فحص المضخة والباعث والمرشح", hi: "पंप, एमिटर और फ़िल्टर जाँच" })],
-                  [t({ en: "Reporting", fr: "Rapports", zh: "报告", es: "Informes", pa: "ਰਿਪੋਰਟਿੰਗ", ar: "التقارير", hi: "रिपोर्टिंग" }), t({ en: "Condition log issued per visit", fr: "Journal d'état remis à chaque visite", zh: "每次访视出具状态记录", es: "Registro de condición emitido por cada visita", pa: "ਹਰ ਫੇਰੀ 'ਤੇ ਸਥਿਤੀ ਲਾਗ ਜਾਰੀ ਕੀਤਾ ਗਿਆ", ar: "يُصدر سجل الحالة في كل زيارة", hi: "प्रत्येक विज़िट पर स्थिति लॉग जारी" })],
                 ]}
               />
               <SpecBlock
@@ -503,15 +413,19 @@ function SpecificationsPage() {
             </h2>
             <p className="mt-4 font-mono text-[12px] leading-relaxed text-neutral-700">
               {t({
-                en: "For project-specific engineering review, substitution requests, or CAD/BIM families not listed here. This channel is monitored by our technical team — not general sales.",
-                fr: "Pour toute révision technique propre à un projet, demande de substitution ou famille CAD/BIM non répertoriée ici. Ce canal est suivi par notre équipe technique — non par le service des ventes générales.",
-                zh: "适用于项目专属工程审查、替代方案申请，或本页未列出的CAD/BIM族文件请求。此渠道由技术团队负责跟进，非一般销售咨询。", es: "Para revisión de ingeniería específica del proyecto, solicitudes de sustitución o familias CAD/BIM no incluidas aquí. Este canal es monitoreado por nuestro equipo técnico, no por ventas generales.", pa: "ਪ੍ਰੋਜੈਕਟ-ਵਿਸ਼ੇਸ਼ ਇੰਜੀਨੀਅਰਿੰਗ ਸਮੀਖਿਆ, ਬਦਲੀ ਬੇਨਤੀਆਂ, ਜਾਂ CAD/BIM ਫੈਮਿਲੀਆਂ ਲਈ ਜੋ ਇੱਥੇ ਸੂਚੀਬੱਧ ਨਹੀਂ ਹਨ। ਇਹ ਚੈਨਲ ਸਾਡੀ ਤਕਨੀਕੀ ਟੀਮ ਦੁਆਰਾ ਨਿਗਰਾਨੀ ਕੀਤਾ ਜਾਂਦਾ ਹੈ — ਆਮ ਵਿਕਰੀ ਦੁਆਰਾ ਨਹੀਂ।", ar: "للمراجعة الهندسية الخاصة بالمشروع، أو طلبات الاستبدال، أو عائلات CAD/BIM غير المدرجة هنا. تتم مراقبة هذه القناة من قبل فريقنا الفني — وليس المبيعات العامة.", hi: "प्रोजेक्ट-विशिष्ट इंजीनियरिंग समीक्षा, प्रतिस्थापन अनुरोध, या यहाँ सूचीबद्ध न किए गए CAD/BIM परिवारों के लिए। इस चैनल की निगरानी हमारी तकनीकी टीम करती है — सामान्य बिक्री नहीं।",
+                en: "For project-specific engineering review, substitution requests, or technical details not listed here. Our team reviews wall size, structural backing, water supply, drainage and lighting before quoting.",
+                fr: "Pour toute révision technique propre à un projet, demande de substitution ou détail technique non répertorié ici. Notre équipe évalue la dimension du mur, le support structural, l'alimentation en eau, le drainage et l'éclairage avant de soumissionner.",
+                zh: "适用于项目专属工程审查、替代方案申请，或本页未列出的技术细节。我们的团队会在报价前评估墙面尺寸、结构基层、供水、排水与照明条件。", es: "Para revisión de ingeniería específica del proyecto, solicitudes de sustitución o detalles técnicos no incluidos aquí. Nuestro equipo evalúa el tamaño del muro, el soporte estructural, el suministro de agua, el drenaje y la iluminación antes de cotizar.", pa: "ਪ੍ਰੋਜੈਕਟ-ਵਿਸ਼ੇਸ਼ ਇੰਜੀਨੀਅਰਿੰਗ ਸਮੀਖਿਆ, ਬਦਲੀ ਬੇਨਤੀਆਂ, ਜਾਂ ਇੱਥੇ ਸੂਚੀਬੱਧ ਨਾ ਕੀਤੇ ਤਕਨੀਕੀ ਵੇਰਵਿਆਂ ਲਈ। ਸਾਡੀ ਟੀਮ ਕੋਟ ਦੇਣ ਤੋਂ ਪਹਿਲਾਂ ਕੰਧ ਦਾ ਆਕਾਰ, ਸਟ੍ਰਕਚਰਲ ਬੈਕਿੰਗ, ਪਾਣੀ ਦੀ ਸਪਲਾਈ, ਨਿਕਾਸੀ ਅਤੇ ਰੋਸ਼ਨੀ ਦੀ ਸਮੀਖਿਆ ਕਰਦੀ ਹੈ।", ar: "للمراجعة الهندسية الخاصة بالمشروع، أو طلبات الاستبدال، أو التفاصيل الفنية غير المدرجة هنا. يراجع فريقنا حجم الجدار والدعم الإنشائي وإمداد المياه والتصريف والإضاءة قبل تقديم العرض.", hi: "प्रोजेक्ट-विशिष्ट इंजीनियरिंग समीक्षा, प्रतिस्थापन अनुरोध, या यहाँ सूचीबद्ध न किए गए तकनीकी विवरणों के लिए। हमारी टीम कोटेशन से पहले दीवार का आकार, संरचनात्मक बैकिंग, जल आपूर्ति, ड्रेनेज और प्रकाश की समीक्षा करती है।",
               })}
             </p>
             <dl className="mt-6 grid grid-cols-1 gap-y-2 font-mono text-[12px] text-neutral-700">
               <div className="flex justify-between border-b border-neutral-200 py-1.5">
                 <dt className="text-neutral-500">{t({ en: "Technical", fr: "Technique", zh: "技术支持", es: "Técnico", pa: "ਤਕਨੀਕੀ", ar: "الفني", hi: "तकनीकी" })}</dt>
-                <dd className="text-neutral-900">specs@verticaloxygen.com</dd>
+                <dd className="text-neutral-900">
+                  <a href="mailto:verticaloxygen@gmail.com" className="underline underline-offset-2 hover:text-neutral-600">
+                    verticaloxygen@gmail.com
+                  </a>
+                </dd>
               </div>
               <div className="flex justify-between border-b border-neutral-200 py-1.5">
                 <dt className="text-neutral-500">{t({ en: "Phone EN", fr: "Téléphone (anglais)", zh: "电话（英语）", es: "Teléfono (inglés)", pa: "ਫੋਨ (ਅੰਗਰੇਜ਼ੀ)", ar: "الهاتف (الإنجليزية)", hi: "फ़ोन (अंग्रेज़ी)" })}</dt>
@@ -524,10 +438,6 @@ function SpecificationsPage() {
               <div className="flex justify-between border-b border-neutral-200 py-1.5">
                 <dt className="text-neutral-500">{t({ en: "Response", fr: "Délai de réponse", zh: "响应时间", es: "Respuesta", pa: "ਜਵਾਬ", ar: "الاستجابة", hi: "प्रतिक्रिया" })}</dt>
                 <dd className="text-neutral-900">{t({ en: "2 business days", fr: "2 jours ouvrables", zh: "2个工作日", es: "2 días hábiles", pa: "2 ਕਾਰੋਬਾਰੀ ਦਿਨ", ar: "يومي عمل", hi: "2 कार्य दिवस" })}</dd>
-              </div>
-              <div className="flex justify-between border-b border-neutral-200 py-1.5">
-                <dt className="text-neutral-500">{t({ en: "Sales (separate)", fr: "Ventes (distinct)", zh: "销售（另设）", es: "Ventas (aparte)", pa: "ਵਿਕਰੀ (ਵੱਖਰੀ)", ar: "المبيعات (منفصلة)", hi: "बिक्री (अलग)" })}</dt>
-                <dd className="text-neutral-900">verticaloxygen@gmail.com</dd>
               </div>
             </dl>
           </div>
