@@ -351,9 +351,9 @@ function SpecificationsPage() {
             </h2>
             <p className="mt-4 font-mono text-[12px] leading-relaxed text-neutral-700">
               {t({
-                en: "All living wall installations require a scheduled maintenance agreement to remain under plant warranty. The 100% plant guarantee is issued only in conjunction with an active maintenance contract and lapses if service is discontinued.",
-                fr: "Toutes les installations de murs végétaux nécessitent une entente d'entretien planifiée pour demeurer couvertes par la garantie des plantes. La garantie de 100 % sur les plantes n'est offerte qu'en association avec un contrat d'entretien actif et devient caduque si le service est interrompu.",
-                zh: "所有活体植物墙装置均须签订定期维护协议方可享有植物质保。100%植物保障仅在维护合同持续有效期间提供，若服务中止则保障失效。", es: "Todas las instalaciones de muros vegetales requieren un contrato de mantenimiento programado para permanecer bajo la garantía de las plantas. La garantía del 100 % de las plantas se otorga únicamente junto con un contrato de mantenimiento activo y caduca si el servicio se interrumpe.", pa: "ਪੌਦੇ ਦੀ ਵਾਰੰਟੀ ਅਧੀਨ ਰਹਿਣ ਲਈ ਸਾਰੀਆਂ ਲਿਵਿੰਗ ਵਾਲ ਸਥਾਪਨਾਵਾਂ ਲਈ ਇੱਕ ਨਿਯਤ ਰੱਖ-ਰਖਾਅ ਸਮਝੌਤਾ ਲੋੜੀਂਦਾ ਹੈ। 100% ਪੌਦਾ ਗਾਰੰਟੀ ਸਿਰਫ਼ ਇੱਕ ਸਰਗਰਮ ਰੱਖ-ਰਖਾਅ ਇਕਰਾਰਨਾਮੇ ਨਾਲ ਹੀ ਜਾਰੀ ਕੀਤੀ ਜਾਂਦੀ ਹੈ ਅਤੇ ਸੇਵਾ ਬੰਦ ਹੋਣ 'ਤੇ ਖਤਮ ਹੋ ਜਾਂਦੀ ਹੈ।", ar: "تتطلب جميع تركيبات الجدران الحية اتفاقية صيانة مجدولة للبقاء ضمن ضمان النباتات. يُصدر ضمان النباتات بنسبة 100% فقط بالاقتران مع عقد صيانة نشط وينتهي في حال توقف الخدمة.", hi: "पौधे की वारंटी के अंतर्गत बने रहने के लिए सभी लिविंग वॉल इंस्टॉलेशन के लिए एक निर्धारित रखरखाव अनुबंध आवश्यक है। 100% पौध गारंटी केवल सक्रिय रखरखाव अनुबंध के साथ ही जारी की जाती है और सेवा बंद होने पर समाप्त हो जाती है।",
+                en: "All living wall installations require a scheduled maintenance agreement to remain under plant warranty. The 100% plant guarantee is issued in conjunction with an active maintenance contract.",
+                fr: "Toutes les installations de murs végétaux nécessitent une entente d'entretien planifiée pour demeurer couvertes par la garantie des plantes. La garantie de 100 % sur les plantes est offerte en association avec un contrat d'entretien actif.",
+                zh: "所有活体植物墙装置均须签订定期维护协议方可享有植物质保。100%植物保障与有效维护合同一并提供。", es: "Todas las instalaciones de muros vegetales requieren un contrato de mantenimiento programado para permanecer bajo la garantía de las plantas. La garantía del 100 % de las plantas se otorga junto con un contrato de mantenimiento activo.", pa: "ਪੌਦੇ ਦੀ ਵਾਰੰਟੀ ਅਧੀਨ ਰਹਿਣ ਲਈ ਸਾਰੀਆਂ ਲਿਵਿੰਗ ਵਾਲ ਸਥਾਪਨਾਵਾਂ ਲਈ ਇੱਕ ਨਿਯਤ ਰੱਖ-ਰਖਾਅ ਸਮਝੌਤਾ ਲੋੜੀਂਦਾ ਹੈ। 100% ਪੌਦਾ ਗਾਰੰਟੀ ਸਰਗਰਮ ਰੱਖ-ਰਖਾਅ ਇਕਰਾਰਨਾਮੇ ਨਾਲ ਜਾਰੀ ਕੀਤੀ ਜਾਂਦੀ ਹੈ।", ar: "تتطلب جميع تركيبات الجدران الحية اتفاقية صيانة مجدولة للبقاء ضمن ضمان النباتات. يُصدر ضمان النباتات بنسبة 100% بالاقتران مع عقد صيانة نشط.", hi: "पौधे की वारंटी के अंतर्गत बने रहने के लिए सभी लिविंग वॉल इंस्टॉलेशन के लिए एक निर्धारित रखरखाव अनुबंध आवश्यक है। 100% पौध गारंटी सक्रिय रखरखाव अनुबंध के साथ जारी की जाती है।",
               })}
             </p>
           </div>
@@ -413,9 +413,9 @@ function SpecificationsPage() {
             </h2>
             <p className="mt-4 font-mono text-[12px] leading-relaxed text-neutral-700">
               {t({
-                en: "For project-specific engineering review, substitution requests, or CAD/BIM families not listed here. This channel is monitored by our technical team — not general sales.",
-                fr: "Pour toute révision technique propre à un projet, demande de substitution ou famille CAD/BIM non répertoriée ici. Ce canal est suivi par notre équipe technique — non par le service des ventes générales.",
-                zh: "适用于项目专属工程审查、替代方案申请，或本页未列出的CAD/BIM族文件请求。此渠道由技术团队负责跟进，非一般销售咨询。", es: "Para revisión de ingeniería específica del proyecto, solicitudes de sustitución o familias CAD/BIM no incluidas aquí. Este canal es monitoreado por nuestro equipo técnico, no por ventas generales.", pa: "ਪ੍ਰੋਜੈਕਟ-ਵਿਸ਼ੇਸ਼ ਇੰਜੀਨੀਅਰਿੰਗ ਸਮੀਖਿਆ, ਬਦਲੀ ਬੇਨਤੀਆਂ, ਜਾਂ CAD/BIM ਫੈਮਿਲੀਆਂ ਲਈ ਜੋ ਇੱਥੇ ਸੂਚੀਬੱਧ ਨਹੀਂ ਹਨ। ਇਹ ਚੈਨਲ ਸਾਡੀ ਤਕਨੀਕੀ ਟੀਮ ਦੁਆਰਾ ਨਿਗਰਾਨੀ ਕੀਤਾ ਜਾਂਦਾ ਹੈ — ਆਮ ਵਿਕਰੀ ਦੁਆਰਾ ਨਹੀਂ।", ar: "للمراجعة الهندسية الخاصة بالمشروع، أو طلبات الاستبدال، أو عائلات CAD/BIM غير المدرجة هنا. تتم مراقبة هذه القناة من قبل فريقنا الفني — وليس المبيعات العامة.", hi: "प्रोजेक्ट-विशिष्ट इंजीनियरिंग समीक्षा, प्रतिस्थापन अनुरोध, या यहाँ सूचीबद्ध न किए गए CAD/BIM परिवारों के लिए। इस चैनल की निगरानी हमारी तकनीकी टीम करती है — सामान्य बिक्री नहीं।",
+                en: "For project-specific engineering review, substitution requests, or technical details not listed here. Our team reviews wall size, structural backing, water supply, drainage and lighting before quoting.",
+                fr: "Pour toute révision technique propre à un projet, demande de substitution ou détail technique non répertorié ici. Notre équipe évalue la dimension du mur, le support structural, l'alimentation en eau, le drainage et l'éclairage avant de soumissionner.",
+                zh: "适用于项目专属工程审查、替代方案申请，或本页未列出的技术细节。我们的团队会在报价前评估墙面尺寸、结构基层、供水、排水与照明条件。", es: "Para revisión de ingeniería específica del proyecto, solicitudes de sustitución o detalles técnicos no incluidos aquí. Nuestro equipo evalúa el tamaño del muro, el soporte estructural, el suministro de agua, el drenaje y la iluminación antes de cotizar.", pa: "ਪ੍ਰੋਜੈਕਟ-ਵਿਸ਼ੇਸ਼ ਇੰਜੀਨੀਅਰਿੰਗ ਸਮੀਖਿਆ, ਬਦਲੀ ਬੇਨਤੀਆਂ, ਜਾਂ ਇੱਥੇ ਸੂਚੀਬੱਧ ਨਾ ਕੀਤੇ ਤਕਨੀਕੀ ਵੇਰਵਿਆਂ ਲਈ। ਸਾਡੀ ਟੀਮ ਕੋਟ ਦੇਣ ਤੋਂ ਪਹਿਲਾਂ ਕੰਧ ਦਾ ਆਕਾਰ, ਸਟ੍ਰਕਚਰਲ ਬੈਕਿੰਗ, ਪਾਣੀ ਦੀ ਸਪਲਾਈ, ਨਿਕਾਸੀ ਅਤੇ ਰੋਸ਼ਨੀ ਦੀ ਸਮੀਖਿਆ ਕਰਦੀ ਹੈ।", ar: "للمراجعة الهندسية الخاصة بالمشروع، أو طلبات الاستبدال، أو التفاصيل الفنية غير المدرجة هنا. يراجع فريقنا حجم الجدار والدعم الإنشائي وإمداد المياه والتصريف والإضاءة قبل تقديم العرض.", hi: "प्रोजेक्ट-विशिष्ट इंजीनियरिंग समीक्षा, प्रतिस्थापन अनुरोध, या यहाँ सूचीबद्ध न किए गए तकनीकी विवरणों के लिए। हमारी टीम कोटेशन से पहले दीवार का आकार, संरचनात्मक बैकिंग, जल आपूर्ति, ड्रेनेज और प्रकाश की समीक्षा करती है।",
               })}
             </p>
             <dl className="mt-6 grid grid-cols-1 gap-y-2 font-mono text-[12px] text-neutral-700">
@@ -438,10 +438,6 @@ function SpecificationsPage() {
               <div className="flex justify-between border-b border-neutral-200 py-1.5">
                 <dt className="text-neutral-500">{t({ en: "Response", fr: "Délai de réponse", zh: "响应时间", es: "Respuesta", pa: "ਜਵਾਬ", ar: "الاستجابة", hi: "प्रतिक्रिया" })}</dt>
                 <dd className="text-neutral-900">{t({ en: "2 business days", fr: "2 jours ouvrables", zh: "2个工作日", es: "2 días hábiles", pa: "2 ਕਾਰੋਬਾਰੀ ਦਿਨ", ar: "يومي عمل", hi: "2 कार्य दिवस" })}</dd>
-              </div>
-              <div className="flex justify-between border-b border-neutral-200 py-1.5">
-                <dt className="text-neutral-500">{t({ en: "Sales (separate)", fr: "Ventes (distinct)", zh: "销售（另设）", es: "Ventas (aparte)", pa: "ਵਿਕਰੀ (ਵੱਖਰੀ)", ar: "المبيعات (منفصلة)", hi: "बिक्री (अलग)" })}</dt>
-                <dd className="text-neutral-900">verticaloxygen@gmail.com</dd>
               </div>
             </dl>
           </div>
