@@ -1039,22 +1039,6 @@ function Index() {
                 ratio: "aspect-[4/3]",
               },
               {
-                img: install5215.url,
-                key: "atrium",
-                title: t({ en: "Dental Clinic Waiting Room", fr: "Salle d'attente de clinique dentaire", zh: "牙科诊所候诊室", es: "Sala de espera de clínica dental", pa: "ਡੈਂਟਲ ਕਲੀਨਿਕ ਵੇਟਿੰਗ ਰੂਮ", ar: "غرفة انتظار عيادة الأسنان", hi: "दंत क्लीनिक वेटिंग रूम" }),
-                caption: t({
-                  en: "Toronto, ON · Hydroponic",
-                  fr: "Toronto, ON · Hydroponique",
-                  zh: "安大略省多伦多 · 水培",
-                  es: "Toronto, ON · Hidropónico",
-                  pa: "ਟੋਰਾਂਟੋ, ON · ਹਾਈਡ੍ਰੋਪੋਨਿਕ",
-                  ar: "تورنتو، أونتاريو · مائي",
-                  hi: "टोरंटो, ON · हाइड्रोपोनिक",
-                }),
-                span: "md:col-span-4",
-                ratio: "aspect-[3/4]",
-              },
-              {
                 img: install5221.url,
                 key: "reception",
                 title: t({ en: "Reception Wall", fr: "Mur de réception", zh: "前台绿墙", es: "Muro de recepción", pa: "ਰਿਸੈਪਸ਼ਨ ਦੀਵਾਰ", ar: "جدار الاستقبال", hi: "रिसेप्शन वॉल" }),
