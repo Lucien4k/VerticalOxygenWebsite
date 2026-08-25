@@ -16,6 +16,14 @@ const quoteSchema = z.object({
 const MAX_PHOTOS = 6;
 const MAX_PHOTO_MB = 10;
 
+/**
+ * When the site is exported for self-hosting (CanSpace), the static build sets
+ * VITE_QUOTE_ENDPOINT=/quote.php and the form emails through the cPanel mailbox
+ * instead of Lovable Cloud.
+ */
+const QUOTE_ENDPOINT = (import.meta.env['VITE_QUOTE_ENDPOINT'] as string | undefined) || "";
+
+
 export function QuoteForm() {
   const t = useT();
   const [submitting, setSubmitting] = useState(false);
