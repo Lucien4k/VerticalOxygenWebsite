@@ -8,7 +8,7 @@
  * HTML file, so no Node server is required on the host.
  */
 import { spawnSync } from 'node:child_process'
-import { cp, mkdir, readdir, rm, writeFile } from 'node:fs/promises'
+import { cp, mkdir, readdir, readFile, rm, writeFile } from 'node:fs/promises'
 import { existsSync } from 'node:fs'
 import path from 'node:path'
 import { pathToFileURL } from 'node:url'
@@ -17,6 +17,10 @@ const ROOT = process.cwd()
 const OUT = path.join(ROOT, 'dist-static')
 
 // Routes to pre-render (add new pages here when you add new routes).
+// Where the media library is fetched from while exporting (Lovable preview URL).
+const ASSET_BASE =
+  process.env.ASSET_BASE || 'https://id-preview--5de82f1e-e367-465b-9ecf-45eb99f38dda.lovable.app'
+
 const ROUTES = ['/', '/about', '/specifications']
 
 function run(cmd, args, env) {
@@ -51,6 +55,37 @@ const render = async (route) => {
     if (entry === '_headers') continue
     await cp(path.join(ROOT, 'dist', 'client', entry), path.join(OUT, entry), { recursive: true })
   }
+
+  console.log('▸ Downloading media assets…')
+  const manifests = []
+  const walk = async (dir) => {
+    for (const e of await readdir(dir, { withFileTypes: true })) {
+      const full = path.join(dir, e.name)
+      if (e.isDirectory()) await walk(full)
+      else if (e.name.endsWith('.asset.json')) manifests.push(full)
+    }
+  }
+  const assetsDir = path.join(ROOT, 'src', 'assets')
+  if (existsSync(assetsDir)) await walk(assetsDir)
+
+  let done = 0
+  const queue = [...manifests]
+  const workers = Array.from({ length: 8 }, async () => {
+    while (queue.length) {
+      const file = queue.shift()
+      const { url } = JSON.parse(await readFile(file, 'utf8'))
+      if (!url) continue
+      const dest = path.join(OUT, url.replace(/^\//, ''))
+      if (existsSync(dest)) continue
+      const res = await fetch(ASSET_BASE.replace(/\/$/, '') + url)
+      if (!res.ok) throw new Error(`asset ${url} -> ${res.status}`)
+      await mkdir(path.dirname(dest), { recursive: true })
+      await writeFile(dest, Buffer.from(await res.arrayBuffer()))
+      done++
+    }
+  })
+  await Promise.all(workers)
+  console.log(`   ${done} files`)
 
   console.log('▸ Pre-rendering pages…')
   for (const route of ROUTES) {
