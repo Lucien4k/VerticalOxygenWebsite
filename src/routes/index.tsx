@@ -646,11 +646,11 @@ function Index() {
               />
               <div className="absolute inset-0 rounded-full bg-white/88" aria-hidden />
               <div className="relative z-10 flex w-full items-center justify-between gap-4">
-                <a href="/" className="flex items-center">
+                <a href="/" className="flex shrink-0 items-center">
                   <img
                     src={logoHeader.url}
                     alt="Vertical Oxygen"
-                    className="h-8 w-auto md:h-9"
+                    className="h-7 max-w-[140px] w-auto object-contain sm:h-8 md:h-9 md:max-w-none"
                   />
                 </a>
                 <NavMenu
