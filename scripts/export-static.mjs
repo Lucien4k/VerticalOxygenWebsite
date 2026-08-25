@@ -15,7 +15,6 @@ import { pathToFileURL } from 'node:url'
 
 const ROOT = process.cwd()
 const OUT = path.join(ROOT, 'dist-static')
-const PORT = 3123
 
 // Routes to pre-render (add new pages here when you add new routes).
 const ROUTES = ['/', '/about', '/specifications']
@@ -25,11 +24,8 @@ function run(cmd, args, env) {
   if (r.status !== 0) process.exit(r.status ?? 1)
 }
 
-console.log('\n▸ Building (node preset, quote form pointed at /quote.php)…')
-run('npx', ['vite', 'build'], {
-  NITRO_PRESET: 'node-server',
-  VITE_QUOTE_ENDPOINT: '/quote.php',
-})
+console.log('\n▸ Building (quote form pointed at /quote.php)…')
+run('npx', ['vite', 'build'], { VITE_QUOTE_ENDPOINT: '/quote.php' })
 
 const serverEntry = path.join(ROOT, 'dist', 'server', 'index.mjs')
 if (!existsSync(serverEntry)) {
