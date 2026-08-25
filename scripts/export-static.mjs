@@ -148,4 +148,25 @@ DirectoryIndex index.html
     'utf8'
   )
 
+  await writeFile(
+    path.join(OUT, 'READ-ME-FIRST.txt'),
+    [
+      'VERTICAL OXYGEN - static site for CanSpace',
+      '',
+      '1) Upload EVERYTHING in this folder (including .htaccess and quote.php)',
+      '   into public_html on your CanSpace account.',
+      '',
+      '2) In cPanel > Email Accounts, create: quotes@verticaloxygen.com',
+      '   Then open quote.php and check the two settings at the top:',
+      '     $TO_EMAIL   = where quote requests are delivered',
+      '     $FROM_EMAIL = the mailbox you just created',
+      '',
+      '3) Test the form on the live site. The lead lands in your inbox with the',
+      '   customer photos attached, and the customer gets a confirmation email.',
+      '',
+      'To regenerate this folder after site changes: npm run export:static',
+    ].join('\n'),
+    'utf8'
+  )
+
   console.log(`\n✔ Static site ready in dist-static/ — upload its contents to public_html.\n`)
