@@ -7,10 +7,11 @@
  * uploaded straight into public_html. Every route is pre-rendered to a real
  * HTML file, so no Node server is required on the host.
  */
-import { spawn, spawnSync } from 'node:child_process'
+import { spawnSync } from 'node:child_process'
 import { cp, mkdir, readdir, rm, writeFile } from 'node:fs/promises'
 import { existsSync } from 'node:fs'
 import path from 'node:path'
+import { pathToFileURL } from 'node:url'
 
 const ROOT = process.cwd()
 const OUT = path.join(ROOT, 'dist-static')
@@ -32,31 +33,19 @@ run('npx', ['vite', 'build'], {
 
 const serverEntry = path.join(ROOT, 'dist', 'server', 'index.mjs')
 if (!existsSync(serverEntry)) {
-  console.error('✗ dist/server/index.mjs not found — build output changed?')
+  console.error('\u2717 dist/server/index.mjs not found \u2014 build output changed?')
   process.exit(1)
 }
 
-console.log('▸ Starting temporary server to snapshot pages…')
-const server = spawn('node', [serverEntry], {
-  stdio: ['ignore', 'pipe', 'pipe'],
-  env: { ...process.env, PORT: String(PORT), NODE_ENV: 'production' },
-})
-server.stdout.on('data', () => {})
-server.stderr.on('data', (d) => process.stderr.write(d))
-
-async function waitForServer() {
-  for (let i = 0; i < 60; i++) {
-    try {
-      const res = await fetch(`http://127.0.0.1:${PORT}/`)
-      if (res.ok) return
-    } catch {}
-    await new Promise((r) => setTimeout(r, 500))
-  }
-  throw new Error('server did not start')
+console.log('\u25b8 Loading built server to snapshot pages\u2026')
+const mod = await import(pathToFileURL(serverEntry).href)
+const handler = mod.default?.fetch ? mod.default : mod
+const ctx = { waitUntil() {}, passThroughOnException() {} }
+const render = async (route) => {
+  const res = await handler.fetch(new Request(`http://localhost${route}`), {}, ctx)
+  if (!res.ok) throw new Error(`${route} returned ${res.status}`)
+  return await res.text()
 }
-
-try {
-  await waitForServer()
 
   await rm(OUT, { recursive: true, force: true })
   await mkdir(OUT, { recursive: true })
@@ -69,9 +58,7 @@ try {
 
   console.log('▸ Pre-rendering pages…')
   for (const route of ROUTES) {
-    const res = await fetch(`http://127.0.0.1:${PORT}${route}`)
-    if (!res.ok) throw new Error(`${route} returned ${res.status}`)
-    const html = await res.text()
+    const html = await render(route)
     const file =
       route === '/' ? path.join(OUT, 'index.html') : path.join(OUT, route.replace(/^\//, ''), 'index.html')
     await mkdir(path.dirname(file), { recursive: true })
@@ -131,6 +118,3 @@ DirectoryIndex index.html
   )
 
   console.log(`\n✔ Static site ready in dist-static/ — upload its contents to public_html.\n`)
-} finally {
-  server.kill('SIGKILL')
-}
