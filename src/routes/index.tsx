@@ -43,7 +43,7 @@ import installGlenora from "../assets/installs/glenora-1.jpg.asset.json";
 import installCoaldale2 from "../assets/installs/coaldale-2-2.jpg.asset.json";
 import delaSalleVideo from "../assets/videos/de-la-salle.mp4.asset.json";
 import delaSallePoster from "../assets/videos/de-la-salle.jpg.asset.json";
-import install5215 from "../assets/installs/img-5215.jpg.asset.json";
+
 import install5221 from "../assets/installs/img-5221.jpg.asset.json";
 import install0628 from "../assets/installs/img-0628.jpg.asset.json";
 import cutoutCoaldale from "../assets/cutouts/coaldale-wall.png.asset.json";
@@ -1037,22 +1037,6 @@ function Index() {
                 }),
                 span: "md:col-span-8",
                 ratio: "aspect-[4/3]",
-              },
-              {
-                img: install5215.url,
-                key: "atrium",
-                title: t({ en: "Dental Clinic Waiting Room", fr: "Salle d'attente de clinique dentaire", zh: "牙科诊所候诊室", es: "Sala de espera de clínica dental", pa: "ਡੈਂਟਲ ਕਲੀਨਿਕ ਵੇਟਿੰਗ ਰੂਮ", ar: "غرفة انتظار عيادة الأسنان", hi: "दंत क्लीनिक वेटिंग रूम" }),
-                caption: t({
-                  en: "Toronto, ON · Hydroponic",
-                  fr: "Toronto, ON · Hydroponique",
-                  zh: "安大略省多伦多 · 水培",
-                  es: "Toronto, ON · Hidropónico",
-                  pa: "ਟੋਰਾਂਟੋ, ON · ਹਾਈਡ੍ਰੋਪੋਨਿਕ",
-                  ar: "تورنتو، أونتاريو · مائي",
-                  hi: "टोरंटो, ON · हाइड्रोपोनिक",
-                }),
-                span: "md:col-span-4",
-                ratio: "aspect-[3/4]",
               },
               {
                 img: install5221.url,
