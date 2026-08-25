@@ -43,6 +43,8 @@ import installGlenora from "../assets/installs/glenora-1.jpg.asset.json";
 import installCoaldale2 from "../assets/installs/coaldale-2-2.jpg.asset.json";
 import delaSalleVideo from "../assets/videos/de-la-salle.mp4.asset.json";
 import delaSallePoster from "../assets/videos/de-la-salle.jpg.asset.json";
+import atriumWallVideo from "../assets/videos/atrium-wall-clip.mp4.asset.json";
+import atriumWallPoster from "../assets/videos/atrium-wall-poster.jpg.asset.json";
 
 import install5221 from "../assets/installs/img-5221.jpg.asset.json";
 import installTorontoRes from "../assets/installs/img-toronto-residential.jpeg.asset.json";
