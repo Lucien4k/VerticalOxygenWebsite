@@ -1088,6 +1088,8 @@ function Index() {
                 span: "md:col-span-4",
                 ratio: "aspect-[3/4]",
               },
+              {
+                img: installCoaldale2.url,
                 key: "coaldale",
                 title: t({ en: "Coaldale, Alberta", fr: "Coaldale, Alberta", zh: "阿尔伯塔省 Coaldale", es: "Coaldale, Alberta", pa: "ਕੋਲਡੇਲ, ਐਲਬਰਟਾ", ar: "كولديل، ألبرتا", hi: "कोलडेल, अल्बर्टा" }),
                 caption: t({
