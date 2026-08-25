@@ -43,6 +43,8 @@ import installGlenora from "../assets/installs/glenora-1.jpg.asset.json";
 import installCoaldale2 from "../assets/installs/coaldale-2-2.jpg.asset.json";
 import delaSalleVideo from "../assets/videos/de-la-salle.mp4.asset.json";
 import delaSallePoster from "../assets/videos/de-la-salle.jpg.asset.json";
+import atriumWallVideo from "../assets/videos/atrium-wall-clip.mp4.asset.json";
+import atriumWallPoster from "../assets/videos/atrium-wall-poster.jpg.asset.json";
 
 import install5221 from "../assets/installs/img-5221.jpg.asset.json";
 import installTorontoRes from "../assets/installs/img-toronto-residential.jpeg.asset.json";
@@ -1120,6 +1122,23 @@ function Index() {
                 }),
                 span: "md:col-span-4",
                 ratio: "aspect-[4/3]",
+              },
+              {
+                img: atriumWallPoster.url,
+                video: atriumWallVideo.url,
+                key: "atrium-wall",
+                title: t({ en: "Atrium Feature Wall", fr: "Mur d'atrium signature", zh: "中庭主题绿墙", es: "Muro destacado de atrio", pa: "ਅਟਰੀਅਮ ਫੀਚਰ ਕੰਧ", ar: "جدار أتريوم مميز", hi: "एट्रियम फीचर वॉल" }),
+                caption: t({
+                  en: "Modern lobby · Living wall in motion",
+                  fr: "Hall moderne · Mur végétal en mouvement",
+                  zh: "现代大堂 · 动态植物墙",
+                  es: "Lobby moderno · Muro vivo en movimiento",
+                  pa: "ਆਧੁਨਿਕ ਲਾਬੀ · ਚਲਦੀ ਹੋਈ ਜੀਵੰਤ ਕੰਧ",
+                  ar: "ردهة حديثة · جدار حي متحرك",
+                  hi: "आधुनिक लॉबी · गतिमान लिविंग वॉल",
+                }),
+                span: "md:col-span-4",
+                ratio: "aspect-[3/4]",
               },
             ].map((p, i) => (
               <Reveal key={p.key} delay={i * 90} className={p.span}>
