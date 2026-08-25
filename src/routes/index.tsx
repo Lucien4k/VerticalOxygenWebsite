@@ -46,6 +46,7 @@ import delaSallePoster from "../assets/videos/de-la-salle.jpg.asset.json";
 
 import install5221 from "../assets/installs/img-5221.jpg.asset.json";
 import installTorontoRes from "../assets/installs/img-toronto-residential.jpeg.asset.json";
+import installConexus from "../assets/installs/conexus-regina.jpeg.asset.json";
 import install0628 from "../assets/installs/img-0628.jpg.asset.json";
 import cutoutCoaldale from "../assets/cutouts/coaldale-wall.png.asset.json";
 import cutoutWallA from "../assets/cutouts/wall-a.png.asset.json";
@@ -1070,6 +1071,22 @@ function Index() {
                 }),
                 span: "md:col-span-5",
                 ratio: "aspect-[4/5]",
+              },
+              {
+                img: installConexus.url,
+                key: "conexus-regina",
+                title: t({ en: "Conexus Credit Union", fr: "Conexus Credit Union", zh: "Conexus 信用联社", es: "Conexus Credit Union", pa: "ਕੋਨੈਕਸਸ ਕ੍ਰੈਡਿਟ ਯੂਨੀਅਨ", ar: "اتحاد كونيكس الائتماني", hi: "कोनेक्सस क्रेडिट यूनियन" }),
+                caption: t({
+                  en: "Regina, SK · Three-storey atrium wall",
+                  fr: "Regina, SK · Mur d'atrium de trois étages",
+                  zh: "萨斯喀彻温省里贾纳 · 三层中庭绿墙",
+                  es: "Regina, SK · Muro de atrio de tres pisos",
+                  pa: "ਰੇਗੀਨਾ, SK · ਤਿੰਨ-ਮੰਜ਼ਿਲ ਅਟਰੀਅਮ ਕੰਧ",
+                  ar: "ريجينا، ساسكاتشوان · جدار أتريوم من ثلاثة طوابق",
+                  hi: "रेजिना, SK · तीन-मंजिला एट्रियम वॉल",
+                }),
+                span: "md:col-span-4",
+                ratio: "aspect-[3/4]",
               },
               {
                 img: installCoaldale2.url,
