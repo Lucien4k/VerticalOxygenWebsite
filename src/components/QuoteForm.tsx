@@ -122,31 +122,42 @@ export function QuoteForm() {
 
     setSubmitting(true);
     try {
-      const photoPaths: string[] = [];
-      const stamp = Date.now();
-      for (let i = 0; i < photos.length; i++) {
-        const file = photos[i];
-        const rawExt = (file.name.includes(".") ? file.name.split(".").pop()! : "").toLowerCase();
-        const allowed = ["jpg", "jpeg", "png", "webp", "gif", "heic", "heif"];
-        const ext = allowed.includes(rawExt) ? rawExt : "jpg";
-        const path = `${stamp}-${i}-${crypto.randomUUID()}.${ext}`;
-        const { error: upErr } = await supabase.storage
-          .from("quote-photos")
-          .upload(path, file, { contentType: file.type, upsert: false });
-        if (upErr) throw upErr;
-        photoPaths.push(path);
+      if (QUOTE_ENDPOINT) {
+        // Self-hosted mode (e.g. CanSpace): post straight to the PHP mail handler.
+        const body = new FormData();
+        Object.entries(parsed.data).forEach(([k, v]) => body.append(k, String(v ?? "")));
+        photos.forEach((file) => body.append("photos[]", file, file.name));
+        const res = await fetch(QUOTE_ENDPOINT, { method: "POST", body });
+        const json = (await res.json().catch(() => null)) as { ok?: boolean; error?: string } | null;
+        if (!res.ok || !json?.ok) throw new Error(json?.error || `Request failed (${res.status})`);
+      } else {
+        const photoPaths: string[] = [];
+        const stamp = Date.now();
+        for (let i = 0; i < photos.length; i++) {
+          const file = photos[i];
+          const rawExt = (file.name.includes(".") ? file.name.split(".").pop()! : "").toLowerCase();
+          const allowed = ["jpg", "jpeg", "png", "webp", "gif", "heic", "heif"];
+          const ext = allowed.includes(rawExt) ? rawExt : "jpg";
+          const path = `${stamp}-${i}-${crypto.randomUUID()}.${ext}`;
+          const { error: upErr } = await supabase.storage
+            .from("quote-photos")
+            .upload(path, file, { contentType: file.type, upsert: false });
+          if (upErr) throw upErr;
+          photoPaths.push(path);
+        }
+
+        const { error } = await supabase.from("quote_requests").insert({
+          name: parsed.data.name,
+          email: parsed.data.email,
+          phone: parsed.data.phone || null,
+          space_type: parsed.data.space_type || null,
+          wall_size: parsed.data.wall_size || null,
+          message: parsed.data.message,
+          photo_urls: photoPaths,
+        });
+        if (error) throw error;
       }
 
-      const { error } = await supabase.from("quote_requests").insert({
-        name: parsed.data.name,
-        email: parsed.data.email,
-        phone: parsed.data.phone || null,
-        space_type: parsed.data.space_type || null,
-        wall_size: parsed.data.wall_size || null,
-        message: parsed.data.message,
-        photo_urls: photoPaths,
-      });
-      if (error) throw error;
 
       toast.success(
         t({
