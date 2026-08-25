@@ -45,6 +45,7 @@ import delaSalleVideo from "../assets/videos/de-la-salle.mp4.asset.json";
 import delaSallePoster from "../assets/videos/de-la-salle.jpg.asset.json";
 
 import install5221 from "../assets/installs/img-5221.jpg.asset.json";
+import installTorontoRes from "../assets/installs/img-toronto-residential.jpeg.asset.json";
 import install0628 from "../assets/installs/img-0628.jpg.asset.json";
 import cutoutCoaldale from "../assets/cutouts/coaldale-wall.png.asset.json";
 import cutoutWallA from "../assets/cutouts/wall-a.png.asset.json";
@@ -1053,6 +1054,22 @@ function Index() {
                 }),
                 span: "md:col-span-5",
                 ratio: "aspect-[4/3]",
+              },
+              {
+                img: installTorontoRes.url,
+                key: "toronto-residential",
+                title: t({ en: "Toronto Residential Home", fr: "Résidence privée à Toronto", zh: "多伦多私人住宅", es: "Residencia privada en Toronto", pa: "ਟੋਰਾਂਟੋ ਰਿਹਾਇਸ਼ਨਲ ਹੋਮ", ar: "منزل سكني في تورنتو", hi: "टोरंटो आवासीय घर" }),
+                caption: t({
+                  en: "Toronto, ON · Private residence",
+                  fr: "Toronto, ON · Résidence privée",
+                  zh: "安大略省多伦多 · 私人住宅",
+                  es: "Toronto, ON · Residencia privada",
+                  pa: "ਟੋਰਾਂਟੋ, ON · ਨਿੱਜੀ ਨਿਵਾਸ",
+                  ar: "تورنتو، أونتاريو · منزل خاص",
+                  hi: "टोरंटो, ON · निजी निवास",
+                }),
+                span: "md:col-span-5",
+                ratio: "aspect-[4/5]",
               },
               {
                 img: installCoaldale2.url,
