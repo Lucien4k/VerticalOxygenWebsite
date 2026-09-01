@@ -53,7 +53,7 @@ import installTorontoRes from "../assets/installs/img-toronto-residential.jpeg.a
 import installConexus from "../assets/installs/conexus-regina.jpeg.asset.json";
 import install0628 from "../assets/installs/img-0628.jpg.asset.json";
 import cutoutCoaldale from "../assets/cutouts/coaldale-wall.png.asset.json";
-import cutoutWallA from "../assets/cutouts/wall-a.png.asset.json";
+
 import cutoutWallB from "../assets/cutouts/wall-b.png.asset.json";
 import cutoutWallC from "../assets/cutouts/wall-c.png.asset.json";
 import woodTexture from "../assets/textures/wood-texture-v2.jpg.asset.json";
