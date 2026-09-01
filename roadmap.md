@@ -23,6 +23,4 @@
 - [x] Create separate `/hydroponic` and `/aquaponic` pages
 - [x] Add Hydroponic & Aquaponic links to Work dropdown menu
 - [x] Regenerate system diagrams: "CISTERN" → "AQUARIUM", remove "MODERN LIVING-WALL ASSEMBLY"
-
-## Still to do
-- [ ] Verify updated diagrams render on `/hydroponic` and `/aquaponic`
+- [x] Verify updated diagrams render on `/hydroponic` and `/aquaponic`
