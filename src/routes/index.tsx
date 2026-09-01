@@ -425,6 +425,34 @@ function Index() {
                         image: iffWall.url,
                       },
                       {
+                        label: t({ en: "Hydroponic", fr: "Hydroponique", zh: "水培系统", es: "Hidropónico", pa: "ਹਾਈਡ੍ਰੋਪੋਨਿਕ", ar: "الزراعة المائية", hi: "हाइड्रोपोनिक" }),
+                        description: t({
+                          en: "Lightweight recirculating system",
+                          fr: "Système léger en circuit fermé",
+                          zh: "轻质循环系统",
+                          es: "Sistema recirculante ligero",
+                          pa: "ਹਲਕਾ ਮੁੜ-ਸੰਚਾਰੀ ਸਿਸਟਮ",
+                          ar: "نظام خفيف معاد تدويره",
+                          hi: "हल्का पुनर्चक्रित सिस्टम",
+                        }),
+                        href: "/hydroponic",
+                        image: hydroponicDiagram.url,
+                      },
+                      {
+                        label: t({ en: "Aquaponic", fr: "Aquaponique", zh: "鱼菜共生系统", es: "Acuapónico", pa: "ਐਕੁਆਪੋਨਿਕ", ar: "الاستزراع المائي التكافلي", hi: "एक्वापोनिक" }),
+                        description: t({
+                          en: "Fish + plant ecosystem",
+                          fr: "Écosystème poissons + plantes",
+                          zh: "鱼与植物生态系统",
+                          es: "Ecosistema de peces + plantas",
+                          pa: "ਮੱਛੀ + ਪੌਦਾ ਇਕੋਸਿਸਟਮ",
+                          ar: "نظام بيئي سمك + نباتات",
+                          hi: "मछली + पौधा इकोसिस्टम",
+                        }),
+                        href: "/aquaponic",
+                        image: aquaponicDiagram.url,
+                      },
+                      {
                         label: t({ en: "Recent Installations", fr: "Réalisations récentes", zh: "近期案例", es: "Instalaciones recientes", pa: "ਹਾਲੀਆ ਸਥਾਪਨਾਵਾਂ", ar: "أحدث التركيبات", hi: "हाल की इंस्टॉलेशन" }),
                         description: t({
                           en: "Photos from real projects",
