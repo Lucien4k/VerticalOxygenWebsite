@@ -12,6 +12,7 @@ export function ScrollFramesSection({
   preloadCount = 20,
   overlay,
   className = "",
+  id,
 }: {
   frames: string[];
   /** Section height as multiplier of viewport height. */
@@ -19,6 +20,7 @@ export function ScrollFramesSection({
   preloadCount?: number;
   overlay?: ReactNode;
   className?: string;
+  id?: string;
 }) {
   const sectionRef = useRef<HTMLDivElement | null>(null);
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
@@ -165,6 +167,7 @@ export function ScrollFramesSection({
   return (
     <section
       ref={sectionRef}
+      id={id}
       className={`relative bg-charcoal text-cream ${className}`}
       style={{ height: `${scrollLength * 100}vh` }}
     >

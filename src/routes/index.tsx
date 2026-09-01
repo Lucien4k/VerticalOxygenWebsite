@@ -53,7 +53,6 @@ import installConexus from "../assets/installs/conexus-regina.jpeg.asset.json";
 import install0628 from "../assets/installs/img-0628.jpg.asset.json";
 import cutoutCoaldale from "../assets/cutouts/coaldale-wall.png.asset.json";
 
-import cutoutWallB from "../assets/cutouts/wall-b.png.asset.json";
 import woodTexture from "../assets/textures/wood-texture-v2.jpg.asset.json";
 import logoHeader from "../assets/logo-header.png.asset.json";
 import { SYSTEMS, DIAGRAM_LABEL } from "@/lib/systems";
@@ -280,6 +279,36 @@ function Index() {
       if (blurLayerRef.current) {
         blurLayerRef.current.style.backdropFilter = `blur(${blur}px)`;
         blurLayerRef.current.style.opacity = String(t);
+      }
+    };
+    const onScroll = () => {
+      if (!raf) raf = requestAnimationFrame(update);
+    };
+    update();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+      if (raf) cancelAnimationFrame(raf);
+    };
+  }, []);
+  const philosophyRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    let raf = 0;
+    const secondHero = document.getElementById("second-hero");
+    if (!secondHero) return;
+    const update = () => {
+      raf = 0;
+      const vh = window.innerHeight;
+      const rect = secondHero.getBoundingClientRect();
+      const total = secondHero.offsetHeight - vh;
+      const scrolled = Math.min(Math.max(-rect.top, 0), total);
+      const p = total > 0 ? scrolled / total : 1;
+      const progress = Math.min(1, Math.max(0, (p - 0.45) / 0.4));
+      if (philosophyRef.current) {
+        philosophyRef.current.style.opacity = String(progress);
+        philosophyRef.current.style.transform = `translateY(${(1 - progress) * 80}px)`;
       }
     };
     const onScroll = () => {
@@ -566,8 +595,13 @@ function Index() {
       <div className="relative z-10 mt-[175vh] bg-background">
 
       {/* Scroll-scrubbed panel sequence — second hero */}
-      <ScrollFramesSection frames={HERO2_FRAME_URLS} scrollLength={1.5} />
+      <ScrollFramesSection id="second-hero" frames={HERO2_FRAME_URLS} scrollLength={1.5} />
 
+      <div
+        ref={philosophyRef}
+        className="relative z-20 -mt-[40vh] will-change-[transform,opacity]"
+        style={{ opacity: 0 }}
+      >
       {/* Philosophy / About */}
       {/* Wood shelf divider */}
       <div className="relative h-5 w-full overflow-hidden md:h-7" aria-hidden>
@@ -640,6 +674,7 @@ function Index() {
           </div>
         </div>
       </section>
+      </div>
 
       {/* Systems Showcase — replaces the old gallery with an interactive systems module */}
       <section id="work" className="relative z-20 -mt-[8vh] overflow-hidden rounded-t-[3rem] bg-cream pt-10 text-charcoal shadow-[0_-40px_80px_-40px_rgba(0,0,0,0.45)]">
