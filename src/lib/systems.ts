@@ -44,7 +44,7 @@ export const SYSTEMS: System[] = [
       ar: "بدون تربة · إعادة تدوير المياه",
       hi: "मिट्टी रहित · पुनर्चक्रित",
     },
-    diagram: diagramHydroponic.url,
+    diagram: diagramHydroponic,
     tagline: {
       en: "Lightweight. Precise. Effortless.",
       fr: "Léger. Précis. Sans effort.",
