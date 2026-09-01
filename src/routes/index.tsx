@@ -59,7 +59,6 @@ import { SYSTEMS, DIAGRAM_LABEL } from "@/lib/systems";
 function SustainabilitySection() {
   const t = useT();
   return (
-    {/* Sustainability */}
           <section id="sustainability" className="relative overflow-hidden bg-charcoal text-cream">
             <div className="relative mx-auto max-w-7xl px-6 py-20 md:py-28">
               <Reveal>
@@ -154,7 +153,6 @@ function SustainabilitySection() {
 function MaintenanceSection() {
   const t = useT();
   return (
-    {/* Maintenance & Guarantee */}
           <section id="maintenance" className="relative overflow-hidden bg-cream text-charcoal">
             <div className="mx-auto max-w-7xl px-6 py-20 md:py-28">
               <Reveal>
