@@ -23,7 +23,7 @@ import glenoraLobby from "../assets/projects/glenora-lobby.jpg.asset.json";
 import coaldaleHall from "../assets/projects/coaldale-hall.png.asset.json";
 import lushTropicalWall from "../assets/projects/lush-tropical-wall.jpg.asset.json";
 import coaldaleFlowering from "../assets/projects/coaldale-flowering.jpg.asset.json";
-import { Phone, Mail, MapPin, Leaf, ArrowRight, Instagram, X } from "lucide-react";
+import { Phone, Mail, MapPin, Leaf, ArrowRight, Instagram, X, ZoomIn } from "lucide-react";
 import { QuoteForm } from "@/components/QuoteForm";
 import { Reveal } from "@/components/Reveal";
 import { LocationsMap } from "@/components/LocationsMap";
@@ -335,8 +335,18 @@ const DIAGRAM_LABEL = {
 function SystemsShowcase() {
   const t = useT();
   const [active, setActive] = useState(0);
+  const [lightbox, setLightbox] = useState<string | null>(null);
   const sys = SYSTEMS[active];
   const next = SYSTEMS[(active + 1) % SYSTEMS.length];
+
+  useEffect(() => {
+    if (!lightbox) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setLightbox(null);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [lightbox]);
 
   return (
     <div className="relative mx-auto max-w-7xl px-6 py-24 md:py-32">
@@ -461,15 +471,78 @@ function SystemsShowcase() {
         </div>
 
         {/* System photo */}
-        <div className="relative overflow-hidden rounded-2xl bg-white ring-1 ring-charcoal/10 shadow-[0_24px_60px_-24px_rgba(0,0,0,0.25)]">
+        <div
+          role="button"
+          tabIndex={0}
+          aria-label={t({
+            en: "Click to enlarge",
+            fr: "Cliquer pour agrandir",
+            zh: "点击放大",
+            es: "Clic para ampliar",
+            pa: "ਵੱਡਾ ਕਰਨ ਲਈ ਕਲਿੱਕ ਕਰੋ",
+            ar: "انقر لتكبير",
+            hi: "बड़ा करने के लिए क्लिक करें",
+          })}
+          onClick={() => setLightbox(sys.diagram)}
+          onKeyDown={(e) => {
+            if (e.key === "Enter" || e.key === " ") {
+              e.preventDefault();
+              setLightbox(sys.diagram);
+            }
+          }}
+          className="group relative cursor-zoom-in overflow-hidden rounded-2xl bg-white ring-1 ring-charcoal/10 shadow-[0_24px_60px_-24px_rgba(0,0,0,0.25)] transition hover:ring-forest/40"
+        >
           <img
             src={sys.diagram}
             alt={t(sys.title)}
-            className="w-full object-cover"
+            className="w-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.03]"
             loading="lazy"
           />
+          <span className="pointer-events-none absolute top-4 right-4 inline-flex items-center gap-2 rounded-full bg-charcoal/80 px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.2em] text-cream opacity-0 backdrop-blur-sm transition-opacity duration-300 group-hover:opacity-100">
+            <ZoomIn className="h-3.5 w-3.5" />
+            {t({
+              en: "Enlarge",
+              fr: "Agrandir",
+              zh: "放大",
+              es: "Ampliar",
+              pa: "ਵੱਡਾ ਕਰੋ",
+              ar: "تكبير",
+              hi: "बड़ा करें",
+            })}
+          </span>
         </div>
       </div>
+
+      {/* Lightbox */}
+      {lightbox && (
+        <div
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-charcoal/95 p-4 backdrop-blur-sm"
+          onClick={() => setLightbox(null)}
+        >
+          <button
+            type="button"
+            onClick={() => setLightbox(null)}
+            aria-label={t({
+              en: "Close",
+              fr: "Fermer",
+              zh: "关闭",
+              es: "Cerrar",
+              pa: "ਬੰਦ ਕਰੋ",
+              ar: "إغلاق",
+              hi: "बंद करें",
+            })}
+            className="absolute top-4 right-4 rounded-full bg-cream/10 p-3 text-cream transition hover:bg-cream/20 hover:text-white"
+          >
+            <X className="h-6 w-6" />
+          </button>
+          <img
+            src={lightbox}
+            alt={t(sys.title)}
+            className="max-h-full max-w-full rounded-2xl object-contain shadow-2xl"
+            onClick={(e) => e.stopPropagation()}
+          />
+        </div>
+      )}
     </div>
   );
 }
@@ -530,6 +603,212 @@ function Index() {
   return (
     <div className="min-h-screen bg-background">
       <ScrollProgress />
+      {/* Floating rounded top bars — hero video shows around them */}
+      <div className="fixed inset-x-0 top-0 z-50 px-4 pt-4 md:px-6 md:pt-5">
+        <div className="mx-auto max-w-6xl space-y-2">
+          {/* Utility strip */}
+          <div className="relative z-[100] hidden rounded-full bg-white/80 px-5 py-2 text-xs text-charcoal shadow-lg ring-1 ring-charcoal/10 backdrop-blur-md md:block">
+            <div className="flex items-center justify-between gap-6">
+              <div className="flex items-center gap-6">
+                <a href="tel:+16049971760" className="flex items-center gap-1.5 transition-opacity hover:opacity-80">
+                  <Phone className="h-3.5 w-3.5" aria-hidden />
+                  <span>604-997-1760 <span className="text-charcoal/60">EN</span></span>
+                </a>
+                <a href="tel:+14038613732" className="flex items-center gap-1.5 transition-opacity hover:opacity-80">
+                  <Phone className="h-3.5 w-3.5" aria-hidden />
+                  <span>403-861-3732 <span className="text-charcoal/60">FR</span></span>
+                </a>
+                <a href="mailto:verticaloxygen@gmail.com" className="flex items-center gap-1.5 transition-opacity hover:opacity-80">
+                  <Mail className="h-3.5 w-3.5" aria-hidden />
+                  <span>verticaloxygen@gmail.com</span>
+                </a>
+                <span className="flex items-center gap-1.5 opacity-90">
+                  <MapPin className="h-3.5 w-3.5" aria-hidden />
+                  <span>
+                    {t({
+                      en: "Installations across North America",
+                      fr: "Installations partout en Amérique du Nord",
+                      zh: "遍布北美的绿墙项目",
+                      es: "Instalaciones en toda Norteamérica",
+                      pa: "ਉੱਤਰੀ ਅਮਰੀਕਾ ਭਰ ਵਿੱਚ ਸਥਾਪਨਾਵਾਂ",
+                      ar: "تركيبات في جميع أنحاء أمريكا الشمالية",
+                      hi: "उत्तरी अमेरिका भर में इंस्टॉलेशन",
+                    })}
+                  </span>
+                </span>
+                <span className="flex items-center gap-1.5 opacity-90">
+                  <Leaf className="h-3.5 w-3.5" aria-hidden />
+                  <span>
+                    {t({
+                      en: "Living & moss walls",
+                      fr: "Murs végétaux et murs de mousse",
+                      zh: "植物墙与苔藓墙",
+                      es: "Muros vivos y de musgo",
+                      pa: "ਜੀਵੰਤ ਅਤੇ ਮੌਸ ਦੀਆਂ ਕੰਧਾਂ",
+                      ar: "الجدران الحية وجدران الطحالب",
+                      hi: "लिविंग व मॉस वॉल",
+                    })}
+                  </span>
+                </span>
+              </div>
+              <LanguageSwitcher />
+            </div>
+          </div>
+
+          {/* Main nav pill */}
+          <nav className="relative z-0 flex items-center justify-between gap-4 rounded-full px-5 py-3 shadow-xl ring-1 ring-charcoal/10">
+            <div
+              className="absolute inset-0 rounded-full bg-cover bg-center"
+              style={{ backgroundImage: `url(${woodTexture.url})` }}
+              aria-hidden
+            />
+            <div className="absolute inset-0 rounded-full bg-white/88" aria-hidden />
+            <div className="relative z-10 flex w-full items-center justify-between gap-4">
+              <a href="/" className="flex shrink-0 items-center">
+                <img
+                  src={logoHeader.url}
+                  alt="Vertical Oxygen"
+                  className="h-7 max-w-[140px] w-auto object-contain sm:h-8 md:h-9 md:max-w-none"
+                />
+              </a>
+              <NavMenu
+                menus={[
+                  {
+                    label: t({ en: "Work", fr: "Réalisations", zh: "项目", es: "Proyectos", pa: "ਕੰਮ", ar: "الأعمال", hi: "कार्य" }),
+                    href: "#work",
+                    items: [
+                      {
+                        label: t({ en: "Our Systems", fr: "Nos systèmes", zh: "我们的系统", es: "Nuestros sistemas", pa: "ਸਾਡੇ ਸਿਸਟਮ", ar: "أنظمتنا", hi: "हमारे सिस्टम" }),
+                        description: t({
+                          en: "Hydroponic & aquaponic walls",
+                          fr: "Murs hydroponiques et aquaponiques",
+                          zh: "水培与鱼菜共生墙体",
+                          es: "Muros hidropónicos y acuapónicos",
+                          pa: "ਹਾਈਡ੍ਰੋਪੋਨਿਕ ਅਤੇ ਐਕੁਆਪੋਨਿਕ ਕੰਧਾਂ",
+                          ar: "جدران مائية وجدران أكوابونيك",
+                          hi: "हाइड्रोपोनिक और एक्वापोनिक वॉल",
+                        }),
+                        href: "#work",
+                        image: iffWall.url,
+                      },
+                      {
+                        label: t({ en: "Recent Installations", fr: "Réalisations récentes", zh: "近期案例", es: "Instalaciones recientes", pa: "ਹਾਲੀਆ ਸਥਾਪਨਾਵਾਂ", ar: "أحدث التركيبات", hi: "हाल की इंस्टॉलेशन" }),
+                        description: t({
+                          en: "Photos from real projects",
+                          fr: "Photos de projets réels",
+                          zh: "真实项目实拍",
+                          es: "Fotos de proyectos reales",
+                          pa: "ਅਸਲ ਪ੍ਰੋਜੈਕਟਾਂ ਦੀਆਂ ਫੋਟੋਆਂ",
+                          ar: "صور من مشاريع حقيقية",
+                          hi: "वास्तविक प्रोजेक्ट्स की तस्वीरें",
+                        }),
+                        href: "#motion",
+                        image: lobbyPanels.url,
+                      },
+                      {
+                        label: t({ en: "Maintenance & Guarantee", fr: "Entretien et garantie", zh: "养护与保障", es: "Mantenimiento y garantía", pa: "ਸਾਂਭ-ਸੰਭਾਲ ਅਤੇ ਗਾਰੰਟੀ", ar: "الصيانة والضمان", hi: "रखरखाव और गारंटी" }),
+                        description: t({
+                          en: "100% plant guarantee with service",
+                          fr: "Garantie 100 % des plantes avec entretien",
+                          zh: "含养护服务的 100% 植物保障",
+                          es: "Garantía del 100 % de las plantas con servicio",
+                          pa: "ਸਰਵਿਸ ਸਮੇਤ 100% ਪੌਦਿਆਂ ਦੀ ਗਾਰੰਟੀ",
+                          ar: "ضمان 100٪ على النباتات مع الخدمة",
+                          hi: "सेवा सहित 100% पौधों की गारंटी",
+                        }),
+                        href: "#maintenance",
+                        image: higherHealth.url,
+                      },
+                      {
+                        label: t({ en: "Specifications", fr: "Fiche technique", zh: "技术规格", es: "Especificaciones", pa: "ਵਿਸ਼ੇਸ਼ਤਾਵਾਂ", ar: "المواصفات", hi: "विनिर्देश" }),
+                        description: t({
+                          en: "Loads, water, fire ratings",
+                          fr: "Charges, eau, résistance au feu",
+                          zh: "荷载、给水与防火等级",
+                          es: "Cargas, agua, clasificaciones ignífugas",
+                          pa: "ਲੋਡ, ਪਾਣੀ, ਅੱਗ ਦਰਜਾਬੰਦੀ",
+                          ar: "الأحمال والمياه وتصنيفات مقاومة الحريق",
+                          hi: "लोड, पानी, फायर रेटिंग",
+                        }),
+                        href: "/specifications",
+                        image: outdoorFrame.url,
+                      },
+                    ],
+                  },
+                  {
+                    label: t({ en: "Locations", fr: "Emplacements", zh: "服务城市", es: "Ubicaciones", pa: "ਸਥਾਨ", ar: "المواقع", hi: "स्थान" }),
+                    href: "#locations",
+                    items: [
+                      { label: "Vancouver", href: "#locations" },
+                      { label: "Victoria", href: "#locations" },
+                      { label: "North Vancouver", href: "#locations" },
+                      { label: "Richmond", href: "#locations" },
+                      { label: "Campbell River", href: "#locations" },
+                      { label: "Kelowna", href: "#locations" },
+                      { label: "Yellowknife", href: "#locations" },
+                      { label: "Edmonton", href: "#locations" },
+                      { label: "Calgary", href: "#locations" },
+                      { label: "Airdrie", href: "#locations" },
+                      { label: "High Level", href: "#locations" },
+                      { label: "Regina", href: "#locations" },
+                      { label: "Winnipeg", href: "#locations" },
+                      { label: "Barrie", href: "#locations" },
+                      { label: "Sudbury", href: "#locations" },
+                      { label: "London", href: "#locations" },
+                      { label: "Hamilton", href: "#locations" },
+                      { label: "Toronto", href: "#locations" },
+                      { label: "Kingston", href: "#locations" },
+                      { label: "Moncton", href: "#locations" },
+                      { label: "Halifax", href: "#locations" },
+                      { label: "St. John's", href: "#locations" },
+                    ],
+                  },
+                  {
+                    label: t({ en: "About", fr: "À propos", zh: "关于我们", es: "Sobre nosotros", pa: "ਸਾਡੇ ਬਾਰੇ", ar: "من نحن", hi: "हमारे बारे में" }),
+                    href: "/about",
+                    items: [],
+                    description: t({
+                      en: "Meet Nathalie Callede and Tim Suddaby — the woman-owned team behind Vertical Oxygen and every wall we've built.",
+                      fr: "Rencontrez Nathalie Callede et Tim Suddaby — l'équipe détenue par une femme derrière Vertical Oxygen et chacun de nos murs.",
+                      zh: "认识 Nathalie Callede 与 Tim Suddaby——这家由女性创办的团队，打造了 Vertical Oxygen 的每一面绿墙。",
+                      es: "Conoce a Nathalie Callede y Tim Suddaby — el equipo liderado por una mujer detrás de Vertical Oxygen y de cada muro que hemos construido.",
+                      pa: "ਨਥਾਲੀ ਕੈਲੇਡ ਅਤੇ ਟਿਮ ਸਡਬੀ ਨੂੰ ਮਿਲੋ — Vertical Oxygen ਅਤੇ ਸਾਡੀ ਹਰ ਕੰਧ ਪਿੱਛੇ ਔਰਤ ਦੀ ਮਲਕੀਅਤ ਵਾਲੀ ਟੀਮ।",
+                      ar: "تعرف على ناتالي كاليد وتيم سدابي — الفريق المملوك لسيدة والذي يقف وراء Vertical Oxygen وكل جدار قمنا ببنائه.",
+                      hi: "नथाली कैलेड और टिम सुडाबी से मिलें — Vertical Oxygen और हमारी हर दीवार के पीछे महिला-स्वामित्व वाली टीम।",
+                    }),
+                  },
+                  {
+                    label: t({ en: "Specifications", fr: "Fiche technique", zh: "技术规格", es: "Especificaciones", pa: "ਵਿਸ਼ੇਸ਼ਤਾਵਾਂ", ar: "المواصفات", hi: "विनिर्देश" }),
+                    href: "/specifications",
+                    items: [],
+                    description: t({
+                      en: "Technical datasheets, load and water specs, fire ratings, and CAD/BIM downloads for architects, engineers, and contractors.",
+                      fr: "Fiches techniques, charges et alimentation en eau, résistance au feu et fichiers CAO/BIM pour architectes, ingénieurs et entrepreneurs.",
+                      zh: "面向建筑师、工程师与承包商的技术数据表、荷载与给水参数、防火等级及 CAD/BIM 下载。",
+                      es: "Fichas técnicas, especificaciones de carga y agua, clasificaciones ignífugas y descargas CAD/BIM para arquitectos, ingenieros y contratistas.",
+                      pa: "ਆਰਕੀਟੈਕਟਾਂ, ਇੰਜੀਨੀਅਰਾਂ ਅਤੇ ਠੇਕੇਦਾਰਾਂ ਲਈ ਤਕਨੀਕੀ ਡੇਟਾਸ਼ੀਟਾਂ, ਲੋਡ ਅਤੇ ਪਾਣੀ ਦੀਆਂ ਵਿਸ਼ੇਸ਼ਤਾਵਾਂ, ਅੱਗ ਦਰਜਾਬੰਦੀ ਅਤੇ CAD/BIM ਡਾਊਨਲੋਡ।",
+                      ar: "أوراق بيانات فنية، مواصفات الأحمال والمياه، تصنيفات مقاومة الحريق، وملفات CAD/BIM قابلة للتنزيل للمهندسين المعماريين والمهندسين والمقاولين.",
+                      hi: "आर्किटेक्ट्स, इंजीनियरों और ठेकेदारों के लिए तकनीकी डेटाशीट, लोड व पानी विनिर्देश, फायर रेटिंग और CAD/BIM डाउनलोड।",
+                    }),
+                  },
+                ]}
+              />
+              <LanguageSwitcher className="md:hidden" />
+              <a
+                href="#quote"
+                className="slide-cta group inline-flex items-center rounded-full bg-forest-deep px-5 py-2 text-sm font-semibold text-cream transition-colors hover:bg-forest-deep/90"
+              >
+                <span className="slide-cta-arrow pl-3 text-cream">
+                  <ArrowRight className="h-4 w-4" aria-hidden />
+                </span>
+                <span className="slide-cta-label">
+                  {t({ en: "Get a Quote", fr: "Demander un devis", zh: "获取报价", es: "Solicitar una cotización", pa: "ਕੋਟੇਸ਼ਨ ਲਓ", ar: "احصل على عرض سعر", hi: "कोटेशन प्राप्त करें" })}
+                </span>
+              </a>
+            </div>
+          </nav>
+        </div>
+      </div>
       {/* Fixed hero: stays pinned while the rest of the page scrolls up over it */}
       <section className="fixed inset-x-0 top-0 z-0 h-screen overflow-hidden">
         {/* Background: scroll-driven frame sequence */}
@@ -540,212 +819,6 @@ function Index() {
         {/* Soft blur that intensifies as the page scrolls up over the hero */}
         <div ref={blurLayerRef} className="pointer-events-none absolute inset-0 z-[5] will-change-[backdrop-filter,opacity]" aria-hidden />
 
-        {/* Floating rounded top bars — hero video shows around them */}
-        <div className="absolute inset-x-0 top-0 z-50 px-4 pt-4 md:px-6 md:pt-5">
-          <div className="mx-auto max-w-6xl space-y-2">
-            {/* Utility strip */}
-            <div className="relative z-[100] hidden rounded-full bg-white/80 px-5 py-2 text-xs text-charcoal shadow-lg ring-1 ring-charcoal/10 backdrop-blur-md md:block">
-              <div className="flex items-center justify-between gap-6">
-                <div className="flex items-center gap-6">
-                  <a href="tel:+16049971760" className="flex items-center gap-1.5 transition-opacity hover:opacity-80">
-                    <Phone className="h-3.5 w-3.5" aria-hidden />
-                    <span>604-997-1760 <span className="text-charcoal/60">EN</span></span>
-                  </a>
-                  <a href="tel:+14038613732" className="flex items-center gap-1.5 transition-opacity hover:opacity-80">
-                    <Phone className="h-3.5 w-3.5" aria-hidden />
-                    <span>403-861-3732 <span className="text-charcoal/60">FR</span></span>
-                  </a>
-                  <a href="mailto:verticaloxygen@gmail.com" className="flex items-center gap-1.5 transition-opacity hover:opacity-80">
-                    <Mail className="h-3.5 w-3.5" aria-hidden />
-                    <span>verticaloxygen@gmail.com</span>
-                  </a>
-                  <span className="flex items-center gap-1.5 opacity-90">
-                    <MapPin className="h-3.5 w-3.5" aria-hidden />
-                    <span>
-                      {t({
-                        en: "Installations across North America",
-                        fr: "Installations partout en Amérique du Nord",
-                        zh: "遍布北美的绿墙项目",
-                        es: "Instalaciones en toda Norteamérica",
-                        pa: "ਉੱਤਰੀ ਅਮਰੀਕਾ ਭਰ ਵਿੱਚ ਸਥਾਪਨਾਵਾਂ",
-                        ar: "تركيبات في جميع أنحاء أمريكا الشمالية",
-                        hi: "उत्तरी अमेरिका भर में इंस्टॉलेशन",
-                      })}
-                    </span>
-                  </span>
-                  <span className="flex items-center gap-1.5 opacity-90">
-                    <Leaf className="h-3.5 w-3.5" aria-hidden />
-                    <span>
-                      {t({
-                        en: "Living & moss walls",
-                        fr: "Murs végétaux et murs de mousse",
-                        zh: "植物墙与苔藓墙",
-                        es: "Muros vivos y de musgo",
-                        pa: "ਜੀਵੰਤ ਅਤੇ ਮੌਸ ਦੀਆਂ ਕੰਧਾਂ",
-                        ar: "الجدران الحية وجدران الطحالب",
-                        hi: "लिविंग व मॉस वॉल",
-                      })}
-                    </span>
-                  </span>
-                </div>
-                <LanguageSwitcher />
-              </div>
-            </div>
-
-            {/* Main nav pill */}
-            <nav className="relative z-0 flex items-center justify-between gap-4 rounded-full px-5 py-3 shadow-xl ring-1 ring-charcoal/10">
-              <div
-                className="absolute inset-0 rounded-full bg-cover bg-center"
-                style={{ backgroundImage: `url(${woodTexture.url})` }}
-                aria-hidden
-              />
-              <div className="absolute inset-0 rounded-full bg-white/88" aria-hidden />
-              <div className="relative z-10 flex w-full items-center justify-between gap-4">
-                <a href="/" className="flex shrink-0 items-center">
-                  <img
-                    src={logoHeader.url}
-                    alt="Vertical Oxygen"
-                    className="h-7 max-w-[140px] w-auto object-contain sm:h-8 md:h-9 md:max-w-none"
-                  />
-                </a>
-                <NavMenu
-                  menus={[
-                    {
-                      label: t({ en: "Work", fr: "Réalisations", zh: "项目", es: "Proyectos", pa: "ਕੰਮ", ar: "الأعمال", hi: "कार्य" }),
-                      href: "#work",
-                      items: [
-                        {
-                          label: t({ en: "Our Systems", fr: "Nos systèmes", zh: "我们的系统", es: "Nuestros sistemas", pa: "ਸਾਡੇ ਸਿਸਟਮ", ar: "أنظمتنا", hi: "हमारे सिस्टम" }),
-                          description: t({
-                            en: "Hydroponic & aquaponic walls",
-                            fr: "Murs hydroponiques et aquaponiques",
-                            zh: "水培与鱼菜共生墙体",
-                            es: "Muros hidropónicos y acuapónicos",
-                            pa: "ਹਾਈਡ੍ਰੋਪੋਨਿਕ ਅਤੇ ਐਕੁਆਪੋਨਿਕ ਕੰਧਾਂ",
-                            ar: "جدران مائية وجدران أكوابونيك",
-                            hi: "हाइड्रोपोनिक और एक्वापोनिक वॉल",
-                          }),
-                          href: "#work",
-                          image: iffWall.url,
-                        },
-                        {
-                          label: t({ en: "Recent Installations", fr: "Réalisations récentes", zh: "近期案例", es: "Instalaciones recientes", pa: "ਹਾਲੀਆ ਸਥਾਪਨਾਵਾਂ", ar: "أحدث التركيبات", hi: "हाल की इंस्टॉलेशन" }),
-                          description: t({
-                            en: "Photos from real projects",
-                            fr: "Photos de projets réels",
-                            zh: "真实项目实拍",
-                            es: "Fotos de proyectos reales",
-                            pa: "ਅਸਲ ਪ੍ਰੋਜੈਕਟਾਂ ਦੀਆਂ ਫੋਟੋਆਂ",
-                            ar: "صور من مشاريع حقيقية",
-                            hi: "वास्तविक प्रोजेक्ट्स की तस्वीरें",
-                          }),
-                          href: "#motion",
-                          image: lobbyPanels.url,
-                        },
-                        {
-                          label: t({ en: "Maintenance & Guarantee", fr: "Entretien et garantie", zh: "养护与保障", es: "Mantenimiento y garantía", pa: "ਸਾਂਭ-ਸੰਭਾਲ ਅਤੇ ਗਾਰੰਟੀ", ar: "الصيانة والضمان", hi: "रखरखाव और गारंटी" }),
-                          description: t({
-                            en: "100% plant guarantee with service",
-                            fr: "Garantie 100 % des plantes avec entretien",
-                            zh: "含养护服务的 100% 植物保障",
-                            es: "Garantía del 100 % de las plantas con servicio",
-                            pa: "ਸਰਵਿਸ ਸਮੇਤ 100% ਪੌਦਿਆਂ ਦੀ ਗਾਰੰਟੀ",
-                            ar: "ضمان 100٪ على النباتات مع الخدمة",
-                            hi: "सेवा सहित 100% पौधों की गारंटी",
-                          }),
-                          href: "#maintenance",
-                          image: higherHealth.url,
-                        },
-                        {
-                          label: t({ en: "Specifications", fr: "Fiche technique", zh: "技术规格", es: "Especificaciones", pa: "ਵਿਸ਼ੇਸ਼ਤਾਵਾਂ", ar: "المواصفات", hi: "विनिर्देश" }),
-                          description: t({
-                            en: "Loads, water, fire ratings",
-                            fr: "Charges, eau, résistance au feu",
-                            zh: "荷载、给水与防火等级",
-                            es: "Cargas, agua, clasificaciones ignífugas",
-                            pa: "ਲੋਡ, ਪਾਣੀ, ਅੱਗ ਦਰਜਾਬੰਦੀ",
-                            ar: "الأحمال والمياه وتصنيفات مقاومة الحريق",
-                            hi: "लोड, पानी, फायर रेटिंग",
-                          }),
-                          href: "/specifications",
-                          image: outdoorFrame.url,
-                        },
-                      ],
-                    },
-                    {
-                      label: t({ en: "Locations", fr: "Emplacements", zh: "服务城市", es: "Ubicaciones", pa: "ਸਥਾਨ", ar: "المواقع", hi: "स्थान" }),
-                      href: "#locations",
-                      items: [
-                        { label: "Vancouver", href: "#locations" },
-                        { label: "Victoria", href: "#locations" },
-                        { label: "North Vancouver", href: "#locations" },
-                        { label: "Richmond", href: "#locations" },
-                        { label: "Campbell River", href: "#locations" },
-                        { label: "Kelowna", href: "#locations" },
-                        { label: "Yellowknife", href: "#locations" },
-                        { label: "Edmonton", href: "#locations" },
-                        { label: "Calgary", href: "#locations" },
-                        { label: "Airdrie", href: "#locations" },
-                        { label: "High Level", href: "#locations" },
-                        { label: "Regina", href: "#locations" },
-                        { label: "Winnipeg", href: "#locations" },
-                        { label: "Barrie", href: "#locations" },
-                        { label: "Sudbury", href: "#locations" },
-                        { label: "London", href: "#locations" },
-                        { label: "Hamilton", href: "#locations" },
-                        { label: "Toronto", href: "#locations" },
-                        { label: "Kingston", href: "#locations" },
-                        { label: "Moncton", href: "#locations" },
-                        { label: "Halifax", href: "#locations" },
-                        { label: "St. John's", href: "#locations" },
-                      ],
-                    },
-                    {
-                      label: t({ en: "About", fr: "À propos", zh: "关于我们", es: "Sobre nosotros", pa: "ਸਾਡੇ ਬਾਰੇ", ar: "من نحن", hi: "हमारे बारे में" }),
-                      href: "/about",
-                      items: [],
-                      description: t({
-                        en: "Meet Nathalie Callede and Tim Suddaby — the woman-owned team behind Vertical Oxygen and every wall we've built.",
-                        fr: "Rencontrez Nathalie Callede et Tim Suddaby — l'équipe détenue par une femme derrière Vertical Oxygen et chacun de nos murs.",
-                        zh: "认识 Nathalie Callede 与 Tim Suddaby——这家由女性创办的团队，打造了 Vertical Oxygen 的每一面绿墙。",
-                        es: "Conoce a Nathalie Callede y Tim Suddaby — el equipo liderado por una mujer detrás de Vertical Oxygen y de cada muro que hemos construido.",
-                        pa: "ਨਥਾਲੀ ਕੈਲੇਡ ਅਤੇ ਟਿਮ ਸਡਬੀ ਨੂੰ ਮਿਲੋ — Vertical Oxygen ਅਤੇ ਸਾਡੀ ਹਰ ਕੰਧ ਪਿੱਛੇ ਔਰਤ ਦੀ ਮਲਕੀਅਤ ਵਾਲੀ ਟੀਮ।",
-                        ar: "تعرف على ناتالي كاليد وتيم سدابي — الفريق المملوك لسيدة والذي يقف وراء Vertical Oxygen وكل جدار قمنا ببنائه.",
-                        hi: "नथाली कैलेड और टिम सुडाबी से मिलें — Vertical Oxygen और हमारी हर दीवार के पीछे महिला-स्वामित्व वाली टीम।",
-                      }),
-                    },
-                    {
-                      label: t({ en: "Specifications", fr: "Fiche technique", zh: "技术规格", es: "Especificaciones", pa: "ਵਿਸ਼ੇਸ਼ਤਾਵਾਂ", ar: "المواصفات", hi: "विनिर्देश" }),
-                      href: "/specifications",
-                      items: [],
-                      description: t({
-                        en: "Technical datasheets, load and water specs, fire ratings, and CAD/BIM downloads for architects, engineers, and contractors.",
-                        fr: "Fiches techniques, charges et alimentation en eau, résistance au feu et fichiers CAO/BIM pour architectes, ingénieurs et entrepreneurs.",
-                        zh: "面向建筑师、工程师与承包商的技术数据表、荷载与给水参数、防火等级及 CAD/BIM 下载。",
-                        es: "Fichas técnicas, especificaciones de carga y agua, clasificaciones ignífugas y descargas CAD/BIM para arquitectos, ingenieros y contratistas.",
-                        pa: "ਆਰਕੀਟੈਕਟਾਂ, ਇੰਜੀਨੀਅਰਾਂ ਅਤੇ ਠੇਕੇਦਾਰਾਂ ਲਈ ਤਕਨੀਕੀ ਡੇਟਾਸ਼ੀਟਾਂ, ਲੋਡ ਅਤੇ ਪਾਣੀ ਦੀਆਂ ਵਿਸ਼ੇਸ਼ਤਾਵਾਂ, ਅੱਗ ਦਰਜਾਬੰਦੀ ਅਤੇ CAD/BIM ਡਾਊਨਲੋਡ।",
-                        ar: "أوراق بيانات فنية، مواصفات الأحمال والمياه، تصنيفات مقاومة الحريق، وملفات CAD/BIM قابلة للتنزيل للمهندسين المعماريين والمهندسين والمقاولين.",
-                        hi: "आर्किटेक्ट्स, इंजीनियरों और ठेकेदारों के लिए तकनीकी डेटाशीट, लोड व पानी विनिर्देश, फायर रेटिंग और CAD/BIM डाउनलोड।",
-                      }),
-                    },
-                  ]}
-                />
-                <LanguageSwitcher className="md:hidden" />
-                <a
-                  href="#quote"
-                  className="slide-cta group inline-flex items-center rounded-full bg-forest-deep px-5 py-2 text-sm font-semibold text-cream transition-colors hover:bg-forest-deep/90"
-                >
-                  <span className="slide-cta-arrow pl-3 text-cream">
-                    <ArrowRight className="h-4 w-4" aria-hidden />
-                  </span>
-                  <span className="slide-cta-label">
-                    {t({ en: "Get a Quote", fr: "Demander un devis", zh: "获取报价", es: "Solicitar una cotización", pa: "ਕੋਟੇਸ਼ਨ ਲਓ", ar: "احصل على عرض سعر", hi: "कोटेशन प्राप्त करें" })}
-                  </span>
-                </a>
-              </div>
-            </nav>
-          </div>
-        </div>
 
         {/* Hero content */}
         <div
