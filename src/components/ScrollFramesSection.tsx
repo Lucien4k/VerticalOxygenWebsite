@@ -167,6 +167,7 @@ export function ScrollFramesSection({
   return (
     <section
       ref={sectionRef}
+      id={id}
       className={`relative bg-charcoal text-cream ${className}`}
       style={{ height: `${scrollLength * 100}vh` }}
     >
