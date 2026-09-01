@@ -934,13 +934,13 @@ function Index() {
             </p>
             <h2 className="display-heading max-w-3xl text-4xl leading-[1.05] md:text-6xl">
               {t({
-                en: "Every drop, used again.",
-                fr: "Chaque goutte, réutilisée.",
-                zh: "每一滴水，循环再用。",
-                es: "Cada gota, reutilizada.",
-                pa: "ਹਰ ਬੂੰਦ, ਮੁੜ ਵਰਤੀ।",
-                ar: "كل قطرة تُعاد استخدامها.",
-                hi: "हर बूंद, फिर से उपयोग।",
+                en: "Water kept in motion.",
+                fr: "De l'eau toujours en mouvement.",
+                zh: "水，持续循环。",
+                es: "Agua siempre en movimiento.",
+                pa: "ਪਾਣੀ ਲਗਾਤਾਰ ਚੱਲਦਾ ਰਹਿੰਦਾ ਹੈ।",
+                ar: "الماء يبقى حيّاً.",
+                hi: "पानी लगातार गति में रहता है।",
               })}
             </h2>
             <p className="mt-6 max-w-2xl text-base leading-relaxed text-cream/70">
