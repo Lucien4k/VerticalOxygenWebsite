@@ -337,6 +337,8 @@ function SystemsShowcase() {
   const t = useT();
   const [active, setActive] = useState(0);
   const [lightbox, setLightbox] = useState<string | null>(null);
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
   const sys = SYSTEMS[active];
   const next = SYSTEMS[(active + 1) % SYSTEMS.length];
 
