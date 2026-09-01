@@ -896,6 +896,26 @@ function Index() {
           aria-hidden
           className="pointer-events-none absolute -top-24 right-[-6rem] h-[380px] w-[380px] object-contain opacity-30 md:h-[520px] md:w-[520px]"
         />
+        {/* Where we grow photo card */}
+        <div className="pointer-events-none absolute right-6 top-24 z-10 hidden w-56 overflow-hidden rounded-2xl border border-charcoal/10 bg-white p-2 shadow-lg md:block lg:w-72">
+          <img
+            src={featureOffice}
+            alt="Vertical Oxygen living wall"
+            className="aspect-[4/3] w-full rounded-xl object-cover"
+            loading="lazy"
+          />
+          <p className="px-2 pb-1 pt-2 text-center text-xs font-semibold uppercase tracking-widest text-forest">
+            {t({
+              en: "Where we grow",
+              fr: "Là où nous cultivons",
+              zh: "我们的足迹",
+              es: "Dónde crecemos",
+              pa: "ਜਿੱਥੇ ਅਸੀਂ ਵਧਦੇ ਹਾਂ",
+              ar: "أين ننمو",
+              hi: "हम कहाँ बढ़ते हैं",
+            })}
+          </p>
+        </div>
         <div className="relative mx-auto max-w-7xl px-6 py-24 md:py-32">
           <Reveal>
             <div className="mb-14 max-w-2xl">
