@@ -67,7 +67,7 @@ const SYSTEMS: {
   tagline: Tr;
   description: Tr;
   stats: { label: Tr; value: Tr }[];
-  highlights: Tr[];
+  highlights: { text: Tr; color?: string }[];
 }[] = [
   {
     key: "hydroponic",
