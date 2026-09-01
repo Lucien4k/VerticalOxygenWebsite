@@ -578,19 +578,7 @@ function Index() {
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/50" />
       </div>
       <section id="about" className="relative overflow-hidden bg-background">
-        <img
-          src={cutoutWallB.url}
-          alt=""
-          aria-hidden
-          className="pointer-events-none absolute -top-32 -right-40 h-[460px] w-[360px] object-contain opacity-50 md:h-[620px] md:w-[480px]"
-          style={{
-            WebkitMaskImage:
-              "radial-gradient(ellipse at 30% 60%, black 45%, transparent 80%)",
-            maskImage:
-              "radial-gradient(ellipse at 30% 60%, black 45%, transparent 80%)",
-          }}
-        />
-        <div className="mx-auto max-w-7xl px-6 py-20 md:py-28">
+        <div className="mx-auto max-w-7xl px-6 py-28 md:py-40">
           <div className="relative overflow-hidden rounded-3xl">
             <img
               src={spiderPothos.url}
@@ -607,7 +595,7 @@ function Index() {
               loading="lazy"
             />
             <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/55 to-black/25" />
-            <Reveal className="relative px-8 py-16 md:px-16 md:py-24 lg:max-w-2xl">
+            <Reveal className="relative px-8 py-24 md:px-16 md:py-36 lg:max-w-2xl">
               <p className="mb-3 text-xs font-semibold uppercase tracking-[0.3em] text-sage-wash">
                 {t({ en: "Our Philosophy", fr: "Notre philosophie", zh: "我们的理念", es: "Nuestra filosofía", pa: "ਸਾਡਾ ਦਰਸ਼ਨ", ar: "فلسفتنا", hi: "हमारा दर्शन" })}
               </p>
