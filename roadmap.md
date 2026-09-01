@@ -13,6 +13,7 @@
 - [x] Update Trusted By section with industry categories
 - [x] Bring back photos on the "Two ways to grow a wall" systems section
 - [x] Make hero right-aligned text readable and aligned on mobile
+- [x] Move mobile hero text to the right so the living wall stays visible
 
 ## Still to do
 - [ ] Find and change "cistern" to "aquarium" (not found in code — may be in an image asset)
