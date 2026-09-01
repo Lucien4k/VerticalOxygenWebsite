@@ -4,6 +4,8 @@ import featureOffice from "../assets/feature-office.jpg";
 import lobbyPanels from "../assets/projects/lobby-panels.jpg.asset.json";
 import edmontonLobby from "../assets/projects/edmonton-lobby.jpg.asset.json";
 import fairviewAquarium from "../assets/projects/fairview-aquarium.jpg.asset.json";
+import hydroponicDiagram from "../assets/diagrams/hydroponic-wall-diagram-v4.jpg.asset.json";
+import aquaponicDiagram from "../assets/diagrams/aquaponic-wall-diagram-v4.jpg.asset.json";
 import fairviewInstall from "../assets/projects/fairview-install.jpg.asset.json";
 import tropicalDense from "../assets/projects/tropical-dense.jpg.asset.json";
 import succulentTapestry from "../assets/projects/succulent-tapestry.jpg.asset.json";
