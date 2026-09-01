@@ -276,5 +276,21 @@ function AboutPage() {
         </div>
       </section>
     </main>
+
+    {/* Footer */}
+    <footer className="border-t border-charcoal/10 bg-cream/80 py-8">
+      <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-6 md:flex-row">
+        <a href="/" className="rounded-lg bg-white px-3 py-2 shadow-sm">
+          <img
+            src={logoHeader.url}
+            alt="Vertical Oxygen"
+            className="h-10 w-auto md:h-12"
+          />
+        </a>
+        <p className="text-sm text-charcoal/60">
+          {t({ en: "Custom living walls.", fr: "Murs végétaux sur mesure.", zh: "定制植物墙。", es: "Muros vegetales personalizados.", pa: "ਕਸਟਮ ਜੀਵੰਤ ਕੰਧਾਂ।", ar: "جدران خضراء مخصصة.", hi: "कस्टम लिविंग वॉल्स।" })}
+        </p>
+      </div>
+    </footer>
   );
 }
