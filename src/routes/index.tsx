@@ -377,13 +377,13 @@ function SystemsShowcase() {
           />
           <p className="mt-6 max-w-xl text-charcoal/70 md:text-lg">
             {t({
-              en: "Every Vertical Oxygen wall is built on one of two engineered systems. Tap through to see how each works and where it fits best.",
-              fr: "Chaque mur Vertical Oxygen repose sur l'un de nos deux systèmes d'ingénierie. Parcourez-les pour découvrir leur fonctionnement et leurs usages idéaux.",
-              zh: "每一面 Vertical Oxygen 绿墙都基于两套工程化系统之一。点击切换，了解各自的原理与适用场景。",
-              es: "Cada muro de Vertical Oxygen se construye sobre uno de dos sistemas de ingeniería. Explóralos para ver cómo funciona cada uno y dónde encaja mejor.",
-              pa: "ਹਰ Vertical Oxygen ਕੰਧ ਦੋ ਇੰਜੀਨੀਅਰਡ ਸਿਸਟਮਾਂ ਵਿੱਚੋਂ ਇੱਕ ਉੱਤੇ ਬਣੀ ਹੁੰਦੀ ਹੈ। ਦੇਖੋ ਕਿ ਹਰ ਇੱਕ ਕਿਵੇਂ ਕੰਮ ਕਰਦਾ ਹੈ ਅਤੇ ਕਿੱਥੇ ਸਭ ਤੋਂ ਵਧੀਆ ਢੁਕਦਾ ਹੈ।",
-              ar: "كل جدار من Vertical Oxygen مبني على أحد نظامين هندسيين. تصفّحهما لمعرفة آلية عمل كل نظام وأين يناسب أكثر.",
-              hi: "हर Vertical Oxygen दीवार दो इंजीनियर्ड सिस्टम में से एक पर बनी होती है। देखें कि प्रत्येक कैसे काम करता है और कहाँ सबसे उपयुक्त है।",
+              en: "Every Vertical Oxygen wall is built on one of two engineered systems.",
+              fr: "Chaque mur Vertical Oxygen repose sur l'un de nos deux systèmes d'ingénierie.",
+              zh: "每一面 Vertical Oxygen 绿墙都基于两套工程化系统之一。",
+              es: "Cada muro de Vertical Oxygen se construye sobre uno de dos sistemas de ingeniería.",
+              pa: "ਹਰ Vertical Oxygen ਕੰਧ ਦੋ ਇੰਜੀਨੀਅਰਡ ਸਿਸਟਮਾਂ ਵਿੱਚੋਂ ਇੱਕ ਉੱਤੇ ਬਣੀ ਹੁੰਦੀ ਹੈ।",
+              ar: "كل جدار من Vertical Oxygen مبني على أحد نظامين هندسيين.",
+              hi: "हर Vertical Oxygen दीवार दो इंजीनियर्ड सिस्टम में से एक पर बनी होती है।",
             })}
           </p>
         </div>
