@@ -196,7 +196,7 @@ export function SystemPage({ systemKey }: { systemKey: "hydroponic" | "aquaponic
         <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {sys.highlights.map((h) => (
             <div
-              key={t(h.text).en}
+              key={t(h.text)}
               className="flex items-start gap-4 rounded-2xl border border-charcoal/10 bg-white p-6"
             >
               <span
