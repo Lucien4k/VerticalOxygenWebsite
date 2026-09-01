@@ -241,6 +241,7 @@ function SystemsShowcase() {
     </div>
   );
 }
+export const Route = createFileRoute("/")({
   component: Index,
   head: () => ({
     meta: [
