@@ -99,24 +99,24 @@ export function ClientLogos() {
         </p>
         <h2 className="display-heading text-4xl leading-[1.05] text-charcoal md:text-5xl">
           {t({
-            en: "Walls we've grown for great companies.",
-            fr: "Des murs cultivés pour de grandes entreprises.",
-            zh: "我们为众多知名企业打造植物墙。",
-            es: "Muros que hemos cultivado para grandes empresas.",
-            pa: "ਦੀਵਾਰਾਂ ਜੋ ਅਸੀਂ ਵਧੀਆ ਕੰਪਨੀਆਂ ਲਈ ਉਗਾਈਆਂ ਹਨ।",
-            ar: "جدران زرعناها لشركات رائعة.",
-            hi: "दीवारें जो हमने बेहतरीन कंपनियों के लिए उगाई हैं।",
+            en: "Trusted by industries across Canada.",
+            fr: "Reconnus par des secteurs d'activité partout au Canada.",
+            zh: "深受加拿大各行业信赖。",
+            es: "Respaldados por industrias de todo Canadá.",
+            pa: "ਕੈਨੇਡਾ ਭਰ ਦੀਆਂ ਇੰਡਸਟਰੀਆਂ ਦੁਆਰਾ ਭਰੋਸੇਯੋਗ।",
+            ar: "موثوق به من قبل قطاعات في جميع أنحاء كندا.",
+            hi: "कनाडा की विभिन्न उद्योगों द्वारा विश्वसनीय।",
           })}
         </h2>
         <p className="mt-4 text-charcoal/70">
           {t({
-            en: "From national retailers and hotels to schools, clinics and civic buildings across Canada.",
-            fr: "Des détaillants nationaux et hôtels aux écoles, cliniques et bâtiments publics partout au Canada.",
-            zh: "从全国零售商与酒店，到加拿大各地的学校、诊所和公共建筑。",
-            es: "Desde minoristas nacionales y hoteles hasta escuelas, clínicas y edificios públicos en todo Canadá.",
-            pa: "ਰਾਸ਼ਟਰੀ ਰਿਟੇਲਰਾਂ ਅਤੇ ਹੋਟਲਾਂ ਤੋਂ ਲੈ ਕੇ ਸਕੂਲਾਂ, ਕਲੀਨਿਕਾਂ ਅਤੇ ਕੈਨੇਡਾ ਭਰ ਦੀਆਂ ਸਿਵਿਕ ਇਮਾਰਤਾਂ ਤੱਕ।",
-            ar: "من تجار التجزئة الوطنيين والفنادق إلى المدارس والعيادات والمباني المدنية في جميع أنحاء كندا.",
-            hi: "राष्ट्रीय रिटेलर्स और होटलों से लेकर स्कूलों, क्लीनिकों और कनाडा भर की सार्वजनिक इमारतों तक।",
+            en: "School districts · Residential homeowners · Hospitals · Law enforcement · Property management · Hotels · Dental clinics · Municipal governments · Health clinics · Non-profits · Financial institutions · Technical institutes · Science centres · Indigenous healing centres",
+            fr: "Districts scolaires · Propriétaires résidentiels · Hôpitaux · Forces de l'ordre · Gestion immobilière · Hôtels · Cliniques dentaires · Gouvernements municipaux · Cliniques de santé · Organismes sans but lucratif · Institutions financières · Instituts techniques · Centres scientifiques · Centres de guérison autochtones",
+            zh: "学区 · 住宅业主 · 医院 · 执法部门 · 物业管理 · 酒店 · 牙科诊所 · 市政府 · 健康诊所 · 非营利组织 · 金融机构 · 技术学院 · 科学中心 · 原住民康复中心",
+            es: "Distritos escolares · Propietarios residenciales · Hospitales · Cuerpos policiales · Administración de propiedades · Hoteles · Clínicas dentales · Gobiernos municipales · Clínicas de salud · Organizaciones sin fines de lucro · Instituciones financieras · Institutos técnicos · Centros científicos · Centros de sanación indígenas",
+            pa: "ਸਕੂਲ ਜ਼ਿਲ੍ਹੇ · ਰਿਹਾਇਸ਼ੀ ਘਰਾਂ ਦੇ ਮਾਲਕ · ਹਸਪਤਾਲ · ਕਾਨੂੰਨ ਲਾਗੂ ਕਰਨ ਵਾਲੇ ਏਜੰਸੀਆਂ · ਪ੍ਰੋਪਰਟੀ ਮੈਨੇਜਮੈਂਟ · ਹੋਟਲ · ਦੰਦਾਂ ਦੇ ਕਲੀਨਿਕ · ਨਗਰ ਸਰਕਾਰਾਂ · ਸਿਹਤ ਕਲੀਨਿਕ · ਗੈਰ-ਲਾਭਕਾਰੀ · ਵਿੱਤੀ ਸੰਸਥਾਵਾਂ · ਤਕਨੀਕੀ ਸੰਸਥਾਨ · ਵਿਗਿਆਨ ਕੇਂਦਰ · ਇੰਡੀਜੀਨਸ ਹੀਲਿੰਗ ਸੈਂਟਰ",
+            ar: "مدارس حكومية · مالكو منازل سكنية · مستشفيات · إنفاذ القانون · إدارة العقارات · فنادق · عيادات أسنان · حكومات بلدية · عيادات صحية · منظمات غير ربحية · مؤسسات مالية · معاهد تقنية · مراكز علمية · مراكز شفاء السكان الأصليين",
+            hi: "स्कूल जिले · आवासीय मकान मालिक · अस्पताल · कानून प्रवर्तन · संपत्ति प्रबंधन · होटल · दंत चिकित्सालय · नगर सरकारें · स्वास्थ्य चिकित्सालय · गैर-लाभकारी संगठन · वित्तीय संस्थान · तकनीकी संस्थान · विज्ञान केंद्र · स्वदेशी उपचार केंद्र",
           })}
         </p>
       </div>

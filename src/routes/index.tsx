@@ -1,8 +1,11 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import outdoorFrame from "../assets/projects/outdoor-wood-frame.jpg.asset.json";
+import featureOffice from "../assets/feature-office.jpg";
 import lobbyPanels from "../assets/projects/lobby-panels.jpg.asset.json";
 import edmontonLobby from "../assets/projects/edmonton-lobby.jpg.asset.json";
 import fairviewAquarium from "../assets/projects/fairview-aquarium.jpg.asset.json";
+import hydroponicDiagram from "../assets/diagrams/hydroponic-wall-diagram-v4.jpg.asset.json";
+import aquaponicDiagram from "../assets/diagrams/aquaponic-wall-diagram-v4.jpg.asset.json";
 import fairviewInstall from "../assets/projects/fairview-install.jpg.asset.json";
 import tropicalDense from "../assets/projects/tropical-dense.jpg.asset.json";
 import succulentTapestry from "../assets/projects/succulent-tapestry.jpg.asset.json";
@@ -22,7 +25,7 @@ import glenoraLobby from "../assets/projects/glenora-lobby.jpg.asset.json";
 import coaldaleHall from "../assets/projects/coaldale-hall.png.asset.json";
 import lushTropicalWall from "../assets/projects/lush-tropical-wall.jpg.asset.json";
 import coaldaleFlowering from "../assets/projects/coaldale-flowering.jpg.asset.json";
-import { Phone, Mail, MapPin, Leaf, ArrowRight, Instagram, X, ZoomIn } from "lucide-react";
+import { Phone, Mail, MapPin, Leaf, ArrowRight, Instagram, X } from "lucide-react";
 import { QuoteForm } from "@/components/QuoteForm";
 import { Reveal } from "@/components/Reveal";
 import { LocationsMap } from "@/components/LocationsMap";
@@ -67,7 +70,7 @@ const SYSTEMS: {
   tagline: Tr;
   description: Tr;
   stats: { label: Tr; value: Tr }[];
-  highlights: Tr[];
+  highlights: { text: Tr; color?: string }[];
 }[] = [
   {
     key: "hydroponic",
@@ -132,13 +135,13 @@ const SYSTEMS: {
           es: "Ideal para", pa: "ਸਭ ਤੋਂ ਵਧੀਆ ਲਈ", ar: "الأنسب لـ", hi: "इनके लिए सर्वोत्तम",
         },
         value: {
-          en: "Lobbies, offices, tall installs",
-          fr: "Halls, bureaux, murs de grande hauteur",
-          zh: "大堂、办公空间、超高墙面",
-          es: "Vestíbulos, oficinas, instalaciones altas",
-          pa: "ਲਾਬੀਆਂ, ਦਫ਼ਤਰ, ਉੱਚੀਆਂ ਸਥਾਪਨਾਵਾਂ",
-          ar: "الردهات، المكاتب، التركيبات العالية",
-          hi: "लॉबी, कार्यालय, ऊँचे इंस्टॉलेशन",
+          en: "Any indoor space",
+          fr: "Tout espace intérieur",
+          zh: "任何室内空间",
+          es: "Cualquier espacio interior",
+          pa: "ਕੋਈ ਵੀ ਅੰਦਰੂਨੀ ਥਾਂ",
+          ar: "أي مساحة داخلية",
+          hi: "कोई भी इनडोर स्थान",
         },
       },
       {
@@ -151,31 +154,52 @@ const SYSTEMS: {
     ],
     highlights: [
       {
-        en: "Ultra-light felt matrix",
-        fr: "Matrice de feutre ultralégère",
-        zh: "超轻毛毡基质",
-        es: "Matriz de fieltro ultraligera",
-        pa: "ਅਤਿ-ਹਲਕਾ ਫੈਲਟ ਮੈਟ੍ਰਿਕਸ",
-        ar: "نسيج لباد فائق الخفة",
-        hi: "अत्यंत हल्का फेल्ट मैट्रिक्स",
+        text: {
+          en: "Soilless",
+          fr: "Sans terre",
+          zh: "无土栽培",
+          es: "Sin tierra",
+          pa: "ਮਿੱਟੀ ਰਹਿਤ",
+          ar: "بدون تربة",
+          hi: "मिट्टी रहित",
+        },
+        color: "bg-red-600",
       },
       {
-        en: "Automated dosing + irrigation",
-        fr: "Dosage et irrigation automatisés",
-        zh: "自动配肥与灌溉",
-        es: "Dosificación e irrigación automatizadas",
-        pa: "ਆਟੋਮੇਟਿਡ ਡੋਜ਼ਿੰਗ + ਸਿੰਚਾਈ",
-        ar: "جرعات وري آلية",
-        hi: "स्वचालित डोज़िंग + सिंचाई",
+        text: {
+          en: "Recirculating",
+          fr: "Circuit fermé",
+          zh: "循环供水",
+          es: "Recirculante",
+          pa: "ਮੁੜ-ਸੰਚਾਰੀ",
+          ar: "إعادة تدوير المياه",
+          hi: "पुनर्चक्रित",
+        },
+        color: "bg-amber-500",
       },
       {
-        en: "Scales to any wall size",
-        fr: "S'adapte à toutes les dimensions",
-        zh: "可适配任意墙面尺寸",
-        es: "Se adapta a cualquier tamaño de muro",
-        pa: "ਕਿਸੇ ਵੀ ਕੰਧ ਦੇ ਆਕਾਰ ਲਈ ਢੁਕਵਾਂ",
-        ar: "يتكيف مع أي حجم جدار",
-        hi: "किसी भी दीवार आकार के अनुरूप",
+        text: {
+          en: "Lightweight",
+          fr: "Léger",
+          zh: "轻量",
+          es: "Ligero",
+          pa: "ਹਲਕਾ",
+          ar: "خفيف",
+          hi: "हल्का",
+        },
+        color: "bg-red-600",
+      },
+      {
+        text: {
+          en: "Automatic & efficient",
+          fr: "Automatique et efficace",
+          zh: "自动高效",
+          es: "Automático y eficiente",
+          pa: "ਆਟੋਮੈਟਿਕ ਅਤੇ ਕੁਸ਼ਲ",
+          ar: "تلقائي وفعال",
+          hi: "स्वचालित और कुशल",
+        },
+        color: "bg-amber-500",
       },
     ],
   },
@@ -245,13 +269,13 @@ const SYSTEMS: {
           es: "Ideal para", pa: "ਸਭ ਤੋਂ ਵਧੀਆ ਲਈ", ar: "الأنسب لـ", hi: "इनके लिए सर्वोत्तम",
         },
         value: {
-          en: "Feature walls, cafés, showrooms",
-          fr: "Murs signatures, cafés, salles d'exposition",
-          zh: "主题墙、咖啡馆、展厅",
-          es: "Muros destacados, cafés, salas de exposición",
-          pa: "ਵਿਸ਼ੇਸ਼ ਕੰਧਾਂ, ਕੈਫੇ, ਸ਼ੋਰੂਮ",
-          ar: "الجدران المميزة، المقاهي، صالات العرض",
-          hi: "फीचर वॉल, कैफे, शोरूम",
+          en: "Any indoor space",
+          fr: "Tout espace intérieur",
+          zh: "任何室内空间",
+          es: "Cualquier espacio interior",
+          pa: "ਕੋਈ ਵੀ ਅੰਦਰੂਨੀ ਥਾਂ",
+          ar: "أي مساحة داخلية",
+          hi: "कोई भी इनडोर स्थान",
         },
       },
       {
@@ -264,31 +288,37 @@ const SYSTEMS: {
     ],
     highlights: [
       {
-        en: "Live fish tank integrated at base",
-        fr: "Aquarium vivant intégré à la base",
-        zh: "底部集成活体鱼缸",
-        es: "Acuario vivo integrado en la base",
-        pa: "ਅਧਾਰ ਵਿੱਚ ਲਾਈਵ ਮੱਛੀ ਟੈਂਕ ਏਕੀਕ੍ਰਿਤ",
-        ar: "حوض سمك حي مدمج في القاعدة",
-        hi: "आधार में एकीकृत जीवित मछली टैंक",
+        text: {
+          en: "Live fish tank integrated at base",
+          fr: "Aquarium vivant intégré à la base",
+          zh: "底部集成活体鱼缸",
+          es: "Acuario vivo integrado en la base",
+          pa: "ਅਧਾਰ ਵਿੱਚ ਲਾਈਵ ਮੱਛੀ ਟੈਂਕ ਏਕੀਕ੍ਰਿਤ",
+          ar: "حوض سمك حي مدمج في القاعدة",
+          hi: "आधार में एकीकृत जीवित मछली टैंक",
+        },
       },
       {
-        en: "Fully soilless, gravel media beds",
-        fr: "Entièrement sans terre, lits de gravier",
-        zh: "完全无土，砾石基质床",
-        es: "Completamente sin tierra, lechos de grava",
-        pa: "ਪੂਰੀ ਤਰ੍ਹਾਂ ਮਿੱਟੀ ਰਹਿਤ, ਬੱਜਰੀ ਦੇ ਬੈੱਡ",
-        ar: "بدون تربة تمامًا، أسرة من الحصى",
-        hi: "पूर्णतः मिट्टी रहित, बजरी मीडिया बेड",
+        text: {
+          en: "Fully soilless, gravel media beds",
+          fr: "Entièrement sans terre, lits de gravier",
+          zh: "完全无土，砾石基质床",
+          es: "Completamente sin tierra, lechos de grava",
+          pa: "ਪੂਰੀ ਤਰ੍ਹਾਂ ਮਿੱਟੀ ਰਹਿਤ, ਬੱਜਰੀ ਦੇ ਬੈੱਡ",
+          ar: "بدون تربة تمامًا، أسرة من الحصى",
+          hi: "पूर्णतः मिट्टी रहित, बजरी मीडिया बेड",
+        },
       },
       {
-        en: "Continuous nutrient cycle",
-        fr: "Cycle nutritif continu",
-        zh: "持续循环的养分体系",
-        es: "Ciclo continuo de nutrientes",
-        pa: "ਨਿਰੰਤਰ ਪੋਸ਼ਣ ਚੱਕਰ",
-        ar: "دورة مغذيات مستمرة",
-        hi: "निरंतर पोषक चक्र",
+        text: {
+          en: "Continuous nutrient cycle",
+          fr: "Cycle nutritif continu",
+          zh: "持续循环的养分体系",
+          es: "Ciclo continuo de nutrientes",
+          pa: "ਨਿਰੰਤਰ ਪੋਸ਼ਣ ਚੱਕਰ",
+          ar: "دورة مغذيات مستمرة",
+          hi: "निरंतर पोषक चक्र",
+        },
       },
     ],
   },
@@ -307,18 +337,8 @@ const DIAGRAM_LABEL = {
 function SystemsShowcase() {
   const t = useT();
   const [active, setActive] = useState(0);
-  const [lightbox, setLightbox] = useState<{ src: string; title: string } | null>(null);
   const sys = SYSTEMS[active];
   const next = SYSTEMS[(active + 1) % SYSTEMS.length];
-
-  useEffect(() => {
-    if (!lightbox) return;
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setLightbox(null);
-    };
-    window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
-  }, [lightbox]);
 
   return (
     <div className="relative mx-auto max-w-7xl px-6 py-24 md:py-32">
@@ -350,13 +370,13 @@ function SystemsShowcase() {
           />
           <p className="mt-6 max-w-xl text-charcoal/70 md:text-lg">
             {t({
-              en: "Every Vertical Oxygen wall is built on one of two engineered systems. Tap through to see how each works and where it fits best.",
-              fr: "Chaque mur Vertical Oxygen repose sur l'un de nos deux systèmes d'ingénierie. Parcourez-les pour découvrir leur fonctionnement et leurs usages idéaux.",
-              zh: "每一面 Vertical Oxygen 绿墙都基于两套工程化系统之一。点击切换，了解各自的原理与适用场景。",
-              es: "Cada muro de Vertical Oxygen se construye sobre uno de dos sistemas de ingeniería. Explóralos para ver cómo funciona cada uno y dónde encaja mejor.",
-              pa: "ਹਰ Vertical Oxygen ਕੰਧ ਦੋ ਇੰਜੀਨੀਅਰਡ ਸਿਸਟਮਾਂ ਵਿੱਚੋਂ ਇੱਕ ਉੱਤੇ ਬਣੀ ਹੁੰਦੀ ਹੈ। ਦੇਖੋ ਕਿ ਹਰ ਇੱਕ ਕਿਵੇਂ ਕੰਮ ਕਰਦਾ ਹੈ ਅਤੇ ਕਿੱਥੇ ਸਭ ਤੋਂ ਵਧੀਆ ਢੁਕਦਾ ਹੈ।",
-              ar: "كل جدار من Vertical Oxygen مبني على أحد نظامين هندسيين. تصفّحهما لمعرفة آلية عمل كل نظام وأين يناسب أكثر.",
-              hi: "हर Vertical Oxygen दीवार दो इंजीनियर्ड सिस्टम में से एक पर बनी होती है। देखें कि प्रत्येक कैसे काम करता है और कहाँ सबसे उपयुक्त है।",
+              en: "Every Vertical Oxygen wall is built on one of two engineered systems.",
+              fr: "Chaque mur Vertical Oxygen repose sur l'un de nos deux systèmes d'ingénierie.",
+              zh: "每一面 Vertical Oxygen 绿墙都基于两套工程化系统之一。",
+              es: "Cada muro de Vertical Oxygen se construye sobre uno de dos sistemas de ingeniería.",
+              pa: "ਹਰ Vertical Oxygen ਕੰਧ ਦੋ ਇੰਜੀਨੀਅਰਡ ਸਿਸਟਮਾਂ ਵਿੱਚੋਂ ਇੱਕ ਉੱਤੇ ਬਣੀ ਹੁੰਦੀ ਹੈ।",
+              ar: "كل جدار من Vertical Oxygen مبني على أحد نظامين هندسيين.",
+              hi: "हर Vertical Oxygen दीवार दो इंजीनियर्ड सिस्टम में से एक पर बनी होती है।",
             })}
           </p>
         </div>
@@ -397,51 +417,9 @@ function SystemsShowcase() {
         </div>
       </div>
 
-      <div key={sys.key} className="systems-swap grid gap-10 md:grid-cols-12 md:gap-14">
-        {/* Diagram plaque */}
-        <div className="md:col-span-7">
-          <button
-            type="button"
-            onClick={() =>
-              setLightbox({
-                src: sys.diagram,
-                title: `${t(sys.title)} — ${t(DIAGRAM_LABEL)}`,
-              })
-            }
-            className="group relative block w-full overflow-hidden rounded-3xl p-3 text-left ring-1 ring-charcoal/10 transition-shadow hover:shadow-xl md:p-4"
-            aria-label={`${t({
-              en: "Enlarge",
-              fr: "Agrandir",
-              zh: "放大",
-              es: "Ampliar",
-              pa: "ਵੱਡਾ ਕਰੋ",
-              ar: "تكبير",
-              hi: "बड़ा करें",
-            })} — ${t(sys.title)}`}
-          >
-            <div
-              className="absolute inset-0 bg-cover bg-center"
-              style={{ backgroundImage: `url(${woodTexture.url})` }}
-              aria-hidden
-            />
-            <div className="absolute inset-0 bg-cream/92" aria-hidden />
-            <div className="relative overflow-hidden rounded-2xl bg-white">
-              <img
-                src={sys.diagram}
-                alt={`${t(sys.title)} — ${t(DIAGRAM_LABEL)}`}
-                className="h-auto w-full object-contain transition-transform duration-700 group-hover:scale-[1.02] md:max-h-[46rem]"
-                loading="lazy"
-              />
-              {/* Zoom hint */}
-              <span className="pointer-events-none absolute bottom-4 right-4 flex h-10 w-10 items-center justify-center rounded-full bg-charcoal/80 text-cream opacity-0 shadow-lg backdrop-blur transition-opacity duration-300 group-hover:opacity-100 md:h-12 md:w-12">
-                <ZoomIn className="h-5 w-5" aria-hidden />
-              </span>
-            </div>
-          </button>
-        </div>
-
+      <div key={sys.key} className="systems-swap grid gap-10 md:grid-cols-2 md:items-start md:gap-14">
         {/* Details */}
-        <div className="md:col-span-5">
+        <div>
           <p className="text-xs font-semibold uppercase tracking-[0.3em] text-forest">
             {t(sys.tag)}
           </p>
@@ -465,9 +443,9 @@ function SystemsShowcase() {
 
           <ul className="mt-8 space-y-3">
             {sys.highlights.map((h) => (
-              <li key={h.en} className="flex items-start gap-3 text-charcoal/80">
-                <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-forest" />
-                <span>{t(h)}</span>
+              <li key={h.text.en} className="flex items-start gap-3 text-charcoal/80">
+                <span className={`mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full ${h.color ?? "bg-forest"}`} />
+                <span>{t(h.text)}</span>
               </li>
             ))}
           </ul>
@@ -483,33 +461,17 @@ function SystemsShowcase() {
             </button>
           </div>
         </div>
-      </div>
 
-      {/* Lightbox */}
-      {lightbox && (
-        <div
-          className="fixed inset-0 z-[100] flex items-center justify-center bg-charcoal/95 p-4 backdrop-blur-sm animate-in fade-in duration-200"
-          onClick={() => setLightbox(null)}
-          role="dialog"
-          aria-modal="true"
-          aria-label={lightbox.title}
-        >
-          <button
-            type="button"
-            onClick={() => setLightbox(null)}
-            className="absolute top-5 right-5 flex h-12 w-12 items-center justify-center rounded-full bg-cream/10 text-cream transition hover:bg-cream/20"
-            aria-label={t({ en: "Close", fr: "Fermer", zh: "关闭", es: "Cerrar", pa: "ਬੰਦ ਕਰੋ", ar: "إغلاق", hi: "बंद करें" })}
-          >
-            <X className="h-6 w-6" aria-hidden />
-          </button>
+        {/* System photo */}
+        <div className="relative overflow-hidden rounded-2xl bg-white ring-1 ring-charcoal/10 shadow-[0_24px_60px_-24px_rgba(0,0,0,0.25)]">
           <img
-            src={lightbox.src}
-            alt={lightbox.title}
-            className="max-h-[90vh] max-w-[90vw] rounded-2xl bg-white object-contain shadow-2xl"
-            onClick={(e) => e.stopPropagation()}
+            src={sys.key === "hydroponic" ? hydroponicDiagram.url : aquaponicDiagram.url}
+            alt={t(sys.title)}
+            className="w-full object-cover"
+            loading="lazy"
           />
         </div>
-      )}
+      </div>
     </div>
   );
 }
@@ -789,10 +751,10 @@ function Index() {
 
         {/* Hero content */}
         <div
-          className="relative mx-auto flex h-full max-w-6xl items-center justify-end px-6 pt-40 pb-16 md:pt-44 transition-opacity duration-500"
+          className="relative mx-auto flex h-full max-w-6xl items-end justify-end px-6 pt-40 pb-12 md:items-center md:pb-16 md:pt-44 transition-opacity duration-500"
           style={{ opacity: heroDone ? 0 : 1 }}
         >
-          <div className="max-w-2xl text-right">
+          <div className="max-w-[min(18rem,80vw)] text-right md:max-w-2xl">
             <div className="reveal-fade is-visible">
               <span className="text-shadow-hero mb-4 inline-flex items-center gap-2 rounded-full border border-cream/30 bg-cream/10 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.25em] text-cream backdrop-blur-sm">
                 {t({ en: "Since 2011", fr: "Depuis 2011", zh: "始于 2011 年", es: "Desde 2011", pa: "2011 ਤੋਂ", ar: "منذ عام 2011", hi: "2011 से" })}
@@ -800,13 +762,13 @@ function Index() {
               <p className="text-shadow-hero mb-4 text-xs font-bold uppercase tracking-[0.3em] text-cream">
                 {t({ en: "Custom Living Walls", fr: "Murs végétaux sur mesure", zh: "定制植物墙", es: "Muros vivos personalizados", pa: "ਕਸਟਮ ਲਿਵਿੰਗ ਵਾਲਾਂ", ar: "جدران حية مخصصة", hi: "कस्टम लिविंग वॉल" })}
               </p>
-              <h1 className="display-heading-hero text-5xl text-cream md:text-7xl lg:text-8xl">
+              <h1 className="display-heading-hero text-[2.75rem] leading-[0.95] text-cream md:text-7xl lg:text-8xl">
                 {t({ en: "Living works", fr: "Des œuvres d'art", zh: "有生命的", es: "Obras vivas", pa: "ਜੀਵੰਤ ਰਚਨਾਵਾਂ", ar: "أعمال حية", hi: "जीवंत कृतियाँ" })}{" "}
                 <span className="whitespace-nowrap">
                   {t({ en: "of art", fr: "vivantes", zh: "艺术作品", es: "de arte", pa: "ਕਲਾ ਦੀਆਂ", ar: "من الفن", hi: "कला की" })}
                 </span>
               </h1>
-              <p className="text-shadow-hero mt-6 ml-auto max-w-xl text-lg font-medium leading-relaxed text-cream">
+              <p className="text-shadow-hero mt-6 ml-auto max-w-lg text-base font-medium leading-relaxed text-cream md:text-lg">
                 {t({
                   en: "We couple beauty with simplicity to create healthy, living works of art. Each wall is custom made to satisfy your dreams.",
                   fr: "Nous allions beauté et simplicité pour créer des œuvres d'art vivantes et saines. Chaque mur est conçu sur mesure pour concrétiser vos rêves.",
@@ -818,10 +780,10 @@ function Index() {
                 })}
               </p>
             </div>
-            <div className="mt-10 flex flex-wrap items-center justify-end gap-4 reveal is-visible" style={{ animationDelay: "200ms" }}>
+            <div className="mt-8 flex flex-wrap items-center justify-end gap-4 reveal is-visible md:mt-10" style={{ animationDelay: "200ms" }}>
               <a
                 href="#work"
-                className="slide-cta group relative inline-flex items-center rounded-full border border-cream/40 bg-cream/10 px-7 py-3.5 text-sm font-semibold text-cream shadow-lg transition-colors hover:bg-cream/20"
+                className="slide-cta group relative inline-flex items-center rounded-full border border-cream/40 bg-cream/10 px-6 py-3 text-sm font-semibold text-cream shadow-lg transition-colors hover:bg-cream/20 md:px-7 md:py-3.5"
               >
                 <span className="slide-cta-arrow pl-4 text-cream">
                   <ArrowRight className="h-4 w-4" aria-hidden />
@@ -910,6 +872,26 @@ function Index() {
           aria-hidden
           className="pointer-events-none absolute -top-24 right-[-6rem] h-[380px] w-[380px] object-contain opacity-30 md:h-[520px] md:w-[520px]"
         />
+        {/* Where we grow photo card */}
+        <div className="pointer-events-none absolute right-6 top-24 z-10 hidden w-56 overflow-hidden rounded-2xl border border-charcoal/10 bg-white p-2 shadow-lg md:block lg:w-72">
+          <img
+            src={featureOffice}
+            alt="Vertical Oxygen living wall"
+            className="aspect-[4/3] w-full rounded-xl object-cover"
+            loading="lazy"
+          />
+          <p className="px-2 pb-1 pt-2 text-center text-xs font-semibold uppercase tracking-widest text-forest">
+            {t({
+              en: "Where we grow",
+              fr: "Là où nous cultivons",
+              zh: "我们的足迹",
+              es: "Dónde crecemos",
+              pa: "ਜਿੱਥੇ ਅਸੀਂ ਵਧਦੇ ਹਾਂ",
+              ar: "أين ننمو",
+              hi: "हम कहाँ बढ़ते हैं",
+            })}
+          </p>
+        </div>
         <div className="relative mx-auto max-w-7xl px-6 py-24 md:py-32">
           <Reveal>
             <div className="mb-14 max-w-2xl">
@@ -919,13 +901,13 @@ function Index() {
               <WordsReveal
                 as="h2"
                 text={t({
-                  en: "Living walls, coast to coast.",
+                  en: "Living walls, coast to coast to coast.",
                   fr: "Des murs végétaux, d'un océan à l'autre.",
-                  zh: "植物墙，横贯东西两岸。",
-                  es: "Muros vivos, de costa a costa.",
-                  pa: "ਜੀਵੰਤ ਕੰਧਾਂ, ਤੱਟ ਤੋਂ ਤੱਟ ਤੱਕ।",
-                  ar: "جدران حية، من ساحل إلى ساحل.",
-                  hi: "जीवंत दीवारें, तट से तट तक।",
+                  zh: "植物墙，横贯东西两岸，直达北冰洋。",
+                  es: "Muros vivos, de costa a costa a costa.",
+                  pa: "ਜੀਵੰਤ ਕੰਧਾਂ, ਤੱਟ ਤੋਂ ਤੱਟ ਤੋਂ ਤੱਟ ਤੱਕ।",
+                  ar: "جدران حية، من ساحل إلى ساحل إلى ساحل.",
+                  hi: "जीवंत दीवारें, तट से तट से तट तक।",
                 })}
                 className="display-heading text-4xl leading-[1.05] text-charcoal md:text-6xl"
               />

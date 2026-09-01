@@ -14,28 +14,28 @@ type Location = {
 };
 
 const LOCATIONS: Location[] = [
-  { city: "Victoria",       province: "BC",   coordinates: [-123.365, 48.428], count: 1 },
-  { city: "Vancouver",      province: "BC",   coordinates: [-123.116, 49.246], count: 3 },
-  { city: "North Vancouver",province: "BC",   coordinates: [-123.072, 49.320], count: 1 },
-  { city: "Richmond",       province: "BC",   coordinates: [-123.136, 49.166], count: 1 },
-  { city: "Campbell River", province: "BC",   coordinates: [-125.272, 50.024], count: 1 },
-  { city: "Kelowna",        province: "BC",   coordinates: [-119.496, 49.887], count: 1 },
-  { city: "Yellowknife",    province: "NT",   coordinates: [-114.371, 62.454], count: 3 },
-  { city: "Edmonton",       province: "AB",   coordinates: [-113.492, 53.546], count: 7 },
-  { city: "Calgary",        province: "AB",   coordinates: [-114.062, 51.045], count: 8 },
   { city: "Airdrie",        province: "AB",   coordinates: [-114.014, 51.293], count: 1 },
-  { city: "High Level",     province: "AB",   coordinates: [-117.135, 58.517], count: 1 },
-  { city: "Regina",         province: "SK",   coordinates: [-104.618, 50.445], count: 1 },
-  { city: "Winnipeg",       province: "MB",   coordinates: [ -97.138, 49.895], count: 1 },
   { city: "Barrie",         province: "ON",   coordinates: [ -79.690, 44.389], count: 1 },
-  { city: "Sudbury",        province: "ON",   coordinates: [ -80.994, 46.492], count: 1 },
-  { city: "London",         province: "ON",   coordinates: [ -81.243, 42.984], count: 1 },
-  { city: "Hamilton",       province: "ON",   coordinates: [ -79.866, 43.256], count: 1 },
-  { city: "Toronto",        province: "ON",   coordinates: [ -79.383, 43.653], count: 7 },
-  { city: "Kingston",       province: "ON",   coordinates: [ -76.481, 44.231], count: 1 },
-  { city: "Moncton",        province: "NB",   coordinates: [ -64.780, 46.088], count: 1 },
+  { city: "Calgary",        province: "AB",   coordinates: [-114.062, 51.045], count: 8 },
+  { city: "Campbell River", province: "BC",   coordinates: [-125.272, 50.024], count: 1 },
+  { city: "Edmonton",       province: "AB",   coordinates: [-113.492, 53.546], count: 7 },
   { city: "Halifax",        province: "NS",   coordinates: [ -63.577, 44.649], count: 1 },
+  { city: "Hamilton",       province: "ON",   coordinates: [ -79.866, 43.256], count: 1 },
+  { city: "High Level",     province: "AB",   coordinates: [-117.135, 58.517], count: 1 },
+  { city: "Kelowna",        province: "BC",   coordinates: [-119.496, 49.887], count: 1 },
+  { city: "Kingston",       province: "ON",   coordinates: [ -76.481, 44.231], count: 1 },
+  { city: "London",         province: "ON",   coordinates: [ -81.243, 42.984], count: 1 },
+  { city: "Moncton",        province: "NB",   coordinates: [ -64.780, 46.088], count: 1 },
+  { city: "North Vancouver",province: "BC",   coordinates: [-123.072, 49.320], count: 1 },
+  { city: "Regina",         province: "SK",   coordinates: [-104.618, 50.445], count: 1 },
+  { city: "Richmond",       province: "BC",   coordinates: [-123.136, 49.166], count: 1 },
   { city: "St. John's",     province: "NL",   coordinates: [ -52.707, 47.561], count: 1 },
+  { city: "Sudbury",        province: "ON",   coordinates: [ -80.994, 46.492], count: 1 },
+  { city: "Toronto",        province: "ON",   coordinates: [ -79.383, 43.653], count: 7 },
+  { city: "Vancouver",      province: "BC",   coordinates: [-123.116, 49.246], count: 3 },
+  { city: "Victoria",       province: "BC",   coordinates: [-123.365, 48.428], count: 1 },
+  { city: "Winnipeg",       province: "MB",   coordinates: [ -97.138, 49.895], count: 1 },
+  { city: "Yellowknife",    province: "NT",   coordinates: [-114.371, 62.454], count: 3 },
 ];
 
 const TOTAL_INSTALLS = LOCATIONS.reduce((sum, l) => sum + l.count, 0);
@@ -134,13 +134,13 @@ export function LocationsMap() {
           </p>
           <p className="text-sm text-muted-foreground">
             {t({
-              en: "Communities served, coast to coast",
+              en: "Communities served, coast to coast to coast",
               fr: "Communautés desservies, d'un océan à l'autre",
-              zh: "服务遍及加拿大各地社区",
-              es: "Comunidades atendidas, de costa a costa",
-              pa: "ਤੱਟ ਤੋਂ ਤੱਟ ਤੱਕ ਸੇਵਾ ਪ੍ਰਾਪਤ ਭਾਈਚਾਰੇ",
-              ar: "مجتمعات مخدومة من ساحل إلى ساحل",
-              hi: "तट से तट तक सेवा प्राप्त समुदाय",
+              zh: "服务遍及加拿大东西北三岸社区",
+              es: "Comunidades atendidas, de costa a costa a costa",
+              pa: "ਤੱਟ ਤੋਂ ਤੱਟ ਤੋਂ ਤੱਟ ਤੱਕ ਸੇਵਾ ਪ੍ਰਾਪਤ ਭਾਈਚਾਰੇ",
+              ar: "مجتمعات مخدومة من ساحل إلى ساحل إلى ساحل",
+              hi: "तट से तट से तट तक सेवा प्राप्त समुदाय",
             })}
           </p>
         </div>
