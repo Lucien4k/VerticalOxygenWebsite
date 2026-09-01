@@ -917,12 +917,6 @@ function Index() {
 
       {/* Systems Showcase — replaces the old gallery with an interactive systems module */}
       <section id="work" className="relative z-20 -mt-[40vh] overflow-hidden rounded-t-[3rem] bg-cream text-charcoal shadow-[0_-40px_80px_-40px_rgba(0,0,0,0.45)]">
-        <img
-          src={cutoutCoaldale.url}
-          alt=""
-          aria-hidden
-          className="pointer-events-none absolute -top-16 -left-24 h-[420px] w-[560px] rotate-[-6deg] object-contain opacity-40 md:h-[560px] md:w-[760px]"
-        />
         <SystemsShowcase />
       </section>
 
