@@ -275,9 +275,8 @@ function AboutPage() {
           </a>
         </div>
       </section>
-    </main>
-
-    {/* Footer */}
+    </>
+    <footer
     <footer className="border-t border-charcoal/10 bg-cream/80 py-8">
       <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-6 md:flex-row">
         <a href="/" className="rounded-lg bg-white px-3 py-2 shadow-sm">
