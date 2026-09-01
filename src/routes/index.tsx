@@ -465,7 +465,7 @@ function SystemsShowcase() {
         {/* System photo */}
         <div className="relative overflow-hidden rounded-2xl bg-white ring-1 ring-charcoal/10 shadow-[0_24px_60px_-24px_rgba(0,0,0,0.25)]">
           <img
-            src={sys.key === "hydroponic" ? hydroponicDiagram.url : aquaponicDiagram.url}
+            src={sys.diagram}
             alt={t(sys.title)}
             className="w-full object-cover"
             loading="lazy"
