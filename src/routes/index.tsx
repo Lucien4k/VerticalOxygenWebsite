@@ -473,13 +473,6 @@ function SystemsShowcase() {
           </ul>
 
           <div className="mt-10 flex flex-wrap gap-3">
-            <a
-              href="#quote"
-              className="group inline-flex items-center gap-2 rounded-full bg-forest-deep px-6 py-3 text-xs font-semibold uppercase tracking-[0.25em] text-cream shadow-lg transition hover:bg-forest-deep/90 md:text-sm"
-            >
-              {t({ en: "Get a quote", fr: "Demander un devis", zh: "获取报价", es: "Solicitar una cotización", pa: "ਕੋਟੇਸ਼ਨ ਲਓ", ar: "احصل على عرض سعر", hi: "कोटेशन प्राप्त करें" })}
-              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-            </a>
             <button
               type="button"
               onClick={() => setActive((active + 1) % SYSTEMS.length)}
@@ -796,10 +789,10 @@ function Index() {
 
         {/* Hero content */}
         <div
-          className="relative mx-auto flex h-full max-w-6xl items-center px-6 pt-40 pb-16 md:pt-44 transition-opacity duration-500"
+          className="relative mx-auto flex h-full max-w-6xl items-center justify-end px-6 pt-40 pb-16 md:pt-44 transition-opacity duration-500"
           style={{ opacity: heroDone ? 0 : 1 }}
         >
-          <div className="max-w-2xl">
+          <div className="max-w-2xl text-right">
             <div className="reveal-fade is-visible">
               <span className="text-shadow-hero mb-4 inline-flex items-center gap-2 rounded-full border border-cream/30 bg-cream/10 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.25em] text-cream backdrop-blur-sm">
                 {t({ en: "Since 2011", fr: "Depuis 2011", zh: "始于 2011 年", es: "Desde 2011", pa: "2011 ਤੋਂ", ar: "منذ عام 2011", hi: "2011 से" })}
