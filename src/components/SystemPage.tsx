@@ -165,6 +165,29 @@ export function SystemPage({ systemKey, compact }: { systemKey: "hydroponic" | "
         </div>
       </section>
 
+      {/* Philosophy */}
+      <section className={compact ? "mx-auto max-w-6xl px-6 pb-6 pt-6" : "mx-auto max-w-6xl px-6 pb-8 pt-10"}>
+        <div className="rounded-3xl bg-forest-deep/5 px-6 py-8 ring-1 ring-forest-deep/10 md:px-10 md:py-10">
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-forest-deep/80">
+            {t({ en: "Our Philosophy", fr: "Notre philosophie", zh: "我们的理念", es: "Nuestra filosofía", pa: "ਸਾਡਾ ਦਰਸ਼ਨ", ar: "فلسفتنا", hi: "हमारा दर्शन" })}
+          </p>
+          <h2 className="mt-3 font-serif text-2xl tracking-tight text-charcoal md:text-3xl">
+            {t({ en: "Beauty with simplicity.", fr: "La beauté dans la simplicité.", zh: "以简约成就美感。", es: "Belleza con simplicidad.", pa: "ਸਾਦਗੀ ਵਿੱਚ ਸੁੰਦਰਤਾ।", ar: "الجمال في البساطة.", hi: "सादगी में सुंदरता।" })}
+          </h2>
+          <p className="mt-4 max-w-3xl text-base leading-relaxed text-charcoal/70">
+            {t({
+              en: "Living walls couple beauty with simplicity to create healthy, living works of art. Each wall is custom made to satisfy our clients' dreams.",
+              fr: "Les murs végétaux allient beauté et simplicité pour créer des œuvres d'art vivantes et saines. Chaque mur est réalisé sur mesure pour concrétiser les rêves de nos clients.",
+              zh: "植物墙将美感与简约融为一体，成为健康而有生命力的艺术作品。每一面墙都为客户梦想量身定制。",
+              es: "Los muros vegetales combinan belleza y simplicidad para crear obras de arte vivas y saludables. Cada muro se fabrica a medida para cumplir los sueños de nuestros clientes.",
+              pa: "ਜੀਵੰਤ ਕੰਧਾਂ ਸਾਦਗੀ ਨਾਲ ਸੁੰਦਰਤਾ ਨੂੰ ਜੋੜ ਕੇ ਸਿਹਤਮੰਦ, ਜੀਵਤ ਕਲਾ ਦੀਆਂ ਰਚਨਾਵਾਂ ਬਣਾਉਂਦੀਆਂ ਹਨ। ਹਰ ਕੰਧ ਸਾਡੇ ਗਾਹਕਾਂ ਦੇ ਸੁਪਨਿਆਂ ਨੂੰ ਪੂਰਾ ਕਰਨ ਲਈ ਖਾਸ ਤੌਰ 'ਤੇ ਬਣਾਈ ਜਾਂਦੀ ਹੈ।",
+              ar: "تجمع الجدران الخضراء بين الجمال والبساطة لخلق أعمال فنية حية وصحية. يُصنع كل جدار خصيصًا لتحقيق أحلام عملائنا.",
+              hi: "लिविंग वॉल सुंदरता और सादगी को जोड़कर स्वस्थ, जीवंत कला कृतियाँ बनाती हैं। हर दीवार हमारे ग्राहकों के सपनों को पूरा करने के लिए विशेष रूप से बनाई जाती है।",
+            })}
+          </p>
+        </div>
+      </section>
+
       {/* Stats */}
       <section className="border-y border-charcoal/10 bg-white/50 py-12">
         <div className="mx-auto grid max-w-6xl gap-6 px-6 sm:grid-cols-2 lg:grid-cols-4">
