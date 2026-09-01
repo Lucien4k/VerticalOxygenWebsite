@@ -99,13 +99,13 @@ export function ClientLogos() {
         </p>
         <h2 className="display-heading text-4xl leading-[1.05] text-charcoal md:text-5xl">
           {t({
-            en: "Trusted by industries across Canada.",
-            fr: "Reconnus par des secteurs d'activité partout au Canada.",
-            zh: "深受加拿大各行业信赖。",
-            es: "Respaldados por industrias de todo Canadá.",
-            pa: "ਕੈਨੇਡਾ ਭਰ ਦੀਆਂ ਇੰਡਸਟਰੀਆਂ ਦੁਆਰਾ ਭਰੋਸੇਯੋਗ।",
-            ar: "موثوق به من قبل قطاعات في جميع أنحاء كندا.",
-            hi: "कनाडा की विभिन्न उद्योगों द्वारा विश्वसनीय।",
+            en: "Trusted by organizations across Canada.",
+            fr: "Reconnus par des organismes partout au Canada.",
+            zh: "深受加拿大各地组织信赖。",
+            es: "Respaldados por organizaciones de todo Canadá.",
+            pa: "ਕੈਨੇਡਾ ਭਰ ਦੀਆਂ ਸੰਥਾਵਾਂ ਦੁਆਰਾ ਭਰੋਸੇਯੋਗ।",
+            ar: "موثوق به من قبل مؤسسات في جميع أنحاء كندا.",
+            hi: "कनाडा की विभिन्न संगठनों द्वारा विश्वसनीय।",
           })}
         </h2>
         <p className="mt-4 text-charcoal/70">
