@@ -294,6 +294,36 @@ function Index() {
       if (raf) cancelAnimationFrame(raf);
     };
   }, []);
+  const philosophyRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    let raf = 0;
+    const secondHero = document.getElementById("second-hero");
+    if (!secondHero) return;
+    const update = () => {
+      raf = 0;
+      const vh = window.innerHeight;
+      const rect = secondHero.getBoundingClientRect();
+      const total = secondHero.offsetHeight - vh;
+      const scrolled = Math.min(Math.max(-rect.top, 0), total);
+      const p = total > 0 ? scrolled / total : 1;
+      const progress = Math.min(1, Math.max(0, (p - 0.45) / 0.4));
+      if (philosophyRef.current) {
+        philosophyRef.current.style.opacity = String(progress);
+        philosophyRef.current.style.transform = `translateY(${(1 - progress) * 80}px)`;
+      }
+    };
+    const onScroll = () => {
+      if (!raf) raf = requestAnimationFrame(update);
+    };
+    update();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+      if (raf) cancelAnimationFrame(raf);
+    };
+  }, []);
   return (
     <div className="min-h-screen bg-background">
       <ScrollProgress />
