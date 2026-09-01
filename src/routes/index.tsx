@@ -751,10 +751,10 @@ function Index() {
 
         {/* Hero content */}
         <div
-          className="relative mx-auto flex h-full max-w-6xl items-center justify-end px-6 pt-40 pb-16 md:pt-44 transition-opacity duration-500"
+          className="relative mx-auto flex h-full max-w-6xl items-center justify-start px-6 pt-40 pb-16 md:justify-end md:pt-44 transition-opacity duration-500"
           style={{ opacity: heroDone ? 0 : 1 }}
         >
-          <div className="max-w-2xl text-right">
+          <div className="max-w-2xl text-left md:text-right">
             <div className="reveal-fade is-visible">
               <span className="text-shadow-hero mb-4 inline-flex items-center gap-2 rounded-full border border-cream/30 bg-cream/10 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.25em] text-cream backdrop-blur-sm">
                 {t({ en: "Since 2011", fr: "Depuis 2011", zh: "始于 2011 年", es: "Desde 2011", pa: "2011 ਤੋਂ", ar: "منذ عام 2011", hi: "2011 से" })}
@@ -768,7 +768,7 @@ function Index() {
                   {t({ en: "of art", fr: "vivantes", zh: "艺术作品", es: "de arte", pa: "ਕਲਾ ਦੀਆਂ", ar: "من الفن", hi: "कला की" })}
                 </span>
               </h1>
-              <p className="text-shadow-hero mt-6 ml-auto max-w-xl text-lg font-medium leading-relaxed text-cream">
+              <p className="text-shadow-hero mt-6 max-w-xl text-lg font-medium leading-relaxed text-cream md:ml-auto">
                 {t({
                   en: "We couple beauty with simplicity to create healthy, living works of art. Each wall is custom made to satisfy your dreams.",
                   fr: "Nous allions beauté et simplicité pour créer des œuvres d'art vivantes et saines. Chaque mur est conçu sur mesure pour concrétiser vos rêves.",
@@ -780,7 +780,7 @@ function Index() {
                 })}
               </p>
             </div>
-            <div className="mt-10 flex flex-wrap items-center justify-end gap-4 reveal is-visible" style={{ animationDelay: "200ms" }}>
+            <div className="mt-10 flex flex-wrap items-center justify-start gap-4 reveal is-visible md:justify-end" style={{ animationDelay: "200ms" }}>
               <a
                 href="#work"
                 className="slide-cta group relative inline-flex items-center rounded-full border border-cream/40 bg-cream/10 px-7 py-3.5 text-sm font-semibold text-cream shadow-lg transition-colors hover:bg-cream/20"
