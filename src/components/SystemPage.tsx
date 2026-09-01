@@ -59,7 +59,7 @@ export function SystemPage({ systemKey, compact }: { systemKey: "hydroponic" | "
       </header>
 
       {/* Hero */}
-      <section className="mx-auto max-w-6xl px-6 pb-16 pt-16 md:pt-24">
+      <section className={compact ? "mx-auto max-w-6xl px-6 pb-10 pt-12 md:pt-16" : "mx-auto max-w-6xl px-6 pb-16 pt-16 md:pt-24"}>
         <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
           <div>
             <span className="inline-flex items-center gap-2 rounded-full border border-forest-deep/30 bg-forest-deep/5 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] text-forest-deep">
@@ -80,9 +80,11 @@ export function SystemPage({ systemKey, compact }: { systemKey: "hydroponic" | "
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-charcoal/70 md:text-xl">
               {t(sys.tagline)}
             </p>
-            <p className="mt-4 max-w-xl text-base leading-relaxed text-charcoal/60">
-              {t(sys.description)}
-            </p>
+            {!compact && (
+              <p className="mt-4 max-w-xl text-base leading-relaxed text-charcoal/60">
+                {t(sys.description)}
+              </p>
+            )}
 
             <div className="mt-8 flex flex-wrap items-center gap-3">
               <a
