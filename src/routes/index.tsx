@@ -578,7 +578,7 @@ function Index() {
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/50" />
       </div>
       <section id="about" className="relative overflow-hidden bg-background">
-        <div className="mx-auto max-w-7xl px-6 py-28 md:py-40">
+        <div className="mx-auto max-w-7xl px-6 py-20 md:py-28">
           <div className="relative overflow-hidden rounded-3xl">
             <img
               src={spiderPothos.url}
