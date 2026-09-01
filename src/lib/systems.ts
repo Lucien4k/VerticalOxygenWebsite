@@ -1,6 +1,6 @@
 import type { Tr } from "@/lib/i18n";
-import diagramAquaponic from "../assets/diagrams/aquaponic-wall-diagram-v7.png.asset.json";
-import diagramHydroponic from "../assets/diagrams/hydroponic-wall-diagram-v5.png.asset.json";
+import diagramAquaponic from "../assets/diagrams/aquaponic-wall-diagram-v8.png";
+import diagramHydroponic from "../assets/diagrams/hydroponic-wall-diagram-v6.png";
 
 export type System = {
   key: string;
