@@ -53,7 +53,6 @@ import installConexus from "../assets/installs/conexus-regina.jpeg.asset.json";
 import install0628 from "../assets/installs/img-0628.jpg.asset.json";
 import cutoutCoaldale from "../assets/cutouts/coaldale-wall.png.asset.json";
 
-import cutoutWallB from "../assets/cutouts/wall-b.png.asset.json";
 import woodTexture from "../assets/textures/wood-texture-v2.jpg.asset.json";
 import logoHeader from "../assets/logo-header.png.asset.json";
 import { SYSTEMS, DIAGRAM_LABEL } from "@/lib/systems";
