@@ -596,7 +596,7 @@ function Index() {
       <div className="relative z-10 mt-[175vh] bg-background">
 
       {/* Scroll-scrubbed panel sequence — second hero */}
-      <ScrollFramesSection frames={HERO2_FRAME_URLS} scrollLength={1.5} />
+      <ScrollFramesSection id="second-hero" frames={HERO2_FRAME_URLS} scrollLength={1.5} />
 
       {/* Philosophy / About */}
       {/* Wood shelf divider */}
