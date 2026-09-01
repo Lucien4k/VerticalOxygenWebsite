@@ -175,7 +175,7 @@ export const SYSTEMS: System[] = [
       ar: "دورة مغلقة · أسماك ونباتات",
       hi: "क्लोज़्ड-लूप · मछली + पौधे",
     },
-    diagram: diagramAquaponic.url,
+    diagram: diagramAquaponic,
     tagline: {
       en: "One ecosystem. Zero waste.",
       fr: "Un écosystème. Zéro déchet.",
