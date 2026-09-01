@@ -885,30 +885,30 @@ function Index() {
         overlay={
           <div className="max-w-2xl">
             <p className="text-shadow-hero mb-4 text-xs font-bold uppercase tracking-[0.3em] text-white">
-              {t({ en: "Engineered in layers", fr: "Conçu par couches", zh: "分层工程结构", es: "Diseñado por capas", pa: "ਪਰਤਾਂ ਵਿੱਚ ਇੰਜੀਨੀਅਰਡ", ar: "مصمم بطبقات", hi: "परतों में इंजीनियर्ड" })}
+              {t({ en: "Custom-built on site", fr: "Construit sur mesure sur site", zh: "现场量身定制", es: "Construido a medida en el sitio", pa: "ਸਾਈਟ 'ਤੇ ਕਸਟਮ-ਨਿਰਮਿਤ", ar: "مصمم حسب الطلب في الموقع", hi: "साइट पर कस्टम-निर्मित" })}
             </p>
             <WordsReveal
               as="h2"
               text={t({
-                en: "Panels that come together as one.",
-                fr: "Des panneaux qui n'en forment qu'un.",
-                zh: "块块面板，浑然一体。",
-                es: "Paneles que se unen en uno solo.",
-                pa: "ਪੈਨਲ ਜੋ ਮਿਲ ਕੇ ਇੱਕ ਬਣਦੇ ਹਨ।",
-                ar: "ألواح تتحد لتصبح واحدة.",
-                hi: "पैनल जो मिलकर एक बनते हैं।",
+                en: "Every living wall is designed, planted, and assembled for your space.",
+                fr: "Chaque mur végétal est conçu, planté et assemblé pour votre espace.",
+                zh: "每一面绿墙都是为您的空间设计、栽植并组装的。",
+                es: "Cada muro vivo se diseña, planta y ensambla para tu espacio.",
+                pa: "ਹਰ ਲਿਵਿੰਗ ਵਾਲ ਤੁਹਾਡੀ ਜਗਹ ਲਈ ਡਿਜ਼ਾਈਨ, ਲਗਾਏ ਅਤੇ ਜੋੜੇ ਜਾਂਦੇ ਹਨ।",
+                ar: "كل جدار حي يُصمم ويُزرع ويُركّب خصيصًا لمساحتك.",
+                hi: "हर लिविंग वॉल आपकी जगह के लिए डिज़ाइन, रोपित और असेंबल की जाती है।",
               })}
               className="display-heading-hero text-4xl text-cream md:text-6xl lg:text-7xl"
             />
             <p className="text-shadow-hero mt-6 text-lg font-medium leading-relaxed text-cream md:text-xl">
               {t({
-                en: "Every wall is built from modular panels — designed, planted, and assembled on-site. Scroll to see how the pieces come together.",
-                fr: "Chaque mur est constitué de panneaux modulaires — conçus, plantés et assemblés sur place. Faites défiler pour voir les pièces s'assembler.",
-                zh: "每一面墙都由模块化面板组成——设计、栽植并在现场组装。向下滚动，看它们如何合而为一。",
-                es: "Cada muro se construye con paneles modulares: diseñados, plantados y ensamblados en el sitio. Desplázate para ver cómo se unen las piezas.",
-                pa: "ਹਰ ਕੰਧ ਮਾਡਿਊਲਰ ਪੈਨਲਾਂ ਤੋਂ ਬਣਾਈ ਜਾਂਦੀ ਹੈ — ਡਿਜ਼ਾਈਨ, ਪੌਦੇ ਲਾਏ ਅਤੇ ਸਾਈਟ 'ਤੇ ਜੋੜੇ ਜਾਂਦੇ ਹਨ। ਟੁਕੜੇ ਕਿਵੇਂ ਜੁੜਦੇ ਹਨ ਵੇਖਣ ਲਈ ਸਕ੍ਰੋਲ ਕਰੋ।",
-                ar: "يُبنى كل جدار من ألواح معيارية — يتم تصميمها وزراعتها وتركيبها في الموقع. مرر للأسفل لترى كيف تتجمع القطع معًا.",
-                hi: "हर दीवार मॉड्यूलर पैनलों से बनती है — डिज़ाइन, रोपित और साइट पर असेंबल की जाती है। टुकड़े कैसे जुड़ते हैं यह देखने के लिए स्क्रॉल करें।",
+                en: "Not pulled from a warehouse shelf. Our team builds each installation on location so it fits the architecture, light, and intent of the room.",
+                fr: "Pas sorti d'une étagère d'entrepôt. Notre équipe réalise chaque installation sur place pour qu'elle s'accorde à l'architecture, à la lumière et à l'intention de la pièce.",
+                zh: "不是从仓库货架上取下的。我们的团队在现场完成每一次安装，使其契合建筑、光线与空间意境。",
+                es: "No se saca de un estante de almacén. Nuestro equipo construye cada instalación en el lugar para que encaje con la arquitectura, la luz y la intención del espacio.",
+                pa: "ਗੁਦਾਮ ਦੀ ਅਲਮਾਰੀ ਤੋਂ ਨਹੀਂ ਲਿਆ ਜਾਂਦਾ। ਸਾਡੀ ਟੀਮ ਹਰ ਇੰਸਟਾਲੇਸ਼ਨ ਸਥਾਨ 'ਤੇ ਬਣਾਉਂਦੀ ਹੈ ਤਾਂ ਜੋ ਇਹ ਕਮਰੇ ਦੀ ਬਣਤਰ, ਰੋਸ਼ਨੀ ਅਤੇ ਮਕਸਦ ਨਾਲ ਮੇਲ ਖਾਵੇ।",
+                ar: "لا يُؤخذ من رف المستودع. يبني فريقنا كل تركيبة في الموقع لتناسب الهندسة المعمارية والإضاءة والغرض من المكان.",
+                hi: "गोदाम की अलमारी से नहीं उठाई जाती। हमारी टीम हर इंस्टॉलेशन साइट पर बनाती है ताकि वह कमरे के वास्तुकला, रोशनी और मकसद के अनुरूप हो।",
               })}
             </p>
           </div>
