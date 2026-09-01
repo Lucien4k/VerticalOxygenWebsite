@@ -436,7 +436,7 @@ function Index() {
                           hi: "हल्का पुनर्चक्रित सिस्टम",
                         }),
                         href: "/hydroponic",
-                        image: hydroponicDiagram.url,
+                        image: SYSTEMS[0].diagram,
                       },
                       {
                         label: t({ en: "Aquaponic", fr: "Aquaponique", zh: "鱼菜共生系统", es: "Acuapónico", pa: "ਐਕੁਆਪੋਨਿਕ", ar: "الاستزراع المائي التكافلي", hi: "एक्वापोनिक" }),
@@ -450,7 +450,7 @@ function Index() {
                           hi: "मछली + पौधा इकोसिस्टम",
                         }),
                         href: "/aquaponic",
-                        image: aquaponicDiagram.url,
+                        image: SYSTEMS[1].diagram,
                       },
                       {
                         label: t({ en: "Recent Installations", fr: "Réalisations récentes", zh: "近期案例", es: "Instalaciones recientes", pa: "ਹਾਲੀਆ ਸਥਾਪਨਾਵਾਂ", ar: "أحدث التركيبات", hi: "हाल की इंस्टॉलेशन" }),
