@@ -22,7 +22,7 @@
 - [x] Move systems data to shared `src/lib/systems.ts`
 - [x] Create separate `/hydroponic` and `/aquaponic` pages
 - [x] Add Hydroponic & Aquaponic links to Work dropdown menu
+- [x] Regenerate system diagrams: "CISTERN" → "AQUARIUM", remove "MODERN LIVING-WALL ASSEMBLY"
 
 ## Still to do
-- [ ] Find and change "cistern" to "aquarium" (not found in code — may be in an image asset)
-- [ ] Find and remove "modern living wall assembly" at bottom (not found in code — may be in an image asset)
+- [ ] Verify updated diagrams render on `/hydroponic` and `/aquaponic`
