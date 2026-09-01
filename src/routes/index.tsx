@@ -900,17 +900,6 @@ function Index() {
               })}
               className="display-heading-hero text-4xl text-cream md:text-6xl lg:text-7xl"
             />
-            <p className="text-shadow-hero mt-6 text-lg font-medium leading-relaxed text-cream md:text-xl">
-              {t({
-                en: "Not pulled from a warehouse shelf. Our team builds each installation on location so it fits the architecture, light, and intent of the room.",
-                fr: "Pas sorti d'une étagère d'entrepôt. Notre équipe réalise chaque installation sur place pour qu'elle s'accorde à l'architecture, à la lumière et à l'intention de la pièce.",
-                zh: "不是从仓库货架上取下的。我们的团队在现场完成每一次安装，使其契合建筑、光线与空间意境。",
-                es: "No se saca de un estante de almacén. Nuestro equipo construye cada instalación en el lugar para que encaje con la arquitectura, la luz y la intención del espacio.",
-                pa: "ਗੁਦਾਮ ਦੀ ਅਲਮਾਰੀ ਤੋਂ ਨਹੀਂ ਲਿਆ ਜਾਂਦਾ। ਸਾਡੀ ਟੀਮ ਹਰ ਇੰਸਟਾਲੇਸ਼ਨ ਸਥਾਨ 'ਤੇ ਬਣਾਉਂਦੀ ਹੈ ਤਾਂ ਜੋ ਇਹ ਕਮਰੇ ਦੀ ਬਣਤਰ, ਰੋਸ਼ਨੀ ਅਤੇ ਮਕਸਦ ਨਾਲ ਮੇਲ ਖਾਵੇ।",
-                ar: "لا يُؤخذ من رف المستودع. يبني فريقنا كل تركيبة في الموقع لتناسب الهندسة المعمارية والإضاءة والغرض من المكان.",
-                hi: "गोदाम की अलमारी से नहीं उठाई जाती। हमारी टीम हर इंस्टॉलेशन साइट पर बनाती है ताकि वह कमरे के वास्तुकला, रोशनी और मकसद के अनुरूप हो।",
-              })}
-            </p>
           </div>
         }
       />
