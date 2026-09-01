@@ -568,6 +568,91 @@ function Index() {
       {/* Scroll-scrubbed panel sequence — second hero */}
       <ScrollFramesSection frames={HERO2_FRAME_URLS} scrollLength={1.5} />
 
+      {/* Philosophy / About */}
+      {/* Wood shelf divider */}
+      <div className="relative h-5 w-full overflow-hidden md:h-7" aria-hidden>
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: `url(${woodTexture.url})`, backgroundPositionX: "70%" }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/50" />
+      </div>
+      <section id="about" className="relative overflow-hidden bg-background">
+        <img
+          src={cutoutWallB.url}
+          alt=""
+          aria-hidden
+          className="pointer-events-none absolute -top-32 -right-40 h-[460px] w-[360px] object-contain opacity-50 md:h-[620px] md:w-[480px]"
+          style={{
+            WebkitMaskImage:
+              "radial-gradient(ellipse at 30% 60%, black 45%, transparent 80%)",
+            maskImage:
+              "radial-gradient(ellipse at 30% 60%, black 45%, transparent 80%)",
+          }}
+        />
+        <div className="mx-auto max-w-7xl px-6 py-20 md:py-28">
+          <div className="relative overflow-hidden rounded-3xl">
+            <img
+              src={spiderPothos.url}
+              alt={t({
+                en: "Spider plant and pothos texture close-up",
+                fr: "Gros plan sur la texture d'une plante araignée et d'un pothos",
+                zh: "吊兰与绿萝纹理特写",
+                es: "Primer plano de la textura de cinta y potos",
+                pa: "ਸਪਾਈਡਰ ਪਲਾਂਟ ਅਤੇ ਪੋਥੋਸ ਟੈਕਸਚਰ ਦਾ ਨਜ਼ਦੀਕੀ ਦ੍ਰਿਸ਼",
+                ar: "لقطة مقربة لنسيج نبات العنكبوت والبوتوس",
+                hi: "स्पाइडर प्लांट और पोथोस बनावट का क्लोज़-अप",
+              })}
+              className="absolute inset-0 h-full w-full object-cover"
+              loading="lazy"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/55 to-black/25" />
+            <Reveal className="relative px-8 py-16 md:px-16 md:py-24 lg:max-w-2xl">
+              <p className="mb-3 text-xs font-semibold uppercase tracking-[0.3em] text-sage-wash">
+                {t({ en: "Our Philosophy", fr: "Notre philosophie", zh: "我们的理念", es: "Nuestra filosofía", pa: "ਸਾਡਾ ਦਰਸ਼ਨ", ar: "فلسفتنا", hi: "हमारा दर्शन" })}
+              </p>
+              <WordsReveal
+                as="h2"
+                text={t({
+                  en: "Beauty with simplicity.",
+                  fr: "La beauté dans la simplicité.",
+                  zh: "以简约成就美感。",
+                  es: "Belleza con simplicidad.",
+                  pa: "ਸਾਦਗੀ ਵਿੱਚ ਸੁੰਦਰਤਾ।",
+                  ar: "الجمال في البساطة.",
+                  hi: "सादगी में सुंदरता।",
+                })}
+                className="display-heading text-4xl leading-[1.02] text-white md:text-6xl"
+              />
+              <div className="mt-8 space-y-5 text-base leading-relaxed text-white/90">
+                <p>
+                  {t({
+                    en: "Living walls couple beauty with simplicity to create healthy, living works of art. They are composed of a variety of tropical plants grown hydroponically.",
+                    fr: "Les murs végétaux allient beauté et simplicité pour créer des œuvres d'art vivantes et saines. Ils réunissent une variété de plantes tropicales cultivées en hydroponie.",
+                    zh: "植物墙将美感与简约融为一体，成为健康而有生命力的艺术作品。它们由多种热带植物组成，采用水培栽培。",
+                    es: "Los muros vegetales combinan belleza y simplicidad para crear obras de arte vivas y saludables. Están compuestos por una variedad de plantas tropicales cultivadas de forma hidropónica.",
+                    pa: "ਜੀਵੰਤ ਕੰਧਾਂ ਸਾਦਗੀ ਨਾਲ ਸੁੰਦਰਤਾ ਨੂੰ ਜੋੜ ਕੇ ਸਿਹਤਮੰਦ, ਜੀਵਤ ਕਲਾ ਦੀਆਂ ਰਚਨਾਵਾਂ ਬਣਾਉਂਦੀਆਂ ਹਨ। ਇਹ ਕਈ ਤਰ੍ਹਾਂ ਦੇ ਟ੍ਰੌਪੀਕਲ ਪੌਦਿਆਂ ਤੋਂ ਬਣੀਆਂ ਹੁੰਦੀਆਂ ਹਨ ਜੋ ਹਾਈਡ੍ਰੋਪੋਨਿਕ ਤਰੀਕੇ ਨਾਲ ਉਗਾਈਆਂ ਜਾਂਦੀਆਂ ਹਨ।",
+                    ar: "تجمع الجدران الخضراء بين الجمال والبساطة لخلق أعمال فنية حية وصحية. وهي مكونة من مجموعة متنوعة من النباتات الاستوائية التي تُزرع مائيًا.",
+                    hi: "लिविंग वॉल सुंदरता और सादगी को जोड़कर स्वस्थ, जीवंत कला कृतियाँ बनाती हैं। ये विभिन्न प्रकार के उष्णकटिबंधीय पौधों से बनी होती हैं जिन्हें हाइड्रोपोनिक तरीके से उगाया जाता है।",
+                  })}
+                </p>
+                <p>
+                  {t({
+                    en: "Each living wall is custom made to satisfy our clients' dreams. We believe that bringing nature indoors should feel effortless — a seamless extension of your space and your vision.",
+                    fr: "Chaque mur végétal est réalisé sur mesure pour concrétiser les rêves de nos clients. Nous croyons que faire entrer la nature à l'intérieur doit être sans effort — un prolongement naturel de votre espace et de votre vision.",
+                    zh: "每一面植物墙都为客户的梦想量身定制。我们相信，把自然引入室内应当毫不费力——成为空间与愿景的自然延伸。",
+                    es: "Cada muro vegetal se fabrica a medida para cumplir los sueños de nuestros clientes. Creemos que traer la naturaleza al interior debe sentirse sin esfuerzo — una extensión natural de su espacio y su visión.",
+                    pa: "ਹਰ ਜੀਵੰਤ ਕੰਧ ਸਾਡੇ ਗਾਹਕਾਂ ਦੇ ਸੁਪਨਿਆਂ ਨੂੰ ਪੂਰਾ ਕਰਨ ਲਈ ਖਾਸ ਤੌਰ 'ਤੇ ਬਣਾਈ ਜਾਂਦੀ ਹੈ। ਸਾਡਾ ਮੰਨਣਾ ਹੈ ਕਿ ਕੁਦਰਤ ਨੂੰ ਘਰ ਦੇ ਅੰਦਰ ਲਿਆਉਣਾ ਸੌਖਾ ਮਹਿਸੂਸ ਹੋਣਾ ਚਾਹੀਦਾ ਹੈ — ਤੁਹਾਡੀ ਥਾਂ ਅਤੇ ਦ੍ਰਿਸ਼ਟੀ ਦਾ ਇੱਕ ਸਹਿਜ ਵਿਸਥਾਰ।",
+                    ar: "يُصنع كل جدار أخضر خصيصًا لتحقيق أحلام عملائنا. نؤمن بأن إدخال الطبيعة إلى الداخل يجب أن يكون سلسًا — امتدادًا طبيعًا لمساحتك ورؤيتك.",
+                    hi: "हर लिविंग वॉल हमारे ग्राहकों के सपनों को पूरा करने के लिए विशेष रूप से बनाई जाती है। हमारा मानना है कि प्रकृति को घर के अंदर लाना सहज लगना चाहिए — आपकी जगह और दृष्टिकोण का एक निर्बाध विस्तार।",
+                  })}
+                </p>
+              </div>
+            </Reveal>
+          </div>
+        </div>
+      </section>
+
       {/* Systems Showcase — replaces the old gallery with an interactive systems module */}
       <section id="work" className="relative z-20 -mt-[40vh] overflow-hidden rounded-t-[3rem] bg-cream text-charcoal shadow-[0_-40px_80px_-40px_rgba(0,0,0,0.45)]">
         <SystemsShowcase />
@@ -1104,91 +1189,6 @@ function Index() {
               </Link>
             </div>
           </Reveal>
-        </div>
-      </section>
-
-      {/* Philosophy / About */}
-      {/* Wood shelf divider */}
-      <div className="relative h-5 w-full overflow-hidden md:h-7" aria-hidden>
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: `url(${woodTexture.url})`, backgroundPositionX: "70%" }}
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/50" />
-      </div>
-      <section id="about" className="relative overflow-hidden bg-background">
-        <img
-          src={cutoutWallB.url}
-          alt=""
-          aria-hidden
-          className="pointer-events-none absolute -top-32 -right-40 h-[460px] w-[360px] object-contain opacity-50 md:h-[620px] md:w-[480px]"
-          style={{
-            WebkitMaskImage:
-              "radial-gradient(ellipse at 30% 60%, black 45%, transparent 80%)",
-            maskImage:
-              "radial-gradient(ellipse at 30% 60%, black 45%, transparent 80%)",
-          }}
-        />
-        <div className="mx-auto max-w-7xl px-6 py-20 md:py-28">
-          <div className="relative overflow-hidden rounded-3xl">
-            <img
-              src={spiderPothos.url}
-              alt={t({
-                en: "Spider plant and pothos texture close-up",
-                fr: "Gros plan sur la texture d'une plante araignée et d'un pothos",
-                zh: "吊兰与绿萝纹理特写",
-                es: "Primer plano de la textura de cinta y potos",
-                pa: "ਸਪਾਈਡਰ ਪਲਾਂਟ ਅਤੇ ਪੋਥੋਸ ਟੈਕਸਚਰ ਦਾ ਨਜ਼ਦੀਕੀ ਦ੍ਰਿਸ਼",
-                ar: "لقطة مقربة لنسيج نبات العنكبوت والبوتوس",
-                hi: "स्पाइडर प्लांट और पोथोस बनावट का क्लोज़-अप",
-              })}
-              className="absolute inset-0 h-full w-full object-cover"
-              loading="lazy"
-            />
-            <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/55 to-black/25" />
-            <Reveal className="relative px-8 py-16 md:px-16 md:py-24 lg:max-w-2xl">
-              <p className="mb-3 text-xs font-semibold uppercase tracking-[0.3em] text-sage-wash">
-                {t({ en: "Our Philosophy", fr: "Notre philosophie", zh: "我们的理念", es: "Nuestra filosofía", pa: "ਸਾਡਾ ਦਰਸ਼ਨ", ar: "فلسفتنا", hi: "हमारा दर्शन" })}
-              </p>
-              <WordsReveal
-                as="h2"
-                text={t({
-                  en: "Beauty with simplicity.",
-                  fr: "La beauté dans la simplicité.",
-                  zh: "以简约成就美感。",
-                  es: "Belleza con simplicidad.",
-                  pa: "ਸਾਦਗੀ ਵਿੱਚ ਸੁੰਦਰਤਾ।",
-                  ar: "الجمال في البساطة.",
-                  hi: "सादगी में सुंदरता।",
-                })}
-                className="display-heading text-4xl leading-[1.02] text-white md:text-6xl"
-              />
-              <div className="mt-8 space-y-5 text-base leading-relaxed text-white/90">
-                <p>
-                  {t({
-                    en: "Living walls couple beauty with simplicity to create healthy, living works of art. They are composed of a variety of tropical plants grown hydroponically.",
-                    fr: "Les murs végétaux allient beauté et simplicité pour créer des œuvres d'art vivantes et saines. Ils réunissent une variété de plantes tropicales cultivées en hydroponie.",
-                    zh: "植物墙将美感与简约融为一体，成为健康而有生命力的艺术作品。它们由多种热带植物组成，采用水培栽培。",
-                    es: "Los muros vegetales combinan belleza y simplicidad para crear obras de arte vivas y saludables. Están compuestos por una variedad de plantas tropicales cultivadas de forma hidropónica.",
-                    pa: "ਜੀਵੰਤ ਕੰਧਾਂ ਸਾਦਗੀ ਨਾਲ ਸੁੰਦਰਤਾ ਨੂੰ ਜੋੜ ਕੇ ਸਿਹਤਮੰਦ, ਜੀਵਤ ਕਲਾ ਦੀਆਂ ਰਚਨਾਵਾਂ ਬਣਾਉਂਦੀਆਂ ਹਨ। ਇਹ ਕਈ ਤਰ੍ਹਾਂ ਦੇ ਟ੍ਰੌਪੀਕਲ ਪੌਦਿਆਂ ਤੋਂ ਬਣੀਆਂ ਹੁੰਦੀਆਂ ਹਨ ਜੋ ਹਾਈਡ੍ਰੋਪੋਨਿਕ ਤਰੀਕੇ ਨਾਲ ਉਗਾਈਆਂ ਜਾਂਦੀਆਂ ਹਨ।",
-                    ar: "تجمع الجدران الخضراء بين الجمال والبساطة لخلق أعمال فنية حية وصحية. وهي مكونة من مجموعة متنوعة من النباتات الاستوائية التي تُزرع مائيًا.",
-                    hi: "लिविंग वॉल सुंदरता और सादगी को जोड़कर स्वस्थ, जीवंत कला कृतियाँ बनाती हैं। ये विभिन्न प्रकार के उष्णकटिबंधीय पौधों से बनी होती हैं जिन्हें हाइड्रोपोनिक तरीके से उगाया जाता है।",
-                  })}
-                </p>
-                <p>
-                  {t({
-                    en: "Each living wall is custom made to satisfy our clients' dreams. We believe that bringing nature indoors should feel effortless — a seamless extension of your space and your vision.",
-                    fr: "Chaque mur végétal est réalisé sur mesure pour concrétiser les rêves de nos clients. Nous croyons que faire entrer la nature à l'intérieur doit être sans effort — un prolongement naturel de votre espace et de votre vision.",
-                    zh: "每一面植物墙都为客户的梦想量身定制。我们相信，把自然引入室内应当毫不费力——成为空间与愿景的自然延伸。",
-                    es: "Cada muro vegetal se fabrica a medida para cumplir los sueños de nuestros clientes. Creemos que traer la naturaleza al interior debe sentirse sin esfuerzo — una extensión natural de su espacio y su visión.",
-                    pa: "ਹਰ ਜੀਵੰਤ ਕੰਧ ਸਾਡੇ ਗਾਹਕਾਂ ਦੇ ਸੁਪਨਿਆਂ ਨੂੰ ਪੂਰਾ ਕਰਨ ਲਈ ਖਾਸ ਤੌਰ 'ਤੇ ਬਣਾਈ ਜਾਂਦੀ ਹੈ। ਸਾਡਾ ਮੰਨਣਾ ਹੈ ਕਿ ਕੁਦਰਤ ਨੂੰ ਘਰ ਦੇ ਅੰਦਰ ਲਿਆਉਣਾ ਸੌਖਾ ਮਹਿਸੂਸ ਹੋਣਾ ਚਾਹੀਦਾ ਹੈ — ਤੁਹਾਡੀ ਥਾਂ ਅਤੇ ਦ੍ਰਿਸ਼ਟੀ ਦਾ ਇੱਕ ਸਹਿਜ ਵਿਸਥਾਰ।",
-                    ar: "يُصنع كل جدار أخضر خصيصًا لتحقيق أحلام عملائنا. نؤمن بأن إدخال الطبيعة إلى الداخل يجب أن يكون سلسًا — امتدادًا طبيعيًا لمساحتك ورؤيتك.",
-                    hi: "हर लिविंग वॉल हमारे ग्राहकों के सपनों को पूरा करने के लिए विशेष रूप से बनाई जाती है। हमारा मानना है कि प्रकृति को घर के अंदर लाना सहज लगना चाहिए — आपकी जगह और दृष्टिकोण का एक निर्बाध विस्तार।",
-                  })}
-                </p>
-              </div>
-            </Reveal>
-          </div>
         </div>
       </section>
 
