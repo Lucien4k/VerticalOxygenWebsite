@@ -1,14 +1,17 @@
 # Vertical Oxygen Website Tasks
 
-## In Progress
+## Completed
 - [x] Fix highlights type change build errors
 - [x] Remove "tap through" intro text on systems section
 - [x] Remove "where it fits best" system diagram
 - [x] Make hydroponic highlights red/yellow leaves (soilless, recirculating, lightweight, automatic efficient)
 - [x] Change both systems "Best for" to "Any indoor space"
-- [ ] Find and change "cistern" to "aquarium"
-- [ ] Find and remove "modern living wall assembly" at bottom
-- [ ] Add V.O.O logo on each page top or bottom
-- [ ] Add "Where we grow" photo on top right
-- [ ] Put map cities in alphabetical order
-- [ ] Add "coast to coast to coast"
+- [x] Sort map cities alphabetically
+- [x] Change "coast to coast" to "coast to coast to coast"
+- [x] Add "Where we grow" photo card on top right of map section
+- [x] Add V.O.O logo to footer on about & specifications pages (index already had it)
+- [x] Update Trusted By section with industry categories
+
+## Still to do
+- [ ] Find and change "cistern" to "aquarium" (not found in code — may be in an image asset)
+- [ ] Find and remove "modern living wall assembly" at bottom (not found in code — may be in an image asset)
