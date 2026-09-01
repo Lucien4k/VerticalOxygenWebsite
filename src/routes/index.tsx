@@ -335,18 +335,8 @@ const DIAGRAM_LABEL = {
 function SystemsShowcase() {
   const t = useT();
   const [active, setActive] = useState(0);
-  const [lightbox, setLightbox] = useState<{ src: string; title: string } | null>(null);
   const sys = SYSTEMS[active];
   const next = SYSTEMS[(active + 1) % SYSTEMS.length];
-
-  useEffect(() => {
-    if (!lightbox) return;
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setLightbox(null);
-    };
-    window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
-  }, [lightbox]);
 
   return (
     <div className="relative mx-auto max-w-7xl px-6 py-24 md:py-32">
