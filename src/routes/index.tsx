@@ -768,12 +768,6 @@ function Index() {
         <div className="absolute inset-0 bg-gradient-to-b from-black/45 via-transparent to-black/55" />
       </div>
       <section id="motion" className="relative overflow-hidden bg-cream text-charcoal">
-        <img
-          src={cutoutWallA.url}
-          alt=""
-          aria-hidden
-          className="pointer-events-none absolute -bottom-24 -left-32 h-[420px] w-[600px] object-contain opacity-55 md:h-[560px] md:w-[800px]"
-        />
         <div className="mx-auto max-w-7xl px-6 py-24 md:py-32">
           <div className="mb-14 grid gap-10 md:grid-cols-12 md:items-end">
             <Reveal className="md:col-span-7">
