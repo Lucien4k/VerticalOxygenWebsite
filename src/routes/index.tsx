@@ -934,13 +934,13 @@ function Index() {
             </p>
             <h2 className="display-heading max-w-3xl text-4xl leading-[1.05] md:text-6xl">
               {t({
-                en: "Water kept in motion.",
-                fr: "De l'eau toujours en mouvement.",
-                zh: "水，持续循环。",
-                es: "Agua siempre en movimiento.",
-                pa: "ਪਾਣੀ ਲਗਾਤਾਰ ਚੱਲਦਾ ਰਹਿੰਦਾ ਹੈ।",
-                ar: "الماء يبقى حيّاً.",
-                hi: "पानी लगातार गति में रहता है।",
+                en: "Closed-loop recirculating water system.",
+                fr: "Système d'eau recirculée en boucle fermée.",
+                zh: "闭环循环水系统。",
+                es: "Sistema de agua recirculada en circuito cerrado.",
+                pa: "ਬੰਦ-ਲੂਪ ਰੀਸਰਕੁਲੇਟਿੰਗ ਪਾਣੀ ਦਾ ਸਿਸਟਮ।",
+                ar: "نظام مياه معاد تدويرها في دارة مغلقة.",
+                hi: "बंद-लूप पुनर्संचालित जल प्रणाली।",
               })}
             </h2>
             <p className="mt-6 max-w-2xl text-base leading-relaxed text-cream/70">
