@@ -252,13 +252,13 @@ export const SYSTEMS: System[] = [
       },
       {
         text: {
-          en: "Fully soilless, gravel media beds",
-          fr: "Entièrement sans terre, lits de gravier",
-          zh: "完全无土，砾石基质床",
-          es: "Completamente sin tierra, lechos de grava",
-          pa: "ਪੂਰੀ ਤਰ੍ਹਾਂ ਮਿੱਟੀ ਰਹਿਤ, ਬੱਜਰੀ ਦੇ ਬੈੱਡ",
-          ar: "بدون تربة تمامًا، أسرة من الحصى",
-          hi: "पूर्णतः मिट्टी रहित, बजरी मीडिया बेड",
+          en: "Fully soilless",
+          fr: "Entièrement sans terre",
+          zh: "完全无土",
+          es: "Completamente sin tierra",
+          pa: "ਪੂਰੀ ਤਰ੍ਹਾਂ ਮਿੱਟੀ ਰਹਿਤ",
+          ar: "بدون تربة تمامًا",
+          hi: "पूर्णतः मिट्टी रहित",
         },
       },
       {
