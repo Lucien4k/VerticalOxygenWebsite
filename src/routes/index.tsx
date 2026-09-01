@@ -471,15 +471,78 @@ function SystemsShowcase() {
         </div>
 
         {/* System photo */}
-        <div className="relative overflow-hidden rounded-2xl bg-white ring-1 ring-charcoal/10 shadow-[0_24px_60px_-24px_rgba(0,0,0,0.25)]">
+        <div
+          role="button"
+          tabIndex={0}
+          aria-label={t({
+            en: "Click to enlarge",
+            fr: "Cliquer pour agrandir",
+            zh: "点击放大",
+            es: "Clic para ampliar",
+            pa: "ਵੱਡਾ ਕਰਨ ਲਈ ਕਲਿੱਕ ਕਰੋ",
+            ar: "انقر لتكبير",
+            hi: "बड़ा करने के लिए क्लिक करें",
+          })}
+          onClick={() => setLightbox(sys.diagram)}
+          onKeyDown={(e) => {
+            if (e.key === "Enter" || e.key === " ") {
+              e.preventDefault();
+              setLightbox(sys.diagram);
+            }
+          }}
+          className="group relative cursor-zoom-in overflow-hidden rounded-2xl bg-white ring-1 ring-charcoal/10 shadow-[0_24px_60px_-24px_rgba(0,0,0,0.25)] transition hover:ring-forest/40"
+        >
           <img
             src={sys.diagram}
             alt={t(sys.title)}
-            className="w-full object-cover"
+            className="w-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.03]"
             loading="lazy"
           />
+          <span className="pointer-events-none absolute top-4 right-4 inline-flex items-center gap-2 rounded-full bg-charcoal/80 px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.2em] text-cream opacity-0 backdrop-blur-sm transition-opacity duration-300 group-hover:opacity-100">
+            <ZoomIn className="h-3.5 w-3.5" />
+            {t({
+              en: "Enlarge",
+              fr: "Agrandir",
+              zh: "放大",
+              es: "Ampliar",
+              pa: "ਵੱਡਾ ਕਰੋ",
+              ar: "تكبير",
+              hi: "बड़ा करें",
+            })}
+          </span>
         </div>
       </div>
+
+      {/* Lightbox */}
+      {lightbox && (
+        <div
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-charcoal/95 p-4 backdrop-blur-sm"
+          onClick={() => setLightbox(null)}
+        >
+          <button
+            type="button"
+            onClick={() => setLightbox(null)}
+            aria-label={t({
+              en: "Close",
+              fr: "Fermer",
+              zh: "关闭",
+              es: "Cerrar",
+              pa: "ਬੰਦ ਕਰੋ",
+              ar: "إغلاق",
+              hi: "बंद करें",
+            })}
+            className="absolute top-4 right-4 rounded-full bg-cream/10 p-3 text-cream transition hover:bg-cream/20 hover:text-white"
+          >
+            <X className="h-6 w-6" />
+          </button>
+          <img
+            src={lightbox}
+            alt={t(sys.title)}
+            className="max-h-full max-w-full rounded-2xl object-contain shadow-2xl"
+            onClick={(e) => e.stopPropagation()}
+          />
+        </div>
+      )}
     </div>
   );
 }
