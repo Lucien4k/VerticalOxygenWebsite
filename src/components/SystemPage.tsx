@@ -7,7 +7,7 @@ import { SYSTEMS, DIAGRAM_LABEL } from "@/lib/systems";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import logoHeader from "../assets/logo-header.png.asset.json";
 
-export function SystemPage({ systemKey }: { systemKey: "hydroponic" | "aquaponic" }) {
+export function SystemPage({ systemKey, compact }: { systemKey: "hydroponic" | "aquaponic"; compact?: boolean }) {
   const t = useT();
   const sys = SYSTEMS.find((s) => s.key === systemKey)!;
   const other = SYSTEMS.find((s) => s.key !== systemKey)!;
@@ -59,7 +59,7 @@ export function SystemPage({ systemKey }: { systemKey: "hydroponic" | "aquaponic
       </header>
 
       {/* Hero */}
-      <section className="mx-auto max-w-6xl px-6 pb-16 pt-16 md:pt-24">
+      <section className={compact ? "mx-auto max-w-6xl px-6 pb-10 pt-12 md:pt-16" : "mx-auto max-w-6xl px-6 pb-16 pt-16 md:pt-24"}>
         <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
           <div>
             <span className="inline-flex items-center gap-2 rounded-full border border-forest-deep/30 bg-forest-deep/5 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] text-forest-deep">
@@ -80,9 +80,11 @@ export function SystemPage({ systemKey }: { systemKey: "hydroponic" | "aquaponic
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-charcoal/70 md:text-xl">
               {t(sys.tagline)}
             </p>
-            <p className="mt-4 max-w-xl text-base leading-relaxed text-charcoal/60">
-              {t(sys.description)}
-            </p>
+            {!compact && (
+              <p className="mt-4 max-w-xl text-base leading-relaxed text-charcoal/60">
+                {t(sys.description)}
+              </p>
+            )}
 
             <div className="mt-8 flex flex-wrap items-center gap-3">
               <a
@@ -181,35 +183,37 @@ export function SystemPage({ systemKey }: { systemKey: "hydroponic" | "aquaponic
       </section>
 
       {/* Highlights */}
-      <section className="mx-auto max-w-6xl px-6 py-16 md:py-24">
-        <h2 className="font-serif text-3xl tracking-tight text-charcoal md:text-4xl">
-          {t({
-            en: "Why choose",
-            fr: "Pourquoi choisir",
-            zh: "为什么选择",
-            es: "Por qué elegir",
-            pa: "ਕਿਉਂ ਚੁਣੋ",
-            ar: "لماذا تختار",
-            hi: "क्यों चुनें",
-          })} {t(sys.title).toLowerCase()}?
-        </h2>
-        <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {sys.highlights.map((h) => (
-            <div
-              key={t(h.text)}
-              className="flex items-start gap-4 rounded-2xl border border-charcoal/10 bg-white p-6"
-            >
-              <span
-                className={`mt-1 h-2.5 w-2.5 shrink-0 rounded-full ${h.color ?? "bg-forest-deep"}`}
-                aria-hidden
-              />
-              <p className="text-base leading-relaxed text-charcoal/80">
-                {t(h.text)}
-              </p>
-            </div>
-          ))}
-        </div>
-      </section>
+      {!compact && (
+        <section className="mx-auto max-w-6xl px-6 py-16 md:py-24">
+          <h2 className="font-serif text-3xl tracking-tight text-charcoal md:text-4xl">
+            {t({
+              en: "Why choose",
+              fr: "Pourquoi choisir",
+              zh: "为什么选择",
+              es: "Por qué elegir",
+              pa: "ਕਿਉਂ ਚੁਣੋ",
+              ar: "لماذا تختار",
+              hi: "क्यों चुनें",
+            })} {t(sys.title).toLowerCase()}?
+          </h2>
+          <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {sys.highlights.map((h) => (
+              <div
+                key={t(h.text)}
+                className="flex items-start gap-4 rounded-2xl border border-charcoal/10 bg-white p-6"
+              >
+                <span
+                  className={`mt-1 h-2.5 w-2.5 shrink-0 rounded-full ${h.color ?? "bg-forest-deep"}`}
+                  aria-hidden
+                />
+                <p className="text-base leading-relaxed text-charcoal/80">
+                  {t(h.text)}
+                </p>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
 
       {/* Footer mini */}
       <footer className="border-t border-charcoal/10 bg-white/50 py-12">

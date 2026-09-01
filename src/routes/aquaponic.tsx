@@ -28,5 +28,5 @@ export const Route = createFileRoute("/aquaponic")({
 });
 
 function AquaponicPage() {
-  return <SystemPage systemKey="aquaponic" />;
+  return <SystemPage systemKey="aquaponic" compact />;
 }
