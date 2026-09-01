@@ -38,6 +38,7 @@ import { FRAME_URLS } from "@/lib/frame-urls";
 import { ScrollFramesSection } from "@/components/ScrollFramesSection";
 import { HERO2_FRAME_URLS } from "@/lib/frame-urls-hero2";
 import { useState, useEffect, useRef } from "react";
+import { createPortal } from "react-dom";
 import { useT, type Tr } from "@/lib/i18n";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import installGlenora from "../assets/installs/glenora-1.jpg.asset.json";
