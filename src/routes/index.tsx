@@ -492,9 +492,9 @@ function SystemsShowcase() {
 
           <ul className="mt-8 space-y-3">
             {sys.highlights.map((h) => (
-              <li key={h.en} className="flex items-start gap-3 text-charcoal/80">
-                <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-forest" />
-                <span>{t(h)}</span>
+              <li key={h.text.en} className="flex items-start gap-3 text-charcoal/80">
+                <span className={`mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full ${h.color ?? "bg-forest"}`} />
+                <span>{t(h.text)}</span>
               </li>
             ))}
           </ul>
