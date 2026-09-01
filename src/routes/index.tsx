@@ -904,13 +904,13 @@ function Index() {
               <WordsReveal
                 as="h2"
                 text={t({
-                  en: "Living walls, coast to coast.",
+                  en: "Living walls, coast to coast to coast.",
                   fr: "Des murs végétaux, d'un océan à l'autre.",
-                  zh: "植物墙，横贯东西两岸。",
-                  es: "Muros vivos, de costa a costa.",
-                  pa: "ਜੀਵੰਤ ਕੰਧਾਂ, ਤੱਟ ਤੋਂ ਤੱਟ ਤੱਕ।",
-                  ar: "جدران حية، من ساحل إلى ساحل.",
-                  hi: "जीवंत दीवारें, तट से तट तक।",
+                  zh: "植物墙，横贯东西两岸，直达北冰洋。",
+                  es: "Muros vivos, de costa a costa a costa.",
+                  pa: "ਜੀਵੰਤ ਕੰਧਾਂ, ਤੱਟ ਤੋਂ ਤੱਟ ਤੋਂ ਤੱਟ ਤੱਕ।",
+                  ar: "جدران حية، من ساحل إلى ساحل إلى ساحل.",
+                  hi: "जीवंत दीवारें, तट से तट से तट तक।",
                 })}
                 className="display-heading text-4xl leading-[1.05] text-charcoal md:text-6xl"
               />

@@ -134,13 +134,13 @@ export function LocationsMap() {
           </p>
           <p className="text-sm text-muted-foreground">
             {t({
-              en: "Communities served, coast to coast",
+              en: "Communities served, coast to coast to coast",
               fr: "Communautés desservies, d'un océan à l'autre",
-              zh: "服务遍及加拿大各地社区",
-              es: "Comunidades atendidas, de costa a costa",
-              pa: "ਤੱਟ ਤੋਂ ਤੱਟ ਤੱਕ ਸੇਵਾ ਪ੍ਰਾਪਤ ਭਾਈਚਾਰੇ",
-              ar: "مجتمعات مخدومة من ساحل إلى ساحل",
-              hi: "तट से तट तक सेवा प्राप्त समुदाय",
+              zh: "服务遍及加拿大东西北三岸社区",
+              es: "Comunidades atendidas, de costa a costa a costa",
+              pa: "ਤੱਟ ਤੋਂ ਤੱਟ ਤੋਂ ਤੱਟ ਤੱਕ ਸੇਵਾ ਪ੍ਰਾਪਤ ਭਾਈਚਾਰੇ",
+              ar: "مجتمعات مخدومة من ساحل إلى ساحل إلى ساحل",
+              hi: "तट से तट से तट तक सेवा प्राप्त समुदाय",
             })}
           </p>
         </div>
