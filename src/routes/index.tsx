@@ -818,18 +818,7 @@ function Index() {
                 })}
               </p>
             </div>
-            <div className="mt-10 flex flex-wrap items-center gap-4 reveal is-visible" style={{ animationDelay: "200ms" }}>
-              <a
-                href="#quote"
-                className="slide-cta group relative inline-flex items-center rounded-full bg-forest-deep px-7 py-3.5 text-sm font-semibold text-cream shadow-lg transition-colors hover:bg-forest-deep/90"
-              >
-                <span className="slide-cta-arrow pl-4 text-cream">
-                  <ArrowRight className="h-4 w-4" aria-hidden />
-                </span>
-                <span className="slide-cta-label">
-                  {t({ en: "Get a Quote", fr: "Demander un devis", zh: "获取报价", es: "Solicitar una cotización", pa: "ਕੋਟੇਸ਼ਨ ਲਓ", ar: "احصل على عرض سعر", hi: "कोटेशन प्राप्त करें" })}
-                </span>
-              </a>
+            <div className="mt-10 flex flex-wrap items-center justify-end gap-4 reveal is-visible" style={{ animationDelay: "200ms" }}>
               <a
                 href="#work"
                 className="slide-cta group relative inline-flex items-center rounded-full border border-cream/40 bg-cream/10 px-7 py-3.5 text-sm font-semibold text-cream shadow-lg transition-colors hover:bg-cream/20"
