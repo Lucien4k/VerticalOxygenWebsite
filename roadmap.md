@@ -14,7 +14,12 @@
 - [x] Bring back photos on the "Two ways to grow a wall" systems section
 - [x] Make hero right-aligned text readable and aligned on mobile
 - [x] Move mobile hero text to the right so the living wall stays visible
+- [x] Keep top bar visible while scrolling (moved fixed header outside hero)
+- [x] Fix lightbox overlay so header doesn't intercept clicks
+- [x] Update "Engineered in layers" copy to custom-built-on-site message
+- [x] Remove blurry Coaldale photo behind systems section
 
 ## Still to do
 - [ ] Find and change "cistern" to "aquarium" (not found in code — may be in an image asset)
 - [ ] Find and remove "modern living wall assembly" at bottom (not found in code — may be in an image asset)
+- [ ] Create separate pages for Aquaponic and Hydroponic systems
