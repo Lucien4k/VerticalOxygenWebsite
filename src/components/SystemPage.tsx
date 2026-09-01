@@ -7,7 +7,7 @@ import { SYSTEMS, DIAGRAM_LABEL } from "@/lib/systems";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import logoHeader from "../assets/logo-header.png.asset.json";
 
-export function SystemPage({ systemKey }: { systemKey: "hydroponic" | "aquaponic" }) {
+export function SystemPage({ systemKey, compact }: { systemKey: "hydroponic" | "aquaponic"; compact?: boolean }) {
   const t = useT();
   const sys = SYSTEMS.find((s) => s.key === systemKey)!;
   const other = SYSTEMS.find((s) => s.key !== systemKey)!;
