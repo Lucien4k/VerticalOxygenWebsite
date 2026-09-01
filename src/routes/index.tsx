@@ -188,6 +188,13 @@ function SystemsShowcase() {
           </ul>
 
           <div className="mt-10 flex flex-wrap gap-3">
+            <Link
+              to={sys.key === "hydroponic" ? "/hydroponic" : "/aquaponic"}
+              className="group inline-flex items-center gap-2 rounded-full bg-forest-deep px-6 py-3 text-xs font-semibold uppercase tracking-[0.25em] text-cream transition hover:bg-charcoal md:text-sm"
+            >
+              {t({ en: "Explore the", fr: "Explorer le système", zh: "了解", es: "Explorar el sistema", pa: "ਸਿਸਟਮ ਦੇਖੋ", ar: "استكشف نظام", hi: "सिस्टम देखें" })} {t(sys.title)}
+              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+            </Link>
             <button
               type="button"
               onClick={() => setActive((active + 1) % SYSTEMS.length)}
