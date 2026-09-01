@@ -56,15 +56,12 @@ import cutoutCoaldale from "../assets/cutouts/coaldale-wall.png.asset.json";
 import cutoutWallB from "../assets/cutouts/wall-b.png.asset.json";
 import woodTexture from "../assets/textures/wood-texture-v2.jpg.asset.json";
 import logoHeader from "../assets/logo-header.png.asset.json";
-import { SYSTEMS, DIAGRAM_LABEL, type System } from "@/lib/systems";
+import { SYSTEMS, DIAGRAM_LABEL } from "@/lib/systems";
 function SystemsShowcase() {
   const t = useT();
-  const [active, setActive] = useState(0);
   const [lightbox, setLightbox] = useState<string | null>(null);
   const [mounted, setMounted] = useState(false);
   useEffect(() => setMounted(true), []);
-  const sys = SYSTEMS[active];
-  const next = SYSTEMS[(active + 1) % SYSTEMS.length];
 
   useEffect(() => {
     if (!lightbox) return;
@@ -76,176 +73,136 @@ function SystemsShowcase() {
   }, [lightbox]);
 
   return (
-    <div className="relative mx-auto max-w-7xl px-6 py-24 md:py-32">
-      <div className="mb-14 flex flex-col gap-10 md:flex-row md:items-end md:justify-between">
-        <div>
-          <p className="mb-3 text-xs font-semibold uppercase tracking-[0.3em] text-forest">
-            {t({
-              en: "Our Systems",
-              fr: "Nos systèmes",
-              zh: "我们的系统",
-              es: "Nuestros sistemas",
-              pa: "ਸਾਡੇ ਸਿਸਟਮ",
-              ar: "أنظمتنا",
-              hi: "हमारे सिस्टम",
-            })}
-          </p>
-          <WordsReveal
-            as="h2"
-            text={t({
-              en: "Two ways to grow a wall.",
-              fr: "Deux façons de faire pousser un mur.",
-              zh: "两种打造绿墙的方式。",
-              es: "Dos formas de cultivar un muro.",
-              pa: "ਕੰਧ ਉਗਾਉਣ ਦੇ ਦੋ ਤਰੀਕੇ।",
-              ar: "طريقتان لزراعة جدار.",
-              hi: "दीवार उगाने के दो तरीके।",
-            })}
-            className="display-heading text-5xl leading-[1] text-charcoal md:text-7xl lg:text-[5.5rem]"
-          />
-          <p className="mt-6 max-w-xl text-charcoal/70 md:text-lg">
-            {t({
-              en: "Every Vertical Oxygen wall is built on one of two engineered systems.",
-              fr: "Chaque mur Vertical Oxygen repose sur l'un de nos deux systèmes d'ingénierie.",
-              zh: "每一面 Vertical Oxygen 绿墙都基于两套工程化系统之一。",
-              es: "Cada muro de Vertical Oxygen se construye sobre uno de dos sistemas de ingeniería.",
-              pa: "ਹਰ Vertical Oxygen ਕੰਧ ਦੋ ਇੰਜੀਨੀਅਰਡ ਸਿਸਟਮਾਂ ਵਿੱਚੋਂ ਇੱਕ ਉੱਤੇ ਬਣੀ ਹੁੰਦੀ ਹੈ।",
-              ar: "كل جدار من Vertical Oxygen مبني على أحد نظامين هندسيين.",
-              hi: "हर Vertical Oxygen दीवार दो इंजीनियर्ड सिस्टम में से एक पर बनी होती है।",
-            })}
-          </p>
-        </div>
-
-        {/* Tab switcher with sliding pill */}
-        <div
-          role="tablist"
-          aria-label={t({
-            en: "Living wall systems",
-            fr: "Systèmes de murs végétaux",
-            zh: "植物墙系统",
-            es: "Sistemas de muros vivos",
-            pa: "ਲਿਵਿੰਗ ਵਾਲ ਸਿਸਟਮ",
-            ar: "أنظمة الجدران الحية",
-            hi: "लिविंग वॉल सिस्टम",
+    <div id="work" className="relative mx-auto max-w-7xl px-6 py-24 md:py-32">
+      <div className="mb-14 max-w-2xl">
+        <p className="mb-3 text-xs font-semibold uppercase tracking-[0.3em] text-forest">
+          {t({
+            en: "Our Systems",
+            fr: "Nos systèmes",
+            zh: "我们的系统",
+            es: "Nuestros sistemas",
+            pa: "ਸਾਡੇ ਸਿਸਟਮ",
+            ar: "أنظمتنا",
+            hi: "हमारे सिस्टम",
           })}
-          className="relative inline-flex self-start rounded-full bg-charcoal/5 p-1.5 ring-1 ring-charcoal/10 backdrop-blur md:self-auto"
-        >
-          <div
-            className="absolute inset-y-1.5 left-1.5 w-[calc(50%-0.375rem)] rounded-full bg-charcoal shadow-lg transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]"
-            style={{ transform: `translateX(${active * 100}%)` }}
-            aria-hidden
-          />
-          {SYSTEMS.map((s, i) => (
-            <button
-              key={s.key}
-              type="button"
-              role="tab"
-              aria-selected={active === i}
-              onClick={() => setActive(i)}
-              className={`relative z-10 rounded-full px-6 py-2.5 text-xs font-semibold uppercase tracking-[0.25em] transition-colors duration-500 md:px-8 md:py-3 md:text-sm ${
-                active === i ? "text-cream" : "text-charcoal/60 hover:text-charcoal"
-              }`}
-            >
-              {t(s.title)}
-            </button>
-          ))}
-        </div>
+        </p>
+        <WordsReveal
+          as="h2"
+          text={t({
+            en: "Two ways to grow a wall.",
+            fr: "Deux façons de faire pousser un mur.",
+            zh: "两种打造绿墙的方式。",
+            es: "Dos formas de cultivar un muro.",
+            pa: "ਕੰਧ ਉਗਾਉਣ ਦੇ ਦੋ ਤਰੀਕੇ।",
+            ar: "طريقتان لزراعة جدار.",
+            hi: "दीवार उगाने के दो तरीके।",
+          })}
+          className="display-heading text-5xl leading-[1] text-charcoal md:text-7xl lg:text-[5.5rem]"
+        />
+        <p className="mt-6 max-w-xl text-charcoal/70 md:text-lg">
+          {t({
+            en: "Every Vertical Oxygen wall is built on one of two engineered systems.",
+            fr: "Chaque mur Vertical Oxygen repose sur l'un de nos deux systèmes d'ingénierie.",
+            zh: "每一面 Vertical Oxygen 绿墙都基于两套工程化系统之一。",
+            es: "Cada muro de Vertical Oxygen se construye sobre uno de dos sistemas de ingeniería.",
+            pa: "ਹਰ Vertical Oxygen ਕੰਧ ਦੋ ਇੰਜੀਨੀਅਰਡ ਸਿਸਟਮਾਂ ਵਿੱਚੋਂ ਇੱਕ ਉੱਤੇ ਬਣੀ ਹੁੰਦੀ ਹੈ।",
+            ar: "كل جدار من Vertical Oxygen مبني على أحد نظامين هندسيين.",
+            hi: "हर Vertical Oxygen दीवार दो इंजीनियर्ड सिस्टम में से एक पर बनी होती है।",
+          })}
+        </p>
       </div>
 
-      <div key={sys.key} className="systems-swap grid gap-10 md:grid-cols-2 md:items-start md:gap-14">
-        {/* Details */}
-        <div>
-          <p className="text-xs font-semibold uppercase tracking-[0.3em] text-forest">
-            {t(sys.tag)}
-          </p>
-          <h3 className="mt-3 font-serif text-4xl italic text-charcoal md:text-5xl">
-            {t(sys.tagline)}
-          </h3>
-          <p className="mt-5 text-charcoal/75 md:text-lg">{t(sys.description)}</p>
+      {SYSTEMS.map((sys, idx) => (
+        <div
+          key={sys.key}
+          className={`grid gap-10 md:grid-cols-2 md:items-start md:gap-14 ${idx > 0 ? "mt-20 border-t border-charcoal/10 pt-20" : ""}`}
+        >
+          {/* Details */}
+          <div className={idx % 2 === 1 ? "md:order-2" : ""}>
+            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-forest">
+              {t(sys.tag)}
+            </p>
+            <h3 className="mt-3 font-serif text-4xl italic text-charcoal md:text-5xl">
+              {t(sys.tagline)}
+            </h3>
+            <p className="mt-5 text-charcoal/75 md:text-lg">{t(sys.description)}</p>
 
-          <dl className="mt-8 grid grid-cols-2 gap-px overflow-hidden rounded-2xl bg-charcoal/10 ring-1 ring-charcoal/10">
-            {sys.stats.map((s) => (
-              <div key={s.label.en} className="bg-cream p-4 md:p-5">
-                <dt className="text-[10px] font-semibold uppercase tracking-[0.2em] text-charcoal/50">
-                  {t(s.label)}
-                </dt>
-                <dd className="mt-1.5 font-serif text-xl text-charcoal md:text-2xl">
-                  {t(s.value)}
-                </dd>
-              </div>
-            ))}
-          </dl>
+            <dl className="mt-8 grid grid-cols-2 gap-px overflow-hidden rounded-2xl bg-charcoal/10 ring-1 ring-charcoal/10">
+              {sys.stats.map((s) => (
+                <div key={s.label.en} className="bg-cream p-4 md:p-5">
+                  <dt className="text-[10px] font-semibold uppercase tracking-[0.2em] text-charcoal/50">
+                    {t(s.label)}
+                  </dt>
+                  <dd className="mt-1.5 font-serif text-xl text-charcoal md:text-2xl">
+                    {t(s.value)}
+                  </dd>
+                </div>
+              ))}
+            </dl>
 
-          <ul className="mt-8 space-y-3">
-            {sys.highlights.map((h) => (
-              <li key={h.text.en} className="flex items-start gap-3 text-charcoal/80">
-                <span className={`mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full ${h.color ?? "bg-forest"}`} />
-                <span>{t(h.text)}</span>
-              </li>
-            ))}
-          </ul>
+            <ul className="mt-8 space-y-3">
+              {sys.highlights.map((h) => (
+                <li key={h.text.en} className="flex items-start gap-3 text-charcoal/80">
+                  <span className={`mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full ${h.color ?? "bg-forest"}`} />
+                  <span>{t(h.text)}</span>
+                </li>
+              ))}
+            </ul>
 
-          <div className="mt-10 flex flex-wrap gap-3">
-            <Link
-              to={sys.key === "hydroponic" ? "/hydroponic" : "/aquaponic"}
-              className="group inline-flex items-center gap-2 rounded-full bg-forest-deep px-6 py-3 text-xs font-semibold uppercase tracking-[0.25em] text-cream transition hover:bg-charcoal md:text-sm"
-            >
-              {t({ en: "Explore the", fr: "Explorer le système", zh: "了解", es: "Explorar el sistema", pa: "ਸਿਸਟਮ ਦੇਖੋ", ar: "استكشف نظام", hi: "सिस्टम देखें" })} {t(sys.title)}
-              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-            </Link>
-            <button
-              type="button"
-              onClick={() => setActive((active + 1) % SYSTEMS.length)}
-              className="group inline-flex items-center gap-2 rounded-full border border-charcoal/25 px-6 py-3 text-xs font-semibold uppercase tracking-[0.25em] text-charcoal transition hover:bg-charcoal hover:text-cream md:text-sm"
-            >
-              {t({ en: "See", fr: "Voir", zh: "查看", es: "Ver", pa: "ਦੇਖੋ", ar: "عرض", hi: "देखें" })} {t(next.title)}
-              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-            </button>
+            <div className="mt-10">
+              <Link
+                to={sys.key === "hydroponic" ? "/hydroponic" : "/aquaponic"}
+                className="group inline-flex items-center gap-2 rounded-full bg-forest-deep px-6 py-3 text-xs font-semibold uppercase tracking-[0.25em] text-cream transition hover:bg-charcoal md:text-sm"
+              >
+                {t({ en: "Explore the", fr: "Explorer le système", zh: "了解", es: "Explorar el sistema", pa: "ਸਿਸਟਮ ਦੇਖੋ", ar: "استكشف نظام", hi: "सिस्टम देखें" })} {t(sys.title)}
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+              </Link>
+            </div>
+          </div>
+
+          {/* System diagram */}
+          <div
+            role="button"
+            tabIndex={0}
+            aria-label={t({
+              en: "Click to enlarge",
+              fr: "Cliquer pour agrandir",
+              zh: "点击放大",
+              es: "Clic para ampliar",
+              pa: "ਵੱਡਾ ਕਰਨ ਲਈ ਕਲਿੱਕ ਕਰੋ",
+              ar: "انقر لتكبير",
+              hi: "बड़ा करने के लिए क्लिक करें",
+            })}
+            onClick={() => setLightbox(sys.diagram)}
+            onKeyDown={(e) => {
+              if (e.key === "Enter" || e.key === " ") {
+                e.preventDefault();
+                setLightbox(sys.diagram);
+              }
+            }}
+            className={`group relative cursor-zoom-in overflow-hidden rounded-2xl bg-white ring-1 ring-charcoal/10 shadow-[0_24px_60px_-24px_rgba(0,0,0,0.25)] transition hover:ring-forest/40 ${idx % 2 === 1 ? "md:order-1" : ""}`}
+          >
+            <img
+              src={sys.diagram}
+              alt={t(sys.title)}
+              className="w-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.03]"
+              loading="lazy"
+            />
+            <span className="pointer-events-none absolute top-4 right-4 inline-flex items-center gap-2 rounded-full bg-charcoal/80 px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.2em] text-cream opacity-0 backdrop-blur-sm transition-opacity duration-300 group-hover:opacity-100">
+              <ZoomIn className="h-3.5 w-3.5" />
+              {t({
+                en: "Enlarge",
+                fr: "Agrandir",
+                zh: "放大",
+                es: "Ampliar",
+                pa: "ਵੱਡਾ ਕਰੋ",
+                ar: "تكبير",
+                hi: "बड़ा करें",
+              })}
+            </span>
           </div>
         </div>
-
-        {/* System photo */}
-        <div
-          role="button"
-          tabIndex={0}
-          aria-label={t({
-            en: "Click to enlarge",
-            fr: "Cliquer pour agrandir",
-            zh: "点击放大",
-            es: "Clic para ampliar",
-            pa: "ਵੱਡਾ ਕਰਨ ਲਈ ਕਲਿੱਕ ਕਰੋ",
-            ar: "انقر لتكبير",
-            hi: "बड़ा करने के लिए क्लिक करें",
-          })}
-          onClick={() => setLightbox(sys.diagram)}
-          onKeyDown={(e) => {
-            if (e.key === "Enter" || e.key === " ") {
-              e.preventDefault();
-              setLightbox(sys.diagram);
-            }
-          }}
-          className="group relative cursor-zoom-in overflow-hidden rounded-2xl bg-white ring-1 ring-charcoal/10 shadow-[0_24px_60px_-24px_rgba(0,0,0,0.25)] transition hover:ring-forest/40"
-        >
-          <img
-            src={sys.diagram}
-            alt={t(sys.title)}
-            className="w-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.03]"
-            loading="lazy"
-          />
-          <span className="pointer-events-none absolute top-4 right-4 inline-flex items-center gap-2 rounded-full bg-charcoal/80 px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.2em] text-cream opacity-0 backdrop-blur-sm transition-opacity duration-300 group-hover:opacity-100">
-            <ZoomIn className="h-3.5 w-3.5" />
-            {t({
-              en: "Enlarge",
-              fr: "Agrandir",
-              zh: "放大",
-              es: "Ampliar",
-              pa: "ਵੱਡਾ ਕਰੋ",
-              ar: "تكبير",
-              hi: "बड़ा करें",
-            })}
-          </span>
-        </div>
-      </div>
+      ))}
 
       {/* Lightbox */}
       {mounted &&
@@ -274,7 +231,7 @@ function SystemsShowcase() {
             </button>
             <img
               src={lightbox}
-              alt={t(sys.title)}
+              alt={t(DIAGRAM_LABEL)}
               className="max-h-full max-w-full rounded-2xl object-contain shadow-2xl"
               onClick={(e) => e.stopPropagation()}
             />
@@ -284,7 +241,6 @@ function SystemsShowcase() {
     </div>
   );
 }
-
 export const Route = createFileRoute("/")({
   component: Index,
   head: () => ({
@@ -428,34 +384,6 @@ function Index() {
                         }),
                         href: "#work",
                         image: iffWall.url,
-                      },
-                      {
-                        label: t({ en: "Hydroponic", fr: "Hydroponique", zh: "水培系统", es: "Hidropónico", pa: "ਹਾਈਡ੍ਰੋਪੋਨਿਕ", ar: "الزراعة المائية", hi: "हाइड्रोपोनिक" }),
-                        description: t({
-                          en: "Lightweight recirculating system",
-                          fr: "Système léger en circuit fermé",
-                          zh: "轻质循环系统",
-                          es: "Sistema recirculante ligero",
-                          pa: "ਹਲਕਾ ਮੁੜ-ਸੰਚਾਰੀ ਸਿਸਟਮ",
-                          ar: "نظام خفيف معاد تدويره",
-                          hi: "हल्का पुनर्चक्रित सिस्टम",
-                        }),
-                        href: "/hydroponic",
-                        image: SYSTEMS[0].diagram,
-                      },
-                      {
-                        label: t({ en: "Aquaponic", fr: "Aquaponique", zh: "鱼菜共生系统", es: "Acuapónico", pa: "ਐਕੁਆਪੋਨਿਕ", ar: "الاستزراع المائي التكافلي", hi: "एक्वापोनिक" }),
-                        description: t({
-                          en: "Fish + plant ecosystem",
-                          fr: "Écosystème poissons + plantes",
-                          zh: "鱼与植物生态系统",
-                          es: "Ecosistema de peces + plantas",
-                          pa: "ਮੱਛੀ + ਪੌਦਾ ਇਕੋਸਿਸਟਮ",
-                          ar: "نظام بيئي سمك + نباتات",
-                          hi: "मछली + पौधा इकोसिस्टम",
-                        }),
-                        href: "/aquaponic",
-                        image: SYSTEMS[1].diagram,
                       },
                       {
                         label: t({ en: "Recent Installations", fr: "Réalisations récentes", zh: "近期案例", es: "Instalaciones recientes", pa: "ਹਾਲੀਆ ਸਥਾਪਨਾਵਾਂ", ar: "أحدث التركيبات", hi: "हाल की इंस्टॉलेशन" }),
