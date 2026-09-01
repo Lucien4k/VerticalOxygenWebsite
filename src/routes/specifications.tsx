@@ -533,18 +533,25 @@ function SpecificationsPage() {
 
       {/* Footer */}
       <footer className="bg-neutral-900 text-neutral-300">
-        <div className="mx-auto flex max-w-7xl flex-col gap-4 px-6 py-8 font-mono text-[11px] uppercase tracking-[0.14em] md:flex-row md:items-center md:justify-between">
-          <div>
-            {t({
+        <div className="mx-auto flex max-w-7xl flex-col items-center gap-6 px-6 py-8 font-mono text-[11px] uppercase tracking-[0.14em] md:flex-row md:justify-between">
+          <a href="/" className="rounded-lg bg-white px-3 py-2">
+            <img
+              src={logoHeader.url}
+              alt="Vertical Oxygen"
+              className="h-8 w-auto md:h-10"
+            />
+          </a>
+          <div className="flex flex-col items-center gap-4 md:flex-row md:gap-6">
+            <span>{t({
               en: "Vertical Oxygen Inc. · Technical Documentation",
               fr: "Vertical Oxygen Inc. · Documentation technique",
               zh: "Vertical Oxygen Inc. · 技术文档", es: "Vertical Oxygen Inc. · Documentación técnica", pa: "Vertical Oxygen Inc. · ਤਕਨੀਕੀ ਦਸਤਾਵੇਜ਼", ar: "Vertical Oxygen Inc. · الوثائق الفنية", hi: "Vertical Oxygen Inc. · तकनीकी दस्तावेज़",
-            })}
-          </div>
-          <div className="flex gap-6">
-            <Link to="/" className="hover:text-white">{t({ en: "Main Site", fr: "Site principal", zh: "主站", es: "Sitio principal", pa: "ਮੁੱਖ ਸਾਈਟ", ar: "الموقع الرئيسي", hi: "मुख्य साइट" })}</Link>
-            <a href="#spec-review" className="hover:text-white">{t({ en: "Spec Review", fr: "Révision technique", zh: "规格审查", es: "Revisión de especificaciones", pa: "ਸਪੈਕ ਸਮੀਖਿਆ", ar: "مراجعة المواصفات", hi: "स्पेक समीक्षा" })}</a>
-            <span>{t({ en: "Doc VO-SPEC · Rev. 2026.07", fr: "Doc VO-SPEC · Rév. 2026.07", zh: "文档 VO-SPEC · 修订版 2026.07", es: "Doc. VO-SPEC · Rev. 2026.07", pa: "Doc VO-SPEC · Rev. 2026.07", ar: "المستند VO-SPEC · مراجعة 2026.07", hi: "Doc VO-SPEC · संशोधन 2026.07" })}</span>
+            })}</span>
+            <div className="flex gap-6">
+              <Link to="/" className="hover:text-white">{t({ en: "Main Site", fr: "Site principal", zh: "主站", es: "Sitio principal", pa: "ਮੁੱਖ ਸਾਈਟ", ar: "الموقع الرئيسي", hi: "मुख्य साइट" })}</Link>
+              <a href="#spec-review" className="hover:text-white">{t({ en: "Spec Review", fr: "Révision technique", zh: "规格审查", es: "Revisión de especificaciones", pa: "ਸਪੈਕ ਸਮੀਖਿਆ", ar: "مراجعة المواصفات", hi: "स्पेक समीक्षा" })}</a>
+              <span>{t({ en: "Doc VO-SPEC · Rev. 2026.07", fr: "Doc VO-SPEC · Rév. 2026.07", zh: "文档 VO-SPEC · 修订版 2026.07", es: "Doc. VO-SPEC · Rev. 2026.07", pa: "Doc VO-SPEC · Rev. 2026.07", ar: "المستند VO-SPEC · مراجعة 2026.07", hi: "Doc VO-SPEC · संशोधन 2026.07" })}</span>
+            </div>
           </div>
         </div>
       </footer>
