@@ -30,7 +30,7 @@ import { ClientLogos } from "@/components/ClientLogos";
 import { NavMenu } from "@/components/NavMenu";
 import { Parallax } from "@/components/Parallax";
 import { WordsReveal } from "@/components/WordsReveal";
-import { FloatingLeaves } from "@/components/FloatingLeaves";
+
 import { ScrollProgress } from "@/components/ScrollProgress";
 import { ScrollFrames } from "@/components/ScrollFrames";
 import { FRAME_URLS } from "@/lib/frame-urls";
@@ -473,13 +473,6 @@ function SystemsShowcase() {
           </ul>
 
           <div className="mt-10 flex flex-wrap gap-3">
-            <a
-              href="#quote"
-              className="group inline-flex items-center gap-2 rounded-full bg-forest-deep px-6 py-3 text-xs font-semibold uppercase tracking-[0.25em] text-cream shadow-lg transition hover:bg-forest-deep/90 md:text-sm"
-            >
-              {t({ en: "Get a quote", fr: "Demander un devis", zh: "获取报价", es: "Solicitar una cotización", pa: "ਕੋਟੇਸ਼ਨ ਲਓ", ar: "احصل على عرض سعر", hi: "कोटेशन प्राप्त करें" })}
-              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-            </a>
             <button
               type="button"
               onClick={() => setActive((active + 1) % SYSTEMS.length)}
@@ -586,7 +579,6 @@ function Index() {
         <div className="absolute inset-0 bg-gradient-to-b from-charcoal/40 via-charcoal/20 to-charcoal/50" aria-hidden />
         {/* Soft blur that intensifies as the page scrolls up over the hero */}
         <div ref={blurLayerRef} className="pointer-events-none absolute inset-0 z-[5] will-change-[backdrop-filter,opacity]" aria-hidden />
-        <FloatingLeaves className="z-10" />
 
         {/* Floating rounded top bars — hero video shows around them */}
         <div className="absolute inset-x-0 top-0 z-50 px-4 pt-4 md:px-6 md:pt-5">
@@ -797,10 +789,10 @@ function Index() {
 
         {/* Hero content */}
         <div
-          className="relative mx-auto flex h-full max-w-6xl items-center px-6 pt-40 pb-16 md:pt-44 transition-opacity duration-500"
+          className="relative mx-auto flex h-full max-w-6xl items-center justify-end px-6 pt-40 pb-16 md:pt-44 transition-opacity duration-500"
           style={{ opacity: heroDone ? 0 : 1 }}
         >
-          <div className="max-w-2xl">
+          <div className="max-w-2xl text-right">
             <div className="reveal-fade is-visible">
               <span className="text-shadow-hero mb-4 inline-flex items-center gap-2 rounded-full border border-cream/30 bg-cream/10 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.25em] text-cream backdrop-blur-sm">
                 {t({ en: "Since 2011", fr: "Depuis 2011", zh: "始于 2011 年", es: "Desde 2011", pa: "2011 ਤੋਂ", ar: "منذ عام 2011", hi: "2011 से" })}
@@ -814,7 +806,7 @@ function Index() {
                   {t({ en: "of art", fr: "vivantes", zh: "艺术作品", es: "de arte", pa: "ਕਲਾ ਦੀਆਂ", ar: "من الفن", hi: "कला की" })}
                 </span>
               </h1>
-              <p className="text-shadow-hero mt-6 max-w-xl text-lg font-medium leading-relaxed text-cream">
+              <p className="text-shadow-hero mt-6 ml-auto max-w-xl text-lg font-medium leading-relaxed text-cream">
                 {t({
                   en: "We couple beauty with simplicity to create healthy, living works of art. Each wall is custom made to satisfy your dreams.",
                   fr: "Nous allions beauté et simplicité pour créer des œuvres d'art vivantes et saines. Chaque mur est conçu sur mesure pour concrétiser vos rêves.",
@@ -826,18 +818,7 @@ function Index() {
                 })}
               </p>
             </div>
-            <div className="mt-10 flex flex-wrap items-center gap-4 reveal is-visible" style={{ animationDelay: "200ms" }}>
-              <a
-                href="#quote"
-                className="slide-cta group relative inline-flex items-center rounded-full bg-forest-deep px-7 py-3.5 text-sm font-semibold text-cream shadow-lg transition-colors hover:bg-forest-deep/90"
-              >
-                <span className="slide-cta-arrow pl-4 text-cream">
-                  <ArrowRight className="h-4 w-4" aria-hidden />
-                </span>
-                <span className="slide-cta-label">
-                  {t({ en: "Get a Quote", fr: "Demander un devis", zh: "获取报价", es: "Solicitar una cotización", pa: "ਕੋਟੇਸ਼ਨ ਲਓ", ar: "احصل على عرض سعر", hi: "कोटेशन प्राप्त करें" })}
-                </span>
-              </a>
+            <div className="mt-10 flex flex-wrap items-center justify-end gap-4 reveal is-visible" style={{ animationDelay: "200ms" }}>
               <a
                 href="#work"
                 className="slide-cta group relative inline-flex items-center rounded-full border border-cream/40 bg-cream/10 px-7 py-3.5 text-sm font-semibold text-cream shadow-lg transition-colors hover:bg-cream/20"
@@ -1248,7 +1229,6 @@ function Index() {
 
       {/* Sustainability */}
       <section id="sustainability" className="relative overflow-hidden bg-charcoal text-cream">
-        <FloatingLeaves />
         <div className="relative mx-auto max-w-7xl px-6 py-20 md:py-28">
           <Reveal>
             <p className="mb-3 text-xs font-semibold uppercase tracking-[0.3em] text-forest">
