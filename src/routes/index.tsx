@@ -53,7 +53,7 @@ import installTorontoRes from "../assets/installs/img-toronto-residential.jpeg.a
 import installConexus from "../assets/installs/conexus-regina.jpeg.asset.json";
 import install0628 from "../assets/installs/img-0628.jpg.asset.json";
 import cutoutCoaldale from "../assets/cutouts/coaldale-wall.png.asset.json";
-import cutoutWallA from "../assets/cutouts/wall-a.png.asset.json";
+
 import cutoutWallB from "../assets/cutouts/wall-b.png.asset.json";
 import cutoutWallC from "../assets/cutouts/wall-c.png.asset.json";
 import woodTexture from "../assets/textures/wood-texture-v2.jpg.asset.json";
@@ -188,6 +188,13 @@ function SystemsShowcase() {
           </ul>
 
           <div className="mt-10 flex flex-wrap gap-3">
+            <Link
+              to={sys.key === "hydroponic" ? "/hydroponic" : "/aquaponic"}
+              className="group inline-flex items-center gap-2 rounded-full bg-forest-deep px-6 py-3 text-xs font-semibold uppercase tracking-[0.25em] text-cream transition hover:bg-charcoal md:text-sm"
+            >
+              {t({ en: "Explore the", fr: "Explorer le système", zh: "了解", es: "Explorar el sistema", pa: "ਸਿਸਟਮ ਦੇਖੋ", ar: "استكشف نظام", hi: "सिस्टम देखें" })} {t(sys.title)}
+              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+            </Link>
             <button
               type="button"
               onClick={() => setActive((active + 1) % SYSTEMS.length)}
@@ -761,12 +768,6 @@ function Index() {
         <div className="absolute inset-0 bg-gradient-to-b from-black/45 via-transparent to-black/55" />
       </div>
       <section id="motion" className="relative overflow-hidden bg-cream text-charcoal">
-        <img
-          src={cutoutWallA.url}
-          alt=""
-          aria-hidden
-          className="pointer-events-none absolute -bottom-24 -left-32 h-[420px] w-[600px] object-contain opacity-55 md:h-[560px] md:w-[800px]"
-        />
         <div className="mx-auto max-w-7xl px-6 py-24 md:py-32">
           <div className="mb-14 grid gap-10 md:grid-cols-12 md:items-end">
             <Reveal className="md:col-span-7">
