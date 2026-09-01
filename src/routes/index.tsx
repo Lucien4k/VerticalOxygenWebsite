@@ -751,10 +751,10 @@ function Index() {
 
         {/* Hero content */}
         <div
-          className="relative mx-auto flex h-full max-w-6xl items-center justify-start px-6 pt-40 pb-16 md:justify-end md:pt-44 transition-opacity duration-500"
+          className="relative mx-auto flex h-full max-w-6xl items-end justify-end px-6 pt-40 pb-12 md:items-center md:pb-16 md:pt-44 transition-opacity duration-500"
           style={{ opacity: heroDone ? 0 : 1 }}
         >
-          <div className="max-w-2xl text-left md:text-right">
+          <div className="max-w-[min(18rem,80vw)] text-right md:max-w-2xl">
             <div className="reveal-fade is-visible">
               <span className="text-shadow-hero mb-4 inline-flex items-center gap-2 rounded-full border border-cream/30 bg-cream/10 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.25em] text-cream backdrop-blur-sm">
                 {t({ en: "Since 2011", fr: "Depuis 2011", zh: "始于 2011 年", es: "Desde 2011", pa: "2011 ਤੋਂ", ar: "منذ عام 2011", hi: "2011 से" })}
@@ -762,13 +762,13 @@ function Index() {
               <p className="text-shadow-hero mb-4 text-xs font-bold uppercase tracking-[0.3em] text-cream">
                 {t({ en: "Custom Living Walls", fr: "Murs végétaux sur mesure", zh: "定制植物墙", es: "Muros vivos personalizados", pa: "ਕਸਟਮ ਲਿਵਿੰਗ ਵਾਲਾਂ", ar: "جدران حية مخصصة", hi: "कस्टम लिविंग वॉल" })}
               </p>
-              <h1 className="display-heading-hero text-5xl text-cream md:text-7xl lg:text-8xl">
+              <h1 className="display-heading-hero text-[2.75rem] leading-[0.95] text-cream md:text-7xl lg:text-8xl">
                 {t({ en: "Living works", fr: "Des œuvres d'art", zh: "有生命的", es: "Obras vivas", pa: "ਜੀਵੰਤ ਰਚਨਾਵਾਂ", ar: "أعمال حية", hi: "जीवंत कृतियाँ" })}{" "}
                 <span className="whitespace-nowrap">
                   {t({ en: "of art", fr: "vivantes", zh: "艺术作品", es: "de arte", pa: "ਕਲਾ ਦੀਆਂ", ar: "من الفن", hi: "कला की" })}
                 </span>
               </h1>
-              <p className="text-shadow-hero mt-6 max-w-xl text-lg font-medium leading-relaxed text-cream md:ml-auto">
+              <p className="text-shadow-hero mt-6 ml-auto max-w-lg text-base font-medium leading-relaxed text-cream md:text-lg">
                 {t({
                   en: "We couple beauty with simplicity to create healthy, living works of art. Each wall is custom made to satisfy your dreams.",
                   fr: "Nous allions beauté et simplicité pour créer des œuvres d'art vivantes et saines. Chaque mur est conçu sur mesure pour concrétiser vos rêves.",
@@ -780,10 +780,10 @@ function Index() {
                 })}
               </p>
             </div>
-            <div className="mt-10 flex flex-wrap items-center justify-start gap-4 reveal is-visible md:justify-end" style={{ animationDelay: "200ms" }}>
+            <div className="mt-8 flex flex-wrap items-center justify-end gap-4 reveal is-visible md:mt-10" style={{ animationDelay: "200ms" }}>
               <a
                 href="#work"
-                className="slide-cta group relative inline-flex items-center rounded-full border border-cream/40 bg-cream/10 px-7 py-3.5 text-sm font-semibold text-cream shadow-lg transition-colors hover:bg-cream/20"
+                className="slide-cta group relative inline-flex items-center rounded-full border border-cream/40 bg-cream/10 px-6 py-3 text-sm font-semibold text-cream shadow-lg transition-colors hover:bg-cream/20 md:px-7 md:py-3.5"
               >
                 <span className="slide-cta-arrow pl-4 text-cream">
                   <ArrowRight className="h-4 w-4" aria-hidden />
