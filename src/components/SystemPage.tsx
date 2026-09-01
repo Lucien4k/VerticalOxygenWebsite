@@ -183,35 +183,37 @@ export function SystemPage({ systemKey, compact }: { systemKey: "hydroponic" | "
       </section>
 
       {/* Highlights */}
-      <section className="mx-auto max-w-6xl px-6 py-16 md:py-24">
-        <h2 className="font-serif text-3xl tracking-tight text-charcoal md:text-4xl">
-          {t({
-            en: "Why choose",
-            fr: "Pourquoi choisir",
-            zh: "为什么选择",
-            es: "Por qué elegir",
-            pa: "ਕਿਉਂ ਚੁਣੋ",
-            ar: "لماذا تختار",
-            hi: "क्यों चुनें",
-          })} {t(sys.title).toLowerCase()}?
-        </h2>
-        <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {sys.highlights.map((h) => (
-            <div
-              key={t(h.text)}
-              className="flex items-start gap-4 rounded-2xl border border-charcoal/10 bg-white p-6"
-            >
-              <span
-                className={`mt-1 h-2.5 w-2.5 shrink-0 rounded-full ${h.color ?? "bg-forest-deep"}`}
-                aria-hidden
-              />
-              <p className="text-base leading-relaxed text-charcoal/80">
-                {t(h.text)}
-              </p>
-            </div>
-          ))}
-        </div>
-      </section>
+      {!compact && (
+        <section className="mx-auto max-w-6xl px-6 py-16 md:py-24">
+          <h2 className="font-serif text-3xl tracking-tight text-charcoal md:text-4xl">
+            {t({
+              en: "Why choose",
+              fr: "Pourquoi choisir",
+              zh: "为什么选择",
+              es: "Por qué elegir",
+              pa: "ਕਿਉਂ ਚੁਣੋ",
+              ar: "لماذا تختار",
+              hi: "क्यों चुनें",
+            })} {t(sys.title).toLowerCase()}?
+          </h2>
+          <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {sys.highlights.map((h) => (
+              <div
+                key={t(h.text)}
+                className="flex items-start gap-4 rounded-2xl border border-charcoal/10 bg-white p-6"
+              >
+                <span
+                  className={`mt-1 h-2.5 w-2.5 shrink-0 rounded-full ${h.color ?? "bg-forest-deep"}`}
+                  aria-hidden
+                />
+                <p className="text-base leading-relaxed text-charcoal/80">
+                  {t(h.text)}
+                </p>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
 
       {/* Footer mini */}
       <footer className="border-t border-charcoal/10 bg-white/50 py-12">
