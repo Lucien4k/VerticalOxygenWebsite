@@ -598,6 +598,11 @@ function Index() {
       {/* Scroll-scrubbed panel sequence — second hero */}
       <ScrollFramesSection id="second-hero" frames={HERO2_FRAME_URLS} scrollLength={1.5} />
 
+      <div
+        ref={philosophyRef}
+        className="relative z-20 -mt-[40vh] will-change-[transform,opacity]"
+        style={{ opacity: 0 }}
+      >
       {/* Philosophy / About */}
       {/* Wood shelf divider */}
       <div className="relative h-5 w-full overflow-hidden md:h-7" aria-hidden>
