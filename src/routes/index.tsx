@@ -424,51 +424,9 @@ function SystemsShowcase() {
         </div>
       </div>
 
-      <div key={sys.key} className="systems-swap grid gap-10 md:grid-cols-12 md:gap-14">
-        {/* Diagram plaque */}
-        <div className="md:col-span-7">
-          <button
-            type="button"
-            onClick={() =>
-              setLightbox({
-                src: sys.diagram,
-                title: `${t(sys.title)} — ${t(DIAGRAM_LABEL)}`,
-              })
-            }
-            className="group relative block w-full overflow-hidden rounded-3xl p-3 text-left ring-1 ring-charcoal/10 transition-shadow hover:shadow-xl md:p-4"
-            aria-label={`${t({
-              en: "Enlarge",
-              fr: "Agrandir",
-              zh: "放大",
-              es: "Ampliar",
-              pa: "ਵੱਡਾ ਕਰੋ",
-              ar: "تكبير",
-              hi: "बड़ा करें",
-            })} — ${t(sys.title)}`}
-          >
-            <div
-              className="absolute inset-0 bg-cover bg-center"
-              style={{ backgroundImage: `url(${woodTexture.url})` }}
-              aria-hidden
-            />
-            <div className="absolute inset-0 bg-cream/92" aria-hidden />
-            <div className="relative overflow-hidden rounded-2xl bg-white">
-              <img
-                src={sys.diagram}
-                alt={`${t(sys.title)} — ${t(DIAGRAM_LABEL)}`}
-                className="h-auto w-full object-contain transition-transform duration-700 group-hover:scale-[1.02] md:max-h-[46rem]"
-                loading="lazy"
-              />
-              {/* Zoom hint */}
-              <span className="pointer-events-none absolute bottom-4 right-4 flex h-10 w-10 items-center justify-center rounded-full bg-charcoal/80 text-cream opacity-0 shadow-lg backdrop-blur transition-opacity duration-300 group-hover:opacity-100 md:h-12 md:w-12">
-                <ZoomIn className="h-5 w-5" aria-hidden />
-              </span>
-            </div>
-          </button>
-        </div>
-
+      <div key={sys.key} className="systems-swap mx-auto max-w-3xl">
         {/* Details */}
-        <div className="md:col-span-5">
+        <div>
           <p className="text-xs font-semibold uppercase tracking-[0.3em] text-forest">
             {t(sys.tag)}
           </p>
