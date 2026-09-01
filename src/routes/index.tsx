@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import outdoorFrame from "../assets/projects/outdoor-wood-frame.jpg.asset.json";
+import featureOffice from "../assets/feature-office.jpg";
 import lobbyPanels from "../assets/projects/lobby-panels.jpg.asset.json";
 import edmontonLobby from "../assets/projects/edmonton-lobby.jpg.asset.json";
 import fairviewAquarium from "../assets/projects/fairview-aquarium.jpg.asset.json";
