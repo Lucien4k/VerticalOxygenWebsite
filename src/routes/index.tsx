@@ -30,7 +30,7 @@ import { ClientLogos } from "@/components/ClientLogos";
 import { NavMenu } from "@/components/NavMenu";
 import { Parallax } from "@/components/Parallax";
 import { WordsReveal } from "@/components/WordsReveal";
-import { FloatingLeaves } from "@/components/FloatingLeaves";
+
 import { ScrollProgress } from "@/components/ScrollProgress";
 import { ScrollFrames } from "@/components/ScrollFrames";
 import { FRAME_URLS } from "@/lib/frame-urls";
@@ -586,7 +586,6 @@ function Index() {
         <div className="absolute inset-0 bg-gradient-to-b from-charcoal/40 via-charcoal/20 to-charcoal/50" aria-hidden />
         {/* Soft blur that intensifies as the page scrolls up over the hero */}
         <div ref={blurLayerRef} className="pointer-events-none absolute inset-0 z-[5] will-change-[backdrop-filter,opacity]" aria-hidden />
-        <FloatingLeaves className="z-10" />
 
         {/* Floating rounded top bars — hero video shows around them */}
         <div className="absolute inset-x-0 top-0 z-50 px-4 pt-4 md:px-6 md:pt-5">
@@ -1248,7 +1247,6 @@ function Index() {
 
       {/* Sustainability */}
       <section id="sustainability" className="relative overflow-hidden bg-charcoal text-cream">
-        <FloatingLeaves />
         <div className="relative mx-auto max-w-7xl px-6 py-20 md:py-28">
           <Reveal>
             <p className="mb-3 text-xs font-semibold uppercase tracking-[0.3em] text-forest">
