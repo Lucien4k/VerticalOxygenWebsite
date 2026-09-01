@@ -4,8 +4,6 @@ import featureOffice from "../assets/feature-office.jpg";
 import lobbyPanels from "../assets/projects/lobby-panels.jpg.asset.json";
 import edmontonLobby from "../assets/projects/edmonton-lobby.jpg.asset.json";
 import fairviewAquarium from "../assets/projects/fairview-aquarium.jpg.asset.json";
-import hydroponicDiagram from "../assets/diagrams/hydroponic-wall-diagram-v4.jpg.asset.json";
-import aquaponicDiagram from "../assets/diagrams/aquaponic-wall-diagram-v4.jpg.asset.json";
 import fairviewInstall from "../assets/projects/fairview-install.jpg.asset.json";
 import tropicalDense from "../assets/projects/tropical-dense.jpg.asset.json";
 import succulentTapestry from "../assets/projects/succulent-tapestry.jpg.asset.json";
@@ -465,7 +463,7 @@ function SystemsShowcase() {
         {/* System photo */}
         <div className="relative overflow-hidden rounded-2xl bg-white ring-1 ring-charcoal/10 shadow-[0_24px_60px_-24px_rgba(0,0,0,0.25)]">
           <img
-            src={sys.key === "hydroponic" ? hydroponicDiagram.url : aquaponicDiagram.url}
+            src={sys.diagram}
             alt={t(sys.title)}
             className="w-full object-cover"
             loading="lazy"
