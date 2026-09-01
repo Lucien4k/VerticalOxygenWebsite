@@ -56,6 +56,223 @@ import cutoutCoaldale from "../assets/cutouts/coaldale-wall.png.asset.json";
 import woodTexture from "../assets/textures/wood-texture-v2.jpg.asset.json";
 import logoHeader from "../assets/logo-header.png.asset.json";
 import { SYSTEMS, DIAGRAM_LABEL } from "@/lib/systems";
+function SustainabilitySection() {
+  const t = useT();
+  return (
+          <section id="sustainability" className="relative overflow-hidden bg-charcoal text-cream">
+            <div className="relative mx-auto max-w-7xl px-6 py-20 md:py-28">
+              <Reveal>
+                <p className="mb-3 text-xs font-semibold uppercase tracking-[0.3em] text-forest">
+                  {t({ en: "Sustainability", fr: "Durabilité", zh: "可持续性", es: "Sostenibilidad", pa: "ਸਸਟੇਨੇਬਿਲਟੀ", ar: "الاستدامة", hi: "सस्टेनेबिलिटी" })}
+                </p>
+                <h2 className="display-heading max-w-3xl text-4xl leading-[1.05] md:text-6xl">
+                  {t({
+                    en: "Closed-loop recirculating water system.",
+                    fr: "Système d'eau recirculée en boucle fermée.",
+                    zh: "闭环循环水系统。",
+                    es: "Sistema de agua recirculada en circuito cerrado.",
+                    pa: "ਬੰਦ-ਲੂਪ ਰੀਸਰਕੁਲੇਟਿੰਗ ਪਾਣੀ ਦਾ ਸਿਸਟਮ।",
+                    ar: "نظام مياه معاد تدويرها في دارة مغلقة.",
+                    hi: "बंद-लूप पुनर्संचालित जल प्रणाली।",
+                  })}
+                </h2>
+                <p className="mt-6 max-w-2xl text-base leading-relaxed text-cream/70">
+                  {t({
+                    en: "Our hydroponic and aquaponic walls run on closed-loop recirculating water. Instead of draining away, the same water cycles through the root matrix again and again — topping up only what the plants actually drink. The result is a living wall that uses a fraction of the water of traditional irrigation while keeping roots oxygenated and healthy.",
+                    fr: "Nos murs hydroponiques et aquaponiques fonctionnent en circuit fermé à eau recyclée. Au lieu de s'écouler, la même eau circule encore et encore à travers la matrice racinaire — compensant uniquement ce que les plantes consomment. Résultat : un mur végétal qui consomme une fraction de l'eau d'une irrigation traditionnelle tout en gardant les racines oxygénées et saines.",
+                    zh: "我们的水培和鱼菜共生墙体采用闭环循环水系统。水流不会排走，而是反复流经根系基质——仅补充植物实际吸收的水分。这样的植物墙用水量仅为传统灌溉的一小部分，同时保持根系富氧、健康。",
+                    es: "Nuestros muros hidropónicos y acuapónicos funcionan con agua recirculada en circuito cerrado. En lugar de drenar, la misma agua pasa por la matriz de raíces una y otra vez — reponiendo solo lo que las plantas beben. El resultado es un muro vivo que usa una fracción del agua del riego tradicional mientras mantiene las raíces oxigenadas y sanas.",
+                    pa: "ਸਾਡੀਆਂ ਹਾਈਡਰੋਪੋਨਿਕ ਅਤੇ ਐਕੁਆਪੋਨਿਕ ਕੰਧਾਂ ਬੰਦ-ਲੂਪ ਰੀਸਰਕੁਲੇਟਿੰਗ ਪਾਣੀ 'ਤੇ ਚੱਲਦੀਆਂ ਹਨ। ਪਾਣੀ ਨੂੰ ਵਹਾਉਣ ਦੀ ਬਜਾਏ, ਇਹੀ ਪਾਣੀ ਜੜ੍ਹਾਂ ਵਿੱਚ ਵਾਰ-ਵਾਰ ਚੱਕਰ ਕੱਟਦਾ ਹੈ — ਸਿਰਫ਼ ਉਹਨਾਂ ਨੂੰ ਭਰਪੂਰ ਕਰਦਾ ਹੈ ਜੋ ਪੌਦੇ ਸੱਚਮੁੱਚ ਪੀਂਦੇ ਹਨ। ਨਤੀਜਾ ਇੱਕ ਅਜਿਹੀ ਜੀਵੰਤ ਕੰਧ ਹੈ ਜੋ ਪਰੰਪਰਾਗਤ ਸਿੰਚਾਈ ਦੇ ਪਾਣੀ ਦਾ ਇੱਕ ਹਿੱਸਾ ਵਰਤਦੀ ਹੈ ਅਤੇ ਜੜ੍ਹਾਂ ਨੂੰ ਆਕਸੀਜਨਯੁਕਤ ਤੇ ਸਿਹਤਮੰਦ ਰੱਖਦੀ ਹੈ।",
+                    ar: "تعمل جدراننا المائية والسمكية على مياه معاد تدويرها في دارة مغلقة. بدلاً من أن تصرف، تدور نفس المياه عبر مصفوفة الجذور مراراً — ولا يُعوَّض إلا ما تستهلكه النباتات فعلاً. النتيجة جدار حي يستخدم جزءاً صغيراً من مياه الري التقليدي مع إبقاء الجذور مؤكسجة وسليمة.",
+                    hi: "हमारी हाइड्रोपोनिक और एक्वापोनिक दीवारें क्लोज्ड-लूप रीसर्कुलेटिंग जल पर चलती हैं। पानी बहकर निकलने के बजाय बार-बार जड़ मैट्रिक्स से गुजरता है — केवल उतना ही भरा जाता है जितना पौधे वास्तव में पीते हैं। नतीजा एक ऐसी जीवित दीवार है जो पारंपरिक सिंचाई के पानी का एक अंश उपयोग करती है, जड़ों को ऑक्सीजनयुक्त और स्वस्थ रखती है।",
+                  })}
+                </p>
+              </Reveal>
+
+              <div className="mt-14 grid gap-6 md:grid-cols-3">
+                {[
+                  {
+                    key: "reuse",
+                    stat: t({ en: "up to 90%", fr: "jusqu'à 90 %", zh: "高达 90%", es: "hasta 90 %", pa: "90% ਤੱਕ", ar: "حتى 90٪", hi: "90% तक" }),
+                    title: t({ en: "Water Reused", fr: "Eau réutilisée", zh: "水资源回用", es: "Agua reutilizada", pa: "ਪਾਣੀ ਮੁੜ-ਵਰਤੋਂ", ar: "المياه المعاد استخدامها", hi: "जल पुनः उपयोग" }),
+                    body: t({
+                      en: "Closed-loop recirculation returns nearly all the water the roots don't drink straight back into the system.",
+                      fr: "La recirculation en circuit fermé renvoie presque toute l'eau non absorbée par les racines directement dans le système.",
+                      zh: "闭环循环将根系未吸收的水几乎全部回流至系统中。",
+                      es: "La recirculación en circuito cerrado devuelve casi toda el agua no absorbida por las raíces directamente al sistema.",
+                      pa: "ਬੰਦ-ਲੂਪ ਰੀਸਰਕੁਲੇਸ਼ਨ ਜੜ੍ਹਾਂ ਦੁਆਰਾ ਨਾ ਪੀਤੇ ਲਗਭਗ ਸਾਰੇ ਪਾਣੀ ਨੂੰ ਸਿੱਧਾ ਸਿਸਟਮ ਵਿੱਚ ਵਾਪਸ ਭੇਜਦਾ ਹੈ।",
+                      ar: "إعادة التدوير في دارة مغلقة تعيد تقريباً كل المياه التي لم تمتصها الجذور مباشرة إلى النظام.",
+                      hi: "क्लोज्ड-लूप पुनर्चक्रण जड़ों द्वारा न पिए गए लगभग सभी पानी को सीधे सिस्टम में लौटा देता है।",
+                    }),
+                  },
+                  {
+                    key: "litre",
+                    stat: t({ en: "0.35 L", fr: "0,35 L", zh: "0.35 升", es: "0,35 L", pa: "0.35 ਲੀ", ar: "0.35 لتر", hi: "0.35 लीटर" }),
+                    title: t({ en: "Per Day, Per Square Foot", fr: "Par jour, par pied carré", zh: "每日每平方英尺", es: "Por día, por pie cuadrado", pa: "ਪ੍ਰਤੀ ਦਿਨ, ਪ੍ਰਤੀ ਵਰਗ ਫੁੱਟ", ar: "يومياً لكل قدم مربع", hi: "प्रति दिन, प्रति वर्ग फुट" }),
+                    body: t({
+                      en: "Typical daily top-up — only the small amount the plants actually transpire, not the full reservoir.",
+                      fr: "Apport quotidien typique — uniquement la petite quantité réellement transpirée par les plantes, pas le réservoir complet.",
+                      zh: "典型日补水量——仅为植物实际蒸腾的少量水分，而非整个储水箱。",
+                      es: "Reposición diaria típica — solo la pequeña cantidad que las plantas realmente transpiran, no el depósito completo.",
+                      pa: "ਆਮ ਰੋਜ਼ਾਨਾ ਟਾਪ-ਅੱਪ — ਸਿਰਫ਼ ਉਹ ਛੋਟੀ ਮਾਤਰਾ ਜੋ ਪੌਦੇ ਅਸਲ ਵਿੱਚ ਬਾਸ਼ਪ ਕਰਦੇ ਹਨ, ਪੂਰਾ ਭੰਡਾਰ ਨਹੀਂ।",
+                      ar: "التعبئة اليومية المعتادة — فقط الكمية الصغيرة التي تتبخرها النباتات فعلاً، وليس الخزان بالكامل.",
+                      hi: "सामान्य दैनिक टॉप-अप — केवल वह छोटी मात्रा जो पौधे वास्तव में वाष्पित करते हैं, पूरा भंडार नहीं।",
+                    }),
+                  },
+                  {
+                    key: "zero",
+                    stat: t({ en: "zero", fr: "zéro", zh: "零", es: "cero", pa: "ਜ਼ੀਰੋ", ar: "صفر", hi: "शून्य" }),
+                    title: t({ en: "Runoff to Drain", fr: "Rejet à l'égout", zh: "排放至下水道", es: "Descarga al alcantarillado", pa: "ਨਿਕਾਸ ਵਿੱਚ ਵਹਾਅ", ar: "صرف إلى المجاري", hi: "नाले में बहाव" }),
+                    body: t({
+                      en: "No municipal water wasted. What isn't taken up by the roots stays in the loop and is filtered for the next pass.",
+                      fr: "Aucune eau municipale gaspillée. Ce qui n'est pas absorbé par les racines reste dans le circuit et est filtré pour le prochain passage.",
+                      zh: "不浪费市政用水。根系未吸收的水留在循环中，过滤后供下一轮使用。",
+                      es: "Ninguna agua municipal desperdiciada. Lo que las raíces no absorben permanece en el circuito y se filtra para el siguiente ciclo.",
+                      pa: "ਕੋਈ ਨਗਰਪਾਲਿਕਾ ਪਾਣੀ ਬਰਬਾਦ ਨਹੀਂ। ਜੋ ਜੜ੍ਹਾਂ ਲੈਂਦੀਆਂ ਨਹੀਂ ਹਨ, ਉਹ ਲੂਪ ਵਿੱਚ ਰਹਿੰਦਾ ਹੈ ਅਤੇ ਅਗਲੇ ਚੱਕਰ ਲਈ ਫਿਲਟਰ ਕੀਤਾ ਜਾਂਦਾ ਹੈ।",
+                      ar: "لا هدر للمياه البلدية. ما لا تأخذه الجذور يبقى في الدارة ويُرشَّح للدورة التالية.",
+                      hi: "नगरपालिका का पानी बर्बाद नहीं। जो जड़ें नहीं लेतीं वह लूप में रहता है और अगले चक्र के लिए फ़िल्टर कर दिया जाता है।",
+                    }),
+                  },
+                ].map((c, i) => (
+                  <Reveal key={c.key} delay={i * 0.08}>
+                    <div className="h-full rounded-3xl border border-cream/10 bg-cream/5 p-8 backdrop-blur-sm">
+                      <p className="font-serif text-4xl text-forest md:text-5xl">{c.stat}</p>
+                      <h3 className="mt-5 text-xl font-semibold text-cream">{c.title}</h3>
+                      <p className="mt-3 text-sm leading-relaxed text-cream/65">{c.body}</p>
+                    </div>
+                  </Reveal>
+                ))}
+              </div>
+            </div>
+          </section>
+
+      
+  );
+}
+
+function MaintenanceSection() {
+  const t = useT();
+  return (
+          <section id="maintenance" className="relative overflow-hidden bg-cream text-charcoal">
+            <div className="mx-auto max-w-7xl px-6 py-20 md:py-28">
+              <Reveal>
+                <p className="mb-3 text-xs font-semibold uppercase tracking-[0.3em] text-forest">
+                  {t({ en: "Maintenance & Guarantee", fr: "Entretien et garantie", zh: "养护与保障", es: "Mantenimiento y garantía", pa: "ਰੱਖ-ਰਖਾਅ ਅਤੇ ਗਾਰੰਟੀ", ar: "الصيانة والضمان", hi: "रखरखाव और गारंटी" })}
+                </p>
+                <h2 className="display-heading max-w-3xl text-4xl leading-[1.05] text-charcoal md:text-6xl">
+                  {t({
+                    en: "100% plant guarantee —",
+                    fr: "Garantie 100 % des plantes —",
+                    zh: "100% 植物保障——",
+                    es: "Garantía del 100 % en plantas —",
+                    pa: "100% ਪੌਦਾ ਗਾਰੰਟੀ —",
+                    ar: "ضمان 100٪ للنباتات —",
+                    hi: "100% प्लांट गारंटी —",
+                  })}{" "}
+                  <em>
+                    {t({ en: "with maintenance.", fr: "avec l'entretien.", zh: "需搭配养护服务。", es: "con mantenimiento.", pa: "ਰੱਖ-ਰਖਾਅ ਦੇ ਨਾਲ।", ar: "مع خدمة الصيانة.", hi: "रखरखाव के साथ।" })}
+                  </em>
+                </h2>
+                <p className="mt-6 max-w-2xl text-base leading-relaxed text-charcoal/70">
+                  {t({
+                    en: "A living wall is a living thing. Our maintenance program keeps every wall thriving — and every wall on an active maintenance agreement is covered by our 100% plant guarantee. If a plant fails, we replace it. No charge, no questions. The guarantee is available exclusively with maintenance service.",
+                    fr: "Un mur végétal est un organisme vivant. Notre programme d'entretien garde chaque mur en pleine santé — et tout mur couvert par un contrat d'entretien actif bénéficie de notre garantie 100 % des plantes. Si une plante dépérit, nous la remplaçons. Sans frais, sans discussion. La garantie est offerte exclusivement avec le service d'entretien.",
+                    zh: "植物墙是有生命的。我们的养护计划让每一面墙持续繁茂——凡在有效养护合约内的墙体，均享有 100% 植物保障。若有植物枯萎，我们免费更换，无需多问。该保障仅在订购养护服务时提供。",
+                    es: "Un muro vegetal es un ser vivo. Nuestro programa de mantenimiento mantiene cada muro floreciente — y todo muro con un contrato de mantenimiento activo está cubierto por nuestra garantía del 100 % en plantas. Si una planta falla, la reemplazamos. Sin costo, sin preguntas. La garantía está disponible exclusivamente con el servicio de mantenimiento.",
+                    pa: "ਇੱਕ ਜੀਵੰਤ ਕੰਧ ਇੱਕ ਜੀਵਤ ਚੀਜ਼ ਹੈ। ਸਾਡਾ ਰੱਖ-ਰਖਾਅ ਪ੍ਰੋਗਰਾਮ ਹਰ ਕੰਧ ਨੂੰ ਵਧਦੀ-ਫੁੱਲਦੀ ਰੱਖਦਾ ਹੈ — ਅਤੇ ਕਿਰਿਆਸ਼ੀਲ ਰੱਖ-ਰਖਾਅ ਸਮਝੌਤੇ ਵਾਲੀ ਹਰ ਕੰਧ ਸਾਡੀ 100% ਪੌਦਾ ਗਾਰੰਟੀ ਦੁਆਰਾ ਕਵਰ ਹੁੰਦੀ ਹੈ। ਜੇ ਕੋਈ ਪੌਦਾ ਖ਼ਰਾਬ ਹੁੰਦਾ ਹੈ, ਅਸੀਂ ਇਸਨੂੰ ਬਦਲ ਦਿੰਦੇ ਹਾਂ। ਕੋਈ ਖਰਚਾ ਨਹੀਂ, ਕੋਈ ਸਵਾਲ ਨਹੀਂ। ਇਹ ਗਾਰੰਟੀ ਸਿਰਫ਼ ਰੱਖ-ਰਖਾਅ ਸੇਵਾ ਨਾਲ ਹੀ ਉਪਲਬਧ ਹੈ।",
+                    ar: "الجدار الأخضر كائن حي. برنامج الصيانة لدينا يحافظ على ازدهار كل جدار — وكل جدار ضمن اتفاقية صيانة سارية مشمول بضماننا 100٪ للنباتات. إذا فشلت نبتة، نستبدلها دون أي تكلفة أو أسئلة. الضمان متاح حصريًا مع خدمة الصيانة.",
+                    hi: "एक लिविंग वॉल एक जीवित वस्तु है। हमारा रखरखाव कार्यक्रम हर वॉल को फलता-फूलता रखता है — और सक्रिय रखरखाव समझौते वाली हर वॉल हमारी 100% प्लांट गारंटी द्वारा कवर होती है। यदि कोई पौधा खराब होता है, तो हम उसे बदल देते हैं। कोई शुल्क नहीं, कोई सवाल नहीं। यह गारंटी केवल रखरखाव सेवा के साथ ही उपलब्ध है।",
+                   })}
+                 </p>
+                <p className="mt-5 max-w-2xl text-sm font-semibold uppercase tracking-[0.2em] text-forest">
+                  {t({
+                    en: "Since 2011, we have stood behind every wall we have created.",
+                    fr: "Depuis 2011, nous garantissons chaque mur que nous avons créé.",
+                    zh: "自2011年以来，我们为我们建造的每一面墙提供保障。",
+                    es: "Desde 2011, respaldamos cada muro que hemos creado.",
+                    pa: "2011 ਤੋਂ, ਅਸੀਂ ਆਪਣੇ ਬਣਾਏ ਹਰ ਕੰਧ ਦੇ ਪਿੱਛੇ ਖੜ੍ਹੇ ਹਾਂ।",
+                    ar: "منذ 2011، نقف خلف كل جدار أنشأناه.",
+                    hi: "2011 से, हमने अपने द्वारा बनाई गई हर दीवार का समर्थन किया है।",
+                  })}
+                </p>
+               </Reveal>
+
+              <div className="mt-14 grid gap-6 md:grid-cols-3">
+                {[
+                  {
+                    key: "guarantee",
+                    title: t({ en: "100% Plant Guarantee", fr: "Garantie 100 % des plantes", zh: "100% 植物保障", es: "Garantía del 100 % en plantas", pa: "100% ਪੌਦਾ ਗਾਰੰਟੀ", ar: "ضمان 100٪ للنباتات", hi: "100% प्लांट गारंटी" }),
+                    body: t({
+                      en: "Any plant that declines or dies is replaced at no cost for the life of your maintenance agreement.",
+                      fr: "Toute plante qui dépérit ou meurt est remplacée sans frais pendant toute la durée de votre contrat d'entretien.",
+                      zh: "在养护合约有效期内，任何衰弱或枯死的植物均免费更换。",
+                      es: "Toda planta que decaiga o muera se reemplaza sin costo durante la vigencia de su contrato de mantenimiento.",
+                      pa: "ਕੋਈ ਵੀ ਪੌਦਾ ਜੋ ਕਮਜ਼ੋਰ ਹੁੰਦਾ ਜਾਂ ਮਰ ਜਾਂਦਾ ਹੈ, ਤੁਹਾਡੇ ਰੱਖ-ਰਖਾਅ ਸਮਝੌਤੇ ਦੌਰਾਨ ਬਿਨਾਂ ਕਿਸੇ ਖਰਚੇ ਦੇ ਬਦਲਿਆ ਜਾਂਦਾ ਹੈ।",
+                      ar: "يتم استبدال أي نبتة تضعف أو تموت مجانًا طوال مدة اتفاقية الصيانة الخاصة بك.",
+                      hi: "कोई भी पौधा जो कमजोर हो जाए या मर जाए, आपके रखरखाव समझौते की अवधि के दौरान बिना किसी शुल्क के बदल दिया जाता है।",
+                    }),
+                  },
+                  {
+                    key: "scheduled",
+                    title: t({ en: "Scheduled Maintenance", fr: "Entretien planifié", zh: "定期养护", es: "Mantenimiento programado", pa: "ਨਿਯਤ ਰੱਖ-ਰਖਾਅ", ar: "صيانة مجدولة", hi: "निर्धारित रखरखाव" }),
+                    body: t({
+                      en: "Regular visits for pruning, feeding, pest management, irrigation checks, and system calibration.",
+                      fr: "Visites régulières pour la taille, la fertilisation, la gestion des nuisibles, la vérification de l'irrigation et le calibrage du système.",
+                      zh: "定期上门进行修剪、施肥、病虫害防治、灌溉检查与系统校准。",
+                      es: "Visitas periódicas para poda, fertilización, control de plagas, revisión del riego y calibración del sistema.",
+                      pa: "ਛਾਂਟਣ, ਖਾਦ ਦੇਣ, ਕੀੜੇ-ਮਕੌੜੇ ਪ੍ਰਬੰਧਨ, ਸਿੰਚਾਈ ਜਾਂਚ ਅਤੇ ਸਿਸਟਮ ਕੈਲੀਬ੍ਰੇਸ਼ਨ ਲਈ ਨਿਯਮਤ ਦੌਰੇ।",
+                      ar: "زيارات منتظمة للتقليم والتغذية ومكافحة الآفات وفحص الري ومعايرة النظام.",
+                      hi: "छंटाई, पोषण, कीट प्रबंधन, सिंचाई जांच और सिस्टम कैलिब्रेशन के लिए नियमित दौरे।",
+                    }),
+                  },
+                  {
+                    key: "terms",
+                    title: t({ en: "Plant Warranty Terms", fr: "Conditions de la garantie", zh: "植物保修条款", es: "Condiciones de la garantía", pa: "ਪੌਦਾ ਵਾਰੰਟੀ ਸ਼ਰਤਾਂ", ar: "شروط ضمان النباتات", hi: "प्लांट वारंटी शर्तें" }),
+                    body: t({
+                      en: "Coverage stays active as long as maintenance is current. Without a maintenance plan, the guarantee does not apply.",
+                      fr: "La couverture demeure active tant que l'entretien est à jour. Sans forfait d'entretien, la garantie ne s'applique pas.",
+                      zh: "只要养护服务持续有效，保障即持续生效；未订购养护计划则不适用该保障。",
+                      es: "La cobertura permanece activa mientras el mantenimiento esté al día. Sin un plan de mantenimiento, la garantía no aplica.",
+                      pa: "ਕਵਰੇਜ ਓਦੋਂ ਤੱਕ ਕਿਰਿਆਸ਼ੀਲ ਰਹਿੰਦੀ ਹੈ ਜਦੋਂ ਤੱਕ ਰੱਖ-ਰਖਾਅ ਚਾਲੂ ਹੈ। ਰੱਖ-ਰਖਾਅ ਯੋਜਨਾ ਤੋਂ ਬਿਨਾਂ, ਗਾਰੰਟੀ ਲਾਗੂ ਨਹੀਂ ਹੁੰਦੀ।",
+                      ar: "تبقى التغطية سارية طالما الصيانة مستمرة. بدون خطة صيانة، لا ينطبق الضمان.",
+                      hi: "जब तक रखरखाव जारी है, तब तक कवरेज सक्रिय रहता है। रखरखाव योजना के बिना, गारंटी लागू नहीं होती।",
+                    }),
+                  },
+                ].map((c, i) => (
+                  <Reveal key={c.key} delay={i * 0.08}>
+                    <div className="h-full rounded-3xl border border-charcoal/10 bg-white p-8">
+                      <Leaf className="h-5 w-5 text-forest" />
+                      <h3 className="mt-5 text-xl font-semibold text-charcoal">{c.title}</h3>
+                      <p className="mt-3 text-sm leading-relaxed text-charcoal/65">{c.body}</p>
+                    </div>
+                  </Reveal>
+                ))}
+              </div>
+
+              <Reveal>
+                <div className="mt-10 flex flex-wrap items-center gap-4">
+                  <a
+                    href="#quote"
+                    className="inline-flex items-center gap-2 rounded-full bg-forest-deep px-7 py-3 text-sm font-semibold text-cream transition hover:opacity-90"
+                  >
+                    {t({ en: "Ask about maintenance", fr: "Renseignez-vous sur l'entretien", zh: "咨询养护服务", es: "Consulta sobre mantenimiento", pa: "ਰੱਖ-ਰਖਾਅ ਬਾਰੇ ਪੁੱਛੋ", ar: "اسأل عن الصيانة", hi: "रखरखाव के बारे में पूछें" })}{" "}
+                    <ArrowRight className="h-4 w-4" />
+                  </a>
+                  <Link
+                    to="/specifications"
+                    className="text-sm font-semibold uppercase tracking-[0.18em] text-forest underline underline-offset-4"
+                  >
+                    {t({ en: "Full warranty terms", fr: "Conditions complètes de garantie", zh: "完整保修条款", es: "Condiciones completas de la garantía", pa: "ਪੂਰੀਆਂ ਵਾਰੰਟੀ ਸ਼ਰਤਾਂ", ar: "الشروط الكاملة للضمان", hi: "पूर्ण वारंटी शर्तें" })}
+                  </Link>
+                </div>
+              </Reveal>
+            </div>
+          </section>
+
+      
+  );
+}
+
 function SystemsShowcase() {
   const t = useT();
   const [lightbox, setLightbox] = useState<string | null>(null);
@@ -676,12 +893,15 @@ function Index() {
       </section>
       </div>
 
+      <MaintenanceSection />
+
       {/* Systems Showcase — replaces the old gallery with an interactive systems module */}
       <section id="work" className="relative z-20 -mt-[8vh] overflow-hidden rounded-t-[3rem] bg-cream pt-10 text-charcoal shadow-[0_-40px_80px_-40px_rgba(0,0,0,0.45)]">
         <SystemsShowcase />
       </section>
 
-      {/* Locations Map */}
+      <SustainabilitySection />
+
       {/* Wood shelf divider */}
       <div className="relative h-5 w-full overflow-hidden md:h-7" aria-hidden>
         <div
@@ -1008,94 +1228,6 @@ function Index() {
             </figure>
           </div>
         )}
-      </section>
-
-      {/* Sustainability */}
-      <section id="sustainability" className="relative overflow-hidden bg-charcoal text-cream">
-        <div className="relative mx-auto max-w-7xl px-6 py-20 md:py-28">
-          <Reveal>
-            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.3em] text-forest">
-              {t({ en: "Sustainability", fr: "Durabilité", zh: "可持续性", es: "Sostenibilidad", pa: "ਸਸਟੇਨੇਬਿਲਟੀ", ar: "الاستدامة", hi: "सस्टेनेबिलिटी" })}
-            </p>
-            <h2 className="display-heading max-w-3xl text-4xl leading-[1.05] md:text-6xl">
-              {t({
-                en: "Closed-loop recirculating water system.",
-                fr: "Système d'eau recirculée en boucle fermée.",
-                zh: "闭环循环水系统。",
-                es: "Sistema de agua recirculada en circuito cerrado.",
-                pa: "ਬੰਦ-ਲੂਪ ਰੀਸਰਕੁਲੇਟਿੰਗ ਪਾਣੀ ਦਾ ਸਿਸਟਮ।",
-                ar: "نظام مياه معاد تدويرها في دارة مغلقة.",
-                hi: "बंद-लूप पुनर्संचालित जल प्रणाली।",
-              })}
-            </h2>
-            <p className="mt-6 max-w-2xl text-base leading-relaxed text-cream/70">
-              {t({
-                en: "Our hydroponic and aquaponic walls run on closed-loop recirculating water. Instead of draining away, the same water cycles through the root matrix again and again — topping up only what the plants actually drink. The result is a living wall that uses a fraction of the water of traditional irrigation while keeping roots oxygenated and healthy.",
-                fr: "Nos murs hydroponiques et aquaponiques fonctionnent en circuit fermé à eau recyclée. Au lieu de s'écouler, la même eau circule encore et encore à travers la matrice racinaire — compensant uniquement ce que les plantes consomment. Résultat : un mur végétal qui consomme une fraction de l'eau d'une irrigation traditionnelle tout en gardant les racines oxygénées et saines.",
-                zh: "我们的水培和鱼菜共生墙体采用闭环循环水系统。水流不会排走，而是反复流经根系基质——仅补充植物实际吸收的水分。这样的植物墙用水量仅为传统灌溉的一小部分，同时保持根系富氧、健康。",
-                es: "Nuestros muros hidropónicos y acuapónicos funcionan con agua recirculada en circuito cerrado. En lugar de drenar, la misma agua pasa por la matriz de raíces una y otra vez — reponiendo solo lo que las plantas beben. El resultado es un muro vivo que usa una fracción del agua del riego tradicional mientras mantiene las raíces oxigenadas y sanas.",
-                pa: "ਸਾਡੀਆਂ ਹਾਈਡਰੋਪੋਨਿਕ ਅਤੇ ਐਕੁਆਪੋਨਿਕ ਕੰਧਾਂ ਬੰਦ-ਲੂਪ ਰੀਸਰਕੁਲੇਟਿੰਗ ਪਾਣੀ 'ਤੇ ਚੱਲਦੀਆਂ ਹਨ। ਪਾਣੀ ਨੂੰ ਵਹਾਉਣ ਦੀ ਬਜਾਏ, ਇਹੀ ਪਾਣੀ ਜੜ੍ਹਾਂ ਵਿੱਚ ਵਾਰ-ਵਾਰ ਚੱਕਰ ਕੱਟਦਾ ਹੈ — ਸਿਰਫ਼ ਉਹਨਾਂ ਨੂੰ ਭਰਪੂਰ ਕਰਦਾ ਹੈ ਜੋ ਪੌਦੇ ਸੱਚਮੁੱਚ ਪੀਂਦੇ ਹਨ। ਨਤੀਜਾ ਇੱਕ ਅਜਿਹੀ ਜੀਵੰਤ ਕੰਧ ਹੈ ਜੋ ਪਰੰਪਰਾਗਤ ਸਿੰਚਾਈ ਦੇ ਪਾਣੀ ਦਾ ਇੱਕ ਹਿੱਸਾ ਵਰਤਦੀ ਹੈ ਅਤੇ ਜੜ੍ਹਾਂ ਨੂੰ ਆਕਸੀਜਨਯੁਕਤ ਤੇ ਸਿਹਤਮੰਦ ਰੱਖਦੀ ਹੈ।",
-                ar: "تعمل جدراننا المائية والسمكية على مياه معاد تدويرها في دارة مغلقة. بدلاً من أن تصرف، تدور نفس المياه عبر مصفوفة الجذور مراراً — ولا يُعوَّض إلا ما تستهلكه النباتات فعلاً. النتيجة جدار حي يستخدم جزءاً صغيراً من مياه الري التقليدي مع إبقاء الجذور مؤكسجة وسليمة.",
-                hi: "हमारी हाइड्रोपोनिक और एक्वापोनिक दीवारें क्लोज्ड-लूप रीसर्कुलेटिंग जल पर चलती हैं। पानी बहकर निकलने के बजाय बार-बार जड़ मैट्रिक्स से गुजरता है — केवल उतना ही भरा जाता है जितना पौधे वास्तव में पीते हैं। नतीजा एक ऐसी जीवित दीवार है जो पारंपरिक सिंचाई के पानी का एक अंश उपयोग करती है, जड़ों को ऑक्सीजनयुक्त और स्वस्थ रखती है।",
-              })}
-            </p>
-          </Reveal>
-
-          <div className="mt-14 grid gap-6 md:grid-cols-3">
-            {[
-              {
-                key: "reuse",
-                stat: t({ en: "up to 90%", fr: "jusqu'à 90 %", zh: "高达 90%", es: "hasta 90 %", pa: "90% ਤੱਕ", ar: "حتى 90٪", hi: "90% तक" }),
-                title: t({ en: "Water Reused", fr: "Eau réutilisée", zh: "水资源回用", es: "Agua reutilizada", pa: "ਪਾਣੀ ਮੁੜ-ਵਰਤੋਂ", ar: "المياه المعاد استخدامها", hi: "जल पुनः उपयोग" }),
-                body: t({
-                  en: "Closed-loop recirculation returns nearly all the water the roots don't drink straight back into the system.",
-                  fr: "La recirculation en circuit fermé renvoie presque toute l'eau non absorbée par les racines directement dans le système.",
-                  zh: "闭环循环将根系未吸收的水几乎全部回流至系统中。",
-                  es: "La recirculación en circuito cerrado devuelve casi toda el agua no absorbida por las raíces directamente al sistema.",
-                  pa: "ਬੰਦ-ਲੂਪ ਰੀਸਰਕੁਲੇਸ਼ਨ ਜੜ੍ਹਾਂ ਦੁਆਰਾ ਨਾ ਪੀਤੇ ਲਗਭਗ ਸਾਰੇ ਪਾਣੀ ਨੂੰ ਸਿੱਧਾ ਸਿਸਟਮ ਵਿੱਚ ਵਾਪਸ ਭੇਜਦਾ ਹੈ।",
-                  ar: "إعادة التدوير في دارة مغلقة تعيد تقريباً كل المياه التي لم تمتصها الجذور مباشرة إلى النظام.",
-                  hi: "क्लोज्ड-लूप पुनर्चक्रण जड़ों द्वारा न पिए गए लगभग सभी पानी को सीधे सिस्टम में लौटा देता है।",
-                }),
-              },
-              {
-                key: "litre",
-                stat: t({ en: "0.35 L", fr: "0,35 L", zh: "0.35 升", es: "0,35 L", pa: "0.35 ਲੀ", ar: "0.35 لتر", hi: "0.35 लीटर" }),
-                title: t({ en: "Per Day, Per Square Foot", fr: "Par jour, par pied carré", zh: "每日每平方英尺", es: "Por día, por pie cuadrado", pa: "ਪ੍ਰਤੀ ਦਿਨ, ਪ੍ਰਤੀ ਵਰਗ ਫੁੱਟ", ar: "يومياً لكل قدم مربع", hi: "प्रति दिन, प्रति वर्ग फुट" }),
-                body: t({
-                  en: "Typical daily top-up — only the small amount the plants actually transpire, not the full reservoir.",
-                  fr: "Apport quotidien typique — uniquement la petite quantité réellement transpirée par les plantes, pas le réservoir complet.",
-                  zh: "典型日补水量——仅为植物实际蒸腾的少量水分，而非整个储水箱。",
-                  es: "Reposición diaria típica — solo la pequeña cantidad que las plantas realmente transpiran, no el depósito completo.",
-                  pa: "ਆਮ ਰੋਜ਼ਾਨਾ ਟਾਪ-ਅੱਪ — ਸਿਰਫ਼ ਉਹ ਛੋਟੀ ਮਾਤਰਾ ਜੋ ਪੌਦੇ ਅਸਲ ਵਿੱਚ ਬਾਸ਼ਪ ਕਰਦੇ ਹਨ, ਪੂਰਾ ਭੰਡਾਰ ਨਹੀਂ।",
-                  ar: "التعبئة اليومية المعتادة — فقط الكمية الصغيرة التي تتبخرها النباتات فعلاً، وليس الخزان بالكامل.",
-                  hi: "सामान्य दैनिक टॉप-अप — केवल वह छोटी मात्रा जो पौधे वास्तव में वाष्पित करते हैं, पूरा भंडार नहीं।",
-                }),
-              },
-              {
-                key: "zero",
-                stat: t({ en: "zero", fr: "zéro", zh: "零", es: "cero", pa: "ਜ਼ੀਰੋ", ar: "صفر", hi: "शून्य" }),
-                title: t({ en: "Runoff to Drain", fr: "Rejet à l'égout", zh: "排放至下水道", es: "Descarga al alcantarillado", pa: "ਨਿਕਾਸ ਵਿੱਚ ਵਹਾਅ", ar: "صرف إلى المجاري", hi: "नाले में बहाव" }),
-                body: t({
-                  en: "No municipal water wasted. What isn't taken up by the roots stays in the loop and is filtered for the next pass.",
-                  fr: "Aucune eau municipale gaspillée. Ce qui n'est pas absorbé par les racines reste dans le circuit et est filtré pour le prochain passage.",
-                  zh: "不浪费市政用水。根系未吸收的水留在循环中，过滤后供下一轮使用。",
-                  es: "Ninguna agua municipal desperdiciada. Lo que las raíces no absorben permanece en el circuito y se filtra para el siguiente ciclo.",
-                  pa: "ਕੋਈ ਨਗਰਪਾਲਿਕਾ ਪਾਣੀ ਬਰਬਾਦ ਨਹੀਂ। ਜੋ ਜੜ੍ਹਾਂ ਲੈਂਦੀਆਂ ਨਹੀਂ ਹਨ, ਉਹ ਲੂਪ ਵਿੱਚ ਰਹਿੰਦਾ ਹੈ ਅਤੇ ਅਗਲੇ ਚੱਕਰ ਲਈ ਫਿਲਟਰ ਕੀਤਾ ਜਾਂਦਾ ਹੈ।",
-                  ar: "لا هدر للمياه البلدية. ما لا تأخذه الجذور يبقى في الدارة ويُرشَّح للدورة التالية.",
-                  hi: "नगरपालिका का पानी बर्बाद नहीं। जो जड़ें नहीं लेतीं वह लूप में रहता है और अगले चक्र के लिए फ़िल्टर कर दिया जाता है।",
-                }),
-              },
-            ].map((c, i) => (
-              <Reveal key={c.key} delay={i * 0.08}>
-                <div className="h-full rounded-3xl border border-cream/10 bg-cream/5 p-8 backdrop-blur-sm">
-                  <p className="font-serif text-4xl text-forest md:text-5xl">{c.stat}</p>
-                  <h3 className="mt-5 text-xl font-semibold text-cream">{c.title}</h3>
-                  <p className="mt-3 text-sm leading-relaxed text-cream/65">{c.body}</p>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-        </div>
       </section>
 
       {/* Maintenance & Guarantee */}
