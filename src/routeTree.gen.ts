@@ -10,12 +10,24 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as SpecificationsRouteImport } from './routes/specifications'
+import { Route as HydroponicRouteImport } from './routes/hydroponic'
+import { Route as AquaponicRouteImport } from './routes/aquaponic'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 
 const SpecificationsRoute = SpecificationsRouteImport.update({
   id: '/specifications',
   path: '/specifications',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HydroponicRoute = HydroponicRouteImport.update({
+  id: '/hydroponic',
+  path: '/hydroponic',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AquaponicRoute = AquaponicRouteImport.update({
+  id: '/aquaponic',
+  path: '/aquaponic',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AboutRoute = AboutRouteImport.update({
@@ -32,30 +44,44 @@ const IndexRoute = IndexRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/aquaponic': typeof AquaponicRoute
+  '/hydroponic': typeof HydroponicRoute
   '/specifications': typeof SpecificationsRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/aquaponic': typeof AquaponicRoute
+  '/hydroponic': typeof HydroponicRoute
   '/specifications': typeof SpecificationsRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/aquaponic': typeof AquaponicRoute
+  '/hydroponic': typeof HydroponicRoute
   '/specifications': typeof SpecificationsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/about' | '/specifications'
+  fullPaths: '/' | '/about' | '/aquaponic' | '/hydroponic' | '/specifications'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/specifications'
-  id: '__root__' | '/' | '/about' | '/specifications'
+  to: '/' | '/about' | '/aquaponic' | '/hydroponic' | '/specifications'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/aquaponic'
+    | '/hydroponic'
+    | '/specifications'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
+  AquaponicRoute: typeof AquaponicRoute
+  HydroponicRoute: typeof HydroponicRoute
   SpecificationsRoute: typeof SpecificationsRoute
 }
 
@@ -66,6 +92,20 @@ declare module '@tanstack/react-router' {
       path: '/specifications'
       fullPath: '/specifications'
       preLoaderRoute: typeof SpecificationsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/hydroponic': {
+      id: '/hydroponic'
+      path: '/hydroponic'
+      fullPath: '/hydroponic'
+      preLoaderRoute: typeof HydroponicRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/aquaponic': {
+      id: '/aquaponic'
+      path: '/aquaponic'
+      fullPath: '/aquaponic'
+      preLoaderRoute: typeof AquaponicRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/about': {
@@ -88,6 +128,8 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
+  AquaponicRoute: AquaponicRoute,
+  HydroponicRoute: HydroponicRoute,
   SpecificationsRoute: SpecificationsRoute,
 }
 export const routeTree = rootRouteImport

@@ -38,6 +38,7 @@ import { FRAME_URLS } from "@/lib/frame-urls";
 import { ScrollFramesSection } from "@/components/ScrollFramesSection";
 import { HERO2_FRAME_URLS } from "@/lib/frame-urls-hero2";
 import { useState, useEffect, useRef } from "react";
+import { createPortal } from "react-dom";
 import { useT, type Tr } from "@/lib/i18n";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import installGlenora from "../assets/installs/glenora-1.jpg.asset.json";
@@ -55,287 +56,15 @@ import cutoutCoaldale from "../assets/cutouts/coaldale-wall.png.asset.json";
 import cutoutWallA from "../assets/cutouts/wall-a.png.asset.json";
 import cutoutWallB from "../assets/cutouts/wall-b.png.asset.json";
 import cutoutWallC from "../assets/cutouts/wall-c.png.asset.json";
-import diagramAquaponic from "../assets/diagrams/aquaponic-wall-diagram-v7.png.asset.json";
-import diagramHydroponic from "../assets/diagrams/hydroponic-wall-diagram-v5.png.asset.json";
 import woodTexture from "../assets/textures/wood-texture-v2.jpg.asset.json";
 import logoHeader from "../assets/logo-header.png.asset.json";
-
-const SYSTEMS: {
-  key: string;
-  title: Tr;
-  tag: Tr;
-  diagram: string;
-  tagline: Tr;
-  description: Tr;
-  stats: { label: Tr; value: Tr }[];
-  highlights: { text: Tr; color?: string }[];
-}[] = [
-  {
-    key: "hydroponic",
-    title: {
-      en: "Hydroponic",
-      fr: "Hydroponique",
-      zh: "水培系统",
-      es: "Hidropónico",
-      pa: "ਹਾਈਡ੍ਰੋਪੋਨਿਕ",
-      ar: "الزراعة المائية",
-      hi: "हाइड्रोपोनिक",
-    },
-    tag: {
-      en: "Soilless · Recirculating",
-      fr: "Sans terre · Circuit fermé",
-      zh: "无土栽培 · 循环供水",
-      es: "Sin tierra · Recirculante",
-      pa: "ਮਿੱਟੀ ਰਹਿਤ · ਮੁੜ-ਸੰਚਾਰੀ",
-      ar: "بدون تربة · إعادة تدوير المياه",
-      hi: "मिट्टी रहित · पुनर्चक्रित",
-    },
-    diagram: diagramHydroponic.url,
-    tagline: {
-      en: "Lightweight. Precise. Effortless.",
-      fr: "Léger. Précis. Sans effort.",
-      zh: "轻盈、精准、省心。",
-      es: "Ligero. Preciso. Sin esfuerzo.",
-      pa: "ਹਲਕਾ। ਸਟੀਕ। ਆਸਾਨ।",
-      ar: "خفيف. دقيق. بلا جهد.",
-      hi: "हल्का। सटीक। सहज।",
-    },
-    description: {
-      en: "Recirculating water and dosed nutrients feed a felt matrix — soilless, low-weight, and simple to maintain across large-format installations.",
-      fr: "L'eau recirculée et les nutriments dosés alimentent une matrice de feutre — sans terre, très légère et simple à entretenir, même sur de très grandes installations.",
-      zh: "循环水与精准配比的营养液滋养毛毡基质——无需土壤、重量极轻，即便是大幅面墙体也易于维护。",
-      es: "El agua recirculada y los nutrientes dosificados alimentan una matriz de fieltro — sin tierra, de bajo peso y fácil de mantener incluso en instalaciones de gran formato.",
-      pa: "ਮੁੜ-ਸੰਚਾਰਿਤ ਪਾਣੀ ਅਤੇ ਮਿਣਿਆ ਹੋਇਆ ਪੋਸ਼ਣ ਇੱਕ ਫੈਲਟ ਮੈਟ੍ਰਿਕਸ ਨੂੰ ਖੁਰਾਕ ਦਿੰਦੇ ਹਨ — ਮਿੱਟੀ ਰਹਿਤ, ਹਲਕਾ, ਅਤੇ ਵੱਡੇ ਪੱਧਰ ਦੀਆਂ ਸਥਾਪਨਾਵਾਂ ਵਿੱਚ ਵੀ ਸੰਭਾਲਣਾ ਸੌਖਾ।",
-      ar: "تغذي المياه المعاد تدويرها والمغذيات المقاسة بدقة نسيجًا من اللباد — بدون تربة، خفيف الوزن وسهل الصيانة حتى في التركيبات الكبيرة.",
-      hi: "पुनर्चक्रित पानी और मापे गए पोषक तत्व एक फेल्ट मैट्रिक्स को पोषण देते हैं — मिट्टी रहित, हल्के वज़न वाला, और बड़े इंस्टॉलेशन में भी बनाए रखना आसान।",
-    },
-    stats: [
-      {
-        label: {
-          en: "Wall weight", fr: "Poids du mur", zh: "墙体重量",
-          es: "Peso del muro", pa: "ਕੰਧ ਦਾ ਭਾਰ", ar: "وزن الجدار", hi: "दीवार का वज़न",
-        },
-        value: { en: "≈ 8 lb/ft²" },
-      },
-      {
-        label: {
-          en: "Water use", fr: "Consommation d'eau", zh: "用水方式",
-          es: "Uso de agua", pa: "ਪਾਣੀ ਦੀ ਵਰਤੋਂ", ar: "استخدام المياه", hi: "जल उपयोग",
-        },
-        value: {
-          en: "Recirculating", fr: "Circuit fermé", zh: "循环利用",
-          es: "Recirculante", pa: "ਮੁੜ-ਸੰਚਾਰੀ", ar: "إعادة تدوير", hi: "पुनर्चक्रित",
-        },
-      },
-      {
-        label: {
-          en: "Best for", fr: "Idéal pour", zh: "适用场景",
-          es: "Ideal para", pa: "ਸਭ ਤੋਂ ਵਧੀਆ ਲਈ", ar: "الأنسب لـ", hi: "इनके लिए सर्वोत्तम",
-        },
-        value: {
-          en: "Any indoor space",
-          fr: "Tout espace intérieur",
-          zh: "任何室内空间",
-          es: "Cualquier espacio interior",
-          pa: "ਕੋਈ ਵੀ ਅੰਦਰੂਨੀ ਥਾਂ",
-          ar: "أي مساحة داخلية",
-          hi: "कोई भी इनडोर स्थान",
-        },
-      },
-      {
-        label: {
-          en: "Wall depth", fr: "Profondeur du mur", zh: "墙体厚度",
-          es: "Profundidad del muro", pa: "ਕੰਧ ਦੀ ਡੂੰਘਾਈ", ar: "عمق الجدار", hi: "दीवार की गहराई",
-        },
-        value: { en: "4–6 in", fr: "10–15 cm", zh: "10–15 厘米", es: "10–15 cm", pa: "10–15 ਸੈਮੀ", ar: "10–15 سم", hi: "10–15 सेमी" },
-      },
-    ],
-    highlights: [
-      {
-        text: {
-          en: "Soilless",
-          fr: "Sans terre",
-          zh: "无土栽培",
-          es: "Sin tierra",
-          pa: "ਮਿੱਟੀ ਰਹਿਤ",
-          ar: "بدون تربة",
-          hi: "मिट्टी रहित",
-        },
-        color: "bg-red-600",
-      },
-      {
-        text: {
-          en: "Recirculating",
-          fr: "Circuit fermé",
-          zh: "循环供水",
-          es: "Recirculante",
-          pa: "ਮੁੜ-ਸੰਚਾਰੀ",
-          ar: "إعادة تدوير المياه",
-          hi: "पुनर्चक्रित",
-        },
-        color: "bg-amber-500",
-      },
-      {
-        text: {
-          en: "Lightweight",
-          fr: "Léger",
-          zh: "轻量",
-          es: "Ligero",
-          pa: "ਹਲਕਾ",
-          ar: "خفيف",
-          hi: "हल्का",
-        },
-        color: "bg-red-600",
-      },
-      {
-        text: {
-          en: "Automatic & efficient",
-          fr: "Automatique et efficace",
-          zh: "自动高效",
-          es: "Automático y eficiente",
-          pa: "ਆਟੋਮੈਟਿਕ ਅਤੇ ਕੁਸ਼ਲ",
-          ar: "تلقائي وفعال",
-          hi: "स्वचालित और कुशल",
-        },
-        color: "bg-amber-500",
-      },
-    ],
-  },
-  {
-    key: "aquaponic",
-    title: {
-      en: "Aquaponic",
-      fr: "Aquaponique",
-      zh: "鱼菜共生系统",
-      es: "Acuapónico",
-      pa: "ਐਕੁਆਪੋਨਿਕ",
-      ar: "الاستزراع المائي التكافلي",
-      hi: "एक्वापोनिक",
-    },
-    tag: {
-      en: "Closed-loop · Fish + plants",
-      fr: "Circuit fermé · Poissons et plantes",
-      zh: "闭环生态 · 鱼与植物共生",
-      es: "Circuito cerrado · Peces y plantas",
-      pa: "ਬੰਦ-ਲੂਪ · ਮੱਛੀਆਂ + ਪੌਦੇ",
-      ar: "دورة مغلقة · أسماك ونباتات",
-      hi: "क्लोज़्ड-लूप · मछली + पौधे",
-    },
-    diagram: diagramAquaponic.url,
-    tagline: {
-      en: "One ecosystem. Zero waste.",
-      fr: "Un écosystème. Zéro déchet.",
-      zh: "一个生态系统，零浪费。",
-      es: "Un ecosistema. Cero desperdicio.",
-      pa: "ਇੱਕ ਇਕੋਸਿਸਟਮ। ਜ਼ੀਰੋ ਬਰਬਾਦੀ।",
-      ar: "نظام بيئي واحد. صفر هدر.",
-      hi: "एक पारिस्थितिकी तंत्र। शून्य बर्बादी।",
-    },
-    description: {
-      en: "Freshwater fish — most often African cichlids — and freshwater plants share a single closed loop. Fish waste nourishes the roots, the roots in turn purify the water, and the ecosystem self-regulates with minimal input.",
-      fr: "Des poissons d'eau douce — le plus souvent des cichlidés africains — et des plantes aquatiques partagent un même circuit fermé. Les déjections des poissons nourrissent les racines, qui à leur tour purifient l'eau, et l'écosystème s'autorégule avec très peu d'intervention.",
-      zh: "淡水鱼（多为非洲慈鲷）与水生植物共享同一闭环：鱼类排泄物滋养根系，根系反过来净化水质，整个生态系统几乎无需人工干预即可自我调节。",
-      es: "Peces de agua dulce —por lo general cíclidos africanos— y plantas acuáticas comparten un único circuito cerrado. Los desechos de los peces nutren las raíces, que a su vez purifican el agua, y el ecosistema se autorregula con mínima intervención.",
-      pa: "ਤਾਜ਼ੇ ਪਾਣੀ ਦੀਆਂ ਮੱਛੀਆਂ — ਆਮ ਤੌਰ 'ਤੇ ਅਫ਼ਰੀਕੀ ਸਿਕਲਿਡ — ਅਤੇ ਤਾਜ਼ੇ ਪਾਣੀ ਦੇ ਪੌਦੇ ਇੱਕ ਹੀ ਬੰਦ-ਲੂਪ ਸਾਂਝਾ ਕਰਦੇ ਹਨ। ਮੱਛੀ ਦੀ ਰਹਿੰਦ-ਖੂੰਹਦ ਜੜ੍ਹਾਂ ਨੂੰ ਖੁਰਾਕ ਦਿੰਦੀ ਹੈ, ਜੜ੍ਹਾਂ ਆਪਣੇ ਆਪ ਪਾਣੀ ਨੂੰ ਸਾਫ਼ ਕਰਦੀਆਂ ਹਨ, ਅਤੇ ਇਕੋਸਿਸਟਮ ਘੱਟੋ-ਘੱਟ ਦਖਲ ਨਾਲ ਆਪਣੇ ਆਪ ਨੂੰ ਨਿਯਮਤ ਕਰਦਾ ਹੈ।",
-      ar: "تتشارك أسماك المياه العذبة —غالبًا سمك السيكليد الإفريقي— والنباتات المائية دورة مغلقة واحدة. تغذي فضلات الأسماك الجذور، وتنقّي الجذور الماء بدورها، وينظم النظام البيئي نفسه بأقل تدخل.",
-      hi: "मीठे पानी की मछलियाँ —आमतौर पर अफ़्रीकी सिक्लिड— और मीठे पानी के पौधे एक ही क्लोज़्ड-लूप साझा करते हैं। मछली का अपशिष्ट जड़ों को पोषण देता है, जड़ें बदले में पानी को शुद्ध करती हैं, और पारिस्थितिकी तंत्र न्यूनतम हस्तक्षेप के साथ स्वयं को नियंत्रित करता है।",
-    },
-    stats: [
-      {
-        label: {
-          en: "Water use", fr: "Consommation d'eau", zh: "用水量",
-          es: "Uso de agua", pa: "ਪਾਣੀ ਦੀ ਵਰਤੋਂ", ar: "استخدام المياه", hi: "जल उपयोग",
-        },
-        value: {
-          en: "~90% less", fr: "~90 % de moins", zh: "减少约 90%",
-          es: "~90% menos", pa: "~90% ਘੱਟ", ar: "أقل بنسبة ~90٪", hi: "~90% कम",
-        },
-      },
-      {
-        label: {
-          en: "Fertilizer", fr: "Engrais", zh: "肥料",
-          es: "Fertilizante", pa: "ਖਾਦ", ar: "السماد", hi: "उर्वरक",
-        },
-        value: {
-          en: "None added", fr: "Aucun ajout", zh: "无需额外添加",
-          es: "Ninguno añadido", pa: "ਕੋਈ ਨਹੀਂ ਜੋੜਿਆ", ar: "بدون إضافة", hi: "कोई नहीं जोड़ा गया",
-        },
-      },
-      {
-        label: {
-          en: "Best for", fr: "Idéal pour", zh: "适用场景",
-          es: "Ideal para", pa: "ਸਭ ਤੋਂ ਵਧੀਆ ਲਈ", ar: "الأنسب لـ", hi: "इनके लिए सर्वोत्तम",
-        },
-        value: {
-          en: "Any indoor space",
-          fr: "Tout espace intérieur",
-          zh: "任何室内空间",
-          es: "Cualquier espacio interior",
-          pa: "ਕੋਈ ਵੀ ਅੰਦਰੂਨੀ ਥਾਂ",
-          ar: "أي مساحة داخلية",
-          hi: "कोई भी इनडोर स्थान",
-        },
-      },
-      {
-        label: {
-          en: "Wall depth", fr: "Profondeur du mur", zh: "墙体厚度",
-          es: "Profundidad del muro", pa: "ਕੰਧ ਦੀ ਡੂੰਘਾਈ", ar: "عمق الجدار", hi: "दीवार की गहराई",
-        },
-        value: { en: "8–12 in", fr: "20–30 cm", zh: "20–30 厘米", es: "20–30 cm", pa: "20–30 ਸੈਮੀ", ar: "20–30 سم", hi: "20–30 सेमी" },
-      },
-    ],
-    highlights: [
-      {
-        text: {
-          en: "Live fish tank integrated at base",
-          fr: "Aquarium vivant intégré à la base",
-          zh: "底部集成活体鱼缸",
-          es: "Acuario vivo integrado en la base",
-          pa: "ਅਧਾਰ ਵਿੱਚ ਲਾਈਵ ਮੱਛੀ ਟੈਂਕ ਏਕੀਕ੍ਰਿਤ",
-          ar: "حوض سمك حي مدمج في القاعدة",
-          hi: "आधार में एकीकृत जीवित मछली टैंक",
-        },
-      },
-      {
-        text: {
-          en: "Fully soilless, gravel media beds",
-          fr: "Entièrement sans terre, lits de gravier",
-          zh: "完全无土，砾石基质床",
-          es: "Completamente sin tierra, lechos de grava",
-          pa: "ਪੂਰੀ ਤਰ੍ਹਾਂ ਮਿੱਟੀ ਰਹਿਤ, ਬੱਜਰੀ ਦੇ ਬੈੱਡ",
-          ar: "بدون تربة تمامًا، أسرة من الحصى",
-          hi: "पूर्णतः मिट्टी रहित, बजरी मीडिया बेड",
-        },
-      },
-      {
-        text: {
-          en: "Continuous nutrient cycle",
-          fr: "Cycle nutritif continu",
-          zh: "持续循环的养分体系",
-          es: "Ciclo continuo de nutrientes",
-          pa: "ਨਿਰੰਤਰ ਪੋਸ਼ਣ ਚੱਕਰ",
-          ar: "دورة مغذيات مستمرة",
-          hi: "निरंतर पोषक चक्र",
-        },
-      },
-    ],
-  },
-];
-
-const DIAGRAM_LABEL = {
-  en: "living wall diagram",
-  fr: "schéma de mur végétal",
-  zh: "植物墙示意图",
-  es: "diagrama de muro vivo",
-  pa: "ਲਿਵਿੰਗ ਵਾਲ ਡਾਇਗ੍ਰਾਮ",
-  ar: "مخطط الجدار الحي",
-  hi: "लिविंग वॉल आरेख",
-};
-
+import { SYSTEMS, DIAGRAM_LABEL, type System } from "@/lib/systems";
 function SystemsShowcase() {
   const t = useT();
   const [active, setActive] = useState(0);
   const [lightbox, setLightbox] = useState<string | null>(null);
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
   const sys = SYSTEMS[active];
   const next = SYSTEMS[(active + 1) % SYSTEMS.length];
 
@@ -514,35 +243,39 @@ function SystemsShowcase() {
       </div>
 
       {/* Lightbox */}
-      {lightbox && (
-        <div
-          className="fixed inset-0 z-[100] flex items-center justify-center bg-charcoal/95 p-4 backdrop-blur-sm"
-          onClick={() => setLightbox(null)}
-        >
-          <button
-            type="button"
+      {mounted &&
+        lightbox &&
+        typeof document !== "undefined" &&
+        createPortal(
+          <div
+            className="fixed inset-0 z-[100] flex items-center justify-center bg-charcoal/95 p-4 backdrop-blur-sm"
             onClick={() => setLightbox(null)}
-            aria-label={t({
-              en: "Close",
-              fr: "Fermer",
-              zh: "关闭",
-              es: "Cerrar",
-              pa: "ਬੰਦ ਕਰੋ",
-              ar: "إغلاق",
-              hi: "बंद करें",
-            })}
-            className="absolute top-4 right-4 rounded-full bg-cream/10 p-3 text-cream transition hover:bg-cream/20 hover:text-white"
           >
-            <X className="h-6 w-6" />
-          </button>
-          <img
-            src={lightbox}
-            alt={t(sys.title)}
-            className="max-h-full max-w-full rounded-2xl object-contain shadow-2xl"
-            onClick={(e) => e.stopPropagation()}
-          />
-        </div>
-      )}
+            <button
+              type="button"
+              onClick={() => setLightbox(null)}
+              aria-label={t({
+                en: "Close",
+                fr: "Fermer",
+                zh: "关闭",
+                es: "Cerrar",
+                pa: "ਬੰਦ ਕਰੋ",
+                ar: "إغلاق",
+                hi: "बंद करें",
+              })}
+              className="absolute top-4 right-4 rounded-full bg-cream/10 p-3 text-cream transition hover:bg-cream/20 hover:text-white"
+            >
+              <X className="h-6 w-6" />
+            </button>
+            <img
+              src={lightbox}
+              alt={t(sys.title)}
+              className="max-h-full max-w-full rounded-2xl object-contain shadow-2xl"
+              onClick={(e) => e.stopPropagation()}
+            />
+          </div>,
+          document.body
+        )}
     </div>
   );
 }
@@ -690,6 +423,34 @@ function Index() {
                         }),
                         href: "#work",
                         image: iffWall.url,
+                      },
+                      {
+                        label: t({ en: "Hydroponic", fr: "Hydroponique", zh: "水培系统", es: "Hidropónico", pa: "ਹਾਈਡ੍ਰੋਪੋਨਿਕ", ar: "الزراعة المائية", hi: "हाइड्रोपोनिक" }),
+                        description: t({
+                          en: "Lightweight recirculating system",
+                          fr: "Système léger en circuit fermé",
+                          zh: "轻质循环系统",
+                          es: "Sistema recirculante ligero",
+                          pa: "ਹਲਕਾ ਮੁੜ-ਸੰਚਾਰੀ ਸਿਸਟਮ",
+                          ar: "نظام خفيف معاد تدويره",
+                          hi: "हल्का पुनर्चक्रित सिस्टम",
+                        }),
+                        href: "/hydroponic",
+                        image: SYSTEMS[0].diagram,
+                      },
+                      {
+                        label: t({ en: "Aquaponic", fr: "Aquaponique", zh: "鱼菜共生系统", es: "Acuapónico", pa: "ਐਕੁਆਪੋਨਿਕ", ar: "الاستزراع المائي التكافلي", hi: "एक्वापोनिक" }),
+                        description: t({
+                          en: "Fish + plant ecosystem",
+                          fr: "Écosystème poissons + plantes",
+                          zh: "鱼与植物生态系统",
+                          es: "Ecosistema de peces + plantas",
+                          pa: "ਮੱਛੀ + ਪੌਦਾ ਇਕੋਸਿਸਟਮ",
+                          ar: "نظام بيئي سمك + نباتات",
+                          hi: "मछली + पौधा इकोसिस्टम",
+                        }),
+                        href: "/aquaponic",
+                        image: SYSTEMS[1].diagram,
                       },
                       {
                         label: t({ en: "Recent Installations", fr: "Réalisations récentes", zh: "近期案例", es: "Instalaciones recientes", pa: "ਹਾਲੀਆ ਸਥਾਪਨਾਵਾਂ", ar: "أحدث التركيبات", hi: "हाल की इंस्टॉलेशन" }),
@@ -878,44 +639,27 @@ function Index() {
         overlay={
           <div className="max-w-2xl">
             <p className="text-shadow-hero mb-4 text-xs font-bold uppercase tracking-[0.3em] text-white">
-              {t({ en: "Engineered in layers", fr: "Conçu par couches", zh: "分层工程结构", es: "Diseñado por capas", pa: "ਪਰਤਾਂ ਵਿੱਚ ਇੰਜੀਨੀਅਰਡ", ar: "مصمم بطبقات", hi: "परतों में इंजीनियर्ड" })}
+              {t({ en: "Custom-built on site", fr: "Construit sur mesure sur site", zh: "现场量身定制", es: "Construido a medida en el sitio", pa: "ਸਾਈਟ 'ਤੇ ਕਸਟਮ-ਨਿਰਮਿਤ", ar: "مصمم حسب الطلب في الموقع", hi: "साइट पर कस्टम-निर्मित" })}
             </p>
             <WordsReveal
               as="h2"
               text={t({
-                en: "Panels that come together as one.",
-                fr: "Des panneaux qui n'en forment qu'un.",
-                zh: "块块面板，浑然一体。",
-                es: "Paneles que se unen en uno solo.",
-                pa: "ਪੈਨਲ ਜੋ ਮਿਲ ਕੇ ਇੱਕ ਬਣਦੇ ਹਨ।",
-                ar: "ألواح تتحد لتصبح واحدة.",
-                hi: "पैनल जो मिलकर एक बनते हैं।",
+                en: "Every living wall is designed, planted, and assembled for your space.",
+                fr: "Chaque mur végétal est conçu, planté et assemblé pour votre espace.",
+                zh: "每一面绿墙都是为您的空间设计、栽植并组装的。",
+                es: "Cada muro vivo se diseña, planta y ensambla para tu espacio.",
+                pa: "ਹਰ ਲਿਵਿੰਗ ਵਾਲ ਤੁਹਾਡੀ ਜਗਹ ਲਈ ਡਿਜ਼ਾਈਨ, ਲਗਾਏ ਅਤੇ ਜੋੜੇ ਜਾਂਦੇ ਹਨ।",
+                ar: "كل جدار حي يُصمم ويُزرع ويُركّب خصيصًا لمساحتك.",
+                hi: "हर लिविंग वॉल आपकी जगह के लिए डिज़ाइन, रोपित और असेंबल की जाती है।",
               })}
               className="display-heading-hero text-4xl text-cream md:text-6xl lg:text-7xl"
             />
-            <p className="text-shadow-hero mt-6 text-lg font-medium leading-relaxed text-cream md:text-xl">
-              {t({
-                en: "Every wall is built from modular panels — designed, planted, and assembled on-site. Scroll to see how the pieces come together.",
-                fr: "Chaque mur est constitué de panneaux modulaires — conçus, plantés et assemblés sur place. Faites défiler pour voir les pièces s'assembler.",
-                zh: "每一面墙都由模块化面板组成——设计、栽植并在现场组装。向下滚动，看它们如何合而为一。",
-                es: "Cada muro se construye con paneles modulares: diseñados, plantados y ensamblados en el sitio. Desplázate para ver cómo se unen las piezas.",
-                pa: "ਹਰ ਕੰਧ ਮਾਡਿਊਲਰ ਪੈਨਲਾਂ ਤੋਂ ਬਣਾਈ ਜਾਂਦੀ ਹੈ — ਡਿਜ਼ਾਈਨ, ਪੌਦੇ ਲਾਏ ਅਤੇ ਸਾਈਟ 'ਤੇ ਜੋੜੇ ਜਾਂਦੇ ਹਨ। ਟੁਕੜੇ ਕਿਵੇਂ ਜੁੜਦੇ ਹਨ ਵੇਖਣ ਲਈ ਸਕ੍ਰੋਲ ਕਰੋ।",
-                ar: "يُبنى كل جدار من ألواح معيارية — يتم تصميمها وزراعتها وتركيبها في الموقع. مرر للأسفل لترى كيف تتجمع القطع معًا.",
-                hi: "हर दीवार मॉड्यूलर पैनलों से बनती है — डिज़ाइन, रोपित और साइट पर असेंबल की जाती है। टुकड़े कैसे जुड़ते हैं यह देखने के लिए स्क्रॉल करें।",
-              })}
-            </p>
           </div>
         }
       />
 
       {/* Systems Showcase — replaces the old gallery with an interactive systems module */}
       <section id="work" className="relative z-20 -mt-[40vh] overflow-hidden rounded-t-[3rem] bg-cream text-charcoal shadow-[0_-40px_80px_-40px_rgba(0,0,0,0.45)]">
-        <img
-          src={cutoutCoaldale.url}
-          alt=""
-          aria-hidden
-          className="pointer-events-none absolute -top-16 -left-24 h-[420px] w-[560px] rotate-[-6deg] object-contain opacity-40 md:h-[560px] md:w-[760px]"
-        />
         <SystemsShowcase />
       </section>
 
