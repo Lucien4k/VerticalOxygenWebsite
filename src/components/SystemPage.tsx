@@ -77,13 +77,15 @@ export function SystemPage({ systemKey, compact }: { systemKey: "hydroponic" | "
                 hi: "लिविंग वॉल",
               })}
             </h1>
-            <p className="mt-6 max-w-xl text-lg leading-relaxed text-charcoal/70 md:text-xl">
-              {t(sys.tagline)}
-            </p>
             {!compact && (
-              <p className="mt-4 max-w-xl text-base leading-relaxed text-charcoal/60">
-                {t(sys.description)}
-              </p>
+              <>
+                <p className="mt-6 max-w-xl text-lg leading-relaxed text-charcoal/70 md:text-xl">
+                  {t(sys.tagline)}
+                </p>
+                <p className="mt-4 max-w-xl text-base leading-relaxed text-charcoal/60">
+                  {t(sys.description)}
+                </p>
+              </>
             )}
 
             <div className="mt-8 flex flex-wrap items-center gap-3">
