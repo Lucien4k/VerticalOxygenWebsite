@@ -417,7 +417,7 @@ function SystemsShowcase() {
         </div>
       </div>
 
-      <div key={sys.key} className="systems-swap mx-auto max-w-3xl">
+      <div key={sys.key} className="systems-swap grid gap-10 md:grid-cols-2 md:items-start md:gap-14">
         {/* Details */}
         <div>
           <p className="text-xs font-semibold uppercase tracking-[0.3em] text-forest">
@@ -460,6 +460,16 @@ function SystemsShowcase() {
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </button>
           </div>
+        </div>
+
+        {/* System photo */}
+        <div className="relative overflow-hidden rounded-2xl bg-white ring-1 ring-charcoal/10 shadow-[0_24px_60px_-24px_rgba(0,0,0,0.25)]">
+          <img
+            src={sys.key === "hydroponic" ? hydroponicDiagram.url : aquaponicDiagram.url}
+            alt={t(sys.title)}
+            className="w-full object-cover"
+            loading="lazy"
+          />
         </div>
       </div>
     </div>
