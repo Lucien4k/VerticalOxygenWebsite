@@ -578,7 +578,7 @@ function Index() {
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/50" />
       </div>
       <section id="about" className="relative overflow-hidden bg-background">
-        <div className="mx-auto max-w-7xl px-6 py-28 md:py-40">
+        <div className="mx-auto max-w-7xl px-6 py-20 md:py-28">
           <div className="relative overflow-hidden rounded-3xl">
             <img
               src={spiderPothos.url}
@@ -595,7 +595,7 @@ function Index() {
               loading="lazy"
             />
             <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/55 to-black/25" />
-            <Reveal className="relative px-8 py-24 md:px-16 md:py-36 lg:max-w-2xl">
+            <Reveal className="relative px-8 py-16 md:px-16 md:py-24 lg:max-w-2xl">
               <p className="mb-3 text-xs font-semibold uppercase tracking-[0.3em] text-sage-wash">
                 {t({ en: "Our Philosophy", fr: "Notre philosophie", zh: "我们的理念", es: "Nuestra filosofía", pa: "ਸਾਡਾ ਦਰਸ਼ਨ", ar: "فلسفتنا", hi: "हमारा दर्शन" })}
               </p>
@@ -642,7 +642,7 @@ function Index() {
       </section>
 
       {/* Systems Showcase — replaces the old gallery with an interactive systems module */}
-      <section id="work" className="relative z-20 -mt-[40vh] overflow-hidden rounded-t-[3rem] bg-cream text-charcoal shadow-[0_-40px_80px_-40px_rgba(0,0,0,0.45)]">
+      <section id="work" className="relative z-20 -mt-[8vh] overflow-hidden rounded-t-[3rem] bg-cream pt-10 text-charcoal shadow-[0_-40px_80px_-40px_rgba(0,0,0,0.45)]">
         <SystemsShowcase />
       </section>
 
