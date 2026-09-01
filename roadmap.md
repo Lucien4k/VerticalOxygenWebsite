@@ -11,6 +11,8 @@
 - [x] Add "Where we grow" photo card on top right of map section
 - [x] Add V.O.O logo to footer on about & specifications pages (index already had it)
 - [x] Update Trusted By section with industry categories
+- [x] Bring back photos on the "Two ways to grow a wall" systems section
+- [x] Make hero right-aligned text readable and aligned on mobile
 
 ## Still to do
 - [ ] Find and change "cistern" to "aquarium" (not found in code — may be in an image asset)
