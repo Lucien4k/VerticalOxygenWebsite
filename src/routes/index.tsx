@@ -595,7 +595,7 @@ function Index() {
               loading="lazy"
             />
             <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/55 to-black/25" />
-            <Reveal className="relative px-8 py-16 md:px-16 md:py-24 lg:max-w-2xl">
+            <Reveal className="relative px-8 py-24 md:px-16 md:py-36 lg:max-w-2xl">
               <p className="mb-3 text-xs font-semibold uppercase tracking-[0.3em] text-sage-wash">
                 {t({ en: "Our Philosophy", fr: "Notre philosophie", zh: "我们的理念", es: "Nuestra filosofía", pa: "ਸਾਡਾ ਦਰਸ਼ਨ", ar: "فلسفتنا", hi: "हमारा दर्शन" })}
               </p>
