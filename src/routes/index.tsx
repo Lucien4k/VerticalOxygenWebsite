@@ -566,30 +566,7 @@ function Index() {
       <div className="relative z-10 mt-[175vh] bg-background">
 
       {/* Scroll-scrubbed panel sequence — second hero */}
-      <ScrollFramesSection
-        frames={HERO2_FRAME_URLS}
-        scrollLength={1.5}
-        overlay={
-          <div className="max-w-2xl">
-            <p className="text-shadow-hero mb-4 text-xs font-bold uppercase tracking-[0.3em] text-white">
-              {t({ en: "Custom-built on site", fr: "Construit sur mesure sur site", zh: "现场量身定制", es: "Construido a medida en el sitio", pa: "ਸਾਈਟ 'ਤੇ ਕਸਟਮ-ਨਿਰਮਿਤ", ar: "مصمم حسب الطلب في الموقع", hi: "साइट पर कस्टम-निर्मित" })}
-            </p>
-            <WordsReveal
-              as="h2"
-              text={t({
-                en: "Every living wall is designed, planted, and assembled for your space.",
-                fr: "Chaque mur végétal est conçu, planté et assemblé pour votre espace.",
-                zh: "每一面绿墙都是为您的空间设计、栽植并组装的。",
-                es: "Cada muro vivo se diseña, planta y ensambla para tu espacio.",
-                pa: "ਹਰ ਲਿਵਿੰਗ ਵਾਲ ਤੁਹਾਡੀ ਜਗਹ ਲਈ ਡਿਜ਼ਾਈਨ, ਲਗਾਏ ਅਤੇ ਜੋੜੇ ਜਾਂਦੇ ਹਨ।",
-                ar: "كل جدار حي يُصمم ويُزرع ويُركّب خصيصًا لمساحتك.",
-                hi: "हर लिविंग वॉल आपकी जगह के लिए डिज़ाइन, रोपित और असेंबल की जाती है।",
-              })}
-              className="display-heading-hero text-4xl text-cream md:text-6xl lg:text-7xl"
-            />
-          </div>
-        }
-      />
+      <ScrollFramesSection frames={HERO2_FRAME_URLS} scrollLength={1.5} />
 
       {/* Systems Showcase — replaces the old gallery with an interactive systems module */}
       <section id="work" className="relative z-20 -mt-[40vh] overflow-hidden rounded-t-[3rem] bg-cream text-charcoal shadow-[0_-40px_80px_-40px_rgba(0,0,0,0.45)]">
