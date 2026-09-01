@@ -23,7 +23,7 @@ import glenoraLobby from "../assets/projects/glenora-lobby.jpg.asset.json";
 import coaldaleHall from "../assets/projects/coaldale-hall.png.asset.json";
 import lushTropicalWall from "../assets/projects/lush-tropical-wall.jpg.asset.json";
 import coaldaleFlowering from "../assets/projects/coaldale-flowering.jpg.asset.json";
-import { Phone, Mail, MapPin, Leaf, ArrowRight, Instagram, X } from "lucide-react";
+import { Phone, Mail, MapPin, Leaf, ArrowRight, Instagram, X, ZoomIn } from "lucide-react";
 import { QuoteForm } from "@/components/QuoteForm";
 import { Reveal } from "@/components/Reveal";
 import { LocationsMap } from "@/components/LocationsMap";
