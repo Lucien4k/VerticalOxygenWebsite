@@ -85,8 +85,8 @@ export function SystemPage({ systemKey }: { systemKey: "hydroponic" | "aquaponic
             </p>
 
             <div className="mt-8 flex flex-wrap items-center gap-3">
-              <Link
-                to="/#quote"
+              <a
+                href="/#quote"
                 className="inline-flex items-center justify-center gap-2 rounded-full bg-forest-deep px-6 py-3 text-sm font-semibold text-cream transition hover:bg-forest-deep/90"
               >
                 {t({
@@ -99,9 +99,9 @@ export function SystemPage({ systemKey }: { systemKey: "hydroponic" | "aquaponic
                   hi: "कोटेशन प्राप्त करें",
                 })}
                 <ArrowRight className="h-4 w-4" aria-hidden />
-              </Link>
-              <Link
-                to={`/${other.key}`}
+              </a>
+              <a
+                href={`/${other.key}`}
                 className="inline-flex items-center justify-center gap-2 rounded-full border border-charcoal/20 px-6 py-3 text-sm font-semibold text-charcoal transition hover:border-forest-deep/40 hover:text-forest-deep"
               >
                 {t({
@@ -114,7 +114,7 @@ export function SystemPage({ systemKey }: { systemKey: "hydroponic" | "aquaponic
                   hi: "देखें",
                 })} {t(other.title)}
                 <ArrowRight className="h-4 w-4" aria-hidden />
-              </Link>
+              </a>
             </div>
           </div>
 
