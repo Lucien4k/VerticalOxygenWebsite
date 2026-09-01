@@ -24,3 +24,5 @@
 - [x] Add Hydroponic & Aquaponic links to Work dropdown menu
 - [x] Regenerate system diagrams: "CISTERN" → "AQUARIUM", remove "MODERN LIVING-WALL ASSEMBLY"
 - [x] Verify updated diagrams render on `/hydroponic` and `/aquaponic`
+- [x] Add "Explore the system" CTA linking systems showcase to /hydroponic and /aquaponic pages
+- [x] Remove blurred cutout photo at bottom left of Living, breathing installations section
