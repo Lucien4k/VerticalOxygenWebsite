@@ -73,7 +73,8 @@ function AboutPage() {
   ];
 
   return (
-    <main className="min-h-screen bg-cream text-charcoal">
+    <>
+      <main className="min-h-screen bg-cream text-charcoal">
       {/* Top bar */}
       <header className="border-b border-charcoal/10 bg-white/70 backdrop-blur">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
