@@ -675,6 +675,7 @@ function Index() {
           </div>
         </div>
       </section>
+      </div>
 
       {/* Systems Showcase — replaces the old gallery with an interactive systems module */}
       <section id="work" className="relative z-20 -mt-[8vh] overflow-hidden rounded-t-[3rem] bg-cream pt-10 text-charcoal shadow-[0_-40px_80px_-40px_rgba(0,0,0,0.45)]">
