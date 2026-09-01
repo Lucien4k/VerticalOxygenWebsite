@@ -460,32 +460,6 @@ function SystemsShowcase() {
           </div>
         </div>
       </div>
-
-      {/* Lightbox */}
-      {lightbox && (
-        <div
-          className="fixed inset-0 z-[100] flex items-center justify-center bg-charcoal/95 p-4 backdrop-blur-sm animate-in fade-in duration-200"
-          onClick={() => setLightbox(null)}
-          role="dialog"
-          aria-modal="true"
-          aria-label={lightbox.title}
-        >
-          <button
-            type="button"
-            onClick={() => setLightbox(null)}
-            className="absolute top-5 right-5 flex h-12 w-12 items-center justify-center rounded-full bg-cream/10 text-cream transition hover:bg-cream/20"
-            aria-label={t({ en: "Close", fr: "Fermer", zh: "关闭", es: "Cerrar", pa: "ਬੰਦ ਕਰੋ", ar: "إغلاق", hi: "बंद करें" })}
-          >
-            <X className="h-6 w-6" aria-hidden />
-          </button>
-          <img
-            src={lightbox.src}
-            alt={lightbox.title}
-            className="max-h-[90vh] max-w-[90vw] rounded-2xl bg-white object-contain shadow-2xl"
-            onClick={(e) => e.stopPropagation()}
-          />
-        </div>
-      )}
     </div>
   );
 }
