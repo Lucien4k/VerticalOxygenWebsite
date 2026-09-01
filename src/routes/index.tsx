@@ -517,35 +517,39 @@ function SystemsShowcase() {
       </div>
 
       {/* Lightbox */}
-      {lightbox && (
-        <div
-          className="fixed inset-0 z-[100] flex items-center justify-center bg-charcoal/95 p-4 backdrop-blur-sm"
-          onClick={() => setLightbox(null)}
-        >
-          <button
-            type="button"
+      {mounted &&
+        lightbox &&
+        typeof document !== "undefined" &&
+        createPortal(
+          <div
+            className="fixed inset-0 z-[100] flex items-center justify-center bg-charcoal/95 p-4 backdrop-blur-sm"
             onClick={() => setLightbox(null)}
-            aria-label={t({
-              en: "Close",
-              fr: "Fermer",
-              zh: "关闭",
-              es: "Cerrar",
-              pa: "ਬੰਦ ਕਰੋ",
-              ar: "إغلاق",
-              hi: "बंद करें",
-            })}
-            className="absolute top-4 right-4 rounded-full bg-cream/10 p-3 text-cream transition hover:bg-cream/20 hover:text-white"
           >
-            <X className="h-6 w-6" />
-          </button>
-          <img
-            src={lightbox}
-            alt={t(sys.title)}
-            className="max-h-full max-w-full rounded-2xl object-contain shadow-2xl"
-            onClick={(e) => e.stopPropagation()}
-          />
-        </div>
-      )}
+            <button
+              type="button"
+              onClick={() => setLightbox(null)}
+              aria-label={t({
+                en: "Close",
+                fr: "Fermer",
+                zh: "关闭",
+                es: "Cerrar",
+                pa: "ਬੰਦ ਕਰੋ",
+                ar: "إغلاق",
+                hi: "बंद करें",
+              })}
+              className="absolute top-4 right-4 rounded-full bg-cream/10 p-3 text-cream transition hover:bg-cream/20 hover:text-white"
+            >
+              <X className="h-6 w-6" />
+            </button>
+            <img
+              src={lightbox}
+              alt={t(sys.title)}
+              className="max-h-full max-w-full rounded-2xl object-contain shadow-2xl"
+              onClick={(e) => e.stopPropagation()}
+            />
+          </div>,
+          document.body
+        )}
     </div>
   );
 }
