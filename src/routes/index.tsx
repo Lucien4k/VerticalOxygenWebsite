@@ -1087,6 +1087,7 @@ function Index() {
                 title: t({ en: "Community & Process", fr: "Communauté et processus", zh: "社区与过程", es: "Comunidad y proceso", pa: "ਕਮਿਊਨਿਟੀ ਅਤੇ ਪ੍ਰਕਿਰਿਆ", ar: "المجتمع والعملية", hi: "समुदाय और प्रक्रिया" }),
                 caption: t({ en: "Red Deer, AB · School install day", fr: "Red Deer, AB · Journée d'installation scolaire", zh: "阿尔伯塔省 Red Deer · 校园安装日", es: "Red Deer, AB · Día de instalación escolar", pa: "ਰੈੱਡ ਡੀਅਰ, AB · ਸਕੂਲ ਇੰਸਟਾਲ ਦਿਨ", ar: "ريد دير، ألبرتا · يوم التركيب المدرسي", hi: "रेड डियर, AB · स्कूल इंस्टॉल दिवस" }),
                 span: "md:col-span-12",
+                ratio: "",
               },
               {
                 img: plantingDetail.url,
