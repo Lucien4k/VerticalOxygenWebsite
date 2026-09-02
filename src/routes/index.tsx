@@ -1068,6 +1068,14 @@ function Index() {
                 ratio: "aspect-[3/4]",
               },
               {
+                img: redDeerInstall.url,
+                key: "red-deer-install",
+                title: t({ en: "Community & Process", fr: "Communauté et processus", zh: "社区与过程", es: "Comunidad y proceso", pa: "ਕਮਿਊਨਿਟੀ ਅਤੇ ਪ੍ਰਕਿਰਿਆ", ar: "المجتمع والعملية", hi: "समुदाय और प्रक्रिया" }),
+                caption: t({ en: "Red Deer, AB · School install day", fr: "Red Deer, AB · Journée d'installation scolaire", zh: "阿尔伯塔省 Red Deer · 校园安装日", es: "Red Deer, AB · Día de instalación escolar", pa: "ਰੈੱਡ ਡੀਅਰ, AB · ਸਕੂਲ ਇੰਸਟਾਲ ਦਿਨ", ar: "ريد دير، ألبرتا · يوم التركيب المدرسي", hi: "रेड डियर, AB · स्कूल इंस्टॉल दिवस" }),
+                span: "md:col-span-4",
+                ratio: "aspect-[4/3]",
+              },
+              {
                 img: plantingDetail.url,
                 key: "planting-detail",
                 title: t({ en: "Planting Detail", fr: "Détail de plantation", zh: "植栽细节", es: "Detalle de plantación", pa: "ਪੌਦੇ ਦਾ ਵੇਰਵਾ", ar: "تفاصيل الزراعة", hi: "प्लांटिंग डिटेल" }),
@@ -1075,7 +1083,7 @@ function Index() {
                 span: "md:col-span-4",
                 ratio: "aspect-[3/4]",
               },
-            ].map((p, i) => (
+            ].map((p) => (
               <div key={p.key} className={p.span}>
                 <figure
                   role="button"
@@ -1113,7 +1121,6 @@ function Index() {
                   <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-charcoal/75 via-transparent to-transparent opacity-80" />
                   <figcaption className="pointer-events-none absolute inset-x-0 bottom-0 p-5 md:p-6">
                     <p className="text-lg text-cream md:text-xl">
-                      <span className="mr-2 text-cream/45">{String(i + 1).padStart(2, "0")}</span>
                       {p.title}
                     </p>
                     <p className="mt-1 text-[0.62rem] uppercase tracking-[0.22em] text-cream/70">
@@ -1125,34 +1132,10 @@ function Index() {
             ))}
           </div>
 
-          {/* Community and Process */}
-          <div className="mt-24 border-t border-charcoal/10 pt-14 md:mt-32">
-            <p className="mb-4 text-xs font-semibold uppercase tracking-[0.3em] text-terra-light">
-              {t({ en: "Community and Process", fr: "Communauté et processus", zh: "社区与过程", es: "Comunidad y proceso", pa: "ਕਮਿਊਨਿਟੀ ਅਤੇ ਪ੍ਰਕਿਰਿਆ", ar: "المجتمع والعملية", hi: "समुदाय और प्रक्रिया" })}
+          <div className="mt-16 text-center md:mt-24">
+            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-charcoal/50">
+              {t({ en: "More projects coming soon", fr: "Plus de projets à venir", zh: "更多精彩项目敬请期待", es: "Más proyectos próximamente", pa: "ਹੋਰ ਪ੍ਰੋਜੈਕਟ ਜਲਦ ਆ ਰਹੇ ਹਨ", ar: "المزيد من المشاريع قريبًا", hi: "और प्रोजेक्ट जल्द आ रहे हैं" })}
             </p>
-            <h3 className="display-heading max-w-2xl text-3xl leading-[1.05] text-charcoal md:text-5xl">
-              {t({
-                en: "Planted by the people who use the space.",
-                fr: "Planté par ceux qui occupent l'espace.",
-                zh: "由使用这个空间的人亲手种下。",
-                es: "Plantado por quienes usan el espacio.",
-                pa: "ਉਨ੍ਹਾਂ ਲੋਕਾਂ ਵੱਲੋਂ ਲਗਾਇਆ ਗਿਆ ਜੋ ਇਸ ਥਾਂ ਨੂੰ ਵਰਤਦੇ ਹਨ।",
-                ar: "زرعها من يستخدمون المكان.",
-                hi: "उन्हीं लोगों द्वारा लगाई गई जो इस जगह का उपयोग करते हैं।",
-              })}
-            </h3>
-            <figure className="mx-auto mt-10 max-w-4xl">
-              <img
-                src={redDeerInstall.url}
-                alt={t({ en: "Students planting a living wall in Red Deer", fr: "Des élèves plantent un mur végétal à Red Deer", zh: "学生们在 Red Deer 种植植物墙", es: "Estudiantes plantando un muro vivo en Red Deer", pa: "ਰੈੱਡ ਡੀਅਰ ਵਿੱਚ ਵਿਦਿਆਰਥੀ ਜੀਵੰਤ ਕੰਧ ਲਗਾਉਂਦੇ ਹੋਏ", ar: "طلاب يزرعون جدارًا حيًا في ريد دير", hi: "रेड डियर में छात्र लिविंग वॉल लगाते हुए" })}
-                loading="lazy"
-                decoding="async"
-                className="h-auto w-full ring-1 ring-charcoal/10"
-              />
-              <figcaption className="mt-4 text-[0.68rem] uppercase tracking-[0.22em] text-charcoal/55">
-                {t({ en: "Red Deer, AB · School install day", fr: "Red Deer, AB · Journée d'installation scolaire", zh: "阿尔伯塔省 Red Deer · 校园安装日", es: "Red Deer, AB · Día de instalación escolar", pa: "ਰੈੱਡ ਡੀਅਰ, AB · ਸਕੂਲ ਇੰਸਟਾਲ ਦਿਨ", ar: "ريد دير، ألبرتا · يوم التركيب المدرسي", hi: "रेड डियर, AB · स्कूल इंस्टॉल दिवस" })}
-              </figcaption>
-            </figure>
           </div>
         </div>
 
