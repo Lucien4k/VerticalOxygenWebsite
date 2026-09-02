@@ -31,7 +31,6 @@ import { NavMenu } from "@/components/NavMenu";
 import { Parallax } from "@/components/Parallax";
 import { WordsReveal } from "@/components/WordsReveal";
 
-import { ScrollProgress } from "@/components/ScrollProgress";
 import { ScrollFrames } from "@/components/ScrollFrames";
 import { FRAME_URLS } from "@/lib/frame-urls";
 import { ScrollFramesSection } from "@/components/ScrollFramesSection";
@@ -40,7 +39,6 @@ import { useState, useEffect, useRef } from "react";
 import { createPortal } from "react-dom";
 import { useT, type Tr } from "@/lib/i18n";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
-import installGlenora from "../assets/installs/glenora-1.jpg.asset.json";
 import installCoaldale2 from "../assets/installs/coaldale-2-2.jpg.asset.json";
 import delaSalleVideo from "../assets/videos/de-la-salle.mp4.asset.json";
 import delaSallePoster from "../assets/videos/de-la-salle.jpg.asset.json";
@@ -52,6 +50,16 @@ import installTorontoRes from "../assets/installs/img-toronto-residential.jpeg.a
 import installConexus from "../assets/installs/conexus-regina.jpeg.asset.json";
 import install0628 from "../assets/installs/img-0628.jpg.asset.json";
 import cutoutCoaldale from "../assets/cutouts/coaldale-wall.png.asset.json";
+import westinCalgary from "../assets/gallery/westin-calgary.webp.asset.json";
+import calgaryResidential from "../assets/gallery/calgary-residential.webp.asset.json";
+import modernOffice from "../assets/gallery/modern-office.webp.asset.json";
+import edmontonResidential from "../assets/gallery/edmonton-residential.webp.asset.json";
+import stantonHospital from "../assets/gallery/stanton-hospital.webp.asset.json";
+import aquaponicFeature from "../assets/gallery/aquaponic-feature.webp.asset.json";
+import copperFrame from "../assets/gallery/copper-frame.webp.asset.json";
+import wellnessRetail from "../assets/gallery/wellness-retail.webp.asset.json";
+import plantingDetail from "../assets/gallery/planting-detail.webp.asset.json";
+import redDeerInstall from "../assets/gallery/red-deer-install.webp.asset.json";
 
 import woodTexture from "../assets/textures/wood-texture-v2.jpg.asset.json";
 import logoHeader from "../assets/logo-header.png.asset.json";
@@ -542,7 +550,6 @@ function Index() {
   }, []);
   return (
     <div className="min-h-screen bg-background">
-      <ScrollProgress />
       {/* Floating rounded top bars — hero video shows around them */}
       <div className="fixed inset-x-0 top-0 z-50 px-4 pt-4 md:px-6 md:pt-5">
         <div className="mx-auto max-w-6xl space-y-2">
@@ -944,86 +951,78 @@ function Index() {
             </Reveal>
           </div>
 
-          <div className="grid items-start gap-4 md:grid-cols-12 md:gap-5">
+          <div className="grid items-start gap-4 md:grid-cols-12 md:gap-6">
             {[
               {
-                img: installGlenora.url,
-                key: "glenora",
-                title: t({ en: "Glenora Seniors' Home Lobby", fr: "Hall de la résidence pour aînés Glenora", zh: "Glenora 长者之家大堂", es: "Vestíbulo de residencia para mayores Glenora", pa: "ਗਲੇਨੋਰਾ ਸੀਨੀਅਰਜ਼ ਹੋਮ ਲਾਬੀ", ar: "ردهة دار مسنين غلينورا", hi: "ग्लेनोरा सीनियर्स होम लॉबी" }),
-                caption: t({
-                  en: "Edmonton, AB · Five-panel feature wall",
-                  fr: "Edmonton, AB · Mur signature de cinq panneaux",
-                  zh: "阿尔伯塔省埃德蒙顿 · 五面板主题墙",
-                  es: "Edmonton, AB · Muro destacado de cinco paneles",
-                  pa: "ਐਡਮਿੰਟਨ, AB · ਪੰਜ-ਪੈਨਲ ਵਿਸ਼ੇਸ਼ ਕੰਧ",
-                  ar: "إدمونتون، ألبرتا · جدار مميز من خمس ألواح",
-                  hi: "एडमॉन्टन, AB · पाँच-पैनल फीचर वॉल",
-                }),
+                img: westinCalgary.url,
+                key: "westin-calgary",
+                title: t({ en: "The Westin, Calgary", fr: "Le Westin, Calgary", zh: "卡尔加里威斯汀酒店", es: "The Westin, Calgary", pa: "ਦ ਵੈਸਟਿਨ, ਕੈਲਗਰੀ", ar: "ذا ويستن، كالغاري", hi: "द वेस्टिन, कैलगरी" }),
+                caption: t({ en: "Calgary, AB · Hotel lounge", fr: "Calgary, AB · Salon d'hôtel", zh: "阿尔伯塔省卡尔加里 · 酒店休息区", es: "Calgary, AB · Salón de hotel", pa: "ਕੈਲਗਰੀ, AB · ਹੋਟਲ ਲਾਊਂਜ", ar: "كالغاري، ألبرتا · ردهة فندق", hi: "कैलगरी, AB · होटल लाउंज" }),
                 span: "md:col-span-8",
-                ratio: "aspect-[4/3]",
-              },
-              {
-                img: install5221.url,
-                key: "reception",
-                title: t({ en: "Reception Wall", fr: "Mur de réception", zh: "前台绿墙", es: "Muro de recepción", pa: "ਰਿਸੈਪਸ਼ਨ ਦੀਵਾਰ", ar: "جدار الاستقبال", hi: "रिसेप्शन वॉल" }),
-                caption: t({
-                  en: "Corporate office · Mixed tropical palette",
-                  fr: "Bureaux d'entreprise · Palette tropicale mixte",
-                  zh: "企业办公空间 · 混合热带植物配色",
-                  es: "Oficina corporativa · Paleta tropical mixta",
-                  pa: "ਕਾਰਪੋਰੇਟ ਦਫ਼ਤਰ · ਮਿਸ਼ਰਤ ਟ੍ਰੌਪੀਕਲ ਪੈਲੇਟ",
-                  ar: "مكتب الشركة · تشكيلة استوائية متنوعة",
-                  hi: "कॉर्पोरेट ऑफिस · मिश्रित उष्णकटिबंधीय पैलेट",
-                }),
-                span: "md:col-span-5",
                 ratio: "aspect-[4/3]",
               },
               {
                 img: installTorontoRes.url,
                 key: "toronto-residential",
-                title: t({ en: "Toronto Residential Home", fr: "Résidence privée à Toronto", zh: "多伦多私人住宅", es: "Residencia privada en Toronto", pa: "ਟੋਰਾਂਟੋ ਰਿਹਾਇਸ਼ਨਲ ਹੋਮ", ar: "منزل سكني في تورنتو", hi: "टोरंटो आवासीय घर" }),
-                caption: t({
-                  en: "Toronto, ON · Private residence",
-                  fr: "Toronto, ON · Résidence privée",
-                  zh: "安大略省多伦多 · 私人住宅",
-                  es: "Toronto, ON · Residencia privada",
-                  pa: "ਟੋਰਾਂਟੋ, ON · ਨਿੱਜੀ ਨਿਵਾਸ",
-                  ar: "تورنتو، أونتاريو · منزل خاص",
-                  hi: "टोरंटो, ON · निजी निवास",
-                }),
-                span: "md:col-span-5",
+                title: t({ en: "Toronto Residential", fr: "Résidence à Toronto", zh: "多伦多私人住宅", es: "Residencia en Toronto", pa: "ਟੋਰਾਂਟੋ ਰਿਹਾਇਸ਼", ar: "منزل في تورنتو", hi: "टोरंटो आवासीय" }),
+                caption: t({ en: "Toronto, ON · Private residence", fr: "Toronto, ON · Résidence privée", zh: "安大略省多伦多 · 私人住宅", es: "Toronto, ON · Residencia privada", pa: "ਟੋਰਾਂਟੋ, ON · ਨਿੱਜੀ ਨਿਵਾਸ", ar: "تورنتو، أونتاريو · منزل خاص", hi: "टोरंटो, ON · निजी निवास" }),
+                span: "md:col-span-4",
                 ratio: "aspect-[4/5]",
+              },
+              {
+                img: calgaryResidential.url,
+                key: "calgary-residential",
+                title: t({ en: "Calgary Residential", fr: "Résidence à Calgary", zh: "卡尔加里私人住宅", es: "Residencia en Calgary", pa: "ਕੈਲਗਰੀ ਰਿਹਾਇਸ਼", ar: "منزل في كالغاري", hi: "कैलगरी आवासीय" }),
+                caption: t({ en: "Calgary, AB · Full-height feature", fr: "Calgary, AB · Mur pleine hauteur", zh: "阿尔伯塔省卡尔加里 · 通高主题墙", es: "Calgary, AB · Muro de altura completa", pa: "ਕੈਲਗਰੀ, AB · ਪੂਰੀ-ਉਚਾਈ ਫੀਚਰ", ar: "كالغاري، ألبرتا · جدار بارتفاع كامل", hi: "कैलगरी, AB · पूर्ण-ऊँचाई फीचर" }),
+                span: "md:col-span-5",
+                ratio: "aspect-[3/4]",
+              },
+              {
+                img: modernOffice.url,
+                key: "modern-office",
+                title: t({ en: "Modern Office Wall", fr: "Mur de bureau moderne", zh: "现代办公绿墙", es: "Muro de oficina moderna", pa: "ਆਧੁਨਿਕ ਦਫ਼ਤਰੀ ਕੰਧ", ar: "جدار مكتب حديث", hi: "आधुनिक ऑफिस वॉल" }),
+                caption: t({ en: "Corporate interior · Mixed tropical planting", fr: "Intérieur d'entreprise · Plantation tropicale mixte", zh: "企业室内 · 混合热带植栽", es: "Interior corporativo · Plantación tropical mixta", pa: "ਕਾਰਪੋਰੇਟ ਅੰਦਰੂਨੀ · ਮਿਸ਼ਰਤ ਟ੍ਰੌਪੀਕਲ ਪੌਦੇ", ar: "داخل الشركة · زراعة استوائية متنوعة", hi: "कॉर्पोरेट इंटीरियर · मिश्रित उष्णकटिबंधीय पौधे" }),
+                span: "md:col-span-7",
+                ratio: "aspect-[4/3]",
+              },
+              {
+                img: edmontonResidential.url,
+                key: "edmonton-residential",
+                title: t({ en: "Edmonton Residential", fr: "Résidence à Edmonton", zh: "埃德蒙顿私人住宅", es: "Residencia en Edmonton", pa: "ਐਡਮਿੰਟਨ ਰਿਹਾਇਸ਼", ar: "منزل في إدمونتون", hi: "एडमॉन्टन आवासीय" }),
+                caption: t({ en: "Edmonton, AB · Stone niche wall", fr: "Edmonton, AB · Niche en pierre", zh: "阿尔伯塔省埃德蒙顿 · 石材壁龛绿墙", es: "Edmonton, AB · Nicho de piedra", pa: "ਐਡਮਿੰਟਨ, AB · ਪੱਥਰ ਦੀ ਨਿੱਚ", ar: "إدمونتون، ألبرتا · جدار في كوة حجرية", hi: "एडमॉन्टन, AB · पत्थर की निच" }),
+                span: "md:col-span-5",
+                ratio: "aspect-[3/4]",
+              },
+              {
+                img: stantonHospital.url,
+                key: "stanton-hospital",
+                title: t({ en: "Stanton Hospital", fr: "Hôpital Stanton", zh: "Stanton 医院", es: "Hospital Stanton", pa: "ਸਟੈਂਟਨ ਹਸਪਤਾਲ", ar: "مستشفى ستانتون", hi: "स्टैंटन अस्पताल" }),
+                caption: t({ en: "Yellowknife, NT · Corridor panels", fr: "Yellowknife, T.N.-O. · Panneaux de corridor", zh: "西北地区耶洛奈夫 · 走廊绿墙", es: "Yellowknife, NT · Paneles de corredor", pa: "ਯੈਲੋਨਾਈਫ, NT · ਕੌਰੀਡੋਰ ਪੈਨਲ", ar: "يلونايف · ألواح الممر", hi: "येलोनाइफ, NT · कॉरिडोर पैनल" }),
+                span: "md:col-span-7",
+                ratio: "aspect-[4/3]",
               },
               {
                 img: installConexus.url,
                 key: "conexus-regina",
                 title: t({ en: "Conexus Credit Union", fr: "Conexus Credit Union", zh: "Conexus 信用联社", es: "Conexus Credit Union", pa: "ਕੋਨੈਕਸਸ ਕ੍ਰੈਡਿਟ ਯੂਨੀਅਨ", ar: "اتحاد كونيكس الائتماني", hi: "कोनेक्सस क्रेडिट यूनियन" }),
-                caption: t({
-                  en: "Regina, SK · Three-storey atrium wall",
-                  fr: "Regina, SK · Mur d'atrium de trois étages",
-                  zh: "萨斯喀彻温省里贾纳 · 三层中庭绿墙",
-                  es: "Regina, SK · Muro de atrio de tres pisos",
-                  pa: "ਰੇਗੀਨਾ, SK · ਤਿੰਨ-ਮੰਜ਼ਿਲ ਅਟਰੀਅਮ ਕੰਧ",
-                  ar: "ريجينا، ساسكاتشوان · جدار أتريوم من ثلاثة طوابق",
-                  hi: "रेजिना, SK · तीन-मंजिला एट्रियम वॉल",
-                }),
+                caption: t({ en: "Regina, SK · Three-storey atrium wall", fr: "Regina, SK · Mur d'atrium de trois étages", zh: "萨斯喀彻温省里贾纳 · 三层中庭绿墙", es: "Regina, SK · Muro de atrio de tres pisos", pa: "ਰੇਗੀਨਾ, SK · ਤਿੰਨ-ਮੰਜ਼ਿਲ ਅਟਰੀਅਮ ਕੰਧ", ar: "ريجينا · جدار أتريوم من ثلاثة طوابق", hi: "रेजिना, SK · तीन-मंजिला एट्रियम वॉल" }),
                 span: "md:col-span-4",
                 ratio: "aspect-[3/4]",
               },
               {
-                img: installCoaldale2.url,
-                key: "coaldale",
-                title: t({ en: "Coaldale, Alberta", fr: "Coaldale, Alberta", zh: "阿尔伯塔省 Coaldale", es: "Coaldale, Alberta", pa: "ਕੋਲਡੇਲ, ਐਲਬਰਟਾ", ar: "كولديل، ألبرتا", hi: "कोलडेल, अल्बर्टा" }),
-                caption: t({
-                  en: "Community hall · Full-height install",
-                  fr: "Salle communautaire · Installation pleine hauteur",
-                  zh: "社区活动厅 · 通高安装",
-                  es: "Salón comunitario · Instalación de altura completa",
-                  pa: "ਕਮਿਊਨਿਟੀ ਹਾਲ · ਪੂਰੀ-ਉਚਾਈ ਇੰਸਟਾਲੇਸ਼ਨ",
-                  ar: "قاعة مجتمعية · تركيب بارتفاع كامل",
-                  hi: "कम्युनिटी हॉल · पूर्ण-ऊँचाई इंस्टॉलेशन",
-                }),
-                span: "md:col-span-3",
+                img: aquaponicFeature.url,
+                key: "aquaponic-feature",
+                title: t({ en: "Aquaponic Feature", fr: "Mur aquaponique", zh: "鱼菜共生主题墙", es: "Muro acuapónico", pa: "ਐਕੁਆਪੋਨਿਕ ਫੀਚਰ", ar: "جدار أكوابوني", hi: "एक्वापोनिक फीचर" }),
+                caption: t({ en: "Living wall with integrated aquarium", fr: "Mur végétal avec aquarium intégré", zh: "植物墙与一体化水族箱", es: "Muro vivo con acuario integrado", pa: "ਏਕੀਕ੍ਰਿਤ ਐਕੁਏਰੀਅਮ ਵਾਲੀ ਜੀਵੰਤ ਕੰਧ", ar: "جدار حي مع حوض سمك مدمج", hi: "एकीकृत एक्वेरियम के साथ लिविंग वॉल" }),
+                span: "md:col-span-4",
+                ratio: "aspect-[3/4]",
+              },
+              {
+                img: copperFrame.url,
+                key: "copper-frame",
+                title: t({ en: "Copper Frame Panel", fr: "Panneau à cadre de cuivre", zh: "铜框绿植panel", es: "Panel con marco de cobre", pa: "ਕਾਪਰ ਫਰੇਮ ਪੈਨਲ", ar: "لوحة بإطار نحاسي", hi: "कॉपर फ्रेम पैनल" }),
+                caption: t({ en: "Residential accent · Custom copper surround", fr: "Accent résidentiel · Encadrement de cuivre sur mesure", zh: "住宅点缀 · 定制铜质外框", es: "Acento residencial · Marco de cobre a medida", pa: "ਰਿਹਾਇਸ਼ੀ ਐਕਸੈਂਟ · ਕਸਟਮ ਕਾਪਰ ਫਰੇਮ", ar: "لمسة سكنية · إطار نحاسي مخصص", hi: "आवासीय एक्सेंट · कस्टम कॉपर फ्रेम" }),
+                span: "md:col-span-4",
                 ratio: "aspect-[3/4]",
               },
               {
@@ -1031,15 +1030,7 @@ function Index() {
                 video: delaSalleVideo.url,
                 key: "de-la-salle",
                 title: t({ en: "De La Salle", fr: "De La Salle", zh: "De La Salle", es: "De La Salle", pa: "ਡੀ ਲਾ ਸਾਲ", ar: "دي لا سال", hi: "डे ला सैल" }),
-                caption: t({
-                  en: "School interior · Living wall in motion",
-                  fr: "Intérieur scolaire · Mur végétal en mouvement",
-                  zh: "校园室内 · 动态植物墙",
-                  es: "Interior escolar · Muro vivo en movimiento",
-                  pa: "ਸਕੂਲ ਅੰਦਰੂਨੀ · ਚਲਦੀ ਹੋਈ ਜੀਵੰਤ ਕੰਧ",
-                  ar: "داخل المدرسة · جدار حي متحرك",
-                  hi: "स्कूल आंतरिक · गतिमान लिविंग वॉल",
-                }),
+                caption: t({ en: "School interior · Living wall in motion", fr: "Intérieur scolaire · Mur végétal en mouvement", zh: "校园室内 · 动态植物墙", es: "Interior escolar · Muro vivo en movimiento", pa: "ਸਕੂਲ ਅੰਦਰੂਨੀ · ਚਲਦੀ ਹੋਈ ਜੀਵੰਤ ਕੰਧ", ar: "داخل المدرسة · جدار حي متحرك", hi: "स्कूल आंतरिक · गतिमान लिविंग वॉल" }),
                 span: "md:col-span-4",
                 ratio: "aspect-[4/3]",
               },
@@ -1048,20 +1039,44 @@ function Index() {
                 video: atriumWallVideo.url,
                 key: "atrium-wall",
                 title: t({ en: "Atrium Feature Wall", fr: "Mur d'atrium signature", zh: "中庭主题绿墙", es: "Muro destacado de atrio", pa: "ਅਟਰੀਅਮ ਫੀਚਰ ਕੰਧ", ar: "جدار أتريوم مميز", hi: "एट्रियम फीचर वॉल" }),
-                caption: t({
-                  en: "Modern lobby · Living wall in motion",
-                  fr: "Hall moderne · Mur végétal en mouvement",
-                  zh: "现代大堂 · 动态植物墙",
-                  es: "Lobby moderno · Muro vivo en movimiento",
-                  pa: "ਆਧੁਨਿਕ ਲਾਬੀ · ਚਲਦੀ ਹੋਈ ਜੀਵੰਤ ਕੰਧ",
-                  ar: "ردهة حديثة · جدار حي متحرك",
-                  hi: "आधुनिक लॉबी · गतिमान लिविंग वॉल",
-                }),
+                caption: t({ en: "Modern lobby · Living wall in motion", fr: "Hall moderne · Mur végétal en mouvement", zh: "现代大堂 · 动态植物墙", es: "Lobby moderno · Muro vivo en movimiento", pa: "ਆਧੁਨਿਕ ਲਾਬੀ · ਚਲਦੀ ਹੋਈ ਜੀਵੰਤ ਕੰਧ", ar: "ردهة حديثة · جدار حي متحرك", hi: "आधुनिक लॉबी · गतिमान लिविंग वॉल" }),
+                span: "md:col-span-4",
+                ratio: "aspect-[3/4]",
+              },
+              {
+                img: wellnessRetail.url,
+                key: "wellness-retail",
+                title: t({ en: "Wellness Retail Wall", fr: "Mur de boutique bien-être", zh: "健康零售绿墙", es: "Muro de tienda de bienestar", pa: "ਵੈੱਲਨੈੱਸ ਰਿਟੇਲ ਕੰਧ", ar: "جدار متجر العافية", hi: "वेलनेस रिटेल वॉल" }),
+                caption: t({ en: "Retail interior · Signage set into planting", fr: "Intérieur commercial · Lettrage intégré à la végétation", zh: "零售室内 · 植栽嵌入式标识", es: "Interior comercial · Rótulo integrado en la vegetación", pa: "ਰਿਟੇਲ ਅੰਦਰੂਨੀ · ਪੌਦਿਆਂ ਵਿੱਚ ਸਾਈਨੇਜ", ar: "داخل المتجر · لافتة مدمجة في النباتات", hi: "रिटेल इंटीरियर · पौधों में लगा साइनेज" }),
+                span: "md:col-span-4",
+                ratio: "aspect-[4/3]",
+              },
+              {
+                img: install5221.url,
+                key: "reception",
+                title: t({ en: "Reception Wall", fr: "Mur de réception", zh: "前台绿墙", es: "Muro de recepción", pa: "ਰਿਸੈਪਸ਼ਨ ਦੀਵਾਰ", ar: "جدار الاستقبال", hi: "रिसेप्शन वॉल" }),
+                caption: t({ en: "Corporate office · Mixed tropical palette", fr: "Bureaux d'entreprise · Palette tropicale mixte", zh: "企业办公空间 · 混合热带植物配色", es: "Oficina corporativa · Paleta tropical mixta", pa: "ਕਾਰਪੋਰੇਟ ਦਫ਼ਤਰ · ਮਿਸ਼ਰਤ ਟ੍ਰੌਪੀਕਲ ਪੈਲੇਟ", ar: "مكتب الشركة · تشكيلة استوائية متنوعة", hi: "कॉर्पोरेट ऑफिस · मिश्रित उष्णकटिबंधीय पैलेट" }),
+                span: "md:col-span-4",
+                ratio: "aspect-[4/3]",
+              },
+              {
+                img: installCoaldale2.url,
+                key: "coaldale",
+                title: t({ en: "Coaldale, Alberta", fr: "Coaldale, Alberta", zh: "阿尔伯塔省 Coaldale", es: "Coaldale, Alberta", pa: "ਕੋਲਡੇਲ, ਐਲਬਰਟਾ", ar: "كولديل، ألبرتا", hi: "कोलडेल, अल्बर्टा" }),
+                caption: t({ en: "Community hall · Full-height install", fr: "Salle communautaire · Installation pleine hauteur", zh: "社区活动厅 · 通高安装", es: "Salón comunitario · Instalación de altura completa", pa: "ਕਮਿਊਨਿਟੀ ਹਾਲ · ਪੂਰੀ-ਉਚਾਈ ਇੰਸਟਾਲੇਸ਼ਨ", ar: "قاعة مجتمعية · تركيب بارتفاع كامل", hi: "कम्युनिटी हॉल · पूर्ण-ऊँचाई इंस्टॉलेशन" }),
+                span: "md:col-span-4",
+                ratio: "aspect-[3/4]",
+              },
+              {
+                img: plantingDetail.url,
+                key: "planting-detail",
+                title: t({ en: "Planting Detail", fr: "Détail de plantation", zh: "植栽细节", es: "Detalle de plantación", pa: "ਪੌਦੇ ਦਾ ਵੇਰਵਾ", ar: "تفاصيل الزراعة", hi: "प्लांटिंग डिटेल" }),
+                caption: t({ en: "Pothos and spider plant, cedar edge", fr: "Pothos et chlorophytum, bordure de cèdre", zh: "绿萝与吊兰 · 雪松边框", es: "Potos y cinta, borde de cedro", pa: "ਪੋਥੋਸ ਤੇ ਸਪਾਈਡਰ ਪਲਾਂਟ, ਸੀਡਰ ਕਿਨਾਰਾ", ar: "بوتس ونبات العنكبوت، حافة أرز", hi: "पोथोस और स्पाइडर प्लांट, सीडर किनारा" }),
                 span: "md:col-span-4",
                 ratio: "aspect-[3/4]",
               },
             ].map((p, i) => (
-              <Reveal key={p.key} delay={i * 90} className={p.span}>
+              <Reveal key={p.key} delay={i * 60} className={p.span}>
                 <figure
                   role="button"
                   tabIndex={0}
@@ -1073,7 +1088,7 @@ function Index() {
                     }
                   }}
                   aria-label={`${t({ en: "View larger photo", fr: "Voir la photo en grand", zh: "查看大图", es: "Ver foto ampliada", pa: "ਵੱਡੀ ਫੋਟੋ ਵੇਖੋ", ar: "عرض صورة أكبر", hi: "बड़ी फोटो देखें" })}: ${p.title}`}
-                  className={`group relative cursor-zoom-in overflow-hidden rounded-[1.75rem] bg-charcoal/5 ring-1 ring-charcoal/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-forest-deep ${p.ratio}`}
+                  className={`group relative cursor-zoom-in overflow-hidden rounded-[1.5rem] bg-charcoal/5 ring-1 ring-charcoal/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-forest-deep ${p.ratio}`}
                 >
                   {"video" in p && p.video ? (
                     <video
@@ -1084,7 +1099,7 @@ function Index() {
                       loop
                       playsInline
                       preload="metadata"
-                      className="absolute inset-0 h-full w-full object-cover transition-transform duration-[1200ms] ease-out will-change-transform group-hover:scale-[1.06]"
+                      className="absolute inset-0 h-full w-full object-cover"
                     />
                   ) : (
                     <img
@@ -1092,26 +1107,53 @@ function Index() {
                       alt={`${p.title} — ${p.caption}`}
                       loading="lazy"
                       decoding="async"
-                      className="absolute inset-0 h-full w-full object-cover transition-transform duration-[1200ms] ease-out will-change-transform group-hover:scale-[1.06]"
+                      className="absolute inset-0 h-full w-full object-cover"
                     />
                   )}
-                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-charcoal/80 via-charcoal/5 to-transparent opacity-70 transition-opacity duration-500 group-hover:opacity-95" />
-                  <figcaption className="pointer-events-none absolute inset-x-0 bottom-0 flex items-end justify-between gap-4 p-5 md:p-7">
-                    <div className="translate-y-1 transition-transform duration-500 group-hover:translate-y-0">
-                      <p className="font-serif text-lg text-cream md:text-2xl">
-                        {p.title}
-                      </p>
-                      <p className="mt-1 text-[0.65rem] uppercase tracking-[0.22em] text-cream/70 md:text-xs">
-                        {p.caption}
-                      </p>
-                    </div>
-                    <span className="hidden font-mono text-[0.65rem] text-cream/50 md:block">
-                      {String(i + 1).padStart(2, "0")}
-                    </span>
+                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-charcoal/75 via-transparent to-transparent opacity-80" />
+                  <figcaption className="pointer-events-none absolute inset-x-0 bottom-0 p-5 md:p-6">
+                    <p className="font-serif text-lg text-cream md:text-xl">{p.title}</p>
+                    <p className="mt-1 text-[0.62rem] uppercase tracking-[0.22em] text-cream/70">
+                      {p.caption}
+                    </p>
                   </figcaption>
                 </figure>
               </Reveal>
             ))}
+          </div>
+
+          {/* Community and Process */}
+          <div className="mt-24 border-t border-charcoal/10 pt-14 md:mt-32">
+            <Reveal>
+              <p className="mb-4 text-xs font-semibold uppercase tracking-[0.3em] text-terra-light">
+                {t({ en: "Community and Process", fr: "Communauté et processus", zh: "社区与过程", es: "Comunidad y proceso", pa: "ਕਮਿਊਨਿਟੀ ਅਤੇ ਪ੍ਰਕਿਰਿਆ", ar: "المجتمع والعملية", hi: "समुदाय और प्रक्रिया" })}
+              </p>
+              <h3 className="display-heading max-w-2xl text-3xl leading-[1.05] text-charcoal md:text-5xl">
+                {t({
+                  en: "Planted by the people who use the space.",
+                  fr: "Planté par ceux qui occupent l'espace.",
+                  zh: "由使用这个空间的人亲手种下。",
+                  es: "Plantado por quienes usan el espacio.",
+                  pa: "ਉਨ੍ਹਾਂ ਲੋਕਾਂ ਵੱਲੋਂ ਲਗਾਇਆ ਗਿਆ ਜੋ ਇਸ ਥਾਂ ਨੂੰ ਵਰਤਦੇ ਹਨ।",
+                  ar: "زرعها من يستخدمون المكان.",
+                  hi: "उन्हीं लोगों द्वारा लगाई गई जो इस जगह का उपयोग करते हैं।",
+                })}
+              </h3>
+            </Reveal>
+            <Reveal delay={150} className="mt-10">
+              <figure className="mx-auto max-w-4xl">
+                <img
+                  src={redDeerInstall.url}
+                  alt={t({ en: "Students planting a living wall in Red Deer", fr: "Des élèves plantent un mur végétal à Red Deer", zh: "学生们在 Red Deer 种植植物墙", es: "Estudiantes plantando un muro vivo en Red Deer", pa: "ਰੈੱਡ ਡੀਅਰ ਵਿੱਚ ਵਿਦਿਆਰਥੀ ਜੀਵੰਤ ਕੰਧ ਲਗਾਉਂਦੇ ਹੋਏ", ar: "طلاب يزرعون جدارًا حيًا في ريد دير", hi: "रेड डियर में छात्र लिविंग वॉल लगाते हुए" })}
+                  loading="lazy"
+                  decoding="async"
+                  className="h-auto w-full rounded-[1.5rem] ring-1 ring-charcoal/10"
+                />
+                <figcaption className="mt-4 text-[0.68rem] uppercase tracking-[0.22em] text-charcoal/55">
+                  {t({ en: "Red Deer, AB · School install day", fr: "Red Deer, AB · Journée d'installation scolaire", zh: "阿尔伯塔省 Red Deer · 校园安装日", es: "Red Deer, AB · Día de instalación escolar", pa: "ਰੈੱਡ ਡੀਅਰ, AB · ਸਕੂਲ ਇੰਸਟਾਲ ਦਿਨ", ar: "ريد دير، ألبرتا · يوم التركيب المدرسي", hi: "रेड डियर, AB · स्कूल इंस्टॉल दिवस" })}
+                </figcaption>
+              </figure>
+            </Reveal>
           </div>
         </div>
 

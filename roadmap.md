@@ -26,3 +26,6 @@
 - [x] Verify updated diagrams render on `/hydroponic` and `/aquaponic`
 - [x] Add "Explore the system" CTA linking systems showcase to /hydroponic and /aquaponic pages
 - [x] Remove blurred cutout photo at bottom left of Living, breathing installations section
+
+- Gallery: keep all old photos except Glenora Seniors Home Lobby (duplicate); add 10 new project photos + Community and Process section.
+- Remove the right-side scroll progress bar.
