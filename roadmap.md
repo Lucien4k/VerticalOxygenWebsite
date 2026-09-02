@@ -1,9 +1,5 @@
 # Vertical Oxygen Website Tasks
 
-## In Progress
-- [ ] Use uploaded photo for 100% plant guarantee maintenance section
-- [ ] Switch uploaded atrium photo for the Conexus Credit Union gallery tile
-
 ## Completed
 - [x] Fix highlights type change build errors
 - [x] Remove "tap through" intro text on systems section
@@ -30,6 +26,8 @@
 - [x] Verify updated diagrams render on `/hydroponic` and `/aquaponic`
 - [x] Add "Explore the system" CTA linking systems showcase to /hydroponic and /aquaponic pages
 - [x] Remove blurred cutout photo at bottom left of Living, breathing installations section
+- [x] Use uploaded photo for 100% plant guarantee maintenance section
+- [x] Switch uploaded atrium photo for the Conexus Credit Union gallery tile
 
 - Gallery: keep all old photos except Glenora Seniors Home Lobby (duplicate); add 10 new project photos + Community and Process section.
 - Remove the right-side scroll progress bar.
