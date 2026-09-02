@@ -1076,13 +1076,7 @@ function Index() {
                 ratio: "aspect-[3/4]",
               },
             ].map((p, i) => (
-              <Reveal
-                key={p.key}
-                delay={i * 60}
-                className={`${p.span} ${i % 3 === 1 ? "md:mt-16" : i % 3 === 2 ? "md:-mt-6" : ""} ${
-                  i % 4 === 1 ? "md:rotate-[0.8deg]" : i % 4 === 3 ? "md:-rotate-[0.8deg]" : ""
-                }`}
-              >
+              <div key={p.key} className={p.span}>
                 <figure
                   role="button"
                   tabIndex={0}
@@ -1094,7 +1088,7 @@ function Index() {
                     }
                   }}
                   aria-label={`${t({ en: "View larger photo", fr: "Voir la photo en grand", zh: "查看大图", es: "Ver foto ampliada", pa: "ਵੱਡੀ ਫੋਟੋ ਵੇਖੋ", ar: "عرض صورة أكبر", hi: "बड़ी फोटो देखें" })}: ${p.title}`}
-                  className={`group relative cursor-zoom-in overflow-hidden rounded-[1.5rem] bg-charcoal/5 ring-1 ring-charcoal/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-forest-deep ${p.ratio}`}
+                  className={`group relative cursor-zoom-in overflow-hidden bg-charcoal/5 ring-1 ring-charcoal/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-forest-deep ${p.ratio}`}
                 >
                   {"video" in p && p.video ? (
                     <video
@@ -1118,7 +1112,7 @@ function Index() {
                   )}
                   <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-charcoal/75 via-transparent to-transparent opacity-80" />
                   <figcaption className="pointer-events-none absolute inset-x-0 bottom-0 p-5 md:p-6">
-                    <p className="font-serif text-lg text-cream md:text-xl">
+                    <p className="text-lg text-cream md:text-xl">
                       <span className="mr-2 text-cream/45">{String(i + 1).padStart(2, "0")}</span>
                       {p.title}
                     </p>
@@ -1127,7 +1121,7 @@ function Index() {
                     </p>
                   </figcaption>
                 </figure>
-              </Reveal>
+              </div>
             ))}
           </div>
 
