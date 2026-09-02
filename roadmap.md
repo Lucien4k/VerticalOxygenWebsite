@@ -1,5 +1,9 @@
 # Vertical Oxygen Website Tasks
 
+## In Progress
+- [ ] Use uploaded photo for 100% plant guarantee maintenance section
+- [ ] Switch uploaded atrium photo for the Conexus Credit Union gallery tile
+
 ## Completed
 - [x] Fix highlights type change build errors
 - [x] Remove "tap through" intro text on systems section
