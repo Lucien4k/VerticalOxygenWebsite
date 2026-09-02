@@ -1082,14 +1082,6 @@ function Index() {
                 ratio: "aspect-[4/3]",
               },
               {
-                img: redDeerInstall.url,
-                key: "red-deer-install",
-                title: t({ en: "Community & Process", fr: "Communauté et processus", zh: "社区与过程", es: "Comunidad y proceso", pa: "ਕਮਿਊਨਿਟੀ ਅਤੇ ਪ੍ਰਕਿਰਿਆ", ar: "المجتمع والعملية", hi: "समुदाय और प्रक्रिया" }),
-                caption: t({ en: "Red Deer, AB · School install day", fr: "Red Deer, AB · Journée d'installation scolaire", zh: "阿尔伯塔省 Red Deer · 校园安装日", es: "Red Deer, AB · Día de instalación escolar", pa: "ਰੈੱਡ ਡੀਅਰ, AB · ਸਕੂਲ ਇੰਸਟਾਲ ਦਿਨ", ar: "ريد دير، ألبرتا · يوم التركيب المدرسي", hi: "रेड डियर, AB · स्कूल इंस्टॉल दिवस" }),
-                span: "md:col-span-12",
-                ratio: "",
-              },
-              {
                 img: plantingDetail.url,
                 key: "planting-detail",
                 title: t({ en: "Planting Detail", fr: "Détail de plantation", zh: "植栽细节", es: "Detalle de plantación", pa: "ਪੌਦੇ ਦਾ ਵੇਰਵਾ", ar: "تفاصيل الزراعة", hi: "प्लांटिंग डिटेल" }),
@@ -1097,8 +1089,34 @@ function Index() {
                 span: "md:col-span-7",
                 ratio: "aspect-[4/3]",
               },
+              {
+                key: "filler",
+                span: "md:col-span-5",
+              },
+              {
+                img: redDeerInstall.url,
+                key: "red-deer-install",
+                title: t({ en: "Community & Process", fr: "Communauté et processus", zh: "社区与过程", es: "Comunidad y proceso", pa: "ਕਮਿਊਨਿਟੀ ਅਤੇ ਪ੍ਰਕਿਰਿਆ", ar: "المجتمع والعملية", hi: "समुदाय और प्रक्रिया" }),
+                caption: t({ en: "Red Deer, AB · School install day", fr: "Red Deer, AB · Journée d'installation scolaire", zh: "阿尔伯塔省 Red Deer · 校园安装日", es: "Red Deer, AB · Día de instalación escolar", pa: "ਰੈੱਡ ਡੀਅਰ, AB · ਸਕੂਲ ਇੰਸਟਾਲ ਦਿਨ", ar: "ريد دير، ألبرتا · يوم التركيب المدرسي", hi: "रेड डियर, AB · स्कूल इंस्टॉल दिवस" }),
+                span: "md:col-span-12",
+                ratio: "",
+              },
             ].map((p) =>
-              p.key === "red-deer-install" ? (
+              p.key === "filler" ? (
+                <div key={p.key} className={`${p.span} h-full`}>
+                  <div className="flex h-full flex-col justify-between bg-forest-deep p-5 text-cream ring-1 ring-charcoal/10 md:p-6">
+                    <p className="text-[0.62rem] font-semibold uppercase tracking-[0.3em] text-cream/70">
+                      {t({ en: "Vertical Oxygen", fr: "Vertical Oxygen", zh: "Vertical Oxygen", es: "Vertical Oxygen", pa: "Vertical Oxygen", ar: "Vertical Oxygen", hi: "Vertical Oxygen" })}
+                    </p>
+                    <p className="text-2xl leading-[1.1] md:text-3xl">
+                      {t({ en: "Designed, planted & maintained in Canada.", fr: "Conçu, planté et entretenu au Canada.", zh: "在加拿大设计、种植与维护。", es: "Diseñado, plantado y mantenido en Canadá.", pa: "ਕਨੇਡਾ ਵਿੱਚ ਡਿਜ਼ਾਈਨ, ਲਗਾਏ ਅਤੇ ਰੱਖ-ਰਖਾਅ ਕੀਤੇ ਗਏ।", ar: "مصمم ومزروع وصيانته في كندا.", hi: "कनाडा में डिज़ाइन, लगाए और मेंटेन किए गए।" })}
+                    </p>
+                    <p className="text-sm leading-snug text-cream/70">
+                      {t({ en: "Every wall is planned, planted, and looked after by our Canadian team.", fr: "Chaque mur est planifié, planté et entretenu par notre équipe canadienne.", zh: "每一面墙都由我们的加拿大团队规划、种植与养护。", es: "Cada muro es planificado, plantado y cuidado por nuestro equipo canadiense.", pa: "ਹਰ ਕੰਧ ਸਾਡੀ ਕਨੇਡੀਅਨ ਟੀਮ ਦੁਆਰਾ ਯੋਜਨਾ, ਲਗਾਈ ਅਤੇ ਦੇਖਭਾਲ ਕੀਤੀ ਜਾਂਦੀ ਹੈ।", ar: "كل جدار يتم تخطيطه وزراعته وصيانته من قبل فريقنا الكندي.", hi: "हर दीवार हमारी कनाडाई टीम द्वारा योजना, लगाई और देखभाल की जाती है।" })}
+                    </p>
+                  </div>
+                </div>
+              ) : p.key === "red-deer-install" ? (
                 <div key={p.key} className={p.span}>
                   <figure
                     role="button"
