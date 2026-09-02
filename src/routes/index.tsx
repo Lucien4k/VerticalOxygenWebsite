@@ -163,7 +163,7 @@ function MaintenanceSection() {
   const t = useT();
   return (
           <section id="maintenance" className="relative overflow-hidden bg-cream text-charcoal">
-            <div className="mx-auto max-w-7xl px-6 py-20 md:py-28">
+            <div className="mx-auto max-w-7xl px-6 pt-10 pb-20 md:pt-14 md:pb-28">
               <div className="grid gap-10 md:grid-cols-2 md:items-center md:gap-14">
                 <Reveal>
                   <p className="mb-3 text-xs font-semibold uppercase tracking-[0.3em] text-forest">
@@ -850,7 +850,7 @@ function Index() {
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/50" />
       </div>
       <section id="about" className="relative overflow-hidden bg-background">
-        <div className="mx-auto max-w-7xl px-6 py-20 md:py-28">
+        <div className="mx-auto max-w-7xl px-6 pt-20 pb-10 md:pt-28 md:pb-14">
           <div className="relative overflow-hidden rounded-3xl">
             <img
               src={spiderPothos.url}
@@ -1035,17 +1035,17 @@ function Index() {
               {
                 img: aquaponicFeature.url,
                 key: "aquaponic-feature",
+                span: "md:col-span-8",
+                ratio: "aspect-[4/3]",
                 title: t({ en: "Aquaponic Feature", fr: "Mur aquaponique", zh: "鱼菜共生主题墙", es: "Muro acuapónico", pa: "ਐਕੁਆਪੋਨਿਕ ਫੀਚਰ", ar: "جدار أكوابوني", hi: "एक्वापोनिक फीचर" }),
                 caption: t({ en: "Living wall with integrated aquarium", fr: "Mur végétal avec aquarium intégré", zh: "植物墙与一体化水族箱", es: "Muro vivo con acuario integrado", pa: "ਏਕੀਕ੍ਰਿਤ ਐਕੁਏਰੀਅਮ ਵਾਲੀ ਜੀਵੰਤ ਕੰਧ", ar: "جدار حي مع حوض سمك مدمج", hi: "एकीकृत एक्वेरियम के साथ लिविंग वॉल" }),
-                span: "md:col-span-4",
-                ratio: "aspect-[3/4]",
               },
               {
                 img: copperFrame.url,
                 key: "copper-frame",
                 title: t({ en: "Copper Frame Panel", fr: "Panneau à cadre de cuivre", zh: "铜框绿植panel", es: "Panel con marco de cobre", pa: "ਕਾਪਰ ਫਰੇਮ ਪੈਨਲ", ar: "لوحة بإطار نحاسي", hi: "कॉपर फ्रेम पैनल" }),
                 caption: t({ en: "Residential accent · Custom copper surround", fr: "Accent résidentiel · Encadrement de cuivre sur mesure", zh: "住宅点缀 · 定制铜质外框", es: "Acento residencial · Marco de cobre a medida", pa: "ਰਿਹਾਇਸ਼ੀ ਐਕਸੈਂਟ · ਕਸਟਮ ਕਾਪਰ ਫਰੇਮ", ar: "لمسة سكنية · إطار نحاسي مخصص", hi: "आवासीय एक्सेंट · कस्टम कॉपर फ्रेम" }),
-                span: "md:col-span-4",
+                span: "md:col-span-5",
                 ratio: "aspect-[3/4]",
               },
               {
@@ -1054,8 +1054,8 @@ function Index() {
                 key: "atrium-wall",
                 title: t({ en: "Atrium Feature Wall", fr: "Mur d'atrium signature", zh: "中庭主题绿墙", es: "Muro destacado de atrio", pa: "ਅਟਰੀਅਮ ਫੀਚਰ ਕੰਧ", ar: "جدار أتريوم مميز", hi: "एट्रियम फीचर वॉल" }),
                 caption: t({ en: "Modern lobby · Living wall in motion", fr: "Hall moderne · Mur végétal en mouvement", zh: "现代大堂 · 动态植物墙", es: "Lobby moderno · Muro vivo en movimiento", pa: "ਆਧੁਨਿਕ ਲਾਬੀ · ਚਲਦੀ ਹੋਈ ਜੀਵੰਤ ਕੰਧ", ar: "ردهة حديثة · جدار حي متحرك", hi: "आधुनिक लॉबी · गतिमान लिविंग वॉल" }),
-                span: "md:col-span-4",
-                ratio: "aspect-[3/4]",
+                span: "md:col-span-7",
+                ratio: "aspect-[4/3]",
               },
               {
                 img: wellnessRetail.url,
@@ -1063,41 +1063,77 @@ function Index() {
                 title: t({ en: "Wellness Retail Wall", fr: "Mur de boutique bien-être", zh: "健康零售绿墙", es: "Muro de tienda de bienestar", pa: "ਵੈੱਲਨੈੱਸ ਰਿਟੇਲ ਕੰਧ", ar: "جدار متجر العافية", hi: "वेलनेस रिटेल वॉल" }),
                 caption: t({ en: "Retail interior · Signage set into planting", fr: "Intérieur commercial · Lettrage intégré à la végétation", zh: "零售室内 · 植栽嵌入式标识", es: "Interior comercial · Rótulo integrado en la vegetación", pa: "ਰਿਟੇਲ ਅੰਦਰੂਨੀ · ਪੌਦਿਆਂ ਵਿੱਚ ਸਾਈਨੇਜ", ar: "داخل المتجر · لافتة مدمجة في النباتات", hi: "रिटेल इंटीरियर · पौधों में लगा साइनेज" }),
                 span: "md:col-span-4",
-                ratio: "aspect-[4/3]",
+                ratio: "aspect-[4/5]",
               },
               {
                 img: install5221.url,
                 key: "reception",
                 title: t({ en: "Reception Wall", fr: "Mur de réception", zh: "前台绿墙", es: "Muro de recepción", pa: "ਰਿਸੈਪਸ਼ਨ ਦੀਵਾਰ", ar: "جدار الاستقبال", hi: "रिसेप्शन वॉल" }),
                 caption: t({ en: "Corporate office · Mixed tropical palette", fr: "Bureaux d'entreprise · Palette tropicale mixte", zh: "企业办公空间 · 混合热带植物配色", es: "Oficina corporativa · Paleta tropical mixta", pa: "ਕਾਰਪੋਰੇਟ ਦਫ਼ਤਰ · ਮਿਸ਼ਰਤ ਟ੍ਰੌਪੀਕਲ ਪੈਲੇਟ", ar: "مكتب الشركة · تشكيلة استوائية متنوعة", hi: "कॉर्पोरेट ऑफिस · मिश्रित उष्णकटिबंधीय पैलेट" }),
-                span: "md:col-span-4",
-                ratio: "aspect-[4/3]",
+                span: "md:col-span-8",
+                ratio: "aspect-[16/10]",
               },
               {
                 img: installCoaldale2.url,
                 key: "coaldale",
                 title: t({ en: "Coaldale, Alberta", fr: "Coaldale, Alberta", zh: "阿尔伯塔省 Coaldale", es: "Coaldale, Alberta", pa: "ਕੋਲਡੇਲ, ਐਲਬਰਟਾ", ar: "كولديل، ألبرتا", hi: "कोलडेल, अल्बर्टा" }),
                 caption: t({ en: "Community hall · Full-height install", fr: "Salle communautaire · Installation pleine hauteur", zh: "社区活动厅 · 通高安装", es: "Salón comunitario · Instalación de altura completa", pa: "ਕਮਿਊਨਿਟੀ ਹਾਲ · ਪੂਰੀ-ਉਚਾਈ ਇੰਸਟਾਲੇਸ਼ਨ", ar: "قاعة مجتمعية · تركيب بارتفاع كامل", hi: "कम्युनिटी हॉल · पूर्ण-ऊँचाई इंस्टॉलेशन" }),
-                span: "md:col-span-4",
-                ratio: "aspect-[3/4]",
+                span: "md:col-span-5",
+                ratio: "aspect-[4/3]",
               },
               {
                 img: redDeerInstall.url,
                 key: "red-deer-install",
                 title: t({ en: "Community & Process", fr: "Communauté et processus", zh: "社区与过程", es: "Comunidad y proceso", pa: "ਕਮਿਊਨਿਟੀ ਅਤੇ ਪ੍ਰਕਿਰਿਆ", ar: "المجتمع والعملية", hi: "समुदाय और प्रक्रिया" }),
                 caption: t({ en: "Red Deer, AB · School install day", fr: "Red Deer, AB · Journée d'installation scolaire", zh: "阿尔伯塔省 Red Deer · 校园安装日", es: "Red Deer, AB · Día de instalación escolar", pa: "ਰੈੱਡ ਡੀਅਰ, AB · ਸਕੂਲ ਇੰਸਟਾਲ ਦਿਨ", ar: "ريد دير، ألبرتا · يوم التركيب المدرسي", hi: "रेड डियर, AB · स्कूल इंस्टॉल दिवस" }),
-                span: "md:col-span-4",
-                ratio: "aspect-[4/3]",
+                span: "md:col-span-12",
+                ratio: "",
               },
               {
                 img: plantingDetail.url,
                 key: "planting-detail",
                 title: t({ en: "Planting Detail", fr: "Détail de plantation", zh: "植栽细节", es: "Detalle de plantación", pa: "ਪੌਦੇ ਦਾ ਵੇਰਵਾ", ar: "تفاصيل الزراعة", hi: "प्लांटिंग डिटेल" }),
                 caption: t({ en: "Pothos and spider plant, cedar edge", fr: "Pothos et chlorophytum, bordure de cèdre", zh: "绿萝与吊兰 · 雪松边框", es: "Potos y cinta, borde de cedro", pa: "ਪੋਥੋਸ ਤੇ ਸਪਾਈਡਰ ਪਲਾਂਟ, ਸੀਡਰ ਕਿਨਾਰਾ", ar: "بوتس ونبات العنكبوت، حافة أرز", hi: "पोथोस और स्पाइडर प्लांट, सीडर किनारा" }),
-                span: "md:col-span-4",
-                ratio: "aspect-[3/4]",
+                span: "md:col-span-7",
+                ratio: "aspect-[4/3]",
               },
-            ].map((p) => (
+            ].map((p) =>
+              p.key === "red-deer-install" ? (
+                <div key={p.key} className={p.span}>
+                  <figure
+                    role="button"
+                    tabIndex={0}
+                    onClick={() => setInstallShot(p)}
+                    onKeyDown={(e) => {
+                      if (e.key === "Enter" || e.key === " ") {
+                        e.preventDefault();
+                        setInstallShot(p);
+                      }
+                    }}
+                    aria-label={`${t({ en: "View larger photo", fr: "Voir la photo en grand", zh: "查看大图", es: "Ver foto ampliada", pa: "ਵੱਡੀ ਫੋਟੋ ਵੇਖੋ", ar: "عرض صورة أكبر", hi: "बड़ी फोटो देखें" })}: ${p.title}`}
+                    className="group cursor-zoom-in border-2 border-forest-deep/30 bg-forest-deep/5 p-3 focus:outline-none focus-visible:ring-2 focus-visible:ring-forest-deep md:p-5"
+                  >
+                    <div className="grid items-center gap-4 md:grid-cols-12 md:gap-6">
+                      <img
+                        src={p.img}
+                        alt={`${p.title} — ${p.caption}`}
+                        loading="lazy"
+                        decoding="async"
+                        className="h-auto w-full object-cover ring-1 ring-charcoal/10 md:col-span-8"
+                      />
+                      <figcaption className="md:col-span-4">
+                        <p className="text-[0.62rem] font-semibold uppercase tracking-[0.3em] text-forest-deep">
+                          {t({ en: "Behind the wall", fr: "Derrière le mur", zh: "绿墙背后", es: "Detrás del muro", pa: "ਕੰਧ ਦੇ ਪਿੱਛੇ", ar: "خلف الجدار", hi: "दीवार के पीछे" })}
+                        </p>
+                        <p className="mt-2 text-2xl text-forest-deep md:text-3xl">{p.title}</p>
+                        <p className="mt-2 text-[0.62rem] uppercase tracking-[0.22em] text-charcoal/60">
+                          {p.caption}
+                        </p>
+                      </figcaption>
+                    </div>
+                  </figure>
+                </div>
+              ) : (
               <div key={p.key} className={p.span}>
                 <figure
                   role="button"
@@ -1143,13 +1179,13 @@ function Index() {
                   </figcaption>
                 </figure>
               </div>
-            ))}
-          </div>
-
-          <div className="mt-16 text-center md:mt-24">
-            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-charcoal/50">
-              {t({ en: "More projects coming soon", fr: "Plus de projets à venir", zh: "更多精彩项目敬请期待", es: "Más proyectos próximamente", pa: "ਹੋਰ ਪ੍ਰੋਜੈਕਟ ਜਲਦ ਆ ਰਹੇ ਹਨ", ar: "المزيد من المشاريع قريبًا", hi: "और प्रोजेक्ट जल्द आ रहे हैं" })}
-            </p>
+              ),
+            )}
+            <div className="flex min-h-28 items-center justify-center border border-dashed border-charcoal/25 md:col-span-12">
+              <p className="text-xs font-semibold uppercase tracking-[0.3em] text-charcoal/50">
+                {t({ en: "More projects coming soon", fr: "Plus de projets à venir", zh: "更多精彩项目敬请期待", es: "Más proyectos próximamente", pa: "ਹੋਰ ਪ੍ਰੋਜੈਕਟ ਜਲਦ ਆ ਰਹੇ ਹਨ", ar: "المزيد من المشاريع قريبًا", hi: "और प्रोजेक्ट जल्द आ रहे हैं" })}
+              </p>
+            </div>
           </div>
         </div>
 
