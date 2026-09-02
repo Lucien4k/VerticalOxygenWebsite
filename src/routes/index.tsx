@@ -1074,6 +1074,14 @@ function Index() {
                 ratio: "aspect-[16/10]",
               },
               {
+                key: "filler",
+                span: "md:col-span-4",
+                img: "",
+                title: "",
+                caption: "",
+                ratio: "",
+              },
+              {
                 img: installCoaldale2.url,
                 key: "coaldale",
                 title: t({ en: "Coaldale, Alberta", fr: "Coaldale, Alberta", zh: "阿尔伯塔省 Coaldale", es: "Coaldale, Alberta", pa: "ਕੋਲਡੇਲ, ਐਲਬਰਟਾ", ar: "كولديل، ألبرتا", hi: "कोलडेल, अल्बर्टा" }),
@@ -1088,14 +1096,6 @@ function Index() {
                 caption: t({ en: "Pothos and spider plant, cedar edge", fr: "Pothos et chlorophytum, bordure de cèdre", zh: "绿萝与吊兰 · 雪松边框", es: "Potos y cinta, borde de cedro", pa: "ਪੋਥੋਸ ਤੇ ਸਪਾਈਡਰ ਪਲਾਂਟ, ਸੀਡਰ ਕਿਨਾਰਾ", ar: "بوتس ونبات العنكبوت، حافة أرز", hi: "पोथोस और स्पाइडर प्लांट, सीडर किनारा" }),
                 span: "md:col-span-7",
                 ratio: "aspect-[4/3]",
-              },
-              {
-                key: "filler",
-                span: "md:col-span-5",
-                img: "",
-                title: "",
-                caption: "",
-                ratio: "",
               },
               {
                 img: redDeerInstall.url,
