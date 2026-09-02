@@ -31,7 +31,6 @@ import { NavMenu } from "@/components/NavMenu";
 import { Parallax } from "@/components/Parallax";
 import { WordsReveal } from "@/components/WordsReveal";
 
-import { ScrollProgress } from "@/components/ScrollProgress";
 import { ScrollFrames } from "@/components/ScrollFrames";
 import { FRAME_URLS } from "@/lib/frame-urls";
 import { ScrollFramesSection } from "@/components/ScrollFramesSection";
@@ -40,7 +39,6 @@ import { useState, useEffect, useRef } from "react";
 import { createPortal } from "react-dom";
 import { useT, type Tr } from "@/lib/i18n";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
-import installGlenora from "../assets/installs/glenora-1.jpg.asset.json";
 import installCoaldale2 from "../assets/installs/coaldale-2-2.jpg.asset.json";
 import delaSalleVideo from "../assets/videos/de-la-salle.mp4.asset.json";
 import delaSallePoster from "../assets/videos/de-la-salle.jpg.asset.json";
@@ -552,7 +550,6 @@ function Index() {
   }, []);
   return (
     <div className="min-h-screen bg-background">
-      <ScrollProgress />
       {/* Floating rounded top bars — hero video shows around them */}
       <div className="fixed inset-x-0 top-0 z-50 px-4 pt-4 md:px-6 md:pt-5">
         <div className="mx-auto max-w-6xl space-y-2">
