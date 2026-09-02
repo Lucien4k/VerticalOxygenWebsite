@@ -52,6 +52,16 @@ import installTorontoRes from "../assets/installs/img-toronto-residential.jpeg.a
 import installConexus from "../assets/installs/conexus-regina.jpeg.asset.json";
 import install0628 from "../assets/installs/img-0628.jpg.asset.json";
 import cutoutCoaldale from "../assets/cutouts/coaldale-wall.png.asset.json";
+import westinCalgary from "../assets/gallery/westin-calgary.webp.asset.json";
+import calgaryResidential from "../assets/gallery/calgary-residential.webp.asset.json";
+import modernOffice from "../assets/gallery/modern-office.webp.asset.json";
+import edmontonResidential from "../assets/gallery/edmonton-residential.webp.asset.json";
+import stantonHospital from "../assets/gallery/stanton-hospital.webp.asset.json";
+import aquaponicFeature from "../assets/gallery/aquaponic-feature.webp.asset.json";
+import copperFrame from "../assets/gallery/copper-frame.webp.asset.json";
+import wellnessRetail from "../assets/gallery/wellness-retail.webp.asset.json";
+import plantingDetail from "../assets/gallery/planting-detail.webp.asset.json";
+import redDeerInstall from "../assets/gallery/red-deer-install.webp.asset.json";
 
 import woodTexture from "../assets/textures/wood-texture-v2.jpg.asset.json";
 import logoHeader from "../assets/logo-header.png.asset.json";
