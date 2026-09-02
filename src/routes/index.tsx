@@ -1096,7 +1096,43 @@ function Index() {
                 span: "md:col-span-7",
                 ratio: "aspect-[4/3]",
               },
-            ].map((p) => (
+            ].map((p) =>
+              p.key === "red-deer-install" ? (
+                <div key={p.key} className={p.span}>
+                  <figure
+                    role="button"
+                    tabIndex={0}
+                    onClick={() => setInstallShot(p)}
+                    onKeyDown={(e) => {
+                      if (e.key === "Enter" || e.key === " ") {
+                        e.preventDefault();
+                        setInstallShot(p);
+                      }
+                    }}
+                    aria-label={`${t({ en: "View larger photo", fr: "Voir la photo en grand", zh: "查看大图", es: "Ver foto ampliada", pa: "ਵੱਡੀ ਫੋਟੋ ਵੇਖੋ", ar: "عرض صورة أكبر", hi: "बड़ी फोटो देखें" })}: ${p.title}`}
+                    className="group cursor-zoom-in border-2 border-forest-deep/30 bg-forest-deep/5 p-3 focus:outline-none focus-visible:ring-2 focus-visible:ring-forest-deep md:p-5"
+                  >
+                    <div className="grid items-center gap-4 md:grid-cols-12 md:gap-6">
+                      <img
+                        src={p.img}
+                        alt={`${p.title} — ${p.caption}`}
+                        loading="lazy"
+                        decoding="async"
+                        className="h-auto w-full object-cover ring-1 ring-charcoal/10 md:col-span-8"
+                      />
+                      <figcaption className="md:col-span-4">
+                        <p className="text-[0.62rem] font-semibold uppercase tracking-[0.3em] text-forest-deep">
+                          {t({ en: "Behind the wall", fr: "Derrière le mur", zh: "绿墙背后", es: "Detrás del muro", pa: "ਕੰਧ ਦੇ ਪਿੱਛੇ", ar: "خلف الجدار", hi: "दीवार के पीछे" })}
+                        </p>
+                        <p className="mt-2 text-2xl text-forest-deep md:text-3xl">{p.title}</p>
+                        <p className="mt-2 text-[0.62rem] uppercase tracking-[0.22em] text-charcoal/60">
+                          {p.caption}
+                        </p>
+                      </figcaption>
+                    </div>
+                  </figure>
+                </div>
+              ) : (
               <div key={p.key} className={p.span}>
                 <figure
                   role="button"
