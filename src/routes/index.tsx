@@ -1039,8 +1039,6 @@ function Index() {
                 ratio: "aspect-[4/3]",
                 title: t({ en: "Aquaponic Feature", fr: "Mur aquaponique", zh: "鱼菜共生主题墙", es: "Muro acuapónico", pa: "ਐਕੁਆਪੋਨਿਕ ਫੀਚਰ", ar: "جدار أكوابوني", hi: "एक्वापोनिक फीचर" }),
                 caption: t({ en: "Living wall with integrated aquarium", fr: "Mur végétal avec aquarium intégré", zh: "植物墙与一体化水族箱", es: "Muro vivo con acuario integrado", pa: "ਏਕੀਕ੍ਰਿਤ ਐਕੁਏਰੀਅਮ ਵਾਲੀ ਜੀਵੰਤ ਕੰਧ", ar: "جدار حي مع حوض سمك مدمج", hi: "एकीकृत एक्वेरियम के साथ लिविंग वॉल" }),
-                span: "md:col-span-4",
-                ratio: "aspect-[3/4]",
               },
               {
                 img: copperFrame.url,
