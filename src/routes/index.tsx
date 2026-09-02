@@ -60,6 +60,7 @@ import copperFrame from "../assets/gallery/copper-frame.webp.asset.json";
 import wellnessRetail from "../assets/gallery/wellness-retail.webp.asset.json";
 import plantingDetail from "../assets/gallery/planting-detail.webp.asset.json";
 import redDeerInstall from "../assets/gallery/red-deer-install.webp.asset.json";
+import maintenanceAtriumWall from "../assets/maintenance-atrium-wall.png.asset.json";
 
 import woodTexture from "../assets/textures/wood-texture-v2.jpg.asset.json";
 import logoHeader from "../assets/logo-header.png.asset.json";
