@@ -970,6 +970,15 @@ function Index() {
                 ratio: "aspect-[4/5]",
               },
               {
+                img: delaSallePoster.url,
+                video: delaSalleVideo.url,
+                key: "de-la-salle",
+                title: t({ en: "De La Salle", fr: "De La Salle", zh: "De La Salle", es: "De La Salle", pa: "ਡੀ ਲਾ ਸਾਲ", ar: "دي لا سال", hi: "डे ला सैल" }),
+                caption: t({ en: "School interior · Living wall in motion", fr: "Intérieur scolaire · Mur végétal en mouvement", zh: "校园室内 · 动态植物墙", es: "Interior escolar · Muro vivo en movimiento", pa: "ਸਕੂਲ ਅੰਦਰੂਨੀ · ਚਲਦੀ ਹੋਈ ਜੀਵੰਤ ਕੰਧ", ar: "داخل المدرسة · جدار حي متحرك", hi: "स्कूल आंतरिक · गतिमान लिविंग वॉल" }),
+                span: "md:col-span-4",
+                ratio: "aspect-[4/5]",
+              },
+              {
                 img: calgaryResidential.url,
                 key: "calgary-residential",
                 title: t({ en: "Calgary Residential", fr: "Résidence à Calgary", zh: "卡尔加里私人住宅", es: "Residencia en Calgary", pa: "ਕੈਲਗਰੀ ਰਿਹਾਇਸ਼", ar: "منزل في كالغاري", hi: "कैलगरी आवासीय" }),
@@ -1024,15 +1033,6 @@ function Index() {
                 caption: t({ en: "Residential accent · Custom copper surround", fr: "Accent résidentiel · Encadrement de cuivre sur mesure", zh: "住宅点缀 · 定制铜质外框", es: "Acento residencial · Marco de cobre a medida", pa: "ਰਿਹਾਇਸ਼ੀ ਐਕਸੈਂਟ · ਕਸਟਮ ਕਾਪਰ ਫਰੇਮ", ar: "لمسة سكنية · إطار نحاسي مخصص", hi: "आवासीय एक्सेंट · कस्टम कॉपर फ्रेम" }),
                 span: "md:col-span-4",
                 ratio: "aspect-[3/4]",
-              },
-              {
-                img: delaSallePoster.url,
-                video: delaSalleVideo.url,
-                key: "de-la-salle",
-                title: t({ en: "De La Salle", fr: "De La Salle", zh: "De La Salle", es: "De La Salle", pa: "ਡੀ ਲਾ ਸਾਲ", ar: "دي لا سال", hi: "डे ला सैल" }),
-                caption: t({ en: "School interior · Living wall in motion", fr: "Intérieur scolaire · Mur végétal en mouvement", zh: "校园室内 · 动态植物墙", es: "Interior escolar · Muro vivo en movimiento", pa: "ਸਕੂਲ ਅੰਦਰੂਨੀ · ਚਲਦੀ ਹੋਈ ਜੀਵੰਤ ਕੰਧ", ar: "داخل المدرسة · جدار حي متحرك", hi: "स्कूल आंतरिक · गतिमान लिविंग वॉल" }),
-                span: "md:col-span-4",
-                ratio: "aspect-[4/3]",
               },
               {
                 img: atriumWallPoster.url,
