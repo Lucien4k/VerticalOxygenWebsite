@@ -1203,11 +1203,6 @@ function Index() {
               </div>
               ),
             )}
-            <div className="flex min-h-28 items-center justify-center border border-dashed border-charcoal/25 md:col-span-12">
-              <p className="text-xs font-semibold uppercase tracking-[0.3em] text-charcoal/50">
-                {t({ en: "More projects coming soon", fr: "Plus de projets à venir", zh: "更多精彩项目敬请期待", es: "Más proyectos próximamente", pa: "ਹੋਰ ਪ੍ਰੋਜੈਕਟ ਜਲਦ ਆ ਰਹੇ ਹਨ", ar: "المزيد من المشاريع قريبًا", hi: "और प्रोजेक्ट जल्द आ रहे हैं" })}
-              </p>
-            </div>
           </div>
         </div>
 
