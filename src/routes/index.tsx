@@ -163,7 +163,7 @@ function MaintenanceSection() {
   const t = useT();
   return (
           <section id="maintenance" className="relative overflow-hidden bg-cream text-charcoal">
-            <div className="mx-auto max-w-7xl px-6 py-20 md:py-28">
+            <div className="mx-auto max-w-7xl px-6 pt-10 pb-20 md:pt-14 md:pb-28">
               <div className="grid gap-10 md:grid-cols-2 md:items-center md:gap-14">
                 <Reveal>
                   <p className="mb-3 text-xs font-semibold uppercase tracking-[0.3em] text-forest">
@@ -850,7 +850,7 @@ function Index() {
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/50" />
       </div>
       <section id="about" className="relative overflow-hidden bg-background">
-        <div className="mx-auto max-w-7xl px-6 py-20 md:py-28">
+        <div className="mx-auto max-w-7xl px-6 pt-20 pb-10 md:pt-28 md:pb-14">
           <div className="relative overflow-hidden rounded-3xl">
             <img
               src={spiderPothos.url}
