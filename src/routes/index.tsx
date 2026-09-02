@@ -346,7 +346,7 @@ function SystemsShowcase() {
             <p className="text-xs font-semibold uppercase tracking-[0.3em] text-forest">
               {t(sys.tag)}
             </p>
-            <h3 className="mt-3 font-serif text-4xl italic text-charcoal md:text-5xl">
+            <h3 className="mt-3 font-serif text-4xl text-charcoal md:text-5xl">
               {t(sys.tagline)}
             </h3>
             <p className="mt-5 text-charcoal/75 md:text-lg">{t(sys.description)}</p>
