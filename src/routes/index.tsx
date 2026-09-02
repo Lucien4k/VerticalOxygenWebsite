@@ -1086,16 +1086,15 @@ function Index() {
                 key: "red-deer-install",
                 title: t({ en: "Community & Process", fr: "Communauté et processus", zh: "社区与过程", es: "Comunidad y proceso", pa: "ਕਮਿਊਨਿਟੀ ਅਤੇ ਪ੍ਰਕਿਰਿਆ", ar: "المجتمع والعملية", hi: "समुदाय और प्रक्रिया" }),
                 caption: t({ en: "Red Deer, AB · School install day", fr: "Red Deer, AB · Journée d'installation scolaire", zh: "阿尔伯塔省 Red Deer · 校园安装日", es: "Red Deer, AB · Día de instalación escolar", pa: "ਰੈੱਡ ਡੀਅਰ, AB · ਸਕੂਲ ਇੰਸਟਾਲ ਦਿਨ", ar: "ريد دير، ألبرتا · يوم التركيب المدرسي", hi: "रेड डियर, AB · स्कूल इंस्टॉल दिवस" }),
-                span: "md:col-span-4",
-                ratio: "aspect-[4/3]",
+                span: "md:col-span-12",
               },
               {
                 img: plantingDetail.url,
                 key: "planting-detail",
                 title: t({ en: "Planting Detail", fr: "Détail de plantation", zh: "植栽细节", es: "Detalle de plantación", pa: "ਪੌਦੇ ਦਾ ਵੇਰਵਾ", ar: "تفاصيل الزراعة", hi: "प्लांटिंग डिटेल" }),
                 caption: t({ en: "Pothos and spider plant, cedar edge", fr: "Pothos et chlorophytum, bordure de cèdre", zh: "绿萝与吊兰 · 雪松边框", es: "Potos y cinta, borde de cedro", pa: "ਪੋਥੋਸ ਤੇ ਸਪਾਈਡਰ ਪਲਾਂਟ, ਸੀਡਰ ਕਿਨਾਰਾ", ar: "بوتس ونبات العنكبوت، حافة أرز", hi: "पोथोस और स्पाइडर प्लांट, सीडर किनारा" }),
-                span: "md:col-span-4",
-                ratio: "aspect-[3/4]",
+                span: "md:col-span-7",
+                ratio: "aspect-[4/3]",
               },
             ].map((p) => (
               <div key={p.key} className={p.span}>
