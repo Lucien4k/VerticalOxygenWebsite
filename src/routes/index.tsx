@@ -164,47 +164,60 @@ function MaintenanceSection() {
   return (
           <section id="maintenance" className="relative overflow-hidden bg-cream text-charcoal">
             <div className="mx-auto max-w-7xl px-6 py-20 md:py-28">
-              <Reveal>
-                <p className="mb-3 text-xs font-semibold uppercase tracking-[0.3em] text-forest">
-                  {t({ en: "Maintenance & Guarantee", fr: "Entretien et garantie", zh: "养护与保障", es: "Mantenimiento y garantía", pa: "ਰੱਖ-ਰਖਾਅ ਅਤੇ ਗਾਰੰਟੀ", ar: "الصيانة والضمان", hi: "रखरखाव और गारंटी" })}
-                </p>
-                <h2 className="display-heading max-w-3xl text-4xl leading-[1.05] text-charcoal md:text-6xl">
-                  {t({
-                    en: "100% plant guarantee —",
-                    fr: "Garantie 100 % des plantes —",
-                    zh: "100% 植物保障——",
-                    es: "Garantía del 100 % en plantas —",
-                    pa: "100% ਪੌਦਾ ਗਾਰੰਟੀ —",
-                    ar: "ضمان 100٪ للنباتات —",
-                    hi: "100% प्लांट गारंटी —",
-                  })}{" "}
-                  <em>
-                    {t({ en: "with maintenance.", fr: "avec l'entretien.", zh: "需搭配养护服务。", es: "con mantenimiento.", pa: "ਰੱਖ-ਰਖਾਅ ਦੇ ਨਾਲ।", ar: "مع خدمة الصيانة.", hi: "रखरखाव के साथ।" })}
-                  </em>
-                </h2>
-                <p className="mt-6 max-w-2xl text-base leading-relaxed text-charcoal/70">
-                  {t({
-                    en: "A living wall is a living thing. Our maintenance program keeps every wall thriving — and every wall on an active maintenance agreement is covered by our 100% plant guarantee. If a plant fails, we replace it. No charge, no questions. The guarantee is available exclusively with maintenance service.",
-                    fr: "Un mur végétal est un organisme vivant. Notre programme d'entretien garde chaque mur en pleine santé — et tout mur couvert par un contrat d'entretien actif bénéficie de notre garantie 100 % des plantes. Si une plante dépérit, nous la remplaçons. Sans frais, sans discussion. La garantie est offerte exclusivement avec le service d'entretien.",
-                    zh: "植物墙是有生命的。我们的养护计划让每一面墙持续繁茂——凡在有效养护合约内的墙体，均享有 100% 植物保障。若有植物枯萎，我们免费更换，无需多问。该保障仅在订购养护服务时提供。",
-                    es: "Un muro vegetal es un ser vivo. Nuestro programa de mantenimiento mantiene cada muro floreciente — y todo muro con un contrato de mantenimiento activo está cubierto por nuestra garantía del 100 % en plantas. Si una planta falla, la reemplazamos. Sin costo, sin preguntas. La garantía está disponible exclusivamente con el servicio de mantenimiento.",
-                    pa: "ਇੱਕ ਜੀਵੰਤ ਕੰਧ ਇੱਕ ਜੀਵਤ ਚੀਜ਼ ਹੈ। ਸਾਡਾ ਰੱਖ-ਰਖਾਅ ਪ੍ਰੋਗਰਾਮ ਹਰ ਕੰਧ ਨੂੰ ਵਧਦੀ-ਫੁੱਲਦੀ ਰੱਖਦਾ ਹੈ — ਅਤੇ ਕਿਰਿਆਸ਼ੀਲ ਰੱਖ-ਰਖਾਅ ਸਮਝੌਤੇ ਵਾਲੀ ਹਰ ਕੰਧ ਸਾਡੀ 100% ਪੌਦਾ ਗਾਰੰਟੀ ਦੁਆਰਾ ਕਵਰ ਹੁੰਦੀ ਹੈ। ਜੇ ਕੋਈ ਪੌਦਾ ਖ਼ਰਾਬ ਹੁੰਦਾ ਹੈ, ਅਸੀਂ ਇਸਨੂੰ ਬਦਲ ਦਿੰਦੇ ਹਾਂ। ਕੋਈ ਖਰਚਾ ਨਹੀਂ, ਕੋਈ ਸਵਾਲ ਨਹੀਂ। ਇਹ ਗਾਰੰਟੀ ਸਿਰਫ਼ ਰੱਖ-ਰਖਾਅ ਸੇਵਾ ਨਾਲ ਹੀ ਉਪਲਬਧ ਹੈ।",
-                    ar: "الجدار الأخضر كائن حي. برنامج الصيانة لدينا يحافظ على ازدهار كل جدار — وكل جدار ضمن اتفاقية صيانة سارية مشمول بضماننا 100٪ للنباتات. إذا فشلت نبتة، نستبدلها دون أي تكلفة أو أسئلة. الضمان متاح حصريًا مع خدمة الصيانة.",
-                    hi: "एक लिविंग वॉल एक जीवित वस्तु है। हमारा रखरखाव कार्यक्रम हर वॉल को फलता-फूलता रखता है — और सक्रिय रखरखाव समझौते वाली हर वॉल हमारी 100% प्लांट गारंटी द्वारा कवर होती है। यदि कोई पौधा खराब होता है, तो हम उसे बदल देते हैं। कोई शुल्क नहीं, कोई सवाल नहीं। यह गारंटी केवल रखरखाव सेवा के साथ ही उपलब्ध है।",
-                   })}
-                 </p>
-                <p className="mt-5 max-w-2xl text-sm font-semibold uppercase tracking-[0.2em] text-forest">
-                  {t({
-                    en: "Since 2011, we have stood behind every wall we have created.",
-                    fr: "Depuis 2011, nous garantissons chaque mur que nous avons créé.",
-                    zh: "自2011年以来，我们为我们建造的每一面墙提供保障。",
-                    es: "Desde 2011, respaldamos cada muro que hemos creado.",
-                    pa: "2011 ਤੋਂ, ਅਸੀਂ ਆਪਣੇ ਬਣਾਏ ਹਰ ਕੰਧ ਦੇ ਪਿੱਛੇ ਖੜ੍ਹੇ ਹਾਂ।",
-                    ar: "منذ 2011، نقف خلف كل جدار أنشأناه.",
-                    hi: "2011 से, हमने अपने द्वारा बनाई गई हर दीवार का समर्थन किया है।",
-                  })}
-                </p>
-               </Reveal>
+              <div className="grid gap-10 md:grid-cols-2 md:items-center md:gap-14">
+                <Reveal>
+                  <p className="mb-3 text-xs font-semibold uppercase tracking-[0.3em] text-forest">
+                    {t({ en: "Maintenance & Guarantee", fr: "Entretien et garantie", zh: "养护与保障", es: "Mantenimiento y garantía", pa: "ਰੱਖ-ਰਖਾਅ ਅਤੇ ਗਾਰੰਟੀ", ar: "الصيانة والضمان", hi: "रखरखाव और गारंटी" })}
+                  </p>
+                  <h2 className="display-heading max-w-3xl text-4xl leading-[1.05] text-charcoal md:text-6xl">
+                    {t({
+                      en: "100% plant guarantee —",
+                      fr: "Garantie 100 % des plantes —",
+                      zh: "100% 植物保障——",
+                      es: "Garantía del 100 % en plantas —",
+                      pa: "100% ਪੌਦਾ ਗਾਰੰਟੀ —",
+                      ar: "ضمان 100٪ للنباتات —",
+                      hi: "100% प्लांट गारंटी —",
+                    })}{" "}
+                    <em className="text-forest-deep not-italic">
+                      {t({ en: "with maintenance.", fr: "avec l'entretien.", zh: "需搭配养护服务。", es: "con mantenimiento.", pa: "ਰੱਖ-ਰਖਾਅ ਦੇ ਨਾਲ।", ar: "مع خدمة الصيانة.", hi: "रखरखाव के साथ।" })}
+                    </em>
+                  </h2>
+                  <p className="mt-6 max-w-2xl text-base leading-relaxed text-charcoal/70">
+                    {t({
+                      en: "A living wall is a living thing. Our maintenance program keeps every wall thriving — and every wall on an active maintenance agreement is covered by our 100% plant guarantee. If a plant fails, we replace it. No charge, no questions. The guarantee is available exclusively with maintenance service.",
+                      fr: "Un mur végétal est un organisme vivant. Notre programme d'entretien garde chaque mur en pleine santé — et tout mur couvert par un contrat d'entretien actif bénéficie de notre garantie 100 % des plantes. Si une plante dépérit, nous la remplaçons. Sans frais, sans discussion. La garantie est offerte exclusivement avec le service d'entretien.",
+                      zh: "植物墙是有生命的。我们的养护计划让每一面墙持续繁茂——凡在有效养护合约内的墙体，均享有 100% 植物保障。若有植物枯萎，我们免费更换，无需多问。该保障仅在订购养护服务时提供。",
+                      es: "Un muro vegetal es un ser vivo. Nuestro programa de mantenimiento mantiene cada muro floreciente — y todo muro con un contrato de mantenimiento activo está cubierto por nuestra garantía del 100 % en plantas. Si una planta falla, la reemplazamos. Sin costo, sin preguntas. La garantía está disponible exclusivamente con el servicio de mantenimiento.",
+                      pa: "ਇੱਕ ਜੀਵੰਤ ਕੰਧ ਇੱਕ ਜੀਵਤ ਚੀਜ਼ ਹੈ। ਸਾਡਾ ਰੱਖ-ਰਖਾਅ ਪ੍ਰੋਗਰਾਮ ਹਰ ਕੰਧ ਨੂੰ ਵਧਦੀ-ਫੁੱਲਦੀ ਰੱਖਦਾ ਹੈ — ਅਤੇ ਕਿਰਿਆਸ਼ੀਲ ਰੱਖ-ਰਖਾਅ ਸਮਝੌਤੇ ਵਾਲੀ ਹਰ ਕੰਧ ਸਾਡੀ 100% ਪੌਦਾ ਗਾਰੰਟੀ ਦੁਆਰਾ ਕਵਰ ਹੁੰਦੀ ਹੈ। ਜੇ ਕੋਈ ਪੌਦਾ ਖ਼ਰਾਬ ਹੁੰਦਾ ਹੈ, ਅਸੀਂ ਇਸਨੂੰ ਬਦਲ ਦਿੰਦੇ ਹਾਂ। ਕੋਈ ਖਰਚਾ ਨਹੀਂ, ਕੋਈ ਸਵਾਲ ਨਹੀਂ। ਇਹ ਗਾਰੰਟੀ ਸਿਰਫ਼ ਰੱਖ-ਰਖਾਅ ਸੇਵਾ ਨਾਲ ਹੀ ਉਪਲਬਧ ਹੈ।",
+                      ar: "الجدار الأخضر كائن حي. برنامج الصيانة لدينا يحافظ على ازدهار كل جدار — وكل جدار ضمن اتفاقية صيانة سارية مشمول بضماننا 100٪ للنباتات. إذا فشلت نبتة، نستبدلها دون أي تكلفة أو أسئلة. الضمان متاح حصريًا مع خدمة الصيانة.",
+                      hi: "एक लिविंग वॉल एक जीवित वस्तु है। हमारा रखरखाव कार्यक्रम हर वॉल को फलता-फूलता रखता है — और सक्रिय रखरखाव समझौते वाली हर वॉल हमारी 100% प्लांट गारंटी द्वारा कवर होती है। यदि कोई पौधा खराब होता है, तो हम उसे बदल देते हैं। कोई शुल्क नहीं, कोई सवाल नहीं। यह गारंटी केवल रखरखाव सेवा के साथ ही उपलब्ध है।",
+                     })}
+                    </p>
+                  <p className="mt-5 max-w-2xl text-sm font-semibold uppercase tracking-[0.2em] text-forest">
+                    {t({
+                      en: "Since 2011, we have stood behind every wall we have created.",
+                      fr: "Depuis 2011, nous garantissons chaque mur que nous avons créé.",
+                      zh: "自2011年以来，我们为我们建造的每一面墙提供保障。",
+                      es: "Desde 2011, respaldamos cada muro que hemos creado.",
+                      pa: "2011 ਤੋਂ, ਅਸੀਂ ਆਪਣੇ ਬਣਾਏ ਹਰ ਕੰਧ ਦੇ ਪਿੱਛੇ ਖੜ੍ਹੇ ਹਾਂ।",
+                      ar: "منذ 2011، نقف خلف كل جدار أنشأناه.",
+                      hi: "2011 से, हमने अपने द्वारा बनाई गई हर दीवार का समर्थन किया है।",
+                    })}
+                  </p>
+                </Reveal>
+                <Reveal delay={150}>
+                  <figure className="relative overflow-hidden bg-charcoal/5 ring-1 ring-charcoal/10">
+                    <img
+                      src={maintenanceAtriumWall.url}
+                      alt={t({ en: "Tall atrium living wall beside a wooden staircase", fr: "Grand mur végétal d'atrium à côté d'un escalier en bois", zh: "木质楼梯旁的高大中庭植物墙", es: "Gran muro vivo de atrio junto a una escalera de madera", pa: "ਲੱਕੜੀ ਦੀ ਪੌੜੀ ਦੇ ਨਾਲਅੱਡੇ ਉੱਚ ਅਟਰੀਅਮ ਦੀ ਜੀਵੰਤ ਕੰਧ", ar: "جدار حي مرتفع في الردهة بجانب درج خشبي", hi: "लकड़ी की सीढ़ियों के बगल में ऊंची एट्रियम लिविंग वॉल" })}
+                      loading="lazy"
+                      decoding="async"
+                      className="h-full w-full object-cover"
+                    />
+                  </figure>
+                </Reveal>
+              </div>
 
               <div className="mt-14 grid gap-6 md:grid-cols-3">
                 {[
