@@ -1092,6 +1092,10 @@ function Index() {
               {
                 key: "filler",
                 span: "md:col-span-5",
+                img: "",
+                title: "",
+                caption: "",
+                ratio: "",
               },
               {
                 img: redDeerInstall.url,
