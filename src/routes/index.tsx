@@ -632,7 +632,7 @@ function Index() {
                         image: iffWall.url,
                       },
                       {
-                        label: t({ en: "Recent Installations", fr: "Réalisations récentes", zh: "近期案例", es: "Instalaciones recientes", pa: "ਹਾਲੀਆ ਸਥਾਪਨਾਵਾਂ", ar: "أحدث التركيبات", hi: "हाल की इंस्टॉलेशन" }),
+                        label: t({ en: "Project Gallery", fr: "Galerie de projets", zh: "项目图库", es: "Galería de proyectos", pa: "ਪ੍ਰੋਜੈਕਟ ਗੈਲਰੀ", ar: "معرض المشاريع", hi: "प्रोजेक्ट गैलरी" }),
                         description: t({
                           en: "Photos from real projects",
                           fr: "Photos de projets réels",
@@ -901,70 +901,6 @@ function Index() {
       </section>
 
       <SustainabilitySection />
-
-      {/* Wood shelf divider */}
-      <div className="relative h-5 w-full overflow-hidden md:h-7" aria-hidden>
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: `url(${woodTexture.url})` }}
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/50" />
-      </div>
-      <section id="locations" className="relative overflow-hidden">
-        {/* Wood grain background with a cream wash so it isn't blank or pink */}
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: `url(${woodTexture.url})` }}
-          aria-hidden
-        />
-        <div className="absolute inset-0 bg-cream/90" aria-hidden />
-        <div className="absolute inset-0 bg-gradient-to-b from-cream/40 via-transparent to-cream/60" aria-hidden />
-        <div className="relative mx-auto max-w-7xl px-6 py-24 md:py-32">
-          <Reveal>
-            <div className="mb-14 max-w-2xl">
-              <p className="mb-3 text-xs font-semibold uppercase tracking-[0.3em] text-forest">
-                {t({ en: "Where We Grow", fr: "Où nous cultivons", zh: "我们的足迹", es: "Dónde crecemos", pa: "ਅਸੀਂ ਕਿੱਥੇ ਵਧਦੇ ਹਾਂ", ar: "أين ننمو", hi: "हम कहाँ बढ़ते हैं" })}
-              </p>
-              <WordsReveal
-                as="h2"
-                text={t({
-                  en: "Living walls, coast to coast to coast.",
-                  fr: "Des murs végétaux, d'un océan à l'autre.",
-                  zh: "植物墙，横贯东西两岸，直达北冰洋。",
-                  es: "Muros vivos, de costa a costa a costa.",
-                  pa: "ਜੀਵੰਤ ਕੰਧਾਂ, ਤੱਟ ਤੋਂ ਤੱਟ ਤੋਂ ਤੱਟ ਤੱਕ।",
-                  ar: "جدران حية، من ساحل إلى ساحل إلى ساحل.",
-                  hi: "जीवंत दीवारें, तट से तट से तट तक।",
-                })}
-                className="display-heading text-4xl leading-[1.05] text-charcoal md:text-6xl"
-              />
-              <p className="mt-4 text-charcoal/70">
-                {t({
-                  en: "Hover any pin to see the installation — from Vancouver lofts to Halifax lobbies, Yellowknife to St. John's.",
-                  fr: "Survolez un repère pour découvrir l'installation — des lofts de Vancouver aux halls d'Halifax, de Yellowknife à St. John's.",
-                  zh: "将鼠标悬停在任意标记上即可查看项目——从温哥华的公寓到哈利法克斯的大堂，从黄刀镇到圣约翰斯。",
-                  es: "Pasa el cursor sobre cualquier marcador para ver la instalación — desde lofts en Vancouver hasta vestíbulos en Halifax, de Yellowknife a St. John's.",
-                  pa: "ਸਥਾਪਨਾ ਵੇਖਣ ਲਈ ਕਿਸੇ ਵੀ ਪਿੰਨ 'ਤੇ ਹੋਵਰ ਕਰੋ — ਵੈਨਕੂਵਰ ਦੇ ਲੌਫਟਾਂ ਤੋਂ ਹੈਲੀਫੈਕਸ ਦੇ ਲਾਬੀਆਂ ਤੱਕ, ਯੈਲੋਨਾਈਫ ਤੋਂ ਸੇਂਟ ਜੌਨਸ ਤੱਕ।",
-                  ar: "مرر فوق أي علامة لرؤية التركيب — من شقق فانكوفر إلى ردهات هاليفاكس، من يلونايف إلى سانت جونز.",
-                  hi: "इंस्टॉलेशन देखने के लिए किसी भी पिन पर होवर करें — वैंकूवर के लॉफ्ट्स से लेकर हैलिफ़ैक्स की लॉबी तक, येलोनाइफ़ से सेंट जॉन्स तक।",
-                })}
-              </p>
-            </div>
-          </Reveal>
-          <Reveal variant="fade">
-            <LocationsMap />
-          </Reveal>
-        </div>
-      </section>
-
-      {/* Photo showcase — living, breathing installations */}
-      {/* Wood shelf divider */}
-      <section id="clients" className="relative overflow-hidden bg-cream py-24 text-charcoal md:py-32">
-        <Reveal>
-          <ClientLogos />
-        </Reveal>
-      </section>
-
       <div className="relative h-5 w-full overflow-hidden md:h-7" aria-hidden>
         <div
           className="absolute inset-0 bg-cover bg-center"
@@ -977,7 +913,7 @@ function Index() {
           <div className="mb-14 grid gap-10 md:grid-cols-12 md:items-end">
             <Reveal className="md:col-span-7">
               <p className="mb-4 text-xs font-semibold uppercase tracking-[0.3em] text-terra-light">
-                {t({ en: "Recent Installations", fr: "Réalisations récentes", zh: "近期案例", es: "Instalaciones recientes", pa: "ਹਾਲੀਆ ਸਥਾਪਨਾਵਾਂ", ar: "أحدث التركيبات", hi: "हाल की इंस्टॉलेशन" })}
+                {t({ en: "Project Gallery", fr: "Galerie de projets", zh: "项目图库", es: "Galería de proyectos", pa: "ਪ੍ਰੋਜੈਕਟ ਗੈਲਰੀ", ar: "معرض المشاريع", hi: "प्रोजेक्ट गैलरी" })}
               </p>
               <WordsReveal
                 as="h2"
@@ -1229,6 +1165,70 @@ function Index() {
           </div>
         )}
       </section>
+
+      {/* Wood shelf divider */}
+      <div className="relative h-5 w-full overflow-hidden md:h-7" aria-hidden>
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: `url(${woodTexture.url})` }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/50" />
+      </div>
+      <section id="locations" className="relative overflow-hidden">
+        {/* Wood grain background with a cream wash so it isn't blank or pink */}
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: `url(${woodTexture.url})` }}
+          aria-hidden
+        />
+        <div className="absolute inset-0 bg-cream/90" aria-hidden />
+        <div className="absolute inset-0 bg-gradient-to-b from-cream/40 via-transparent to-cream/60" aria-hidden />
+        <div className="relative mx-auto max-w-7xl px-6 py-24 md:py-32">
+          <Reveal>
+            <div className="mb-14 max-w-2xl">
+              <p className="mb-3 text-xs font-semibold uppercase tracking-[0.3em] text-forest">
+                {t({ en: "Where We Grow", fr: "Où nous cultivons", zh: "我们的足迹", es: "Dónde crecemos", pa: "ਅਸੀਂ ਕਿੱਥੇ ਵਧਦੇ ਹਾਂ", ar: "أين ننمو", hi: "हम कहाँ बढ़ते हैं" })}
+              </p>
+              <WordsReveal
+                as="h2"
+                text={t({
+                  en: "Living walls, coast to coast to coast.",
+                  fr: "Des murs végétaux, d'un océan à l'autre.",
+                  zh: "植物墙，横贯东西两岸，直达北冰洋。",
+                  es: "Muros vivos, de costa a costa a costa.",
+                  pa: "ਜੀਵੰਤ ਕੰਧਾਂ, ਤੱਟ ਤੋਂ ਤੱਟ ਤੋਂ ਤੱਟ ਤੱਕ।",
+                  ar: "جدران حية، من ساحل إلى ساحل إلى ساحل.",
+                  hi: "जीवंत दीवारें, तट से तट से तट तक।",
+                })}
+                className="display-heading text-4xl leading-[1.05] text-charcoal md:text-6xl"
+              />
+              <p className="mt-4 text-charcoal/70">
+                {t({
+                  en: "Hover any pin to see the installation — from Vancouver lofts to Halifax lobbies, Yellowknife to St. John's.",
+                  fr: "Survolez un repère pour découvrir l'installation — des lofts de Vancouver aux halls d'Halifax, de Yellowknife à St. John's.",
+                  zh: "将鼠标悬停在任意标记上即可查看项目——从温哥华的公寓到哈利法克斯的大堂，从黄刀镇到圣约翰斯。",
+                  es: "Pasa el cursor sobre cualquier marcador para ver la instalación — desde lofts en Vancouver hasta vestíbulos en Halifax, de Yellowknife a St. John's.",
+                  pa: "ਸਥਾਪਨਾ ਵੇਖਣ ਲਈ ਕਿਸੇ ਵੀ ਪਿੰਨ 'ਤੇ ਹੋਵਰ ਕਰੋ — ਵੈਨਕੂਵਰ ਦੇ ਲੌਫਟਾਂ ਤੋਂ ਹੈਲੀਫੈਕਸ ਦੇ ਲਾਬੀਆਂ ਤੱਕ, ਯੈਲੋਨਾਈਫ ਤੋਂ ਸੇਂਟ ਜੌਨਸ ਤੱਕ।",
+                  ar: "مرر فوق أي علامة لرؤية التركيب — من شقق فانكوفر إلى ردهات هاليفاكس، من يلونايف إلى سانت جونز.",
+                  hi: "इंस्टॉलेशन देखने के लिए किसी भी पिन पर होवर करें — वैंकूवर के लॉफ्ट्स से लेकर हैलिफ़ैक्स की लॉबी तक, येलोनाइफ़ से सेंट जॉन्स तक।",
+                })}
+              </p>
+            </div>
+          </Reveal>
+          <Reveal variant="fade">
+            <LocationsMap />
+          </Reveal>
+        </div>
+      </section>
+
+      {/* Photo showcase — living, breathing installations */}
+      {/* Wood shelf divider */}
+      <section id="clients" className="relative overflow-hidden bg-cream py-24 text-charcoal md:py-32">
+        <Reveal>
+          <ClientLogos />
+        </Reveal>
+      </section>
+
 
 
       {/* CTA */}
