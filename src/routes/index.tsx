@@ -1076,7 +1076,13 @@ function Index() {
                 ratio: "aspect-[3/4]",
               },
             ].map((p, i) => (
-              <Reveal key={p.key} delay={i * 60} className={p.span}>
+              <Reveal
+                key={p.key}
+                delay={i * 60}
+                className={`${p.span} ${i % 3 === 1 ? "md:mt-16" : i % 3 === 2 ? "md:-mt-6" : ""} ${
+                  i % 4 === 1 ? "md:rotate-[0.8deg]" : i % 4 === 3 ? "md:-rotate-[0.8deg]" : ""
+                }`}
+              >
                 <figure
                   role="button"
                   tabIndex={0}
@@ -1112,7 +1118,10 @@ function Index() {
                   )}
                   <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-charcoal/75 via-transparent to-transparent opacity-80" />
                   <figcaption className="pointer-events-none absolute inset-x-0 bottom-0 p-5 md:p-6">
-                    <p className="font-serif text-lg text-cream md:text-xl">{p.title}</p>
+                    <p className="font-serif text-lg text-cream md:text-xl">
+                      <span className="mr-2 text-cream/45">{String(i + 1).padStart(2, "0")}</span>
+                      {p.title}
+                    </p>
                     <p className="mt-1 text-[0.62rem] uppercase tracking-[0.22em] text-cream/70">
                       {p.caption}
                     </p>
