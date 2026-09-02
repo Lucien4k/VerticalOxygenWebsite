@@ -47,7 +47,7 @@ import atriumWallPoster from "../assets/videos/atrium-wall-poster.jpg.asset.json
 
 import install5221 from "../assets/installs/img-5221.jpg.asset.json";
 import installTorontoRes from "../assets/installs/img-toronto-residential.jpeg.asset.json";
-import installConexus from "../assets/installs/conexus-regina.jpeg.asset.json";
+import installConexus from "../assets/gallery/conexus-regina-atrium.png.asset.json";
 import install0628 from "../assets/installs/img-0628.jpg.asset.json";
 import cutoutCoaldale from "../assets/cutouts/coaldale-wall.png.asset.json";
 import westinCalgary from "../assets/gallery/westin-calgary.webp.asset.json";
@@ -60,7 +60,7 @@ import copperFrame from "../assets/gallery/copper-frame.webp.asset.json";
 import wellnessRetail from "../assets/gallery/wellness-retail.webp.asset.json";
 import plantingDetail from "../assets/gallery/planting-detail.webp.asset.json";
 import redDeerInstall from "../assets/gallery/red-deer-install.webp.asset.json";
-import maintenanceAtriumWall from "../assets/maintenance-atrium-wall.png.asset.json";
+import maintenanceAtriumWall from "../assets/maintenance-plant-guarantee.png.asset.json";
 
 import woodTexture from "../assets/textures/wood-texture-v2.jpg.asset.json";
 import logoHeader from "../assets/logo-header.png.asset.json";
