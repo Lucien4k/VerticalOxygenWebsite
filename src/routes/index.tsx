@@ -20,6 +20,7 @@ import lushTropicalWall from "../assets/projects/lush-tropical-wall.jpg.asset.js
 import coaldaleFlowering from "../assets/projects/coaldale-flowering.jpg.asset.json";
 import higherHealth from "../assets/projects/higher-health.jpg.asset.json";
 import outdoorWoodFrame from "../assets/projects/outdoor-wood-frame.jpg.asset.json";
+import livingWallResidential from "../assets/projects/living-wall-residential.png.asset.json";
 import { Phone, Mail, MapPin, Leaf, ArrowRight, Instagram, X, ZoomIn, ChevronDown } from "lucide-react";
 import { QuoteForm } from "@/components/QuoteForm";
 import { Reveal } from "@/components/Reveal";
@@ -76,42 +77,23 @@ function MobileProjectPhotos() {
   return (
     <section id="project-photos-bridge" className="relative overflow-hidden bg-cream py-8 md:py-10 lg:hidden">
       <div className="mx-auto max-w-7xl px-6">
-        <div className="grid grid-cols-2 gap-3">
-          <figure className="relative aspect-[4/5] overflow-hidden rounded-2xl">
-            <img
-              src={higherHealth.url}
-              alt={t({
-                en: "Living wall in a health and wellness space",
-                fr: "Mur végétal dans un espace santé et bien-être",
-                zh: "健康与 wellness 空间中的植物墙",
-                es: "Muro vivo en un espacio de salud y bienestar",
-                pa: "ਸਿਹਤ ਅਤੇ ਵੈੱਲਨੈੱਸ ਥਾਂ ਵਿੱਚ ਜੀਵੰਤ ਕੰਧ",
-                ar: "جدار حي في مساحة صحة وعافية",
-                hi: "स्वास्थ्य और वेलनेस स्थान में लिविंग वॉल",
-              })}
-              loading="lazy"
-              decoding="async"
-              className="h-full w-full object-cover"
-            />
-          </figure>
-          <figure className="relative aspect-[4/5] overflow-hidden rounded-2xl">
-            <img
-              src={outdoorWoodFrame.url}
-              alt={t({
-                en: "Outdoor living wall with a wood frame",
-                fr: "Mur végétal extérieur avec cadre en bois",
-                zh: "带木质框架的户外植物墙",
-                es: "Muro vivo exterior con marco de madera",
-                pa: "ਲੱਕੜੀ ਦੇ ਫਰੇਮ ਵਾਲੀ ਬਾਹਰੀ ਜੀਵੰਤ ਕੰਧ",
-                ar: "جدار حي خارجي بإطار خشبي",
-                hi: "लकड़ी के फ्रेम वाली आउटडोर लिविंग वॉल",
-              })}
-              loading="lazy"
-              decoding="async"
-              className="h-full w-full object-cover"
-            />
-          </figure>
-        </div>
+        <figure className="relative aspect-[4/5] overflow-hidden rounded-2xl">
+          <img
+            src={livingWallResidential.url}
+            alt={t({
+              en: "Living wall in a cozy home interior",
+              fr: "Mur végétal dans un intérieur domestique chaleureux",
+              zh: "温馨家居室内的植物墙",
+              es: "Muro vivo en un interior de hogar acogedor",
+              pa: "ਇੱਕ ਆਰਾਮਦਾਇਕ ਘਰੇਲੂ ਅੰਦਰੂਨੀ ਥਾਂ ਵਿੱਚ ਜੀਵੰਤ ਕੰਧ",
+              ar: "جدار حي في داخل منزل دافئ",
+              hi: "एक आरामदायक घर के इंटीरियर में लिविंग वॉल",
+            })}
+            loading="lazy"
+            decoding="async"
+            className="h-full w-full object-cover"
+          />
+        </figure>
         <p className="mt-3 text-center text-xs font-medium uppercase tracking-widest text-forest/80">
           {t({
             en: "Real walls, real spaces",
@@ -957,6 +939,40 @@ function Index() {
           <Reveal delay={150} className="rounded-2xl border border-sage/30 bg-white p-6 shadow-sm md:p-10 lg:col-span-3">
             <QuoteForm />
           </Reveal>
+        </div>
+      </section>
+
+      {/* Featured residential photo — desktop only */}
+      <section id="featured-residential" className="relative hidden overflow-hidden bg-cream lg:block">
+        <div className="mx-auto max-w-7xl px-6 py-16">
+          <figure className="relative aspect-[21/9] overflow-hidden rounded-2xl bg-charcoal/5 ring-1 ring-charcoal/10">
+            <img
+              src={livingWallResidential.url}
+              alt={t({
+                en: "Living wall in a cozy home interior",
+                fr: "Mur végétal dans un intérieur domestique chaleureux",
+                zh: "温馨家居室内的植物墙",
+                es: "Muro vivo en un interior de hogar acogedor",
+                pa: "ਇੱਕ ਆਰਾਮਦਾਇਕ ਘਰੇਲੂ ਅੰਦਰੂਨੀ ਥਾਂ ਵਿੱਚ ਜੀਵੰਤ ਕੰਧ",
+                ar: "جدار حي في داخل منزل دافئ",
+                hi: "एक आरामदायक घर के इंटीरियर में लिविंग वॉल",
+              })}
+              loading="lazy"
+              decoding="async"
+              className="h-full w-full object-cover"
+            />
+          </figure>
+          <p className="mt-4 text-center text-xs font-medium uppercase tracking-widest text-forest/80">
+            {t({
+              en: "Real walls, real spaces",
+              fr: "De vrais murs, de vrais espaces",
+              zh: "真实的墙面，真实的空间",
+              es: "Muros reales, espacios reales",
+              pa: "ਅਸਲੀ ਕੰਧਾਂ, ਅਸਲੀ ਥਾਵਾਂ",
+              ar: "جدران حقيقية، مساحات حقيقية",
+              hi: "असली दीवारें, असली स्थान",
+            })}
+          </p>
         </div>
       </section>
 
