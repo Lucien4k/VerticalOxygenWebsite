@@ -87,6 +87,7 @@ export function NavMenu({ menus }: { menus: MenuItem[] }) {
       <div className="hidden items-center gap-1 text-sm font-medium text-charcoal md:flex">
         {menus.map((menu) => {
           const isOpen = open === menu.label;
+          const hasInlinePeek = menu.items.length === 0 && !!menu.peek;
           return (
             <div
               key={menu.label}
@@ -96,91 +97,111 @@ export function NavMenu({ menus }: { menus: MenuItem[] }) {
             >
               <NavLink
                 href={menu.href}
-                className="inline-flex items-center gap-1 rounded-full px-3 py-2 transition-colors hover:text-terra"
+                className="group inline-flex items-center gap-1 rounded-full px-3 py-2 transition-colors hover:text-forest-deep"
               >
-                {menu.label}
-                <ChevronDown
-                  className={`h-3.5 w-3.5 transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`}
-                  aria-hidden
-                />
+                {hasInlinePeek ? (
+                  <>
+                    <span className="relative">
+                      {menu.label}
+                      <span className="absolute -bottom-0.5 left-0 h-[2px] w-0 bg-forest-deep transition-all duration-300 group-hover:w-full" />
+                    </span>
+                    <span
+                      className="ml-0 flex max-w-0 items-center overflow-hidden border-l border-cream transition-all duration-500 ease-out group-hover:ml-3 group-hover:max-w-xs group-hover:border-charcoal/10 group-hover:pl-3"
+                    >
+                      <span className="whitespace-nowrap text-[10px] font-semibold uppercase tracking-[0.2em] text-charcoal/60 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                        {menu.peek}
+                      </span>
+                    </span>
+                  </>
+                ) : (
+                  <>
+                    {menu.label}
+                    <ChevronDown
+                      className={`h-3.5 w-3.5 transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`}
+                      aria-hidden
+                    />
+                  </>
+                )}
               </NavLink>
 
               {/* Panel */}
-              <div
-                className={`absolute left-1/2 top-full z-50 -translate-x-1/2 pt-3 ${
-                  isOpen ? "pointer-events-auto" : "pointer-events-none"
-                }`}
-              >
+              {!hasInlinePeek && (
                 <div
-                  className={`w-[min(92vw,32rem)] origin-top rounded-2xl bg-white/95 p-3 shadow-2xl ring-1 ring-charcoal/10 backdrop-blur-md transition-all duration-200 ${
-                    isOpen
-                      ? "translate-y-0 scale-100 opacity-100"
-                      : "-translate-y-1 scale-[0.98] opacity-0"
+                  className={`absolute left-1/2 top-full z-50 -translate-x-1/2 pt-3 ${
+                    isOpen ? "pointer-events-auto" : "pointer-events-none"
                   }`}
                 >
-                  {menu.description && menu.items.length === 0 ? (
-                    <div className="p-4">
-                      <p className="font-serif text-lg leading-snug text-charcoal">
-                        {menu.label}
-                      </p>
-                      <p className="mt-2 text-sm leading-relaxed text-charcoal/70">
-                        {menu.description}
-                      </p>
-                      <NavLink
-                        href={menu.href}
-                        className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-forest-deep hover:underline"
-                      >
-                        {t({ en: "Open page →", fr: "Ouvrir la page →", zh: "打开页面 →", es: "Abrir página →", pa: "ਪੰਨਾ ਖੋਲ੍ਹੋ →", ar: "افتح الصفحة ←", hi: "पेज खोलें →" })}
-                      </NavLink>
-                    </div>
-                  ) : menu.items.every((i) => !i.image && !i.description) ? (
-                    <div className="grid grid-cols-2 gap-x-4 gap-y-1 p-2 sm:grid-cols-3">
-                      {menu.items.map((item) => (
+                  <div
+                    className={`w-[min(92vw,32rem)] origin-top rounded-2xl bg-white/95 p-3 shadow-2xl ring-1 ring-charcoal/10 backdrop-blur-md transition-all duration-200 ${
+                      isOpen
+                        ? "translate-y-0 scale-100 opacity-100"
+                        : "-translate-y-1 scale-[0.98] opacity-0"
+                    }`}
+                  >
+                    {menu.description && menu.items.length === 0 ? (
+                      <div className="p-4">
+                        <p className="font-serif text-lg leading-snug text-charcoal">
+                          {menu.label}
+                        </p>
+                        <p className="mt-2 text-sm leading-relaxed text-charcoal/70">
+                          {menu.description}
+                        </p>
                         <NavLink
-                          key={item.label}
-                          href={item.href}
-                          className="group flex items-center gap-2 rounded-lg px-2 py-1.5 text-sm text-charcoal transition-colors hover:bg-charcoal/5 hover:text-forest-deep"
+                          href={menu.href}
+                          className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-forest-deep hover:underline"
                         >
-                          <span className="h-1.5 w-1.5 rounded-full bg-forest-deep/60 transition-all group-hover:h-2 group-hover:w-2 group-hover:bg-forest-deep" />
-                          <span className="truncate">{item.label}</span>
+                          {t({ en: "Open page →", fr: "Ouvrir la page →", zh: "打开页面 →", es: "Abrir página →", pa: "ਪੰਨਾ ਖੋਲ੍ਹੋ →", ar: "افتح الصفحة ←", hi: "पेज खोलें →" })}
                         </NavLink>
-                      ))}
-                    </div>
-                  ) : (
-                    <div className="grid grid-cols-2 gap-1">
-                      {menu.items.map((item) => (
-                        <NavLink
-                          key={item.label}
-                          href={item.href}
-                          className="group flex items-center gap-3 rounded-xl p-2.5 transition-colors hover:bg-charcoal/5"
-                        >
-                          {item.image ? (
-                            <span
-                              className="h-12 w-12 shrink-0 overflow-hidden rounded-lg bg-cover bg-center ring-1 ring-charcoal/10"
-                              style={{ backgroundImage: `url(${item.image})` }}
-                              aria-hidden
-                            />
-                          ) : (
-                            <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-terra/10 font-serif text-lg text-terra">
-                              {item.label[0]}
-                            </span>
-                          )}
-                          <span className="min-w-0">
-                            <span className="block truncate text-sm font-semibold text-charcoal group-hover:text-terra">
-                              {item.label}
-                            </span>
-                            {item.description && (
-                              <span className="block truncate text-xs text-charcoal/60">
-                                {item.description}
+                      </div>
+                    ) : menu.items.every((i) => !i.image && !i.description) ? (
+                      <div className="grid grid-cols-2 gap-x-4 gap-y-1 p-2 sm:grid-cols-3">
+                        {menu.items.map((item) => (
+                          <NavLink
+                            key={item.label}
+                            href={item.href}
+                            className="group flex items-center gap-2 rounded-lg px-2 py-1.5 text-sm text-charcoal transition-colors hover:bg-charcoal/5 hover:text-forest-deep"
+                          >
+                            <span className="h-1.5 w-1.5 rounded-full bg-forest-deep/60 transition-all group-hover:h-2 group-hover:w-2 group-hover:bg-forest-deep" />
+                            <span className="truncate">{item.label}</span>
+                          </NavLink>
+                        ))}
+                      </div>
+                    ) : (
+                      <div className="grid grid-cols-2 gap-1">
+                        {menu.items.map((item) => (
+                          <NavLink
+                            key={item.label}
+                            href={item.href}
+                            className="group flex items-center gap-3 rounded-xl p-2.5 transition-colors hover:bg-charcoal/5"
+                          >
+                            {item.image ? (
+                              <span
+                                className="h-12 w-12 shrink-0 overflow-hidden rounded-lg bg-cover bg-center ring-1 ring-charcoal/10"
+                                style={{ backgroundImage: `url(${item.image})` }}
+                                aria-hidden
+                              />
+                            ) : (
+                              <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-terra/10 font-serif text-lg text-terra">
+                                {item.label[0]}
                               </span>
                             )}
-                          </span>
-                        </NavLink>
-                      ))}
-                    </div>
-                  )}
+                            <span className="min-w-0">
+                              <span className="block truncate text-sm font-semibold text-charcoal group-hover:text-terra">
+                                {item.label}
+                              </span>
+                              {item.description && (
+                                <span className="block truncate text-xs text-charcoal/60">
+                                  {item.description}
+                                </span>
+                              )}
+                            </span>
+                          </NavLink>
+                        ))}
+                      </div>
+                    )}
+                  </div>
                 </div>
-              </div>
+              )}
             </div>
           );
         })}
