@@ -260,18 +260,18 @@ function AboutPage() {
             href="https://www.instagram.com/verticaloxygen/?hl=en"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-sm font-medium text-charcoal/70 hover:text-forest-deep"
+            className="inline-flex items-center gap-2 text-base font-medium text-charcoal/70 hover:text-forest-deep"
           >
-            <Instagram className="h-4 w-4" aria-hidden />
+            <Instagram className="h-5 w-5" aria-hidden />
             {t({ en: "Follow us on Instagram", fr: "Suivez-nous sur Instagram", zh: "在 Instagram 上关注我们", es: "Síguenos en Instagram", pa: "ਸਾਨੂੰ Instagram 'ਤੇ ਫਾਲੋ ਕਰੋ", ar: "تابعنا على إنستغرام", hi: "हमें Instagram पर फॉलो करें" })}
           </a>
           <a
             href="https://www.tiktok.com/@verticaloxygenltd"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-sm font-medium text-charcoal/70 hover:text-forest-deep"
+            className="inline-flex items-center gap-2 text-base font-medium text-charcoal/70 hover:text-forest-deep"
           >
-            <TikTokIcon className="h-4 w-4" />
+            <TikTokIcon className="h-5 w-5" />
             {t({ en: "Follow us on TikTok", fr: "Suivez-nous sur TikTok", zh: "在 TikTok 上关注我们", es: "Síguenos en TikTok", pa: "ਸਾਨੂੰ TikTok 'ਤੇ ਫਾਲੋ ਕਰੋ", ar: "تابعنا على تيك توك", hi: "हमें TikTok पर फॉलो करें" })}
           </a>
         </div>
