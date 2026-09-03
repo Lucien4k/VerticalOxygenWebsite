@@ -74,7 +74,7 @@ import { useIsMobile } from "@/hooks/use-mobile";
 function MobileProjectPhotos() {
   const t = useT();
   return (
-    <section className="relative overflow-hidden bg-cream py-8 md:py-10 lg:hidden">
+    <section id="project-photos-bridge" className="relative overflow-hidden bg-cream py-8 md:py-10 lg:hidden">
       <div className="mx-auto max-w-7xl px-6">
         <div className="grid grid-cols-2 gap-3">
           <figure className="relative aspect-[4/5] overflow-hidden rounded-2xl">
