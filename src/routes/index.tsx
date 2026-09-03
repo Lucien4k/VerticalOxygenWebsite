@@ -512,6 +512,16 @@ function Index() {
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
   }, [installShot]);
+  const [galleryCols, setGalleryCols] = useState(3);
+  useEffect(() => {
+    const update = () => {
+      const w = window.innerWidth;
+      setGalleryCols(w >= 1024 ? 3 : w >= 640 ? 2 : 1);
+    };
+    update();
+    window.addEventListener("resize", update);
+    return () => window.removeEventListener("resize", update);
+  }, []);
   const blurLayerRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
     let raf = 0;
@@ -1021,8 +1031,8 @@ function Index() {
             </Reveal>
           </div>
 
-          <div className="columns-1 gap-3 sm:columns-2 lg:columns-3">
-            {[
+          {(() => {
+              const items = [
               {
                 img: westinCalgary.url,
                 key: "westin-calgary",
@@ -1201,7 +1211,47 @@ function Index() {
                 span: "",
                 ratio: "",
               },
-            ].map((p) =>
+              ];
+              const AR: Record<string, number> = {
+                "westin-calgary": 1.3333,
+                "toronto-residential": 0.462,
+                "de-la-salle": 0.5624,
+                "calgary-residential": 0.75,
+                "modern-office": 1.3333,
+                "edmonton-residential": 0.75,
+                "stanton-hospital": 1.3333,
+                "conexus-regina": 0.75,
+                "aquaponic-feature": 0.6667,
+                "copper-frame": 0.6667,
+                "red-deer-install": 1.5,
+                "atrium-wall": 0.5625,
+                "wellness-retail": 1.3333,
+                reception: 1.3333,
+                coaldale: 0.75,
+                "planting-detail": 0.6641,
+                "westin-calgary-hd": 1.3333,
+                "calgary-residential-hd": 0.75,
+                "modern-office-hd": 0.75,
+                "stanton-hospital-hd": 1.3333,
+                "conexus-regina-hd": 1.3333,
+              };
+              type GalleryItem = (typeof items)[number];
+              const cols: GalleryItem[][] = Array.from({ length: galleryCols }, () => []);
+              const heights: number[] = Array.from({ length: galleryCols }, () => 0);
+              const filler = items.find((i) => i.key === "filler");
+              if (filler) {
+                const fi = galleryCols - 1;
+                cols[fi].push(filler);
+                heights[fi] += 1.15;
+              }
+              for (const it of items) {
+                if (it.key === "filler") continue;
+                let m = 0;
+                for (let i = 1; i < galleryCols; i++) if (heights[i] < heights[m]) m = i;
+                cols[m].push(it);
+                heights[m] += 1 / (AR[it.key] ?? 1.3333) + 0.08;
+              }
+              const render = (p: GalleryItem) =>
 
               p.key === "filler" ? (
                 <div key={p.key} className="mb-3 break-inside-avoid">
@@ -1237,6 +1287,7 @@ function Index() {
                       alt={`${p.title} — ${p.caption}`}
                       loading="lazy"
                       decoding="async"
+                      style={{ aspectRatio: String(AR[p.key] ?? 1.3333) }}
                       className="block h-auto w-full ring-1 ring-charcoal/10"
                     />
                     <figcaption className="pt-3">
@@ -1263,6 +1314,7 @@ function Index() {
                     }
                   }}
                   aria-label={`${t({ en: "View larger photo", fr: "Voir la photo en grand", zh: "查看大图", es: "Ver foto ampliada", pa: "ਵੱਡੀ ਫੋਟੋ ਵੇਖੋ", ar: "عرض صورة أكبر", hi: "बड़ी फोटो देखें" })}: ${p.title}`}
+                  style={{ aspectRatio: String(AR[p.key] ?? 1.3333) }}
                   className="group relative cursor-zoom-in overflow-hidden bg-charcoal/5 ring-1 ring-charcoal/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-forest-deep"
                 >
                   {"video" in p && p.video ? (
@@ -1274,7 +1326,7 @@ function Index() {
                       loop
                       playsInline
                       preload="metadata"
-                      className="block h-auto w-full"
+                      className="block h-full w-full object-cover"
                     />
                   ) : (
                     <img
@@ -1282,7 +1334,7 @@ function Index() {
                       alt={`${p.title} — ${p.caption}`}
                       loading="lazy"
                       decoding="async"
-                      className="block h-auto w-full"
+                      className="block h-full w-full object-cover"
                     />
                   )}
                   <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-charcoal/75 via-transparent to-transparent opacity-80" />
@@ -1296,9 +1348,17 @@ function Index() {
                   </figcaption>
                 </figure>
               </div>
-              ),
-            )}
-          </div>
+              );
+              return (
+                <div className="flex items-start gap-3">
+                  {cols.map((c, i) => (
+                    <div key={i} className="min-w-0 flex-1">
+                      {c.map((p) => render(p))}
+                    </div>
+                  ))}
+                </div>
+              );
+            })()}
         </div>
 
         {installShot && typeof document !== "undefined" && createPortal(
