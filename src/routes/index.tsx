@@ -586,7 +586,6 @@ function Index() {
   useEffect(() => {
     let raf = 0;
     const RANGE = 340; // px of scroll over which the recede plays out
-    const DELAY = 380; // px of scroll the panel is held in place, so the guarantee is readable
     const update = () => {
       raf = 0;
       const panel = systemsPanelRef.current;
