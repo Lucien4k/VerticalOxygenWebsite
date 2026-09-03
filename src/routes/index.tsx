@@ -579,6 +579,38 @@ function Index() {
     };
   }, []);
   const philosophyRef = useRef<HTMLDivElement>(null);
+  // Mobile-only: shrink the pinned hero inward (full-screen → ~90% width frame),
+  // tied directly to scroll position so touch scrolling drives it.
+  const heroShrinkRef = useRef<HTMLElement>(null);
+  useEffect(() => {
+    let raf = 0;
+    const update = () => {
+      raf = 0;
+      const el = heroShrinkRef.current;
+      if (!el) return;
+      if (!isMobile) {
+        el.style.transform = "";
+        el.style.borderRadius = "";
+        return;
+      }
+      const vh = window.innerHeight;
+      const p = Math.min(1, Math.max(0, window.scrollY / (vh * 1.1)));
+      const e = p * p * (3 - 2 * p); // smoothstep — slow in, slow out, no snapping
+      el.style.transform = `scale(${1 - e * 0.1})`;
+      el.style.borderRadius = `${e * 28}px`;
+    };
+    const onScroll = () => {
+      if (!raf) raf = requestAnimationFrame(update);
+    };
+    update();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+      if (raf) cancelAnimationFrame(raf);
+    };
+  }, [isMobile]);
   useEffect(() => {
     let raf = 0;
     if (isMobile) {
