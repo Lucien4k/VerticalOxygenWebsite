@@ -785,8 +785,9 @@ function Index() {
           </nav>
         </div>
       </div>
-      {/* Fixed hero: stays pinned while the rest of the page scrolls up over it */}
-      <section className="fixed inset-x-0 top-0 z-0 h-screen overflow-hidden">
+      {/* Fixed hero: stays pinned while the rest of the page scrolls up over it.
+          On mobile it shrinks inward (scroll-tied) into a framed image first. */}
+      <section ref={heroShrinkRef} className="fixed inset-x-0 top-0 z-0 h-screen overflow-hidden will-change-transform">
         {/* Background: scroll-driven frame sequence */}
         <div className="absolute inset-0">
           <ScrollFrames frames={FRAME_URLS} scrollRange={typeof window !== "undefined" ? window.innerHeight * 1.75 : 1750} onComplete={setHeroDone} />
@@ -844,8 +845,9 @@ function Index() {
         </div>
       </section>
 
-      {/* Everything below scrolls up over the fixed hero */}
-      <div className={`relative z-10 bg-background ${isMobile ? "mt-[100vh]" : "mt-[175vh]"}`}>
+      {/* Everything below scrolls up over the fixed hero. On mobile the spacer is
+          taller so the hero's shrink-into-frame plays out before content rises. */}
+      <div className={`relative z-10 bg-background ${isMobile ? "mt-[150vh]" : "mt-[175vh]"}`}>
 
       {/* Scroll-scrubbed panel sequence — second hero (desktop only) */}
       {!isMobile && (
