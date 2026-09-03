@@ -27,6 +27,21 @@ import modernOfficeHd from "../assets/gallery/modern-office-enhanced.png.asset.j
 import stantonHospitalHd from "../assets/gallery/stanton-hospital-enhanced.png.asset.json";
 import conexusReginaHd from "../assets/gallery/conexus-regina-enhanced.png.asset.json";
 
+function LazyImg({ src, alt, className, style }: { src: string; alt: string; className?: string; style?: React.CSSProperties }) {
+  const [loaded, setLoaded] = useState(false);
+  return (
+    <img
+      src={src}
+      alt={alt}
+      loading="lazy"
+      decoding="async"
+      onLoad={() => setLoaded(true)}
+      style={style}
+      className={`${className ?? ""} bg-charcoal/10 transition-opacity duration-700 ease-out ${loaded ? "opacity-100" : "opacity-0"}`}
+    />
+  );
+}
+
 export function ProjectGallery() {
   const t = useT();
   const [installShot, setInstallShot] = useState<
@@ -338,11 +353,9 @@ export function ProjectGallery() {
                     aria-label={`${t({ en: "View larger photo", fr: "Voir la photo en grand", zh: "查看大图", es: "Ver foto ampliada", pa: "ਵੱਡੀ ਫੋਟੋ ਵੇਖੋ", ar: "عرض صورة أكبر", hi: "बड़ी फोटो देखें" })}: ${p.title}`}
                     className="group cursor-zoom-in border-2 border-forest-deep/30 bg-forest-deep/5 p-3 focus:outline-none focus-visible:ring-2 focus-visible:ring-forest-deep"
                   >
-                    <img
+                    <LazyImg
                       src={p.img}
                       alt={`${p.title} — ${p.caption}`}
-                      loading="lazy"
-                      decoding="async"
                       style={{ aspectRatio: String(AR[p.key] ?? 1.3333) }}
                       className="block h-auto w-full ring-1 ring-charcoal/10"
                     />
@@ -385,11 +398,9 @@ export function ProjectGallery() {
                       className="block h-full w-full object-cover"
                     />
                   ) : (
-                    <img
+                    <LazyImg
                       src={p.img}
                       alt={`${p.title} — ${p.caption}`}
-                      loading="lazy"
-                      decoding="async"
                       className="block h-full w-full object-cover"
                     />
                   )}
