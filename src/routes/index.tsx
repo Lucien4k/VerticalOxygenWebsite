@@ -571,7 +571,7 @@ function Index() {
   useEffect(() => {
     let raf = 0;
     const RANGE = 340; // px of scroll over which the recede plays out
-    const DELAY = 140; // px of scroll before the panel starts rising, so the guarantee is readable
+    const DELAY = 380; // px of scroll the panel is held in place, so the guarantee is readable
     const update = () => {
       raf = 0;
       const panel = systemsPanelRef.current;
@@ -584,6 +584,10 @@ function Index() {
       sticky.style.top = `${window.innerHeight - h}px`;
       const top = panel.getBoundingClientRect().top;
       const scrolled = Math.max(0, window.innerHeight - top);
+      // Hold the panel at the bottom edge of the viewport for DELAY px of
+      // scroll: push it down by however far it has entered, capped at DELAY,
+      // so it visually waits before sliding up over the pinned section.
+      panel.style.transform = `translateY(${Math.min(scrolled, DELAY)}px)`;
       const p = Math.min(1, Math.max(0, (scrolled - DELAY) / RANGE));
       const eased = 1 - Math.pow(1 - p, 2); // ease-out
       inner.style.transform = `scale(${1 - eased * 0.03})`;
