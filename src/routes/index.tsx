@@ -210,50 +210,7 @@ function SustainabilitySection() {
               </Reveal>
 
               <div className="mt-14 grid gap-6 md:grid-cols-3">
-                {[
-                  {
-                    key: "reuse",
-                    stat: t({ en: "up to 90%", fr: "jusqu'à 90 %", zh: "高达 90%", es: "hasta 90 %", pa: "90% ਤੱਕ", ar: "حتى 90٪", hi: "90% तक" }),
-                    title: t({ en: "Water Reused", fr: "Eau réutilisée", zh: "水资源回用", es: "Agua reutilizada", pa: "ਪਾਣੀ ਮੁੜ-ਵਰਤੋਂ", ar: "المياه المعاد استخدامها", hi: "जल पुनः उपयोग" }),
-                    body: t({
-                      en: "Closed-loop recirculation returns nearly all the water the roots don't drink straight back into the system.",
-                      fr: "La recirculation en circuit fermé renvoie presque toute l'eau non absorbée par les racines directement dans le système.",
-                      zh: "闭环循环将根系未吸收的水几乎全部回流至系统中。",
-                      es: "La recirculación en circuito cerrado devuelve casi toda el agua no absorbida por las raíces directamente al sistema.",
-                      pa: "ਬੰਦ-ਲੂਪ ਰੀਸਰਕੁਲੇਸ਼ਨ ਜੜ੍ਹਾਂ ਦੁਆਰਾ ਨਾ ਪੀਤੇ ਲਗਭਗ ਸਾਰੇ ਪਾਣੀ ਨੂੰ ਸਿੱਧਾ ਸਿਸਟਮ ਵਿੱਚ ਵਾਪਸ ਭੇਜਦਾ ਹੈ।",
-                      ar: "إعادة التدوير في دارة مغلقة تعيد تقريباً كل المياه التي لم تمتصها الجذور مباشرة إلى النظام.",
-                      hi: "क्लोज्ड-लूप पुनर्चक्रण जड़ों द्वारा न पिए गए लगभग सभी पानी को सीधे सिस्टम में लौटा देता है।",
-                    }),
-                  },
-                  {
-                    key: "litre",
-                    stat: t({ en: "0.35 L", fr: "0,35 L", zh: "0.35 升", es: "0,35 L", pa: "0.35 ਲੀ", ar: "0.35 لتر", hi: "0.35 लीटर" }),
-                    title: t({ en: "Per Day, Per Square Foot", fr: "Par jour, par pied carré", zh: "每日每平方英尺", es: "Por día, por pie cuadrado", pa: "ਪ੍ਰਤੀ ਦਿਨ, ਪ੍ਰਤੀ ਵਰਗ ਫੁੱਟ", ar: "يومياً لكل قدم مربع", hi: "प्रति दिन, प्रति वर्ग फुट" }),
-                    body: t({
-                      en: "Typical daily top-up — only the small amount the plants actually transpire, not the full reservoir.",
-                      fr: "Apport quotidien typique — uniquement la petite quantité réellement transpirée par les plantes, pas le réservoir complet.",
-                      zh: "典型日补水量——仅为植物实际蒸腾的少量水分，而非整个储水箱。",
-                      es: "Reposición diaria típica — solo la pequeña cantidad que las plantas realmente transpiran, no el depósito completo.",
-                      pa: "ਆਮ ਰੋਜ਼ਾਨਾ ਟਾਪ-ਅੱਪ — ਸਿਰਫ਼ ਉਹ ਛੋਟੀ ਮਾਤਰਾ ਜੋ ਪੌਦੇ ਅਸਲ ਵਿੱਚ ਬਾਸ਼ਪ ਕਰਦੇ ਹਨ, ਪੂਰਾ ਭੰਡਾਰ ਨਹੀਂ।",
-                      ar: "التعبئة اليومية المعتادة — فقط الكمية الصغيرة التي تتبخرها النباتات فعلاً، وليس الخزان بالكامل.",
-                      hi: "सामान्य दैनिक टॉप-अप — केवल वह छोटी मात्रा जो पौधे वास्तव में वाष्पित करते हैं, पूरा भंडार नहीं।",
-                    }),
-                  },
-                  {
-                    key: "zero",
-                    stat: t({ en: "zero", fr: "zéro", zh: "零", es: "cero", pa: "ਜ਼ੀਰੋ", ar: "صفر", hi: "शून्य" }),
-                    title: t({ en: "Runoff to Drain", fr: "Rejet à l'égout", zh: "排放至下水道", es: "Descarga al alcantarillado", pa: "ਨਿਕਾਸ ਵਿੱਚ ਵਹਾਅ", ar: "صرف إلى المجاري", hi: "नाले में बहाव" }),
-                    body: t({
-                      en: "No municipal water wasted. What isn't taken up by the roots stays in the loop and is filtered for the next pass.",
-                      fr: "Aucune eau municipale gaspillée. Ce qui n'est pas absorbé par les racines reste dans le circuit et est filtré pour le prochain passage.",
-                      zh: "不浪费市政用水。根系未吸收的水留在循环中，过滤后供下一轮使用。",
-                      es: "Ninguna agua municipal desperdiciada. Lo que las raíces no absorben permanece en el circuito y se filtra para el siguiente ciclo.",
-                      pa: "ਕੋਈ ਨਗਰਪਾਲਿਕਾ ਪਾਣੀ ਬਰਬਾਦ ਨਹੀਂ। ਜੋ ਜੜ੍ਹਾਂ ਲੈਂਦੀਆਂ ਨਹੀਂ ਹਨ, ਉਹ ਲੂਪ ਵਿੱਚ ਰਹਿੰਦਾ ਹੈ ਅਤੇ ਅਗਲੇ ਚੱਕਰ ਲਈ ਫਿਲਟਰ ਕੀਤਾ ਜਾਂਦਾ ਹੈ।",
-                      ar: "لا هدر للمياه البلدية. ما لا تأخذه الجذور يبقى في الدارة ويُرشَّح للدورة التالية.",
-                      hi: "नगरपालिका का पानी बर्बाद नहीं। जो जड़ें नहीं लेतीं वह लूप में रहता है और अगले चक्र के लिए फ़िल्टर कर दिया जाता है।",
-                    }),
-                  },
-                ].map((c, i) => (
+                {cards.map((c, i) => (
                   <Reveal key={c.key} delay={i * 0.08}>
                     <div className="h-full rounded-3xl border border-cream/10 bg-cream/5 p-8 backdrop-blur-sm">
                       <p className="font-serif text-4xl text-forest md:text-5xl">{c.stat}</p>
