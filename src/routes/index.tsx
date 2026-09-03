@@ -363,6 +363,12 @@ function MaintenanceSection() {
   );
 }
 
+// Mobile-only photo strips — visual variety in each system section
+const SYSTEM_PHOTOS: Record<string, string[]> = {
+  hydroponic: [modernOfficeHd.url, stantonHospitalHd.url, plantingDetail.url],
+  aquaponic: [aquaponicFeature.url, conexusReginaHd.url, maintenanceAtriumWall.url],
+};
+
 function SystemsShowcase() {
   const t = useT();
   const [lightbox, setLightbox] = useState<string | null>(null);
