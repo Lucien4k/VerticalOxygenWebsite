@@ -66,6 +66,8 @@ import conexusReginaHd from "../assets/gallery/conexus-regina-enhanced.png.asset
 import woodTexture from "../assets/textures/wood-texture-v2.jpg.asset.json";
 import logoHeader from "../assets/logo-header.png.asset.json";
 import { SYSTEMS, DIAGRAM_LABEL } from "@/lib/systems";
+import { ProjectGallery } from "@/components/ProjectGallery";
+import { useIsMobile } from "@/hooks/use-mobile";
 function SustainabilitySection() {
   const t = useT();
   return (
@@ -496,6 +498,7 @@ export const Route = createFileRoute("/")({
 
 function Index() {
   const t = useT();
+  const isMobile = useIsMobile();
   const [heroDone, setHeroDone] = useState(false);
   const [installShot, setInstallShot] = useState<
     { img: string; title: string; caption: string; video?: string } | null
@@ -546,6 +549,13 @@ function Index() {
   const philosophyRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
     let raf = 0;
+    if (isMobile) {
+      if (philosophyRef.current) {
+        philosophyRef.current.style.opacity = "1";
+        philosophyRef.current.style.transform = "none";
+      }
+      return;
+    }
     const secondHero = document.getElementById("second-hero");
     if (!secondHero) return;
     const update = () => {
@@ -572,7 +582,7 @@ function Index() {
       window.removeEventListener("resize", onScroll);
       if (raf) cancelAnimationFrame(raf);
     };
-  }, []);
+  }, [isMobile]);
 
   // Sticky overlap: Maintenance pins while the Systems panel slides over it,
   // receding (scale 100% → 97%, slight fade) over ~340px of scroll.
@@ -588,6 +598,13 @@ function Index() {
       const inner = maintInnerRef.current;
       const sticky = maintStickyRef.current;
       if (!panel || !inner || !sticky) return;
+      if (isMobile) {
+        sticky.style.top = "";
+        panel.style.transform = "none";
+        inner.style.transform = "none";
+        inner.style.opacity = "1";
+        return;
+      }
       // Pin the maintenance section's bottom edge to the viewport bottom:
       // sticky "top" offset = viewport height minus the section's height.
       const h = inner.offsetHeight; // layout height, unaffected by the recede scale
@@ -615,7 +632,7 @@ function Index() {
       window.removeEventListener("resize", onScroll);
       if (raf) cancelAnimationFrame(raf);
     };
-  }, []);
+  }, [isMobile]);
   return (
     <div className="min-h-screen bg-background">
       {/* Floating rounded top bars — hero video shows around them */}
@@ -796,15 +813,17 @@ function Index() {
       </section>
 
       {/* Everything below scrolls up over the fixed hero */}
-      <div className="relative z-10 mt-[175vh] bg-background">
+      <div className={`relative z-10 bg-background ${isMobile ? "mt-[100vh]" : "mt-[175vh]"}`}>
 
-      {/* Scroll-scrubbed panel sequence — second hero */}
-      <ScrollFramesSection id="second-hero" frames={HERO2_FRAME_URLS} scrollLength={1.5} />
+      {/* Scroll-scrubbed panel sequence — second hero (desktop only) */}
+      {!isMobile && (
+        <ScrollFramesSection id="second-hero" frames={HERO2_FRAME_URLS} scrollLength={1.5} />
+      )}
 
       <div
         ref={philosophyRef}
-        className="relative z-20 -mt-[40vh] will-change-[transform,opacity]"
-        style={{ opacity: 0 }}
+        className={`relative z-20 ${isMobile ? "" : "-mt-[40vh] will-change-[transform,opacity]"}`}
+        style={isMobile ? undefined : { opacity: 0 }}
       >
       {/* Philosophy / About */}
       {/* Wood shelf divider */}
@@ -883,14 +902,14 @@ function Index() {
       {/* Sticky overlap transition — Maintenance pins to the viewport bottom
           while the Systems panel rises and covers it like a card. */}
       <div className="relative">
-        <div ref={maintStickyRef} className="sticky z-0">
-          <div ref={maintInnerRef} className="origin-bottom will-change-transform">
+        <div ref={maintStickyRef} className={isMobile ? "relative z-0" : "sticky z-0"}>
+          <div ref={maintInnerRef} className={isMobile ? "" : "origin-bottom will-change-transform"}>
             <MaintenanceSection />
           </div>
         </div>
 
         {/* Systems Showcase — replaces the old gallery with an interactive systems module */}
-        <section ref={systemsPanelRef} id="work" className="relative z-20 -mt-[8vh] overflow-hidden rounded-t-[3rem] bg-cream pt-10 text-charcoal shadow-[0_-40px_80px_-40px_rgba(0,0,0,0.45)]">
+        <section ref={systemsPanelRef} id="work" className={`relative z-20 overflow-hidden ${isMobile ? "" : "-mt-[8vh] rounded-t-[3rem]"} bg-cream pt-10 text-charcoal ${isMobile ? "" : "shadow-[0_-40px_80px_-40px_rgba(0,0,0,0.45)]"}`}>
           <SystemsShowcase />
         </section>
       </div>
@@ -903,7 +922,7 @@ function Index() {
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/45 via-transparent to-black/55" />
       </div>
-      <ProjectGallery />
+      {isMobile ? <MobileGalleryTeaser /> : <ProjectGallery />}
 
       {/* Wood shelf divider */}
       <div className="relative h-5 w-full overflow-hidden md:h-7" aria-hidden>
