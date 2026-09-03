@@ -1031,8 +1031,8 @@ function Index() {
             </Reveal>
           </div>
 
-          <div className="columns-1 gap-3 sm:columns-2 lg:columns-3">
-            {[
+          {(() => {
+              const items = [
               {
                 img: westinCalgary.url,
                 key: "westin-calgary",
