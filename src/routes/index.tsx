@@ -496,6 +496,38 @@ export const Route = createFileRoute("/")({
   }),
 });
 
+function MobileGalleryTeaser() {
+  const t = useT();
+  return (
+    <section id="motion" className="bg-cream px-6 py-16 text-charcoal">
+      <p className="mb-3 text-xs font-semibold uppercase tracking-[0.3em] text-terra-light">
+        {t({ en: "Project Gallery", fr: "Galerie de projets", zh: "项目图库", es: "Galería de proyectos", pa: "ਪ੍ਰੋਜੈਕਟ ਗੈਲਰੀ", ar: "معرض المشاريع", hi: "प्रोजेक्ट गैलरी" })}
+      </p>
+      <h2 className="display-heading text-4xl leading-[1.05] text-charcoal">
+        {t({ en: "Living, breathing installations.", fr: "Des installations vivantes qui respirent.", zh: "会呼吸的生命装置。", es: "Instalaciones vivas que respiran.", pa: "ਜੀਵੰਤ, ਸਾਹ ਲੈਂਦੀਆਂ ਸਥਾਪਨਾਵਾਂ।", ar: "تركيبات حية تتنفس.", hi: "जीवंत, सांस लेती इंस्टॉलेशन।" })}
+      </h2>
+      <div className="mt-5 overflow-hidden ring-1 ring-charcoal/10">
+        <img
+          src={westinCalgaryHd.url}
+          alt={t({ en: "The Westin, Calgary living wall", fr: "Mur végétal du Westin, Calgary", zh: "卡尔加里威斯汀酒店植物墙", es: "Muro vivo en The Westin, Calgary", pa: "ਦ ਵੈਸਟਿਨ, ਕੈਲਗਰੀ ਲਿਵਿੰਗ ਵਾਲ", ar: "جدار حي في ذا ويستن، كالغاري", hi: "द वेस्टिन, कैलगरी लिविंग वॉल" })}
+          loading="lazy"
+          className="block h-auto w-full"
+        />
+      </div>
+      <p className="mt-5 text-charcoal/75">
+        {t({ en: "Lobbies, offices and homes across Canada — see the full set of photos.", fr: "Halls, bureaux et maisons partout au Canada — découvrez toutes les photos.", zh: "遍布加拿大的大堂、办公室与住宅——查看全部照片。", es: "Vestíbulos, oficinas y hogares por todo Canadá: mira todas las fotos.", pa: "ਕਨੇਡਾ ਭਰ ਵਿੱਚ ਲਾਬੀਆਂ, ਦਫ਼ਤਰ ਅਤੇ ਘਰ — ਸਾਰੀਆਂ ਫੋਟੋਆਂ ਵੇਖੋ।", ar: "ردهات ومكاتب ومنازل في أنحاء كندا — شاهد جميع الصور.", hi: "कनाडा भर में लॉबी, कार्यालय और घर — सभी तस्वीरें देखें।" })}
+      </p>
+      <Link
+        to="/gallery"
+        className="mt-6 inline-flex items-center gap-2 rounded-full bg-forest-deep px-6 py-3 text-sm font-semibold text-cream"
+      >
+        {t({ en: "View the gallery", fr: "Voir la galerie", zh: "查看图库", es: "Ver la galería", pa: "ਗੈਲਰੀ ਵੇਖੋ", ar: "عرض المعرض", hi: "गैलरी देखें" })}
+        <ArrowRight className="h-4 w-4" aria-hidden />
+      </Link>
+    </section>
+  );
+}
+
 function Index() {
   const t = useT();
   const isMobile = useIsMobile();
