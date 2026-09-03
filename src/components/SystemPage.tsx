@@ -145,7 +145,7 @@ export function SystemPage({ systemKey, compact }: { systemKey: "hydroponic" | "
             <img
               src={sys.diagram}
               alt={t(sys.title) + " " + t(DIAGRAM_LABEL)}
-              className="w-full max-h-[70vh] object-contain transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.03]"
+              className="w-full max-h-[80vh] object-contain transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.03]"
               loading="eager"
             />
             <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-charcoal/0 opacity-0 transition duration-300 group-hover:bg-charcoal/10 group-hover:opacity-100">
