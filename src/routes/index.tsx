@@ -272,7 +272,7 @@ function MaintenanceSection() {
               </div>
 
               <Reveal>
-                <div className="mt-10 flex flex-wrap items-center gap-4">
+                <div className="mt-10 flex flex-wrap items-center gap-4 pb-6 md:pb-8">
                   <a
                     href="#quote"
                     className="inline-flex items-center gap-2 rounded-full bg-forest-deep px-7 py-3 text-sm font-semibold text-cream transition hover:opacity-90"
