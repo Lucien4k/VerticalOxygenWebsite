@@ -579,6 +579,38 @@ function Index() {
     };
   }, []);
   const philosophyRef = useRef<HTMLDivElement>(null);
+  // Mobile-only: shrink the pinned hero inward (full-screen → ~90% width frame),
+  // tied directly to scroll position so touch scrolling drives it.
+  const heroShrinkRef = useRef<HTMLElement>(null);
+  useEffect(() => {
+    let raf = 0;
+    const update = () => {
+      raf = 0;
+      const el = heroShrinkRef.current;
+      if (!el) return;
+      if (!isMobile) {
+        el.style.transform = "";
+        el.style.borderRadius = "";
+        return;
+      }
+      const vh = window.innerHeight;
+      const p = Math.min(1, Math.max(0, window.scrollY / (vh * 1.1)));
+      const e = p * p * (3 - 2 * p); // smoothstep — slow in, slow out, no snapping
+      el.style.transform = `scale(${1 - e * 0.1})`;
+      el.style.borderRadius = `${e * 28}px`;
+    };
+    const onScroll = () => {
+      if (!raf) raf = requestAnimationFrame(update);
+    };
+    update();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+      if (raf) cancelAnimationFrame(raf);
+    };
+  }, [isMobile]);
   useEffect(() => {
     let raf = 0;
     if (isMobile) {
@@ -785,8 +817,9 @@ function Index() {
           </nav>
         </div>
       </div>
-      {/* Fixed hero: stays pinned while the rest of the page scrolls up over it */}
-      <section className="fixed inset-x-0 top-0 z-0 h-screen overflow-hidden">
+      {/* Fixed hero: stays pinned while the rest of the page scrolls up over it.
+          On mobile it shrinks inward (scroll-tied) into a framed image first. */}
+      <section ref={heroShrinkRef} className="fixed inset-x-0 top-0 z-0 h-screen overflow-hidden will-change-transform">
         {/* Background: scroll-driven frame sequence */}
         <div className="absolute inset-0">
           <ScrollFrames frames={FRAME_URLS} scrollRange={typeof window !== "undefined" ? window.innerHeight * 1.75 : 1750} onComplete={setHeroDone} />
@@ -844,8 +877,9 @@ function Index() {
         </div>
       </section>
 
-      {/* Everything below scrolls up over the fixed hero */}
-      <div className={`relative z-10 bg-background ${isMobile ? "mt-[100vh]" : "mt-[175vh]"}`}>
+      {/* Everything below scrolls up over the fixed hero. On mobile the spacer is
+          taller so the hero's shrink-into-frame plays out before content rises. */}
+      <div className={`relative z-10 bg-background ${isMobile ? "mt-[150vh]" : "mt-[175vh]"}`}>
 
       {/* Scroll-scrubbed panel sequence — second hero (desktop only) */}
       {!isMobile && (
