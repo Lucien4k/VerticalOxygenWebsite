@@ -540,6 +540,24 @@ function Index() {
               <NavMenu
                 menus={[
                   {
+                    label: t({ en: "Hydroponic", fr: "Hydroponique", zh: "水培", es: "Hidropónico", pa: "ਹਾਈਡਰੋਪੋਨਿਕ", ar: "مائي", hi: "हाइड्रोपोनिक" }),
+                    href: "/hydroponic",
+                    items: [],
+                    peek: t({ en: "Soilless System", fr: "Système sans sol", zh: "无土系统", es: "Sistema sin suelo", pa: "ਬਿਨਾਂ ਮਿੱਟੀ ਸਿਸਟਮ", ar: "نظام بلا تربة", hi: "मृदा-रहित सिस्टम" }),
+                  },
+                  {
+                    label: t({ en: "Aquaponic", fr: "Aquaponique", zh: "鱼菜共生", es: "Acuapónico", pa: "ਐਕੁਆਪੋਨਿਕ", ar: "أكوابوني", hi: "एक्वापोनिक" }),
+                    href: "/aquaponic",
+                    items: [],
+                    peek: t({ en: "Living Ecosystem", fr: "Écosystème vivant", zh: "活体生态系统", es: "Ecosistema vivo", pa: "ਜੀਵੰਤ ਈਕੋਸਿਸਟਮ", ar: "نظام بيئي حي", hi: "जीवंत पारिस्थितिकी" }),
+                  },
+                  {
+                    label: t({ en: "Gallery", fr: "Galerie", zh: "图库", es: "Galería", pa: "ਗੈਲਰੀ", ar: "المعرض", hi: "गैलरी" }),
+                    href: "/gallery",
+                    items: [],
+                    peek: t({ en: "Projects", fr: "Projets", zh: "项目", es: "Proyectos", pa: "ਪ੍ਰੋਜੈਕਟ", ar: "المشاريع", hi: "प्रोजेक्ट्स" }),
+                  },
+                  {
                     label: t({ en: "About", fr: "À propos", zh: "关于我们", es: "Sobre nosotros", pa: "ਸਾਡੇ ਬਾਰੇ", ar: "من نحن", hi: "हमारे बारे में" }),
                     href: "/about",
                     items: [],
