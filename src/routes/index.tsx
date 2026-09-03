@@ -1100,6 +1100,14 @@ function Index() {
                 ratio: "aspect-[3/4]",
               },
               {
+                img: redDeerInstall.url,
+                key: "red-deer-install",
+                title: t({ en: "Community & Process", fr: "Communauté et processus", zh: "社区与过程", es: "Comunidad y proceso", pa: "ਕਮਿਊਨਿਟੀ ਅਤੇ ਪ੍ਰਕਿਰਿਆ", ar: "المجتمع والعملية", hi: "समुदाय और प्रक्रिया" }),
+                caption: t({ en: "Red Deer, AB · School install day", fr: "Red Deer, AB · Journée d'installation scolaire", zh: "阿尔伯塔省 Red Deer · 校园安装日", es: "Red Deer, AB · Día de instalación escolar", pa: "ਰੈੱਡ ਡੀਅਰ, AB · ਸਕੂਲ ਇੰਸਟਾਲ ਦਿਨ", ar: "ريد دير، ألبرتا · يوم التركيب المدرسي", hi: "रेड डियर, AB · स्कूल इंस्टॉल दिवस" }),
+                span: "md:col-span-12",
+                ratio: "",
+              },
+              {
                 img: atriumWallPoster.url,
                 video: atriumWallVideo.url,
                 key: "atrium-wall",
@@ -1147,14 +1155,6 @@ function Index() {
                 caption: t({ en: "Pothos and spider plant, cedar edge", fr: "Pothos et chlorophytum, bordure de cèdre", zh: "绿萝与吊兰 · 雪松边框", es: "Potos y cinta, borde de cedro", pa: "ਪੋਥੋਸ ਤੇ ਸਪਾਈਡਰ ਪਲਾਂਟ, ਸੀਡਰ ਕਿਨਾਰਾ", ar: "بوتس ونبات العنكبوت، حافة أرز", hi: "पोथोस और स्पाइडर प्लांट, सीडर किनारा" }),
                 span: "md:col-span-7",
                 ratio: "aspect-[4/3]",
-              },
-              {
-                img: redDeerInstall.url,
-                key: "red-deer-install",
-                title: t({ en: "Community & Process", fr: "Communauté et processus", zh: "社区与过程", es: "Comunidad y proceso", pa: "ਕਮਿਊਨਿਟੀ ਅਤੇ ਪ੍ਰਕਿਰਿਆ", ar: "المجتمع والعملية", hi: "समुदाय और प्रक्रिया" }),
-                caption: t({ en: "Red Deer, AB · School install day", fr: "Red Deer, AB · Journée d'installation scolaire", zh: "阿尔伯塔省 Red Deer · 校园安装日", es: "Red Deer, AB · Día de instalación escolar", pa: "ਰੈੱਡ ਡੀਅਰ, AB · ਸਕੂਲ ਇੰਸਟਾਲ ਦਿਨ", ar: "ريد دير، ألبرتا · يوم التركيب المدرسي", hi: "रेड डियर, AB · स्कूल इंस्टॉल दिवस" }),
-                span: "md:col-span-12",
-                ratio: "",
               },
             ].map((p) =>
               p.key === "filler" ? (
