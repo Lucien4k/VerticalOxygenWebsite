@@ -21,7 +21,7 @@ const OUT = path.join(ROOT, 'dist-static')
 const ASSET_BASE =
   process.env.ASSET_BASE || 'https://id-preview--5de82f1e-e367-465b-9ecf-45eb99f38dda.lovable.app'
 
-const ROUTES = ['/', '/about', '/specifications']
+const ROUTES = ['/', '/about', '/specifications', '/gallery', '/aquaponic', '/hydroponic']
 
 function run(cmd, args, env) {
   const r = spawnSync(cmd, args, { stdio: 'inherit', env: { ...process.env, ...env } })
@@ -52,7 +52,7 @@ const render = async (route) => {
 
   console.log('▸ Copying assets…')
   for (const entry of await readdir(path.join(ROOT, 'dist', 'client'))) {
-    if (entry === '_headers') continue
+    if (entry === '_headers' || entry === 'favicon.ico') continue
     await cp(path.join(ROOT, 'dist', 'client', entry), path.join(OUT, entry), { recursive: true })
   }
 
