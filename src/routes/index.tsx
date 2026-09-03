@@ -53,7 +53,7 @@ import calgaryResidential from "../assets/gallery/calgary-residential.webp.asset
 import modernOffice from "../assets/gallery/modern-office.webp.asset.json";
 import edmontonResidential from "../assets/gallery/edmonton-residential.webp.asset.json";
 import stantonHospital from "../assets/gallery/stanton-hospital.webp.asset.json";
-import aquaponicFeature from "../assets/gallery/aquaponic-feature.webp.asset.json";
+import aquaponicHomeHero from "../assets/aquaponic-home-hero.png.asset.json";
 import copperFrame from "../assets/gallery/copper-frame.webp.asset.json";
 import wellnessRetail from "../assets/gallery/wellness-retail.webp.asset.json";
 import plantingDetail from "../assets/gallery/planting-detail.webp.asset.json";
