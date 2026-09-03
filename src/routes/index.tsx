@@ -942,6 +942,40 @@ function Index() {
         </div>
       </section>
 
+      {/* Featured residential photo — desktop only */}
+      <section id="featured-residential" className="relative hidden overflow-hidden bg-cream lg:block">
+        <div className="mx-auto max-w-7xl px-6 py-16">
+          <figure className="relative aspect-[21/9] overflow-hidden rounded-2xl bg-charcoal/5 ring-1 ring-charcoal/10">
+            <img
+              src={livingWallResidential.url}
+              alt={t({
+                en: "Living wall in a cozy home interior",
+                fr: "Mur végétal dans un intérieur domestique chaleureux",
+                zh: "温馨家居室内的植物墙",
+                es: "Muro vivo en un interior de hogar acogedor",
+                pa: "ਇੱਕ ਆਰਾਮਦਾਇਕ ਘਰੇਲੂ ਅੰਦਰੂਨੀ ਥਾਂ ਵਿੱਚ ਜੀਵੰਤ ਕੰਧ",
+                ar: "جدار حي في داخل منزل دافئ",
+                hi: "एक आरामदायक घर के इंटीरियर में लिविंग वॉल",
+              })}
+              loading="lazy"
+              decoding="async"
+              className="h-full w-full object-cover"
+            />
+          </figure>
+          <p className="mt-4 text-center text-xs font-medium uppercase tracking-widest text-forest/80">
+            {t({
+              en: "Real walls, real spaces",
+              fr: "De vrais murs, de vrais espaces",
+              zh: "真实的墙面，真实的空间",
+              es: "Muros reales, espacios reales",
+              pa: "ਅਸਲੀ ਕੰਧਾਂ, ਅਸਲੀ ਥਾਵਾਂ",
+              ar: "جدران حقيقية، مساحات حقيقية",
+              hi: "असली दीवारें, असली स्थान",
+            })}
+          </p>
+        </div>
+      </section>
+
       {/* Footer */}
       <footer className="relative overflow-hidden border-t border-cream/10 text-cream">
         <div
