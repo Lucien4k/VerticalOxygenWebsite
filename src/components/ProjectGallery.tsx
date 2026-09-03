@@ -298,8 +298,12 @@ export function ProjectGallery({ preview = false }: { preview?: boolean } = {}) 
                 "atrium-wall",
                 "edmonton-residential",
               ];
+              const previewItems = allItems.filter((i) => PREVIEW_KEYS.includes(i.key));
+              // On phones show a tighter edit so the homepage stays short.
               const items = preview
-                ? allItems.filter((i) => PREVIEW_KEYS.includes(i.key))
+                ? galleryCols === 1
+                  ? previewItems.slice(0, 6)
+                  : previewItems
                 : allItems;
               const AR: Record<string, number> = {
                 "westin-calgary": 1.3333,
