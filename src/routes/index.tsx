@@ -18,6 +18,8 @@ import glenoraLobby from "../assets/projects/glenora-lobby.jpg.asset.json";
 import coaldaleHall from "../assets/projects/coaldale-hall.png.asset.json";
 import lushTropicalWall from "../assets/projects/lush-tropical-wall.jpg.asset.json";
 import coaldaleFlowering from "../assets/projects/coaldale-flowering.jpg.asset.json";
+import higherHealth from "../assets/projects/higher-health.jpg.asset.json";
+import outdoorWoodFrame from "../assets/projects/outdoor-wood-frame.jpg.asset.json";
 import { Phone, Mail, MapPin, Leaf, ArrowRight, Instagram, X, ZoomIn, ChevronDown } from "lucide-react";
 import { QuoteForm } from "@/components/QuoteForm";
 import { Reveal } from "@/components/Reveal";
@@ -68,6 +70,63 @@ import logoHeader from "../assets/logo-header.png.asset.json";
 import { SYSTEMS, DIAGRAM_LABEL } from "@/lib/systems";
 import { ProjectGallery } from "@/components/ProjectGallery";
 import { useIsMobile } from "@/hooks/use-mobile";
+
+function MobileProjectPhotos() {
+  const t = useT();
+  return (
+    <section id="project-photos-bridge" className="relative overflow-hidden bg-cream py-8 md:py-10 lg:hidden">
+      <div className="mx-auto max-w-7xl px-6">
+        <div className="grid grid-cols-2 gap-3">
+          <figure className="relative aspect-[4/5] overflow-hidden rounded-2xl">
+            <img
+              src={higherHealth.url}
+              alt={t({
+                en: "Living wall in a health and wellness space",
+                fr: "Mur végétal dans un espace santé et bien-être",
+                zh: "健康与 wellness 空间中的植物墙",
+                es: "Muro vivo en un espacio de salud y bienestar",
+                pa: "ਸਿਹਤ ਅਤੇ ਵੈੱਲਨੈੱਸ ਥਾਂ ਵਿੱਚ ਜੀਵੰਤ ਕੰਧ",
+                ar: "جدار حي في مساحة صحة وعافية",
+                hi: "स्वास्थ्य और वेलनेस स्थान में लिविंग वॉल",
+              })}
+              loading="lazy"
+              decoding="async"
+              className="h-full w-full object-cover"
+            />
+          </figure>
+          <figure className="relative aspect-[4/5] overflow-hidden rounded-2xl">
+            <img
+              src={outdoorWoodFrame.url}
+              alt={t({
+                en: "Outdoor living wall with a wood frame",
+                fr: "Mur végétal extérieur avec cadre en bois",
+                zh: "带木质框架的户外植物墙",
+                es: "Muro vivo exterior con marco de madera",
+                pa: "ਲੱਕੜੀ ਦੇ ਫਰੇਮ ਵਾਲੀ ਬਾਹਰੀ ਜੀਵੰਤ ਕੰਧ",
+                ar: "جدار حي خارجي بإطار خشبي",
+                hi: "लकड़ी के फ्रेम वाली आउटडोर लिविंग वॉल",
+              })}
+              loading="lazy"
+              decoding="async"
+              className="h-full w-full object-cover"
+            />
+          </figure>
+        </div>
+        <p className="mt-3 text-center text-xs font-medium uppercase tracking-widest text-forest/80">
+          {t({
+            en: "Real walls, real spaces",
+            fr: "De vrais murs, de vrais espaces",
+            zh: "真实的墙面，真实的空间",
+            es: "Muros reales, espacios reales",
+            pa: "ਅਸਲੀ ਕੰਧਾਂ, ਅਸਲੀ ਥਾਵਾਂ",
+            ar: "جدران حقيقية، مساحات حقيقية",
+            hi: "असली दीवारें, असली स्थान",
+          })}
+        </p>
+      </div>
+    </section>
+  );
+}
 
 function MaintenanceSection() {
   const t = useT();
@@ -833,6 +892,8 @@ function Index() {
 
       {/* Photo showcase — living, breathing installations */}
       {/* Wood shelf divider */}
+      <MobileProjectPhotos />
+
       <section id="clients" className="relative overflow-hidden bg-cream py-24 text-charcoal md:py-32">
         <Reveal>
           <ClientLogos />
