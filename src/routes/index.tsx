@@ -801,7 +801,6 @@ function Index() {
                   },
                 ]}
               />
-              <LanguageSwitcher className="md:hidden" />
               <a
                 href="#quote"
                 className="slide-cta group inline-flex items-center rounded-full bg-forest-deep px-5 py-2 text-sm font-semibold text-cream transition-colors hover:bg-forest-deep/90"
