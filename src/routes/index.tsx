@@ -1,6 +1,4 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import outdoorFrame from "../assets/projects/outdoor-wood-frame.jpg.asset.json";
-import lobbyPanels from "../assets/projects/lobby-panels.jpg.asset.json";
 import edmontonLobby from "../assets/projects/edmonton-lobby.jpg.asset.json";
 import fairviewAquarium from "../assets/projects/fairview-aquarium.jpg.asset.json";
 import fairviewInstall from "../assets/projects/fairview-install.jpg.asset.json";
@@ -13,8 +11,6 @@ import fullCircleCalgary from "../assets/projects/full-circle-calgary.jpg.asset.
 import fullCircle2Calgary from "../assets/projects/full-circle-2-calgary.jpg.asset.json";
 import tallJungleWall from "../assets/projects/tall-jungle-wall.jpg.asset.json";
 import mosaicBase from "../assets/projects/mosaic-base.jpg.asset.json";
-import higherHealth from "../assets/projects/higher-health.jpg.asset.json";
-import iffWall from "../assets/projects/iff-wall.jpg.asset.json";
 import saunaPothos from "../assets/projects/sauna-pothos.jpg.asset.json";
 import cafePlanter from "../assets/projects/cafe-planter.jpg.asset.json";
 import curvedTropical from "../assets/projects/curved-tropical.jpg.asset.json";
