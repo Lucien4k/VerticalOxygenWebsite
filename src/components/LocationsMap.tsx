@@ -206,7 +206,7 @@ export function LocationsMap() {
       </div>
 
       <div className="space-y-5">
-        <div className="rounded-[1.75rem] border border-forest/12 bg-white/80 p-6 shadow-[0_18px_40px_-34px_oklch(0.32_0.07_145_/_0.55)]">
+        <div className="hidden lg:block rounded-[1.75rem] border border-forest/12 bg-white/80 p-6 shadow-[0_18px_40px_-34px_oklch(0.32_0.07_145_/_0.55)]">
           <p className="text-xs font-semibold uppercase tracking-widest text-forest">
             {t({ en: "Cities across Canada", fr: "Villes à travers le Canada", zh: "遍布加拿大的城市", es: "Ciudades en todo Canadá", pa: "ਕੈਨੇਡਾ ਭਰ ਦੇ ਸ਼ਹਿਰ", ar: "مدن في جميع أنحاء كندا", hi: "पूरे कनाडा के शहर" })}
           </p>
