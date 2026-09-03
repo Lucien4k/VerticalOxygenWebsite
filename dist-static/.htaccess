@@ -1,5 +1,6 @@
 # Vertical Oxygen — CanSpace / Apache config
-Options -MultiViews
+Options -MultiViews -Indexes
+IndexIgnore *
 DirectoryIndex index.html
 
 <IfModule mod_rewrite.c>
