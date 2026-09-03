@@ -59,14 +59,14 @@ export function SystemPage({ systemKey, compact }: { systemKey: "hydroponic" | "
       </header>
 
       {/* Hero */}
-      <section className={compact ? "mx-auto max-w-6xl px-6 pb-10 pt-12 md:pt-16" : "mx-auto max-w-6xl px-6 pb-16 pt-16 md:pt-24"}>
-        <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
+      <section className={compact ? "mx-auto max-w-6xl px-6 pb-8 pt-8 md:pb-10 md:pt-16" : "mx-auto max-w-6xl px-6 pb-10 pt-10 md:pb-16 md:pt-24"}>
+        <div className="grid gap-8 md:gap-12 lg:grid-cols-2 lg:items-center">
           <div>
             <span className="inline-flex items-center gap-2 rounded-full border border-forest-deep/30 bg-forest-deep/5 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] text-forest-deep">
               <Leaf className="h-3.5 w-3.5" aria-hidden />
               {t(sys.tag)}
             </span>
-            <h1 className="mt-6 font-serif text-5xl leading-[1.05] tracking-tight text-charcoal md:text-6xl">
+            <h1 className="mt-4 font-serif text-4xl leading-[1.05] tracking-tight text-charcoal md:mt-6 md:text-6xl">
               {t(sys.title)} {t({
                 en: "living wall",
                 fr: "mur végétal",
@@ -79,16 +79,16 @@ export function SystemPage({ systemKey, compact }: { systemKey: "hydroponic" | "
             </h1>
             {!compact && (
               <>
-                <p className="mt-6 max-w-xl text-lg leading-relaxed text-charcoal/70 md:text-xl">
+                <p className="mt-4 max-w-xl font-serif text-xl leading-snug tracking-wide text-forest-deep md:mt-6 md:text-2xl">
                   {t(sys.tagline)}
                 </p>
-                <p className="mt-4 max-w-xl text-base leading-relaxed text-charcoal/60">
+                <p className="mt-3 max-w-xl text-sm leading-relaxed text-charcoal/60 md:mt-4 md:text-base">
                   {t(sys.description)}
                 </p>
               </>
             )}
 
-            <div className="mt-8 flex flex-wrap items-center gap-3">
+            <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center md:mt-8">
               <a
                 href="/#quote"
                 className="inline-flex items-center justify-center gap-2 rounded-full bg-forest-deep px-6 py-3 text-sm font-semibold text-cream transition hover:bg-forest-deep/90"
