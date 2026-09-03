@@ -513,6 +513,21 @@ function SystemsShowcase() {
               })}
             </span>
           </div>
+
+          {/* Mobile photo strip — cropped swipe cards */}
+          <div className="md:hidden">
+            <div className="-mx-6 flex snap-x snap-mandatory gap-3 overflow-x-auto px-6 pb-1">
+              {SYSTEM_PHOTOS[sys.key].map((src, i) => (
+                <img
+                  key={i}
+                  src={src}
+                  alt={t(sys.title)}
+                  loading="lazy"
+                  className={`shrink-0 snap-center rounded-xl object-cover ${i === 0 ? "h-52 w-[75%]" : "h-52 w-[60%]"}`}
+                />
+              ))}
+            </div>
+          </div>
         </div>
       ))}
 
