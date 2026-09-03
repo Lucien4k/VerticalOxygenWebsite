@@ -1255,7 +1255,7 @@ function Index() {
           </div>
         </div>
 
-        {installShot && (
+        {installShot && typeof document !== "undefined" && createPortal(
           <div
             className="fixed inset-0 z-[120] flex items-center justify-center bg-charcoal/90 p-4 backdrop-blur-sm md:p-10"
             onClick={() => setInstallShot(null)}
@@ -1267,7 +1267,7 @@ function Index() {
               type="button"
               onClick={() => setInstallShot(null)}
               aria-label={t({ en: "Close", fr: "Fermer", zh: "关闭", es: "Cerrar", pa: "ਬੰਦ ਕਰੋ", ar: "إغلاق", hi: "बंद करें" })}
-              className="absolute right-5 top-5 rounded-full bg-cream/10 px-4 py-2 text-sm font-medium text-cream ring-1 ring-cream/25 transition-colors hover:bg-cream/20"
+              className="absolute right-5 top-5 z-10 cursor-pointer rounded-full bg-cream/10 px-4 py-2 text-sm font-medium text-cream ring-1 ring-cream/25 transition-colors hover:bg-cream/20"
             >
               {t({ en: "Close", fr: "Fermer", zh: "关闭", es: "Cerrar", pa: "ਬੰਦ ਕਰੋ", ar: "إغلاق", hi: "बंद करें" })} ✕
             </button>
@@ -1302,7 +1302,8 @@ function Index() {
                 </p>
               </figcaption>
             </figure>
-          </div>
+          </div>,
+          document.body
         )}
       </section>
 
