@@ -61,6 +61,11 @@ import wellnessRetail from "../assets/gallery/wellness-retail.webp.asset.json";
 import plantingDetail from "../assets/gallery/planting-detail.webp.asset.json";
 import redDeerInstall from "../assets/gallery/red-deer-install.webp.asset.json";
 import maintenanceAtriumWall from "../assets/maintenance-plant-guarantee.png.asset.json";
+import westinCalgaryHd from "../assets/gallery/westin-calgary-enhanced.png.asset.json";
+import calgaryResidentialHd from "../assets/gallery/calgary-residential-enhanced.png.asset.json";
+import modernOfficeHd from "../assets/gallery/modern-office-enhanced.png.asset.json";
+import stantonHospitalHd from "../assets/gallery/stanton-hospital-enhanced.png.asset.json";
+import conexusReginaHd from "../assets/gallery/conexus-regina-enhanced.png.asset.json";
 
 import woodTexture from "../assets/textures/wood-texture-v2.jpg.asset.json";
 import logoHeader from "../assets/logo-header.png.asset.json";
@@ -1156,7 +1161,152 @@ function Index() {
                 span: "md:col-span-7",
                 ratio: "aspect-[4/3]",
               },
+              {
+                img: westinCalgaryHd.url,
+                key: "westin-calgary-hd",
+                title: t({ en: "The Westin, Calgary", fr: "Le Westin, Calgary", zh: "卡尔加里威斯汀酒店", es: "The Westin, Calgary", pa: "ਦ ਵੈਸਟਿਨ, ਕੈਲਗਰੀ", ar: "ذا ويستن، كالغاري", hi: "द वेस्टिन, कैलगरी" }),
+                caption: t({ en: "Calgary, AB · Lounge detail", fr: "Calgary, AB · Détail du salon", zh: "阿尔伯塔省卡尔加里 · 休息区细节", es: "Calgary, AB · Detalle del salón", pa: "ਕੈਲਗਰੀ, AB · ਲਾਊਂਜ ਵੇਰਵਾ", ar: "كالغاري · تفاصيل الردهة", hi: "कैलगरी, AB · लाउंज डिटेल" }),
+                span: "",
+                ratio: "",
+              },
+              {
+                img: fairviewAquarium.url,
+                key: "fairview-aquarium",
+                title: t({ en: "Fairview Aquarium Wall", fr: "Mur aquarium Fairview", zh: "Fairview 水族绿墙", es: "Muro acuario Fairview", pa: "ਫੇਅਰਵਿਊ ਐਕੁਏਰੀਅਮ ਕੰਧ", ar: "جدار حوض فيرفيو", hi: "फेयरव्यू एक्वेरियम वॉल" }),
+                caption: t({ en: "School stairwell · Aquaponic wall", fr: "Cage d'escalier scolaire · Mur aquaponique", zh: "校园楼梯 · 鱼菜共生墙", es: "Escalera escolar · Muro acuapónico", pa: "ਸਕੂਲ ਪੌੜੀਆਂ · ਐਕੁਆਪੋਨਿਕ ਕੰਧ", ar: "درج مدرسي · جدار أكوابوني", hi: "स्कूल सीढ़ी · एक्वापोनिक वॉल" }),
+                span: "",
+                ratio: "",
+              },
+              {
+                img: calgaryResidentialHd.url,
+                key: "calgary-residential-hd",
+                title: t({ en: "Calgary Residential", fr: "Résidence à Calgary", zh: "卡尔加里私人住宅", es: "Residencia en Calgary", pa: "ਕੈਲਗਰੀ ਰਿਹਾਇਸ਼", ar: "منزل في كالغاري", hi: "कैलगरी आवासीय" }),
+                caption: t({ en: "Calgary, AB · Interior feature", fr: "Calgary, AB · Mur signature", zh: "阿尔伯塔省卡尔加里 · 室内主题墙", es: "Calgary, AB · Muro destacado", pa: "ਕੈਲਗਰੀ, AB · ਅੰਦਰੂਨੀ ਫੀਚਰ", ar: "كالغاري · جدار داخلي مميز", hi: "कैलगरी, AB · इंटीरियर फीचर" }),
+                span: "",
+                ratio: "",
+              },
+              {
+                img: fullCircleCalgary.url,
+                key: "full-circle-calgary",
+                title: t({ en: "Full Circle, Calgary", fr: "Full Circle, Calgary", zh: "Full Circle 卡尔加里", es: "Full Circle, Calgary", pa: "ਫੁੱਲ ਸਰਕਲ, ਕੈਲਗਰੀ", ar: "فُل سيركل، كالغاري", hi: "फुल सर्कल, कैलगरी" }),
+                caption: t({ en: "Calgary, AB · Reception feature", fr: "Calgary, AB · Mur d'accueil", zh: "阿尔伯塔省卡尔加里 · 前台绿墙", es: "Calgary, AB · Muro de recepción", pa: "ਕੈਲਗਰੀ, AB · ਰਿਸੈਪਸ਼ਨ ਫੀਚਰ", ar: "كالغاري · جدار الاستقبال", hi: "कैलगरी, AB · रिसेप्शन फीचर" }),
+                span: "",
+                ratio: "",
+              },
+              {
+                img: lobbyPanels.url,
+                key: "lobby-panels",
+                title: t({ en: "Lobby Panel Series", fr: "Série de panneaux de hall", zh: "大堂绿墙系列", es: "Serie de paneles de vestíbulo", pa: "ਲਾਬੀ ਪੈਨਲ ਲੜੀ", ar: "سلسلة ألواح الردهة", hi: "लॉबी पैनल सीरीज़" }),
+                caption: t({ en: "Corporate lobby · Repeating panels", fr: "Hall d'entreprise · Panneaux répétés", zh: "企业大堂 · 连续绿墙panel", es: "Vestíbulo corporativo · Paneles repetidos", pa: "ਕਾਰਪੋਰੇਟ ਲਾਬੀ · ਦੁਹਰਾਏ ਪੈਨਲ", ar: "ردهة شركة · ألواح متكررة", hi: "कॉर्पोरेट लॉबी · दोहराए पैनल" }),
+                span: "",
+                ratio: "",
+              },
+              {
+                img: modernOfficeHd.url,
+                key: "modern-office-hd",
+                title: t({ en: "Modern Office Wall", fr: "Mur de bureau moderne", zh: "现代办公绿墙", es: "Muro de oficina moderna", pa: "ਆਧੁਨਿਕ ਦਫ਼ਤਰੀ ਕੰਧ", ar: "جدار مكتب حديث", hi: "आधुनिक ऑफिस वॉल" }),
+                caption: t({ en: "Corporate interior · Full-height planting", fr: "Intérieur d'entreprise · Plantation pleine hauteur", zh: "企业室内 · 通高植栽", es: "Interior corporativo · Plantación de altura completa", pa: "ਕਾਰਪੋਰੇਟ ਅੰਦਰੂਨੀ · ਪੂਰੀ-ਉਚਾਈ ਪੌਦੇ", ar: "داخل الشركة · زراعة بارتفاع كامل", hi: "कॉर्पोरेट इंटीरियर · पूर्ण-ऊँचाई प्लांटिंग" }),
+                span: "",
+                ratio: "",
+              },
+              {
+                img: succulentTapestry.url,
+                key: "succulent-tapestry",
+                title: t({ en: "Succulent Tapestry", fr: "Tapisserie de succulentes", zh: "多肉织毯墙", es: "Tapiz de suculentas", pa: "ਸਕੁਲੈਂਟ ਟੇਪੈਸਟਰੀ", ar: "نسيج العصاريات", hi: "सक्युलेंट टेपेस्ट्री" }),
+                caption: t({ en: "Detail · Sedum and echeveria drift", fr: "Détail · Dérive de sedum et echeveria", zh: "细节 · 景天与石莲花渐层", es: "Detalle · Deriva de sedum y echeveria", pa: "ਵੇਰਵਾ · ਸੇਡਮ ਅਤੇ ਏਚੀਵੇਰੀਆ", ar: "تفصيل · سيدوم وإتشيفيريا", hi: "डिटेल · सेडम और एचेवेरिया" }),
+                span: "",
+                ratio: "",
+              },
+              {
+                img: stantonHospitalHd.url,
+                key: "stanton-hospital-hd",
+                title: t({ en: "Stanton Hospital", fr: "Hôpital Stanton", zh: "Stanton 医院", es: "Hospital Stanton", pa: "ਸਟੈਂਟਨ ਹਸਪਤਾਲ", ar: "مستشفى ستانتون", hi: "स्टैंटन अस्पताल" }),
+                caption: t({ en: "Yellowknife, NT · Second angle", fr: "Yellowknife, T.N.-O. · Second angle", zh: "西北地区耶洛奈夫 · 另一视角", es: "Yellowknife, NT · Segundo ángulo", pa: "ਯੈਲੋਨਾਈਫ, NT · ਦੂਜਾ ਕੋਣ", ar: "يلونايف · زاوية ثانية", hi: "येलोनाइफ, NT · दूसरा कोण" }),
+                span: "",
+                ratio: "",
+              },
+              {
+                img: higherHealth.url,
+                key: "higher-health",
+                title: t({ en: "Higher Health", fr: "Higher Health", zh: "Higher Health", es: "Higher Health", pa: "ਹਾਇਰ ਹੈਲਥ", ar: "هاير هيلث", hi: "हायर हेल्थ" }),
+                caption: t({ en: "Clinic interior · Bromeliad accents", fr: "Intérieur de clinique · Accents de broméliacées", zh: "诊所室内 · 凤梨科点缀", es: "Interior de clínica · Acentos de bromelias", pa: "ਕਲੀਨਿਕ ਅੰਦਰੂਨੀ · ਬ੍ਰੋਮੇਲੀਆਡ", ar: "داخل عيادة · لمسات بروميلياد", hi: "क्लिनिक इंटीरियर · ब्रोमेलियाड एक्सेंट" }),
+                span: "",
+                ratio: "",
+              },
+              {
+                img: conexusReginaHd.url,
+                key: "conexus-regina-hd",
+                title: t({ en: "Conexus Credit Union", fr: "Conexus Credit Union", zh: "Conexus 信用联社", es: "Conexus Credit Union", pa: "ਕੋਨੈਕਸਸ ਕ੍ਰੈਡਿਟ ਯੂਨੀਅਨ", ar: "اتحاد كونيكس الائتماني", hi: "कोनेक्सस क्रेडिट यूनियन" }),
+                caption: t({ en: "Regina, SK · Atrium detail", fr: "Regina, SK · Détail de l'atrium", zh: "萨斯喀彻温省里贾纳 · 中庭细节", es: "Regina, SK · Detalle del atrio", pa: "ਰੇਗੀਨਾ, SK · ਅਟਰੀਅਮ ਵੇਰਵਾ", ar: "ريجينا · تفاصيل الأتريوم", hi: "रेजिना, SK · एट्रियम डिटेल" }),
+                span: "",
+                ratio: "",
+              },
+              {
+                img: iffWall.url,
+                key: "iff-wall",
+                title: t({ en: "IFF Wall", fr: "Mur IFF", zh: "IFF 绿墙", es: "Muro IFF", pa: "IFF ਕੰਧ", ar: "جدار IFF", hi: "IFF वॉल" }),
+                caption: t({ en: "Office interior · Textured green palette", fr: "Intérieur de bureau · Palette de verts texturés", zh: "办公室内 · 层次绿意", es: "Interior de oficina · Paleta verde texturizada", pa: "ਦਫ਼ਤਰੀ ਅੰਦਰੂਨੀ · ਟੈਕਸਚਰਡ ਹਰਾ", ar: "داخل مكتب · تدرجات خضراء", hi: "ऑफिस इंटीरियर · टेक्सचर्ड हरा पैलेट" }),
+                span: "",
+                ratio: "",
+              },
+              {
+                img: tropicalDense.url,
+                key: "tropical-dense",
+                title: t({ en: "Dense Tropical Wall", fr: "Mur tropical dense", zh: "密植热带绿墙", es: "Muro tropical denso", pa: "ਸੰਘਣੀ ਟ੍ਰੌਪੀਕਲ ਕੰਧ", ar: "جدار استوائي كثيف", hi: "घना ट्रॉपिकल वॉल" }),
+                caption: t({ en: "Interior feature · Layered foliage", fr: "Mur signature · Feuillage en couches", zh: "室内主题墙 · 层叠植栽", es: "Muro destacado · Follaje en capas", pa: "ਅੰਦਰੂਨੀ ਫੀਚਰ · ਪਰਤਦਾਰ ਪੱਤੇ", ar: "جدار داخلي · أوراق متعددة الطبقات", hi: "इंटीरियर फीचर · परतदार पर्णसमूह" }),
+                span: "",
+                ratio: "",
+              },
+              {
+                img: lushTropicalWall.url,
+                key: "lush-tropical-wall",
+                title: t({ en: "Lush Tropical Wall", fr: "Mur tropical luxuriant", zh: "繁茂热带绿墙", es: "Muro tropical exuberante", pa: "ਹਰੀ-ਭਰੀ ਟ੍ਰੌਪੀਕਲ ਕੰਧ", ar: "جدار استوائي وارف", hi: "हरा-भरा ट्रॉपिकल वॉल" }),
+                caption: t({ en: "Office interior · Flowering accents", fr: "Intérieur de bureau · Accents fleuris", zh: "办公室内 · 花色点缀", es: "Interior de oficina · Acentos florales", pa: "ਦਫ਼ਤਰੀ ਅੰਦਰੂਨੀ · ਫੁੱਲਦਾਰ ਐਕਸੈਂਟ", ar: "داخل مكتب · لمسات مزهرة", hi: "ऑफिस इंटीरियर · पुष्प एक्सेंट" }),
+                span: "",
+                ratio: "",
+              },
+              {
+                img: curvedTropical.url,
+                key: "curved-tropical",
+                title: t({ en: "Curved Tropical Wall", fr: "Mur tropical courbé", zh: "弧形热带绿墙", es: "Muro tropical curvo", pa: "ਕਰਵਡ ਟ੍ਰੌਪੀਕਲ ਕੰਧ", ar: "جدار استوائي منحنٍ", hi: "घुमावदार ट्रॉपिकल वॉल" }),
+                caption: t({ en: "Corner install · Wrapped planting", fr: "Installation d'angle · Plantation enveloppante", zh: "转角安装 · 环绕植栽", es: "Instalación en esquina · Plantación envolvente", pa: "ਕੋਨੇ ਦੀ ਇੰਸਟਾਲੇਸ਼ਨ · ਲਪੇਟਵੇਂ ਪੌਦੇ", ar: "تركيب زاوي · زراعة ملتفة", hi: "कॉर्नर इंस्टॉल · लिपटी प्लांटिंग" }),
+                span: "",
+                ratio: "",
+              },
+              {
+                img: outdoorFrame.url,
+                key: "outdoor-wood-frame",
+                title: t({ en: "Outdoor Cedar Frame", fr: "Cadre extérieur en cèdre", zh: "户外雪松框架墙", es: "Marco exterior de cedro", pa: "ਬਾਹਰੀ ਸੀਡਰ ਫਰੇਮ", ar: "إطار أرز خارجي", hi: "आउटडोर सीडर फ्रेम" }),
+                caption: t({ en: "Exterior wall · Hardy seasonal planting", fr: "Mur extérieur · Plantation saisonnière rustique", zh: "室外墙面 · 耐寒季节植栽", es: "Muro exterior · Plantación estacional resistente", pa: "ਬਾਹਰੀ ਕੰਧ · ਸਖ਼ਤ ਮੌਸਮੀ ਪੌਦੇ", ar: "جدار خارجي · نباتات موسمية متينة", hi: "बाहरी दीवार · कठोर मौसमी पौधे" }),
+                span: "",
+                ratio: "",
+              },
+              {
+                img: coaldaleFlowering.url,
+                key: "coaldale-flowering",
+                title: t({ en: "Coaldale Flowering Wall", fr: "Mur fleuri de Coaldale", zh: "Coaldale 花艺绿墙", es: "Muro florido de Coaldale", pa: "ਕੋਲਡੇਲ ਫੁੱਲਦਾਰ ਕੰਧ", ar: "جدار كولديل المزهر", hi: "कोलडेल फ्लावरिंग वॉल" }),
+                caption: t({ en: "Coaldale, AB · Civic corridor", fr: "Coaldale, AB · Corridor municipal", zh: "阿尔伯塔省 Coaldale · 市政走廊", es: "Coaldale, AB · Corredor municipal", pa: "ਕੋਲਡੇਲ, AB · ਸਿਵਿਕ ਕੌਰੀਡੋਰ", ar: "كولديل · ممر بلدي", hi: "कोलडेल, AB · सिविक कॉरिडोर" }),
+                span: "",
+                ratio: "",
+              },
+              {
+                img: tallJungleWall.url,
+                key: "tall-jungle-wall",
+                title: t({ en: "Tall Jungle Wall", fr: "Haut mur jungle", zh: "高耸丛林墙", es: "Muro jungla alto", pa: "ਉੱਚੀ ਜੰਗਲ ਕੰਧ", ar: "جدار الأدغال العالي", hi: "ऊँचा जंगल वॉल" }),
+                caption: t({ en: "Stairwell feature · Framed panel", fr: "Cage d'escalier · Panneau encadré", zh: "楼梯间主题 · 框式绿墙", es: "Escalera · Panel enmarcado", pa: "ਪੌੜੀਆਂ ਦਾ ਫੀਚਰ · ਫਰੇਮਡ ਪੈਨਲ", ar: "درج · لوحة مؤطرة", hi: "सीढ़ी फीचर · फ्रेम्ड पैनल" }),
+                span: "",
+                ratio: "",
+              },
+              {
+                img: sedumBloom.url,
+                key: "sedum-bloom",
+                title: t({ en: "Sedum in Bloom", fr: "Sedum en fleurs", zh: "盛花景天", es: "Sedum en flor", pa: "ਖਿੜਿਆ ਸੇਡਮ", ar: "سيدوم مزهر", hi: "खिला हुआ सेडम" }),
+                caption: t({ en: "Detail · Seasonal colour in the matrix", fr: "Détail · Couleur saisonnière dans la matrice", zh: "细节 · 基质中的季节色彩", es: "Detalle · Color estacional en la matriz", pa: "ਵੇਰਵਾ · ਮੈਟਰਿਕਸ ਵਿੱਚ ਮੌਸਮੀ ਰੰਗ", ar: "تفصيل · ألوان موسمية", hi: "डिटेल · मैट्रिक्स में मौसमी रंग" }),
+                span: "",
+                ratio: "",
+              },
             ].map((p) =>
+
               p.key === "filler" ? (
                 <div key={p.key} className="mb-3 break-inside-avoid">
                   <div className="flex flex-col justify-between gap-6 bg-forest-deep p-5 text-cream ring-1 ring-charcoal/10 md:p-6">
