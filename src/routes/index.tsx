@@ -566,6 +566,7 @@ function Index() {
   // Sticky overlap: Maintenance pins while the Systems panel slides over it,
   // receding (scale 100% → 97%, slight fade) over ~340px of scroll.
   const maintInnerRef = useRef<HTMLDivElement>(null);
+  const maintStickyRef = useRef<HTMLDivElement>(null);
   const systemsPanelRef = useRef<HTMLElement>(null);
   useEffect(() => {
     let raf = 0;
