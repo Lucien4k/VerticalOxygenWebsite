@@ -179,7 +179,7 @@ function MaintenanceSection() {
                       ar: "ضمان 100٪ للنباتات —",
                       hi: "100% प्लांट गारंटी —",
                     })}{" "}
-                    <em className="rounded-full bg-forest-deep px-3 py-1 text-cream not-italic">
+                    <em className="text-forest-deep not-italic">
                       {t({ en: "with maintenance.", fr: "avec l'entretien.", zh: "需搭配养护服务。", es: "con mantenimiento.", pa: "ਰੱਖ-ਰਖਾਅ ਦੇ ਨਾਲ।", ar: "مع خدمة الصيانة.", hi: "रखरखाव के साथ।" })}
                     </em>
                   </h2>
