@@ -52,7 +52,7 @@ const render = async (route) => {
 
   console.log('▸ Copying assets…')
   for (const entry of await readdir(path.join(ROOT, 'dist', 'client'))) {
-    if (entry === '_headers' || entry === 'favicon.ico') continue
+    if (entry === '_headers' || entry === 'favicon.ico' || entry === 'quote.php') continue
     await cp(path.join(ROOT, 'dist', 'client', entry), path.join(OUT, entry), { recursive: true })
   }
 
@@ -106,7 +106,8 @@ const render = async (route) => {
   await writeFile(
     path.join(OUT, '.htaccess'),
     `# Vertical Oxygen — CanSpace / Apache config
-Options -MultiViews
+Options -MultiViews -Indexes
+IndexIgnore *
 DirectoryIndex index.html
 
 <IfModule mod_rewrite.c>
@@ -153,8 +154,9 @@ DirectoryIndex index.html
     [
       'VERTICAL OXYGEN - static site for CanSpace',
       '',
-      '1) Upload EVERYTHING in this folder (including .htaccess and quote.php)',
-      '   into public_html on your CanSpace account.',
+      '1) Extract EVERYTHING in this folder (including .htaccess) directly into',
+      '   your document root. Your existing quote.php is NOT included and NOT',
+      '   touched - leave it in place. favicon.ico is not included either.',
       '',
       '2) In cPanel > Email Accounts, create: quotes@verticaloxygen.com',
       '   Then open quote.php and check the two settings at the top:',
