@@ -512,6 +512,16 @@ function Index() {
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
   }, [installShot]);
+  const [galleryCols, setGalleryCols] = useState(3);
+  useEffect(() => {
+    const update = () => {
+      const w = window.innerWidth;
+      setGalleryCols(w >= 1024 ? 3 : w >= 640 ? 2 : 1);
+    };
+    update();
+    window.addEventListener("resize", update);
+    return () => window.removeEventListener("resize", update);
+  }, []);
   const blurLayerRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
     let raf = 0;
