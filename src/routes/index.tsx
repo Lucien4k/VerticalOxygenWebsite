@@ -861,7 +861,7 @@ function Index() {
               })}{" "}
               <em>{t({ en: "life?", fr: "vie à votre mur ?", zh: "焕发生机了吗？", es: "su muro?", pa: "ਜ਼ਿੰਦਗੀ ਲਿਆਉਣ ਲਈ ਤਿਆਰ ਹੋ?", ar: "جدارك؟", hi: "जान डालने के लिए तैयार हैं?" })}</em>
             </h2>
-            <p className="mt-6 text-charcoal/75">
+            <p className="mt-6 max-w-2xl text-base leading-relaxed text-charcoal md:text-lg">
               {t({
                 en: "Tell us about your space and share a few photos if you have them. We'll get back to you within 1–2 business days with a tailored proposal.",
                 fr: "Parlez-nous de votre espace et joignez quelques photos si vous en avez. Nous vous répondrons sous 1 à 2 jours ouvrables avec une proposition sur mesure.",
