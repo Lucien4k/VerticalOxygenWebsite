@@ -267,7 +267,7 @@ function MaintenanceSection() {
 // Short visual intro to both systems — full detail lives on the dedicated pages.
 const SYSTEM_HERO: Record<string, string> = {
   hydroponic: modernOfficeHd.url,
-  aquaponic: aquaponicFeature.url,
+  aquaponic: aquaponicHomeHero.url,
 };
 
 function SystemsShowcase() {
