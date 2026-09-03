@@ -20,6 +20,7 @@ import lushTropicalWall from "../assets/projects/lush-tropical-wall.jpg.asset.js
 import coaldaleFlowering from "../assets/projects/coaldale-flowering.jpg.asset.json";
 import higherHealth from "../assets/projects/higher-health.jpg.asset.json";
 import outdoorWoodFrame from "../assets/projects/outdoor-wood-frame.jpg.asset.json";
+import livingWallResidential from "../assets/projects/living-wall-residential.png.asset.json";
 import { Phone, Mail, MapPin, Leaf, ArrowRight, Instagram, X, ZoomIn, ChevronDown } from "lucide-react";
 import { QuoteForm } from "@/components/QuoteForm";
 import { Reveal } from "@/components/Reveal";
