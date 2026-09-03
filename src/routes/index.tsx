@@ -562,6 +562,37 @@ function Index() {
       if (raf) cancelAnimationFrame(raf);
     };
   }, []);
+
+  // Sticky overlap: Maintenance pins while the Systems panel slides over it,
+  // receding (scale 100% → 97%, slight fade) over ~340px of scroll.
+  const maintInnerRef = useRef<HTMLDivElement>(null);
+  const systemsPanelRef = useRef<HTMLElement>(null);
+  useEffect(() => {
+    let raf = 0;
+    const RANGE = 340; // px of scroll over which the recede plays out
+    const update = () => {
+      raf = 0;
+      const panel = systemsPanelRef.current;
+      const inner = maintInnerRef.current;
+      if (!panel || !inner) return;
+      const top = panel.getBoundingClientRect().top;
+      const p = Math.min(1, Math.max(0, (window.innerHeight - top) / RANGE));
+      const eased = 1 - Math.pow(1 - p, 2); // ease-out
+      inner.style.transform = `scale(${1 - eased * 0.03})`;
+      inner.style.opacity = String(1 - eased * 0.12);
+    };
+    const onScroll = () => {
+      if (!raf) raf = requestAnimationFrame(update);
+    };
+    update();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+      if (raf) cancelAnimationFrame(raf);
+    };
+  }, []);
   return (
     <div className="min-h-screen bg-background">
       {/* Floating rounded top bars — hero video shows around them */}
@@ -914,12 +945,20 @@ function Index() {
       </section>
       </div>
 
-      <MaintenanceSection />
+      {/* Sticky overlap transition — Maintenance pins to the viewport bottom
+          while the Systems panel rises and covers it like a card. */}
+      <div className="relative">
+        <div className="sticky bottom-0 z-0">
+          <div ref={maintInnerRef} className="origin-bottom will-change-transform">
+            <MaintenanceSection />
+          </div>
+        </div>
 
-      {/* Systems Showcase — replaces the old gallery with an interactive systems module */}
-      <section id="work" className="relative z-20 -mt-[8vh] overflow-hidden rounded-t-[3rem] bg-cream pt-10 text-charcoal shadow-[0_-40px_80px_-40px_rgba(0,0,0,0.45)]">
-        <SystemsShowcase />
-      </section>
+        {/* Systems Showcase — replaces the old gallery with an interactive systems module */}
+        <section ref={systemsPanelRef} id="work" className="relative z-20 -mt-[8vh] overflow-hidden rounded-t-[3rem] bg-cream pt-10 text-charcoal shadow-[0_-40px_80px_-40px_rgba(0,0,0,0.45)]">
+          <SystemsShowcase />
+        </section>
+      </div>
 
       <SustainabilitySection />
       <div className="relative h-5 w-full overflow-hidden md:h-7" aria-hidden>
