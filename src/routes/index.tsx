@@ -1211,7 +1211,47 @@ function Index() {
                 span: "",
                 ratio: "",
               },
-            ].map((p) =>
+              ];
+              const AR: Record<string, number> = {
+                "westin-calgary": 1.3333,
+                "toronto-residential": 0.462,
+                "de-la-salle": 0.5624,
+                "calgary-residential": 0.75,
+                "modern-office": 1.3333,
+                "edmonton-residential": 0.75,
+                "stanton-hospital": 1.3333,
+                "conexus-regina": 0.75,
+                "aquaponic-feature": 0.6667,
+                "copper-frame": 0.6667,
+                "red-deer-install": 1.5,
+                "atrium-wall": 0.5625,
+                "wellness-retail": 1.3333,
+                reception: 1.3333,
+                coaldale: 0.75,
+                "planting-detail": 0.6641,
+                "westin-calgary-hd": 1.3333,
+                "calgary-residential-hd": 0.75,
+                "modern-office-hd": 0.75,
+                "stanton-hospital-hd": 1.3333,
+                "conexus-regina-hd": 1.3333,
+              };
+              type GalleryItem = (typeof items)[number];
+              const cols: GalleryItem[][] = Array.from({ length: galleryCols }, () => []);
+              const heights: number[] = Array.from({ length: galleryCols }, () => 0);
+              const filler = items.find((i) => i.key === "filler");
+              if (filler) {
+                const fi = galleryCols - 1;
+                cols[fi].push(filler);
+                heights[fi] += 1.15;
+              }
+              for (const it of items) {
+                if (it.key === "filler") continue;
+                let m = 0;
+                for (let i = 1; i < galleryCols; i++) if (heights[i] < heights[m]) m = i;
+                cols[m].push(it);
+                heights[m] += 1 / (AR[it.key] ?? 1.3333) + 0.08;
+              }
+              const render = (p: GalleryItem) =>
 
               p.key === "filler" ? (
                 <div key={p.key} className="mb-3 break-inside-avoid">
