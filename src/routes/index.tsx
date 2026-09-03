@@ -1016,7 +1016,7 @@ function Index() {
             </Reveal>
           </div>
 
-          <div className="grid items-start gap-4 md:grid-cols-12 md:gap-6">
+          <div className="columns-1 gap-3 sm:columns-2 lg:columns-3">
             {[
               {
                 img: westinCalgary.url,
@@ -1158,8 +1158,8 @@ function Index() {
               },
             ].map((p) =>
               p.key === "filler" ? (
-                <div key={p.key} className={`${p.span} h-full`}>
-                  <div className="flex h-full flex-col justify-between bg-forest-deep p-5 text-cream ring-1 ring-charcoal/10 md:p-6">
+                <div key={p.key} className="mb-3 break-inside-avoid">
+                  <div className="flex flex-col justify-between gap-6 bg-forest-deep p-5 text-cream ring-1 ring-charcoal/10 md:p-6">
                     <p className="text-[0.62rem] font-semibold uppercase tracking-[0.3em] text-cream/70">
                       {t({ en: "Vertical Oxygen", fr: "Vertical Oxygen", zh: "Vertical Oxygen", es: "Vertical Oxygen", pa: "Vertical Oxygen", ar: "Vertical Oxygen", hi: "Vertical Oxygen" })}
                     </p>
