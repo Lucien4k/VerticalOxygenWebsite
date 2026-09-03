@@ -935,6 +935,23 @@ function Index() {
                 verticaloxygen@gmail.com
               </a>
             </div>
+            <figure className="mt-8 hidden aspect-[1064/1478] overflow-hidden rounded-2xl bg-charcoal/5 lg:block">
+              <img
+                src={livingWallResidential.url}
+                alt={t({
+                  en: "Living wall in a cozy home interior",
+                  fr: "Mur végétal dans un intérieur domestique chaleureux",
+                  zh: "温馨家居室内的植物墙",
+                  es: "Muro vivo en un interior de hogar acogedor",
+                  pa: "ਇੱਕ ਆਰਾਮਦਾਇਕ ਘਰੇਲੂ ਅੰਦਰੂਨੀ ਥਾਂ ਵਿੱਚ ਜੀਵੰਤ ਕੰਧ",
+                  ar: "جدار حي في داخل منزل دافئ",
+                  hi: "एक आरामदायक घर के इंटीरियर में लिविंग वॉल",
+                })}
+                loading="lazy"
+                decoding="async"
+                className="h-full w-full object-cover"
+              />
+            </figure>
           </Reveal>
           <Reveal delay={150} className="rounded-2xl border border-sage/30 bg-white p-6 shadow-sm md:p-10 lg:col-span-3">
             <QuoteForm />
