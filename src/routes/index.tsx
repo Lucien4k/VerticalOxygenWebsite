@@ -566,6 +566,7 @@ function Index() {
   // Sticky overlap: Maintenance pins while the Systems panel slides over it,
   // receding (scale 100% → 97%, slight fade) over ~340px of scroll.
   const maintInnerRef = useRef<HTMLDivElement>(null);
+  const maintStickyRef = useRef<HTMLDivElement>(null);
   const systemsPanelRef = useRef<HTMLElement>(null);
   useEffect(() => {
     let raf = 0;
@@ -574,7 +575,12 @@ function Index() {
       raf = 0;
       const panel = systemsPanelRef.current;
       const inner = maintInnerRef.current;
-      if (!panel || !inner) return;
+      const sticky = maintStickyRef.current;
+      if (!panel || !inner || !sticky) return;
+      // Pin the maintenance section's bottom edge to the viewport bottom:
+      // sticky "top" offset = viewport height minus the section's height.
+      const h = inner.offsetHeight; // layout height, unaffected by the recede scale
+      sticky.style.top = `${window.innerHeight - h}px`;
       const top = panel.getBoundingClientRect().top;
       const p = Math.min(1, Math.max(0, (window.innerHeight - top) / RANGE));
       const eased = 1 - Math.pow(1 - p, 2); // ease-out
@@ -948,7 +954,7 @@ function Index() {
       {/* Sticky overlap transition — Maintenance pins to the viewport bottom
           while the Systems panel rises and covers it like a card. */}
       <div className="relative">
-        <div className="sticky bottom-0 z-0">
+        <div ref={maintStickyRef} className="sticky z-0">
           <div ref={maintInnerRef} className="origin-bottom will-change-transform">
             <MaintenanceSection />
           </div>
