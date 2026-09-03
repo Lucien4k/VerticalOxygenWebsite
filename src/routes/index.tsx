@@ -1287,6 +1287,7 @@ function Index() {
                       alt={`${p.title} — ${p.caption}`}
                       loading="lazy"
                       decoding="async"
+                      style={{ aspectRatio: String(AR[p.key] ?? 1.3333) }}
                       className="block h-auto w-full ring-1 ring-charcoal/10"
                     />
                     <figcaption className="pt-3">
@@ -1313,6 +1314,7 @@ function Index() {
                     }
                   }}
                   aria-label={`${t({ en: "View larger photo", fr: "Voir la photo en grand", zh: "查看大图", es: "Ver foto ampliada", pa: "ਵੱਡੀ ਫੋਟੋ ਵੇਖੋ", ar: "عرض صورة أكبر", hi: "बड़ी फोटो देखें" })}: ${p.title}`}
+                  style={{ aspectRatio: String(AR[p.key] ?? 1.3333) }}
                   className="group relative cursor-zoom-in overflow-hidden bg-charcoal/5 ring-1 ring-charcoal/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-forest-deep"
                 >
                   {"video" in p && p.video ? (
@@ -1324,7 +1326,7 @@ function Index() {
                       loop
                       playsInline
                       preload="metadata"
-                      className="block h-auto w-full"
+                      className="block h-full w-full object-cover"
                     />
                   ) : (
                     <img
@@ -1332,7 +1334,7 @@ function Index() {
                       alt={`${p.title} — ${p.caption}`}
                       loading="lazy"
                       decoding="async"
-                      className="block h-auto w-full"
+                      className="block h-full w-full object-cover"
                     />
                   )}
                   <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-charcoal/75 via-transparent to-transparent opacity-80" />
