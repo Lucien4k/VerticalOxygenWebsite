@@ -1172,7 +1172,7 @@ function Index() {
                   </div>
                 </div>
               ) : p.key === "red-deer-install" ? (
-                <div key={p.key} className={p.span}>
+                <div key={p.key} className="mb-3 break-inside-avoid">
                   <figure
                     role="button"
                     tabIndex={0}
@@ -1184,30 +1184,28 @@ function Index() {
                       }
                     }}
                     aria-label={`${t({ en: "View larger photo", fr: "Voir la photo en grand", zh: "查看大图", es: "Ver foto ampliada", pa: "ਵੱਡੀ ਫੋਟੋ ਵੇਖੋ", ar: "عرض صورة أكبر", hi: "बड़ी फोटो देखें" })}: ${p.title}`}
-                    className="group cursor-zoom-in border-2 border-forest-deep/30 bg-forest-deep/5 p-3 focus:outline-none focus-visible:ring-2 focus-visible:ring-forest-deep md:p-5"
+                    className="group cursor-zoom-in border-2 border-forest-deep/30 bg-forest-deep/5 p-3 focus:outline-none focus-visible:ring-2 focus-visible:ring-forest-deep"
                   >
-                    <div className="grid items-center gap-4 md:grid-cols-12 md:gap-6">
-                      <img
-                        src={p.img}
-                        alt={`${p.title} — ${p.caption}`}
-                        loading="lazy"
-                        decoding="async"
-                        className="h-auto w-full object-cover ring-1 ring-charcoal/10 md:col-span-8"
-                      />
-                      <figcaption className="md:col-span-4">
-                        <p className="text-[0.62rem] font-semibold uppercase tracking-[0.3em] text-forest-deep">
-                          {t({ en: "Behind the wall", fr: "Derrière le mur", zh: "绿墙背后", es: "Detrás del muro", pa: "ਕੰਧ ਦੇ ਪਿੱਛੇ", ar: "خلف الجدار", hi: "दीवार के पीछे" })}
-                        </p>
-                        <p className="mt-2 text-2xl text-forest-deep md:text-3xl">{p.title}</p>
-                        <p className="mt-2 text-[0.62rem] uppercase tracking-[0.22em] text-charcoal/60">
-                          {p.caption}
-                        </p>
-                      </figcaption>
-                    </div>
+                    <img
+                      src={p.img}
+                      alt={`${p.title} — ${p.caption}`}
+                      loading="lazy"
+                      decoding="async"
+                      className="block h-auto w-full ring-1 ring-charcoal/10"
+                    />
+                    <figcaption className="pt-3">
+                      <p className="text-[0.62rem] font-semibold uppercase tracking-[0.3em] text-forest-deep">
+                        {t({ en: "Behind the wall", fr: "Derrière le mur", zh: "绿墙背后", es: "Detrás del muro", pa: "ਕੰਧ ਦੇ ਪਿੱਛੇ", ar: "خلف الجدار", hi: "दीवार के पीछे" })}
+                      </p>
+                      <p className="mt-1 text-xl text-forest-deep md:text-2xl">{p.title}</p>
+                      <p className="mt-1 text-[0.62rem] uppercase tracking-[0.22em] text-charcoal/60">
+                        {p.caption}
+                      </p>
+                    </figcaption>
                   </figure>
                 </div>
               ) : (
-              <div key={p.key} className={p.span}>
+              <div key={p.key} className="mb-3 break-inside-avoid">
                 <figure
                   role="button"
                   tabIndex={0}
@@ -1219,7 +1217,7 @@ function Index() {
                     }
                   }}
                   aria-label={`${t({ en: "View larger photo", fr: "Voir la photo en grand", zh: "查看大图", es: "Ver foto ampliada", pa: "ਵੱਡੀ ਫੋਟੋ ਵੇਖੋ", ar: "عرض صورة أكبر", hi: "बड़ी फोटो देखें" })}: ${p.title}`}
-                  className={`group relative cursor-zoom-in overflow-hidden bg-charcoal/5 ring-1 ring-charcoal/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-forest-deep ${p.ratio}`}
+                  className="group relative cursor-zoom-in overflow-hidden bg-charcoal/5 ring-1 ring-charcoal/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-forest-deep"
                 >
                   {"video" in p && p.video ? (
                     <video
@@ -1230,7 +1228,7 @@ function Index() {
                       loop
                       playsInline
                       preload="metadata"
-                      className="absolute inset-0 h-full w-full object-cover"
+                      className="block h-auto w-full"
                     />
                   ) : (
                     <img
@@ -1238,11 +1236,11 @@ function Index() {
                       alt={`${p.title} — ${p.caption}`}
                       loading="lazy"
                       decoding="async"
-                      className="absolute inset-0 h-full w-full object-cover"
+                      className="block h-auto w-full"
                     />
                   )}
                   <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-charcoal/75 via-transparent to-transparent opacity-80" />
-                  <figcaption className="pointer-events-none absolute inset-x-0 bottom-0 p-5 md:p-6">
+                  <figcaption className="pointer-events-none absolute inset-x-0 bottom-0 p-4">
                     <p className="text-lg text-cream md:text-xl">
                       {p.title}
                     </p>
