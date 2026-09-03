@@ -245,6 +245,26 @@ export function SystemPage({ systemKey, compact }: { systemKey: "hydroponic" | "
         </section>
       )}
 
+      {/* Mobile-only: quick compare with the other system */}
+      {!compact && (
+        <section className="mx-auto max-w-6xl px-6 pb-10 md:hidden">
+          <a
+            href={`/${other.key}`}
+            className="flex items-center justify-between gap-4 rounded-2xl bg-forest-deep p-5 text-cream transition hover:bg-forest-deep/90"
+          >
+            <div className="min-w-0">
+              <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-cream/70">
+                {t({ en: "Compare", fr: "Comparer", zh: "对比", es: "Comparar", pa: "ਤੁਲਨਾ ਕਰੋ", ar: "قارن", hi: "तुलना करें" })}
+              </p>
+              <p className="mt-1 font-serif text-xl tracking-wide">
+                {t(other.title)} — {t(other.tag)}
+              </p>
+            </div>
+            <ArrowRight className="h-5 w-5 shrink-0" aria-hidden />
+          </a>
+        </section>
+      )}
+
       {/* Footer mini */}
       <footer className="border-t border-charcoal/10 bg-white/50 py-12">
         <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-6 px-6 md:flex-row">
