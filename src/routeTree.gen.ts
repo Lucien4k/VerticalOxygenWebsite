@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as SpecificationsRouteImport } from './routes/specifications'
 import { Route as HydroponicRouteImport } from './routes/hydroponic'
+import { Route as GalleryRouteImport } from './routes/gallery'
 import { Route as AquaponicRouteImport } from './routes/aquaponic'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
@@ -23,6 +24,11 @@ const SpecificationsRoute = SpecificationsRouteImport.update({
 const HydroponicRoute = HydroponicRouteImport.update({
   id: '/hydroponic',
   path: '/hydroponic',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GalleryRoute = GalleryRouteImport.update({
+  id: '/gallery',
+  path: '/gallery',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AquaponicRoute = AquaponicRouteImport.update({
@@ -45,6 +51,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/aquaponic': typeof AquaponicRoute
+  '/gallery': typeof GalleryRoute
   '/hydroponic': typeof HydroponicRoute
   '/specifications': typeof SpecificationsRoute
 }
@@ -52,6 +59,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/aquaponic': typeof AquaponicRoute
+  '/gallery': typeof GalleryRoute
   '/hydroponic': typeof HydroponicRoute
   '/specifications': typeof SpecificationsRoute
 }
@@ -60,19 +68,33 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/aquaponic': typeof AquaponicRoute
+  '/gallery': typeof GalleryRoute
   '/hydroponic': typeof HydroponicRoute
   '/specifications': typeof SpecificationsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/about' | '/aquaponic' | '/hydroponic' | '/specifications'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/aquaponic'
+    | '/gallery'
+    | '/hydroponic'
+    | '/specifications'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/aquaponic' | '/hydroponic' | '/specifications'
+  to:
+    | '/'
+    | '/about'
+    | '/aquaponic'
+    | '/gallery'
+    | '/hydroponic'
+    | '/specifications'
   id:
     | '__root__'
     | '/'
     | '/about'
     | '/aquaponic'
+    | '/gallery'
     | '/hydroponic'
     | '/specifications'
   fileRoutesById: FileRoutesById
@@ -81,6 +103,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
   AquaponicRoute: typeof AquaponicRoute
+  GalleryRoute: typeof GalleryRoute
   HydroponicRoute: typeof HydroponicRoute
   SpecificationsRoute: typeof SpecificationsRoute
 }
@@ -99,6 +122,13 @@ declare module '@tanstack/react-router' {
       path: '/hydroponic'
       fullPath: '/hydroponic'
       preLoaderRoute: typeof HydroponicRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/gallery': {
+      id: '/gallery'
+      path: '/gallery'
+      fullPath: '/gallery'
+      preLoaderRoute: typeof GalleryRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/aquaponic': {
@@ -129,6 +159,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   AquaponicRoute: AquaponicRoute,
+  GalleryRoute: GalleryRoute,
   HydroponicRoute: HydroponicRoute,
   SpecificationsRoute: SpecificationsRoute,
 }
