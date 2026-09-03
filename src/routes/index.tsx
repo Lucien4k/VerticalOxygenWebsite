@@ -662,13 +662,6 @@ function Index() {
       const inner = maintInnerRef.current;
       const sticky = maintStickyRef.current;
       if (!panel || !inner || !sticky) return;
-      if (isMobile) {
-        sticky.style.top = "";
-        panel.style.transform = "none";
-        inner.style.transform = "none";
-        inner.style.opacity = "1";
-        return;
-      }
       // Pin the maintenance section's bottom edge to the viewport bottom:
       // sticky "top" offset = viewport height minus the section's height.
       const h = inner.offsetHeight; // layout height, unaffected by the recede scale
@@ -967,14 +960,14 @@ function Index() {
       {/* Sticky overlap transition — Maintenance pins to the viewport bottom
           while the Systems panel rises and covers it like a card. */}
       <div className="relative">
-        <div ref={maintStickyRef} className={isMobile ? "relative z-0" : "sticky z-0"}>
-          <div ref={maintInnerRef} className={isMobile ? "" : "origin-bottom will-change-transform"}>
+        <div ref={maintStickyRef} className="sticky z-0">
+          <div ref={maintInnerRef} className="origin-bottom will-change-transform">
             <MaintenanceSection />
           </div>
         </div>
 
         {/* Systems Showcase — replaces the old gallery with an interactive systems module */}
-        <section ref={systemsPanelRef} id="work" className={`relative z-20 overflow-hidden ${isMobile ? "" : "-mt-[8vh] rounded-t-[3rem]"} bg-cream pt-10 text-charcoal ${isMobile ? "" : "shadow-[0_-40px_80px_-40px_rgba(0,0,0,0.45)]"}`}>
+        <section ref={systemsPanelRef} id="work" className="relative z-20 -mt-[8vh] overflow-hidden rounded-t-[3rem] bg-cream pt-10 text-charcoal shadow-[0_-40px_80px_-40px_rgba(0,0,0,0.45)]">
           <SystemsShowcase />
         </section>
       </div>
