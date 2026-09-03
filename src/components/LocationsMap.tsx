@@ -170,7 +170,7 @@ export function LocationsMap() {
                 {/* Generous invisible hit area so tiny leaves stay tappable on mobile */}
                 <circle r={14} fill="transparent" />
                 {isHot && (
-                  <g style={{ pointerEvents: "none" }} transform="translate(0,-26)">
+                  <g style={{ pointerEvents: "none" }} transform="translate(0,-34)">
                     <rect
                       x={-Math.max(46, loc.city.length * 4.6)}
                       y={-26}
