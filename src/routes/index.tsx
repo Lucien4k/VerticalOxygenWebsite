@@ -49,7 +49,7 @@ import install5221 from "../assets/installs/img-5221.jpg.asset.json";
 import installTorontoRes from "../assets/installs/img-toronto-residential.jpeg.asset.json";
 import installConexus from "../assets/gallery/conexus-regina-atrium.png.asset.json";
 import install0628 from "../assets/installs/img-0628.jpg.asset.json";
-import cutoutCoaldale from "../assets/cutouts/coaldale-wall.png.asset.json";
+
 import westinCalgary from "../assets/gallery/westin-calgary.webp.asset.json";
 import calgaryResidential from "../assets/gallery/calgary-residential.webp.asset.json";
 import modernOffice from "../assets/gallery/modern-office.webp.asset.json";
@@ -1421,12 +1421,6 @@ function Index() {
       {/* CTA */}
       {/* Quote Form */}
       <section id="quote" className="relative overflow-hidden bg-sage-wash text-charcoal">
-        <img
-          src={cutoutCoaldale.url}
-          alt=""
-          aria-hidden
-          className="pointer-events-none absolute -top-24 -right-24 h-[380px] w-[500px] object-contain opacity-55 md:h-[500px] md:w-[680px]"
-        />
         <div className="mx-auto grid max-w-7xl gap-12 px-6 py-20 md:py-28 lg:grid-cols-5 lg:gap-16">
           <Reveal className="lg:col-span-2">
             <p className="mb-4 text-sm font-semibold uppercase tracking-widest text-forest">
