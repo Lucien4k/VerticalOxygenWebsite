@@ -1,6 +1,9 @@
 import type { Tr } from "@/lib/i18n";
-import diagramAquaponic from "../assets/diagrams/aquaponic-wall-diagram-v8.png";
-import diagramHydroponic from "../assets/diagrams/hydroponic-wall-diagram-v6.png";
+import aquaponicDiagramAsset from "../assets/diagrams/aquaponic-wall-diagram-final.png.asset.json";
+import hydroponicDiagramAsset from "../assets/diagrams/hydroponic-wall-diagram-final.png.asset.json";
+
+const diagramAquaponic = aquaponicDiagramAsset.url;
+const diagramHydroponic = hydroponicDiagramAsset.url;
 
 export type System = {
   key: string;
