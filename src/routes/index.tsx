@@ -61,6 +61,11 @@ import wellnessRetail from "../assets/gallery/wellness-retail.webp.asset.json";
 import plantingDetail from "../assets/gallery/planting-detail.webp.asset.json";
 import redDeerInstall from "../assets/gallery/red-deer-install.webp.asset.json";
 import maintenanceAtriumWall from "../assets/maintenance-plant-guarantee.png.asset.json";
+import westinCalgaryHd from "../assets/gallery/westin-calgary-enhanced.png.asset.json";
+import calgaryResidentialHd from "../assets/gallery/calgary-residential-enhanced.png.asset.json";
+import modernOfficeHd from "../assets/gallery/modern-office-enhanced.png.asset.json";
+import stantonHospitalHd from "../assets/gallery/stanton-hospital-enhanced.png.asset.json";
+import conexusReginaHd from "../assets/gallery/conexus-regina-enhanced.png.asset.json";
 
 import woodTexture from "../assets/textures/wood-texture-v2.jpg.asset.json";
 import logoHeader from "../assets/logo-header.png.asset.json";
