@@ -1306,9 +1306,17 @@ function Index() {
                   </figcaption>
                 </figure>
               </div>
-              ),
-            )}
-          </div>
+              );
+              return (
+                <div className="flex items-start gap-3">
+                  {cols.map((c, i) => (
+                    <div key={i} className="min-w-0 flex-1">
+                      {c.map((p) => render(p))}
+                    </div>
+                  ))}
+                </div>
+              );
+            })()}
         </div>
 
         {installShot && typeof document !== "undefined" && createPortal(
