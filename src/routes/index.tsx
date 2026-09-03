@@ -579,7 +579,7 @@ function Index() {
       if (!panel || !inner || !sticky) return;
       // Pin the maintenance section's bottom edge to the viewport bottom:
       // sticky "top" offset = viewport height minus the section's height.
-      const h = inner.getBoundingClientRect().height;
+      const h = inner.offsetHeight; // layout height, unaffected by the recede scale
       sticky.style.top = `${window.innerHeight - h}px`;
       const top = panel.getBoundingClientRect().top;
       const p = Math.min(1, Math.max(0, (window.innerHeight - top) / RANGE));
