@@ -353,11 +353,9 @@ export function ProjectGallery() {
                     aria-label={`${t({ en: "View larger photo", fr: "Voir la photo en grand", zh: "查看大图", es: "Ver foto ampliada", pa: "ਵੱਡੀ ਫੋਟੋ ਵੇਖੋ", ar: "عرض صورة أكبر", hi: "बड़ी फोटो देखें" })}: ${p.title}`}
                     className="group cursor-zoom-in border-2 border-forest-deep/30 bg-forest-deep/5 p-3 focus:outline-none focus-visible:ring-2 focus-visible:ring-forest-deep"
                   >
-                    <img
+                    <LazyImg
                       src={p.img}
                       alt={`${p.title} — ${p.caption}`}
-                      loading="lazy"
-                      decoding="async"
                       style={{ aspectRatio: String(AR[p.key] ?? 1.3333) }}
                       className="block h-auto w-full ring-1 ring-charcoal/10"
                     />
@@ -400,11 +398,9 @@ export function ProjectGallery() {
                       className="block h-full w-full object-cover"
                     />
                   ) : (
-                    <img
+                    <LazyImg
                       src={p.img}
                       alt={`${p.title} — ${p.caption}`}
-                      loading="lazy"
-                      decoding="async"
                       className="block h-full w-full object-cover"
                     />
                   )}
