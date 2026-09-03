@@ -586,7 +586,6 @@ function Index() {
   useEffect(() => {
     let raf = 0;
     const RANGE = 340; // px of scroll over which the recede plays out
-    const DELAY = 380; // px of scroll the panel is held in place, so the guarantee is readable
     const update = () => {
       raf = 0;
       const panel = systemsPanelRef.current;
@@ -596,14 +595,15 @@ function Index() {
       // Pin the maintenance section's bottom edge to the viewport bottom:
       // sticky "top" offset = viewport height minus the section's height.
       const h = inner.offsetHeight; // layout height, unaffected by the recede scale
-      sticky.style.top = `${window.innerHeight - h}px`;
+      // Never push the sticky element down past the top of the viewport, or a
+      // section taller than the screen leaves a blank band behind the panel.
+      sticky.style.top = `${Math.min(0, window.innerHeight - h)}px`;
       const top = panel.getBoundingClientRect().top;
       const scrolled = Math.max(0, window.innerHeight - top);
-      // Hold the panel at the bottom edge of the viewport for DELAY px of
-      // scroll: push it down by however far it has entered, capped at DELAY,
-      // so it visually waits before sliding up over the pinned section.
-      panel.style.transform = `translateY(${Math.min(scrolled, DELAY)}px)`;
-      const p = Math.min(1, Math.max(0, (scrolled - DELAY) / RANGE));
+      // The panel is never offset — it rises with normal scroll — so nothing
+      // hangs over the section below once the transition has played out.
+      panel.style.transform = "none";
+      const p = Math.min(1, Math.max(0, scrolled / RANGE));
       const eased = 1 - Math.pow(1 - p, 2); // ease-out
       inner.style.transform = `scale(${1 - eased * 0.03})`;
       inner.style.opacity = String(1 - eased * 0.12);
