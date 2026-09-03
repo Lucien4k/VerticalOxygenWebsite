@@ -15,6 +15,7 @@ type MenuItem = {
   href: string;
   items: SubItem[];
   description?: string;
+  peek?: string;
 };
 
 function isInternalHref(href: string) {
