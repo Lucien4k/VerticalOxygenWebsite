@@ -27,6 +27,21 @@ import modernOfficeHd from "../assets/gallery/modern-office-enhanced.png.asset.j
 import stantonHospitalHd from "../assets/gallery/stanton-hospital-enhanced.png.asset.json";
 import conexusReginaHd from "../assets/gallery/conexus-regina-enhanced.png.asset.json";
 
+function LazyImg({ src, alt, className, style }: { src: string; alt: string; className?: string; style?: React.CSSProperties }) {
+  const [loaded, setLoaded] = useState(false);
+  return (
+    <img
+      src={src}
+      alt={alt}
+      loading="lazy"
+      decoding="async"
+      onLoad={() => setLoaded(true)}
+      style={style}
+      className={`${className ?? ""} bg-charcoal/10 transition-opacity duration-700 ease-out ${loaded ? "opacity-100" : "opacity-0"}`}
+    />
+  );
+}
+
 export function ProjectGallery() {
   const t = useT();
   const [installShot, setInstallShot] = useState<
