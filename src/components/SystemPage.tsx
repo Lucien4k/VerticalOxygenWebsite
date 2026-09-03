@@ -61,7 +61,7 @@ export function SystemPage({ systemKey, compact }: { systemKey: "hydroponic" | "
 
       {/* Hero */}
       <section className={compact ? "mx-auto max-w-6xl px-6 pb-8 pt-8 md:pb-10 md:pt-16" : "mx-auto max-w-6xl px-6 pb-10 pt-10 md:pb-16 md:pt-24"}>
-        <div className="grid gap-8 md:gap-12 lg:grid-cols-2 lg:items-center">
+        <div className="grid gap-8 md:gap-12 lg:grid-cols-[1fr_1.33fr] lg:items-center">
           <div>
             <span className="inline-flex items-center gap-2 rounded-full border border-forest-deep/30 bg-forest-deep/5 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] text-forest-deep">
               <Leaf className="h-3.5 w-3.5" aria-hidden />
@@ -145,7 +145,7 @@ export function SystemPage({ systemKey, compact }: { systemKey: "hydroponic" | "
             <img
               src={sys.diagram}
               alt={t(sys.title) + " " + t(DIAGRAM_LABEL)}
-              className="w-full max-h-[80vh] object-contain transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.03]"
+              className="w-full max-h-[100vh] object-contain transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.03]"
               loading="eager"
             />
             <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-charcoal/0 opacity-0 transition duration-300 group-hover:bg-charcoal/10 group-hover:opacity-100">
