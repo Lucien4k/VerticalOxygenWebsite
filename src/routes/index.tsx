@@ -68,164 +68,6 @@ import logoHeader from "../assets/logo-header.png.asset.json";
 import { SYSTEMS, DIAGRAM_LABEL } from "@/lib/systems";
 import { ProjectGallery } from "@/components/ProjectGallery";
 import { useIsMobile } from "@/hooks/use-mobile";
-function SustainabilitySection() {
-  const t = useT();
-  const cards = [
-    {
-      key: "reuse",
-      stat: t({ en: "up to 90%", fr: "jusqu'à 90 %", zh: "高达 90%", es: "hasta 90 %", pa: "90% ਤੱਕ", ar: "حتى 90٪", hi: "90% तक" }),
-      title: t({ en: "Water Reused", fr: "Eau réutilisée", zh: "水资源回用", es: "Agua reutilizada", pa: "ਪਾਣੀ ਮੁੜ-ਵਰਤੋਂ", ar: "المياه المعاد استخدامها", hi: "जल पुनः उपयोग" }),
-      body: t({
-        en: "Closed-loop recirculation returns nearly all the water the roots don't drink straight back into the system.",
-        fr: "La recirculation en circuit fermé renvoie presque toute l'eau non absorbée par les racines directement dans le système.",
-        zh: "闭环循环将根系未吸收的水几乎全部回流至系统中。",
-        es: "La recirculación en circuito cerrado devuelve casi toda el agua no absorbida por las raíces directamente al sistema.",
-        pa: "ਬੰਦ-ਲੂਪ ਰੀਸਰਕੁਲੇਸ਼ਨ ਜੜ੍ਹਾਂ ਦੁਆਰਾ ਨਾ ਪੀਤੇ ਲਗਭਗ ਸਾਰੇ ਪਾਣੀ ਨੂੰ ਸਿੱਧਾ ਸਿਸਟਮ ਵਿੱਚ ਵਾਪਸ ਭੇਜਦਾ ਹੈ।",
-        ar: "إعادة التدوير في دارة مغلقة تعيد تقريباً كل المياه التي لم تمتصها الجذور مباشرة إلى النظام.",
-        hi: "क्लोज्ड-लूप पुनर्चक्रण जड़ों द्वारा न पिए गए लगभग सभी पानी को सीधे सिस्टम में लौटा देता है।",
-      }),
-    },
-    {
-      key: "litre",
-      stat: t({ en: "0.35 L", fr: "0,35 L", zh: "0.35 升", es: "0,35 L", pa: "0.35 ਲੀ", ar: "0.35 لتر", hi: "0.35 लीटर" }),
-      title: t({ en: "Per Day, Per Square Foot", fr: "Par jour, par pied carré", zh: "每日每平方英尺", es: "Por día, por pie cuadrado", pa: "ਪ੍ਰਤੀ ਦਿਨ, ਪ੍ਰਤੀ ਵਰਗ ਫੁੱਟ", ar: "يومياً لكل قدم مربع", hi: "प्रति दिन, प्रति वर्ग फुट" }),
-      body: t({
-        en: "Typical daily top-up — only the small amount the plants actually transpire, not the full reservoir.",
-        fr: "Apport quotidien typique — uniquement la petite quantité réellement transpirée par les plantes, pas le réservoir complet.",
-        zh: "典型日补水量——仅为植物实际蒸腾的少量水分，而非整个储水箱。",
-        es: "Reposición diaria típica — solo la pequeña cantidad que las plantas realmente transpiran, no el depósito completo.",
-        pa: "ਆਮ ਰੋਜ਼ਾਨਾ ਟਾਪ-ਅੱਪ — ਸਿਰਫ਼ ਉਹ ਛੋਟੀ ਮਾਤਰਾ ਜੋ ਪੌਦੇ ਅਸਲ ਵਿੱਚ ਬਾਸ਼ਪ ਕਰਦੇ ਹਨ, ਪੂਰਾ ਭੰਡਾਰ ਨਹੀਂ।",
-        ar: "التعبئة اليومية المعتادة — فقط الكمية الصغيرة التي تتبخرها النباتات فعلاً، وليس الخزان بالكامل.",
-        hi: "सामान्य दैनिक टॉप-अप — केवल वह छोटी मात्रा जो पौधे वास्तव में वाष्पित करते हैं, पूरा भंडार नहीं।",
-      }),
-    },
-    {
-      key: "zero",
-      stat: t({ en: "zero", fr: "zéro", zh: "零", es: "cero", pa: "ਜ਼ੀਰੋ", ar: "صفر", hi: "शून्य" }),
-      title: t({ en: "Runoff to Drain", fr: "Rejet à l'égout", zh: "排放至下水道", es: "Descarga al alcantarillado", pa: "ਨਿਕਾਸ ਵਿੱਚ ਵਹਾਅ", ar: "صرف إلى المجاري", hi: "नाले में बहाव" }),
-      body: t({
-        en: "No municipal water wasted. What isn't taken up by the roots stays in the loop and is filtered for the next pass.",
-        fr: "Aucune eau municipale gaspillée. Ce qui n'est pas absorbé par les racines reste dans le circuit et est filtré pour le prochain passage.",
-        zh: "不浪费市政用水。根系未吸收的水留在循环中，过滤后供下一轮使用。",
-        es: "Ninguna agua municipal desperdiciada. Lo que las raíces no absorben permanece en el circuito y se filtra para el siguiente ciclo.",
-        pa: "ਕੋਈ ਨਗਰਪਾਲਿਕਾ ਪਾਣੀ ਬਰਬਾਦ ਨਹੀਂ। ਜੋ ਜੜ੍ਹਾਂ ਲੈਂਦੀਆਂ ਨਹੀਂ ਹਨ, ਉਹ ਲੂਪ ਵਿੱਚ ਰਹਿੰਦਾ ਹੈ ਅਤੇ ਅਗਲੇ ਚੱਕਰ ਲਈ ਫਿਲਟਰ ਕੀਤਾ ਜਾਂਦਾ ਹੈ।",
-        ar: "لا هدر للمياه البلدية. ما لا تأخذه الجذور يبقى في الدارة ويُرشَّح للدورة التالية.",
-        hi: "नगरपालिका का पानी बर्बाद नहीं। जो जड़ें नहीं लेतीं वह लूप में रहता है और अगले चक्र के लिए फ़िल्टर कर दिया जाता है।",
-      }),
-    },
-  ];
-  return (
-          <section id="sustainability" className="relative overflow-hidden bg-charcoal text-cream">
-            {/* Mobile — image-led and compact */}
-            <div className="md:hidden">
-              <div className="relative">
-                <img
-                  src={tropicalDense.url}
-                  alt={t({ en: "Dense tropical living wall", fr: "Mur végétal tropical dense", zh: "茂密的热带植物墙", es: "Muro vivo tropical denso", pa: "ਗੱਢਾ ਉਸ਼ਨਕਟੀਬੰਧੀ ਜੀਵੰਤ ਕੰਧ", ar: "جدار حي استوائي كثيف", hi: "घनी उष्णकटिबंधीय लिविंग वॉल" })}
-                  loading="lazy"
-                  className="h-56 w-full object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/45 to-charcoal/10" aria-hidden />
-                <div className="absolute inset-x-6 bottom-5">
-                  <p className="mb-2 text-[10px] font-semibold uppercase tracking-[0.3em] text-forest">
-                    {t({ en: "Sustainability", fr: "Durabilité", zh: "可持续性", es: "Sostenibilidad", pa: "ਸਸਟੇਨੇਬਿਲਟੀ", ar: "الاستدامة", hi: "सस्टेनेबिलिटी" })}
-                  </p>
-                  <h2 className="display-heading text-3xl leading-[1.05]">
-                    {t({
-                      en: "Closed-loop recirculating water system.",
-                      fr: "Système d'eau recirculée en boucle fermée.",
-                      zh: "闭环循环水系统。",
-                      es: "Sistema de agua recirculada en circuito cerrado.",
-                      pa: "ਬੰਦ-ਲੂਪ ਰੀਸਰਕੁਲੇਟਿੰਗ ਪਾਣੀ ਦਾ ਸਿਸਟਮ।",
-                      ar: "نظام مياه معاد تدويرها في دارة مغلقة.",
-                      hi: "बंद-लूप पुनर्संचालित जल प्रणाली।",
-                    })}
-                  </h2>
-                </div>
-              </div>
-              <div className="px-6 pb-10 pt-6">
-                <p className="text-sm leading-relaxed text-cream/70">
-                  {t({
-                    en: "Our hydroponic and aquaponic walls run on closed-loop recirculating water. Instead of draining away, the same water cycles through the root matrix again and again — topping up only what the plants actually drink. The result is a living wall that uses a fraction of the water of traditional irrigation while keeping roots oxygenated and healthy.",
-                    fr: "Nos murs hydroponiques et aquaponiques fonctionnent en circuit fermé à eau recyclée. Au lieu de s'écouler, la même eau circule encore et encore à travers la matrice racinaire — compensant uniquement ce que les plantes consomment. Résultat : un mur végétal qui consomme une fraction de l'eau d'une irrigation traditionnelle tout en gardant les racines oxygénées et saines.",
-                    zh: "我们的水培和鱼菜共生墙体采用闭环循环水系统。水流不会排走，而是反复流经根系基质——仅补充植物实际吸收的水分。这样的植物墙用水量仅为传统灌溉的一小部分，同时保持根系富氧、健康。",
-                    es: "Nuestros muros hidropónicos y acuapónicos funcionan con agua recirculada en circuito cerrado. En lugar de drenar, la misma agua pasa por la matriz de raíces una y otra vez — reponiendo solo lo que las plantas beben. El resultado es un muro vivo que usa una fracción del agua del riego tradicional mientras mantiene las raíces oxigenadas y sanas.",
-                    pa: "ਸਾਡੀਆਂ ਹਾਈਡਰੋਪੋਨਿਕ ਅਤੇ ਐਕੁਆਪੋਨਿਕ ਕੰਧਾਂ ਬੰਦ-ਲੂਪ ਰੀਸਰਕੁਲੇਟਿੰਗ ਪਾਣੀ 'ਤੇ ਚੱਲਦੀਆਂ ਹਨ। ਪਾਣੀ ਨੂੰ ਵਹਾਉਣ ਦੀ ਬਜਾਏ, ਇਹੀ ਪਾਣੀ ਜੜ੍ਹਾਂ ਵਿੱਚ ਵਾਰ-ਵਾਰ ਚੱਕਰ ਕੱਟਦਾ ਹੈ — ਸਿਰਫ਼ ਉਹਨਾਂ ਨੂੰ ਭਰਪੂਰ ਕਰਦਾ ਹੈ ਜੋ ਪੌਦੇ ਸੱਚਮੁੱਚ ਪੀਂਦੇ ਹਨ। ਨਤੀਜਾ ਇੱਕ ਅਜਿਹੀ ਜੀਵੰਤ ਕੰਧ ਹੈ ਜੋ ਪਰੰਪਰਾਗਤ ਸਿੰਚਾਈ ਦੇ ਪਾਣੀ ਦਾ ਇੱਕ ਹਿੱਸਾ ਵਰਤਦੀ ਹੈ ਅਤੇ ਜੜ੍ਹਾਂ ਨੂੰ ਆਕਸੀਜਨਯੁਕਤ ਤੇ ਸਿਹਤਮੰਦ ਰੱਖਦੀ ਹੈ।",
-                    ar: "تعمل جدراننا المائية والسمكية على مياه معاد تدويرها في دارة مغلقة. بدلاً من أن تصرف، تدور نفس المياه عبر مصفوفة الجذور مراراً — ولا يُعوَّض إلا ما تستهلكه النباتات فعلاً. النتيجة جدار حي يستخدم جزءاً صغيراً من مياه الري التقليدي مع إبقاء الجذور مؤكسجة وسليمة.",
-                    hi: "हमारी हाइड्रोपोनिक और एक्वापोनिक दीवारें क्लोज्ड-लूप रीसर्कुलेटिंग जल पर चलती हैं। पानी बहकर निकलने के बजाय बार-बार जड़ मैट्रिक्स से गुजरता है — केवल उतना ही भरा जाता है जितना पौधे वास्तव में पीते हैं। नतीजा एक ऐसी जीवित दीवार है जो पारंपरिक सिंचाई के पानी का एक अंश उपयोग करती है, जड़ों को ऑक्सीजनयुक्त और स्वस्थ रखती है।",
-                  })}
-                </p>
-                <div className="-mx-6 mt-5 flex snap-x snap-mandatory gap-3 overflow-x-auto px-6 pb-1">
-                  {cards.map((c) => (
-                    <div key={c.key} className="w-[70%] shrink-0 snap-center rounded-2xl border border-cream/10 bg-cream/5 p-5">
-                      <p className="font-serif text-3xl text-forest">{c.stat}</p>
-                      <h3 className="mt-2 text-sm font-semibold text-cream">{c.title}</h3>
-                    </div>
-                  ))}
-                </div>
-                <details className="group mt-5 rounded-2xl border border-cream/10 bg-cream/5">
-                  <summary className="flex cursor-pointer list-none items-center justify-between px-5 py-3.5 text-sm font-semibold text-cream [&::-webkit-details-marker]:hidden">
-                    {t({ en: "Learn more", fr: "En savoir plus", zh: "了解更多", es: "Más información", pa: "ਹੋਰ ਜਾਣੋ", ar: "اعرف المزيد", hi: "और जानें" })}
-                    <ChevronDown className="h-4 w-4 transition-transform duration-300 group-open:rotate-180" aria-hidden />
-                  </summary>
-                  <div className="space-y-4 px-5 pb-5">
-                    {cards.map((c) => (
-                      <div key={c.key}>
-                        <p className="text-xs font-semibold uppercase tracking-[0.18em] text-cream/60">{c.title}</p>
-                        <p className="mt-1 text-sm leading-relaxed text-cream/65">{c.body}</p>
-                      </div>
-                    ))}
-                  </div>
-                </details>
-              </div>
-            </div>
-            {/* Desktop */}
-            <div className="relative mx-auto hidden max-w-7xl px-6 py-20 md:block md:py-28">
-              <Reveal>
-                <p className="mb-3 text-xs font-semibold uppercase tracking-[0.3em] text-forest">
-                  {t({ en: "Sustainability", fr: "Durabilité", zh: "可持续性", es: "Sostenibilidad", pa: "ਸਸਟੇਨੇਬਿਲਟੀ", ar: "الاستدامة", hi: "सस्टेनेबिलिटी" })}
-                </p>
-                <h2 className="display-heading max-w-3xl text-4xl leading-[1.05] md:text-6xl">
-                  {t({
-                    en: "Closed-loop recirculating water system.",
-                    fr: "Système d'eau recirculée en boucle fermée.",
-                    zh: "闭环循环水系统。",
-                    es: "Sistema de agua recirculada en circuito cerrado.",
-                    pa: "ਬੰਦ-ਲੂਪ ਰੀਸਰਕੁਲੇਟਿੰਗ ਪਾਣੀ ਦਾ ਸਿਸਟਮ।",
-                    ar: "نظام مياه معاد تدويرها في دارة مغلقة.",
-                    hi: "बंद-लूप पुनर्संचालित जल प्रणाली।",
-                  })}
-                </h2>
-                <p className="mt-6 max-w-2xl text-base leading-relaxed text-cream/70">
-                  {t({
-                    en: "Our hydroponic and aquaponic walls run on closed-loop recirculating water. Instead of draining away, the same water cycles through the root matrix again and again — topping up only what the plants actually drink. The result is a living wall that uses a fraction of the water of traditional irrigation while keeping roots oxygenated and healthy.",
-                    fr: "Nos murs hydroponiques et aquaponiques fonctionnent en circuit fermé à eau recyclée. Au lieu de s'écouler, la même eau circule encore et encore à travers la matrice racinaire — compensant uniquement ce que les plantes consomment. Résultat : un mur végétal qui consomme une fraction de l'eau d'une irrigation traditionnelle tout en gardant les racines oxygénées et saines.",
-                    zh: "我们的水培和鱼菜共生墙体采用闭环循环水系统。水流不会排走，而是反复流经根系基质——仅补充植物实际吸收的水分。这样的植物墙用水量仅为传统灌溉的一小部分，同时保持根系富氧、健康。",
-                    es: "Nuestros muros hidropónicos y acuapónicos funcionan con agua recirculada en circuito cerrado. En lugar de drenar, la misma agua pasa por la matriz de raíces una y otra vez — reponiendo solo lo que las plantas beben. El resultado es un muro vivo que usa una fracción del agua del riego tradicional mientras mantiene las raíces oxigenadas y sanas.",
-                    pa: "ਸਾਡੀਆਂ ਹਾਈਡਰੋਪੋਨਿਕ ਅਤੇ ਐਕੁਆਪੋਨਿਕ ਕੰਧਾਂ ਬੰਦ-ਲੂਪ ਰੀਸਰਕੁਲੇਟਿੰਗ ਪਾਣੀ 'ਤੇ ਚੱਲਦੀਆਂ ਹਨ। ਪਾਣੀ ਨੂੰ ਵਹਾਉਣ ਦੀ ਬਜਾਏ, ਇਹੀ ਪਾਣੀ ਜੜ੍ਹਾਂ ਵਿੱਚ ਵਾਰ-ਵਾਰ ਚੱਕਰ ਕੱਟਦਾ ਹੈ — ਸਿਰਫ਼ ਉਹਨਾਂ ਨੂੰ ਭਰਪੂਰ ਕਰਦਾ ਹੈ ਜੋ ਪੌਦੇ ਸੱਚਮੁੱਚ ਪੀਂਦੇ ਹਨ। ਨਤੀਜਾ ਇੱਕ ਅਜਿਹੀ ਜੀਵੰਤ ਕੰਧ ਹੈ ਜੋ ਪਰੰਪਰਾਗਤ ਸਿੰਚਾਈ ਦੇ ਪਾਣੀ ਦਾ ਇੱਕ ਹਿੱਸਾ ਵਰਤਦੀ ਹੈ ਅਤੇ ਜੜ੍ਹਾਂ ਨੂੰ ਆਕਸੀਜਨਯੁਕਤ ਤੇ ਸਿਹਤਮੰਦ ਰੱਖਦੀ ਹੈ।",
-                    ar: "تعمل جدراننا المائية والسمكية على مياه معاد تدويرها في دارة مغلقة. بدلاً من أن تصرف، تدور نفس المياه عبر مصفوفة الجذور مراراً — ولا يُعوَّض إلا ما تستهلكه النباتات فعلاً. النتيجة جدار حي يستخدم جزءاً صغيراً من مياه الري التقليدي مع إبقاء الجذور مؤكسجة وسليمة.",
-                    hi: "हमारी हाइड्रोपोनिक और एक्वापोनिक दीवारें क्लोज्ड-लूप रीसर्कुलेटिंग जल पर चलती हैं। पानी बहकर निकलने के बजाय बार-बार जड़ मैट्रिक्स से गुजरता है — केवल उतना ही भरा जाता है जितना पौधे वास्तव में पीते हैं। नतीजा एक ऐसी जीवित दीवार है जो पारंपरिक सिंचाई के पानी का एक अंश उपयोग करती है, जड़ों को ऑक्सीजनयुक्त और स्वस्थ रखती है।",
-                  })}
-                </p>
-              </Reveal>
-
-              <div className="mt-14 grid gap-6 md:grid-cols-3">
-                {cards.map((c, i) => (
-                  <Reveal key={c.key} delay={i * 0.08}>
-                    <div className="h-full rounded-3xl border border-cream/10 bg-cream/5 p-8 backdrop-blur-sm">
-                      <p className="font-serif text-4xl text-forest md:text-5xl">{c.stat}</p>
-                      <h3 className="mt-5 text-xl font-semibold text-cream">{c.title}</h3>
-                      <p className="mt-3 text-sm leading-relaxed text-cream/65">{c.body}</p>
-                    </div>
-                  </Reveal>
-                ))}
-              </div>
-            </div>
-          </section>
-
-      
-  );
-}
 
 function MaintenanceSection() {
   const t = useT();
@@ -363,30 +205,18 @@ function MaintenanceSection() {
   );
 }
 
-// Mobile-only photo strips — visual variety in each system section
-const SYSTEM_PHOTOS: Record<string, string[]> = {
-  hydroponic: [modernOfficeHd.url, stantonHospitalHd.url, plantingDetail.url],
-  aquaponic: [aquaponicFeature.url, conexusReginaHd.url, maintenanceAtriumWall.url],
+// Short visual intro to both systems — full detail lives on the dedicated pages.
+const SYSTEM_HERO: Record<string, string> = {
+  hydroponic: modernOfficeHd.url,
+  aquaponic: aquaponicFeature.url,
 };
 
 function SystemsShowcase() {
   const t = useT();
-  const [lightbox, setLightbox] = useState<string | null>(null);
-  const [mounted, setMounted] = useState(false);
-  useEffect(() => setMounted(true), []);
-
-  useEffect(() => {
-    if (!lightbox) return;
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setLightbox(null);
-    };
-    window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
-  }, [lightbox]);
 
   return (
-    <div id="work" className="relative mx-auto max-w-7xl px-6 py-24 md:py-32">
-      <div className="mb-14 max-w-2xl">
+    <div id="work" className="relative mx-auto max-w-7xl px-6 py-16 md:py-28">
+      <div className="mb-10 max-w-2xl md:mb-14">
         <p className="mb-3 text-xs font-semibold uppercase tracking-[0.3em] text-forest">
           {t({
             en: "Our Systems",
@@ -409,9 +239,9 @@ function SystemsShowcase() {
             ar: "طريقتان لزراعة جدار.",
             hi: "दीवार उगाने के दो तरीके।",
           })}
-          className="display-heading text-5xl leading-[1] text-charcoal md:text-7xl lg:text-[5.5rem]"
+          className="display-heading text-4xl leading-[1] text-charcoal md:text-7xl lg:text-[5.5rem]"
         />
-        <p className="mt-6 max-w-xl text-charcoal/70 md:text-lg">
+        <p className="mt-5 max-w-xl text-charcoal/70 md:text-lg">
           {t({
             en: "Every Vertical Oxygen wall is built on one of two engineered systems.",
             fr: "Chaque mur Vertical Oxygen repose sur l'un de nos deux systèmes d'ingénierie.",
@@ -424,147 +254,40 @@ function SystemsShowcase() {
         </p>
       </div>
 
-      {SYSTEMS.map((sys, idx) => (
-        <div
-          key={sys.key}
-          className={`grid gap-10 md:grid-cols-2 md:items-start md:gap-14 ${idx > 0 ? "mt-20 border-t border-charcoal/10 pt-20" : ""}`}
-        >
-          {/* Details */}
-          <div className={idx % 2 === 1 ? "md:order-2" : ""}>
-            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-forest">
-              {t(sys.tag)}
-            </p>
-            <h3 className="mt-3 font-serif text-4xl text-charcoal md:text-5xl">
-              {t(sys.tagline)}
-            </h3>
-            <p className="mt-5 text-charcoal/75 md:text-lg">{t(sys.description)}</p>
-
-            <dl className="mt-8 grid grid-cols-2 gap-px overflow-hidden rounded-2xl bg-charcoal/10 ring-1 ring-charcoal/10">
-              {sys.stats.map((s) => (
-                <div key={s.label.en} className="bg-cream p-4 md:p-5">
-                  <dt className="text-[10px] font-semibold uppercase tracking-[0.2em] text-charcoal/50">
-                    {t(s.label)}
-                  </dt>
-                  <dd className="mt-1.5 font-serif text-xl text-charcoal md:text-2xl">
-                    {t(s.value)}
-                  </dd>
-                </div>
-              ))}
-            </dl>
-
-            <ul className="mt-8 space-y-3">
-              {sys.highlights.map((h) => (
-                <li key={h.text.en} className="flex items-start gap-3 text-charcoal/80">
-                  <span className={`mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full ${h.color ?? "bg-forest"}`} />
-                  <span>{t(h.text)}</span>
-                </li>
-              ))}
-            </ul>
-
-            <div className="mt-10">
-              <Link
-                to={sys.key === "hydroponic" ? "/hydroponic" : "/aquaponic"}
-                className="group inline-flex items-center gap-2 rounded-full bg-forest-deep px-6 py-3 text-xs font-semibold uppercase tracking-[0.25em] text-cream transition hover:bg-charcoal md:text-sm"
-              >
-                {t({ en: "Explore the", fr: "Explorer le système", zh: "了解", es: "Explorar el sistema", pa: "ਸਿਸਟਮ ਦੇਖੋ", ar: "استكشف نظام", hi: "सिस्टम देखें" })} {t(sys.title)}
-                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-              </Link>
-            </div>
-          </div>
-
-          {/* System diagram */}
-          <div
-            role="button"
-            tabIndex={0}
-            aria-label={t({
-              en: "Click to enlarge",
-              fr: "Cliquer pour agrandir",
-              zh: "点击放大",
-              es: "Clic para ampliar",
-              pa: "ਵੱਡਾ ਕਰਨ ਲਈ ਕਲਿੱਕ ਕਰੋ",
-              ar: "انقر لتكبير",
-              hi: "बड़ा करने के लिए क्लिक करें",
-            })}
-            onClick={() => setLightbox(sys.diagram)}
-            onKeyDown={(e) => {
-              if (e.key === "Enter" || e.key === " ") {
-                e.preventDefault();
-                setLightbox(sys.diagram);
-              }
-            }}
-            className={`group relative cursor-zoom-in overflow-hidden rounded-2xl bg-white ring-1 ring-charcoal/10 shadow-[0_24px_60px_-24px_rgba(0,0,0,0.25)] transition hover:ring-forest/40 ${idx % 2 === 1 ? "md:order-1" : ""}`}
-          >
-            <img
-              src={sys.diagram}
-              alt={t(sys.title)}
-              className="w-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.03]"
-              loading="lazy"
-            />
-            <span className="pointer-events-none absolute top-4 right-4 inline-flex items-center gap-2 rounded-full bg-charcoal/80 px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.2em] text-cream opacity-0 backdrop-blur-sm transition-opacity duration-300 group-hover:opacity-100">
-              <ZoomIn className="h-3.5 w-3.5" />
-              {t({
-                en: "Enlarge",
-                fr: "Agrandir",
-                zh: "放大",
-                es: "Ampliar",
-                pa: "ਵੱਡਾ ਕਰੋ",
-                ar: "تكبير",
-                hi: "बड़ा करें",
-              })}
-            </span>
-          </div>
-
-          {/* Mobile photo strip — cropped swipe cards */}
-          <div className="md:hidden">
-            <div className="-mx-6 flex snap-x snap-mandatory gap-3 overflow-x-auto px-6 pb-1">
-              {SYSTEM_PHOTOS[sys.key].map((src, i) => (
+      <div className="grid gap-6 md:grid-cols-2 md:gap-8">
+        {SYSTEMS.map((sys, i) => (
+          <Reveal key={sys.key} delay={i * 100}>
+            <Link
+              to={sys.key === "hydroponic" ? "/hydroponic" : "/aquaponic"}
+              className="group block overflow-hidden rounded-3xl bg-white ring-1 ring-charcoal/10 transition hover:ring-forest/40"
+            >
+              <div className="relative aspect-[4/3] overflow-hidden">
                 <img
-                  key={i}
-                  src={src}
+                  src={SYSTEM_HERO[sys.key]}
                   alt={t(sys.title)}
                   loading="lazy"
-                  className={`shrink-0 snap-center rounded-xl object-cover ${i === 0 ? "h-52 w-[75%]" : "h-52 w-[60%]"}`}
+                  decoding="async"
+                  className="h-full w-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.04]"
                 />
-              ))}
-            </div>
-          </div>
-        </div>
-      ))}
-
-      {/* Lightbox */}
-      {mounted &&
-        lightbox &&
-        typeof document !== "undefined" &&
-        createPortal(
-          <div
-            className="fixed inset-0 z-[100] flex items-center justify-center bg-charcoal/95 p-4 backdrop-blur-sm"
-            onClick={() => setLightbox(null)}
-          >
-            <button
-              type="button"
-              onClick={() => setLightbox(null)}
-              aria-label={t({
-                en: "Close",
-                fr: "Fermer",
-                zh: "关闭",
-                es: "Cerrar",
-                pa: "ਬੰਦ ਕਰੋ",
-                ar: "إغلاق",
-                hi: "बंद करें",
-              })}
-              className="absolute top-4 right-4 rounded-full bg-cream/10 p-3 text-cream transition hover:bg-cream/20 hover:text-white"
-            >
-              <X className="h-6 w-6" />
-            </button>
-            <img
-              src={lightbox}
-              alt={t(DIAGRAM_LABEL)}
-              className="max-h-full max-w-full rounded-2xl object-contain shadow-2xl"
-              onClick={(e) => e.stopPropagation()}
-            />
-          </div>,
-          document.body
-        )}
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-charcoal/70 via-transparent to-transparent" />
+                <p className="absolute bottom-4 left-5 text-[10px] font-semibold uppercase tracking-[0.28em] text-cream/85">
+                  {t(sys.tag)}
+                </p>
+              </div>
+              <div className="p-6 md:p-8">
+                <h3 className="font-serif text-3xl text-charcoal md:text-4xl">{t(sys.title)}</h3>
+                <p className="mt-3 line-clamp-3 text-sm leading-relaxed text-charcoal/70 md:text-base">
+                  {t(sys.tagline)}
+                </p>
+                <span className="mt-6 inline-flex items-center gap-2 rounded-full bg-forest-deep px-6 py-3 text-xs font-semibold uppercase tracking-[0.22em] text-cream transition group-hover:bg-charcoal md:text-sm">
+                  {t({ en: "Explore", fr: "Explorer", zh: "了解", es: "Explorar", pa: "ਦੇਖੋ", ar: "استكشف", hi: "देखें" })} {t(sys.title)}
+                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </span>
+              </div>
+            </Link>
+          </Reveal>
+        ))}
+      </div>
     </div>
   );
 }
@@ -581,38 +304,6 @@ export const Route = createFileRoute("/")({
     links: [{ rel: "canonical", href: "/" }],
   }),
 });
-
-function MobileGalleryTeaser() {
-  const t = useT();
-  return (
-    <section id="motion" className="bg-cream px-6 py-16 text-charcoal">
-      <p className="mb-3 text-xs font-semibold uppercase tracking-[0.3em] text-terra-light">
-        {t({ en: "Project Gallery", fr: "Galerie de projets", zh: "项目图库", es: "Galería de proyectos", pa: "ਪ੍ਰੋਜੈਕਟ ਗੈਲਰੀ", ar: "معرض المشاريع", hi: "प्रोजेक्ट गैलरी" })}
-      </p>
-      <h2 className="display-heading text-4xl leading-[1.05] text-charcoal">
-        {t({ en: "Living, breathing installations.", fr: "Des installations vivantes qui respirent.", zh: "会呼吸的生命装置。", es: "Instalaciones vivas que respiran.", pa: "ਜੀਵੰਤ, ਸਾਹ ਲੈਂਦੀਆਂ ਸਥਾਪਨਾਵਾਂ।", ar: "تركيبات حية تتنفس.", hi: "जीवंत, सांस लेती इंस्टॉलेशन।" })}
-      </h2>
-      <div className="mt-5 overflow-hidden ring-1 ring-charcoal/10">
-        <img
-          src={westinCalgaryHd.url}
-          alt={t({ en: "The Westin, Calgary living wall", fr: "Mur végétal du Westin, Calgary", zh: "卡尔加里威斯汀酒店植物墙", es: "Muro vivo en The Westin, Calgary", pa: "ਦ ਵੈਸਟਿਨ, ਕੈਲਗਰੀ ਲਿਵਿੰਗ ਵਾਲ", ar: "جدار حي في ذا ويستن، كالغاري", hi: "द वेस्टिन, कैलगरी लिविंग वॉल" })}
-          loading="lazy"
-          className="block h-auto w-full"
-        />
-      </div>
-      <p className="mt-5 text-charcoal/75">
-        {t({ en: "Lobbies, offices and homes across Canada — see the full set of photos.", fr: "Halls, bureaux et maisons partout au Canada — découvrez toutes les photos.", zh: "遍布加拿大的大堂、办公室与住宅——查看全部照片。", es: "Vestíbulos, oficinas y hogares por todo Canadá: mira todas las fotos.", pa: "ਕਨੇਡਾ ਭਰ ਵਿੱਚ ਲਾਬੀਆਂ, ਦਫ਼ਤਰ ਅਤੇ ਘਰ — ਸਾਰੀਆਂ ਫੋਟੋਆਂ ਵੇਖੋ।", ar: "ردهات ومكاتب ومنازل في أنحاء كندا — شاهد جميع الصور.", hi: "कनाडा भर में लॉबी, कार्यालय और घर — सभी तस्वीरें देखें।" })}
-      </p>
-      <Link
-        to="/gallery"
-        className="mt-6 inline-flex items-center gap-2 rounded-full bg-forest-deep px-6 py-3 text-sm font-semibold text-cream"
-      >
-        {t({ en: "View the gallery", fr: "Voir la galerie", zh: "查看图库", es: "Ver la galería", pa: "ਗੈਲਰੀ ਵੇਖੋ", ar: "عرض المعرض", hi: "गैलरी देखें" })}
-        <ArrowRight className="h-4 w-4" aria-hidden />
-      </Link>
-    </section>
-  );
-}
 
 function Index() {
   const t = useT();
@@ -849,6 +540,24 @@ function Index() {
               <NavMenu
                 menus={[
                   {
+                    label: t({ en: "Hydroponic", fr: "Hydroponique", zh: "水培", es: "Hidropónico", pa: "ਹਾਈਡਰੋਪੋਨਿਕ", ar: "مائي", hi: "हाइड्रोपोनिक" }),
+                    href: "/hydroponic",
+                    items: [],
+                    peek: t({ en: "Soilless System", fr: "Système sans sol", zh: "无土系统", es: "Sistema sin suelo", pa: "ਬਿਨਾਂ ਮਿੱਟੀ ਸਿਸਟਮ", ar: "نظام بلا تربة", hi: "मृदा-रहित सिस्टम" }),
+                  },
+                  {
+                    label: t({ en: "Aquaponic", fr: "Aquaponique", zh: "鱼菜共生", es: "Acuapónico", pa: "ਐਕੁਆਪੋਨਿਕ", ar: "أكوابوني", hi: "एक्वापोनिक" }),
+                    href: "/aquaponic",
+                    items: [],
+                    peek: t({ en: "Living Ecosystem", fr: "Écosystème vivant", zh: "活体生态系统", es: "Ecosistema vivo", pa: "ਜੀਵੰਤ ਈਕੋਸਿਸਟਮ", ar: "نظام بيئي حي", hi: "जीवंत पारिस्थितिकी" }),
+                  },
+                  {
+                    label: t({ en: "Gallery", fr: "Galerie", zh: "图库", es: "Galería", pa: "ਗੈਲਰੀ", ar: "المعرض", hi: "गैलरी" }),
+                    href: "/gallery",
+                    items: [],
+                    peek: t({ en: "Projects", fr: "Projets", zh: "项目", es: "Proyectos", pa: "ਪ੍ਰੋਜੈਕਟ", ar: "المشاريع", hi: "प्रोजेक्ट्स" }),
+                  },
+                  {
                     label: t({ en: "About", fr: "À propos", zh: "关于我们", es: "Sobre nosotros", pa: "ਸਾਡੇ ਬਾਰੇ", ar: "من نحن", hi: "हमारे बारे में" }),
                     href: "/about",
                     items: [],
@@ -1058,7 +767,6 @@ function Index() {
         </section>
       </div>
 
-      <SustainabilitySection />
       <div className="relative h-5 w-full overflow-hidden md:h-7" aria-hidden>
         <div
           className="absolute inset-0 bg-cover bg-center"
@@ -1066,7 +774,7 @@ function Index() {
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/45 via-transparent to-black/55" />
       </div>
-      {isMobile ? <MobileGalleryTeaser /> : <ProjectGallery />}
+      <ProjectGallery preview />
 
       {/* Wood shelf divider */}
       <div className="relative h-5 w-full overflow-hidden md:h-7" aria-hidden>

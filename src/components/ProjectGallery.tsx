@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import { createPortal } from "react-dom";
+import { Link } from "@tanstack/react-router";
+import { ArrowRight } from "lucide-react";
 import { useT } from "@/lib/i18n";
 import { Reveal } from "@/components/Reveal";
 import { WordsReveal } from "@/components/WordsReveal";
@@ -42,7 +44,7 @@ function LazyImg({ src, alt, className, style }: { src: string; alt: string; cla
   );
 }
 
-export function ProjectGallery() {
+export function ProjectGallery({ preview = false }: { preview?: boolean } = {}) {
   const t = useT();
   const [installShot, setInstallShot] = useState<
     { img: string; title: string; caption: string; video?: string } | null
@@ -103,7 +105,7 @@ export function ProjectGallery() {
           </div>
 
           {(() => {
-              const items = [
+              const allItems = [
               {
                 img: westinCalgary.url,
                 key: "westin-calgary",
@@ -283,6 +285,26 @@ export function ProjectGallery() {
                 ratio: "",
               },
               ];
+              const PREVIEW_KEYS = [
+                "westin-calgary",
+                "toronto-residential",
+                "de-la-salle",
+                "calgary-residential",
+                "modern-office",
+                "filler",
+                "conexus-regina",
+                "aquaponic-feature",
+                "stanton-hospital",
+                "atrium-wall",
+                "edmonton-residential",
+              ];
+              const previewItems = allItems.filter((i) => PREVIEW_KEYS.includes(i.key));
+              // On phones show a tighter edit so the homepage stays short.
+              const items = preview
+                ? galleryCols === 1
+                  ? previewItems.slice(0, 6)
+                  : previewItems
+                : allItems;
               const AR: Record<string, number> = {
                 "westin-calgary": 1.3333,
                 "toronto-residential": 0.462,
@@ -306,7 +328,7 @@ export function ProjectGallery() {
                 "stanton-hospital-hd": 1.3333,
                 "conexus-regina-hd": 1.3333,
               };
-              type GalleryItem = (typeof items)[number];
+              type GalleryItem = (typeof allItems)[number];
               const cols: GalleryItem[][] = Array.from({ length: galleryCols }, () => []);
               const heights: number[] = Array.from({ length: galleryCols }, () => 0);
               const filler = items.find((i) => i.key === "filler");
@@ -417,13 +439,26 @@ export function ProjectGallery() {
               </div>
               );
               return (
-                <div className="flex items-start gap-3">
-                  {cols.map((c, i) => (
-                    <div key={i} className="min-w-0 flex-1">
-                      {c.map((p) => render(p))}
+                <>
+                  <div className="flex items-start gap-3">
+                    {cols.map((c, i) => (
+                      <div key={i} className="min-w-0 flex-1">
+                        {c.map((p) => render(p))}
+                      </div>
+                    ))}
+                  </div>
+                  {preview && (
+                    <div className="mt-10 flex justify-center md:mt-14">
+                      <Link
+                        to="/gallery"
+                        className="group inline-flex items-center gap-3 rounded-full bg-forest-deep px-8 py-4 text-xs font-semibold uppercase tracking-[0.25em] text-cream transition hover:bg-charcoal md:text-sm"
+                      >
+                        {t({ en: "View full gallery", fr: "Voir toute la galerie", zh: "查看完整图库", es: "Ver la galería completa", pa: "ਪੂਰੀ ਗੈਲਰੀ ਵੇਖੋ", ar: "عرض المعرض كاملاً", hi: "पूरी गैलरी देखें" })}
+                        <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" aria-hidden />
+                      </Link>
                     </div>
-                  ))}
-                </div>
+                  )}
+                </>
               );
             })()}
         </div>

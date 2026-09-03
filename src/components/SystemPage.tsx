@@ -6,6 +6,7 @@ import { useT } from "@/lib/i18n";
 import { SYSTEMS, DIAGRAM_LABEL } from "@/lib/systems";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import logoHeader from "../assets/logo-header.png.asset.json";
+import { SustainabilitySection } from "@/components/SustainabilitySection";
 
 export function SystemPage({ systemKey, compact }: { systemKey: "hydroponic" | "aquaponic"; compact?: boolean }) {
   const t = useT();
@@ -265,6 +266,9 @@ export function SystemPage({ systemKey, compact }: { systemKey: "hydroponic" | "
         </section>
       )}
 
+      {/* Closed-loop water system */}
+      <SustainabilitySection />
+
       {/* Footer mini */}
       <footer className="border-t border-charcoal/10 bg-white/50 py-12">
         <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-6 px-6 md:flex-row">
@@ -278,6 +282,7 @@ export function SystemPage({ systemKey, compact }: { systemKey: "hydroponic" | "
           <div className="flex flex-wrap items-center justify-center gap-4 text-sm text-charcoal/60">
             <Link to="/" className="hover:text-forest-deep">{t({ en: "Home", fr: "Accueil", zh: "首页", es: "Inicio", pa: "ਹੋਮ", ar: "الرئيسية", hi: "होम" })}</Link>
             <Link to="/about" className="hover:text-forest-deep">{t({ en: "About", fr: "À propos", zh: "关于", es: "Nosotros", pa: "ਬਾਰੇ", ar: "من نحن", hi: "परिचय" })}</Link>
+            <Link to="/gallery" className="hover:text-forest-deep">{t({ en: "Gallery", fr: "Galerie", zh: "图库", es: "Galería", pa: "ਗੈਲਰੀ", ar: "المعرض", hi: "गैलरी" })}</Link>
             <Link to="/specifications" className="hover:text-forest-deep">{t({ en: "Specifications", fr: "Spécifications", zh: "规格", es: "Especificaciones", pa: "ਵਿਸ਼ੇਸ਼ਤਾਵਾਂ", ar: "المواصفات", hi: "विनिर्देश" })}</Link>
           </div>
           <p className="text-xs text-charcoal/40">
