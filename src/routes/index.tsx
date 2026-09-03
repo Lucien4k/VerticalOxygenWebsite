@@ -575,7 +575,12 @@ function Index() {
       raf = 0;
       const panel = systemsPanelRef.current;
       const inner = maintInnerRef.current;
-      if (!panel || !inner) return;
+      const sticky = maintStickyRef.current;
+      if (!panel || !inner || !sticky) return;
+      // Pin the maintenance section's bottom edge to the viewport bottom:
+      // sticky "top" offset = viewport height minus the section's height.
+      const h = inner.getBoundingClientRect().height;
+      sticky.style.top = `${window.innerHeight - h}px`;
       const top = panel.getBoundingClientRect().top;
       const p = Math.min(1, Math.max(0, (window.innerHeight - top) / RANGE));
       const eased = 1 - Math.pow(1 - p, 2); // ease-out
