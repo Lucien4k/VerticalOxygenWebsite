@@ -2,6 +2,7 @@ import { useState, type ReactNode } from "react";
 import { ChevronDown, Menu, X } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import { useT } from "@/lib/i18n";
+import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 
 type SubItem = {
   label: string;
@@ -266,6 +267,12 @@ export function NavMenu({ menus }: { menus: MenuItem[] }) {
               </div>
             ))}
           </nav>
+          <div className="mt-6 flex items-center justify-between gap-4 border-t border-charcoal/10 pt-5">
+            <span className="text-xs font-semibold uppercase tracking-[0.2em] text-charcoal/50">
+              {t({ en: "Language", fr: "Langue", zh: "语言", es: "Idioma", pa: "ਭਾਸ਼ਾ", ar: "اللغة", hi: "भाषा" })}
+            </span>
+            <LanguageSwitcher />
+          </div>
           <a
             href="#quote"
             onClick={() => setMobileOpen(false)}
