@@ -892,6 +892,8 @@ function Index() {
 
       {/* Photo showcase — living, breathing installations */}
       {/* Wood shelf divider */}
+      <MobileProjectPhotos />
+
       <section id="clients" className="relative overflow-hidden bg-cream py-24 text-charcoal md:py-32">
         <Reveal>
           <ClientLogos />
