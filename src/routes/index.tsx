@@ -954,7 +954,7 @@ function Index() {
       {/* Sticky overlap transition — Maintenance pins to the viewport bottom
           while the Systems panel rises and covers it like a card. */}
       <div className="relative">
-        <div className="sticky bottom-0 z-0">
+        <div ref={maintStickyRef} className="sticky z-0">
           <div ref={maintInnerRef} className="origin-bottom will-change-transform">
             <MaintenanceSection />
           </div>
