@@ -59,14 +59,14 @@ export function SystemPage({ systemKey, compact }: { systemKey: "hydroponic" | "
       </header>
 
       {/* Hero */}
-      <section className={compact ? "mx-auto max-w-6xl px-6 pb-10 pt-12 md:pt-16" : "mx-auto max-w-6xl px-6 pb-16 pt-16 md:pt-24"}>
-        <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
+      <section className={compact ? "mx-auto max-w-6xl px-6 pb-8 pt-8 md:pb-10 md:pt-16" : "mx-auto max-w-6xl px-6 pb-10 pt-10 md:pb-16 md:pt-24"}>
+        <div className="grid gap-8 md:gap-12 lg:grid-cols-2 lg:items-center">
           <div>
             <span className="inline-flex items-center gap-2 rounded-full border border-forest-deep/30 bg-forest-deep/5 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] text-forest-deep">
               <Leaf className="h-3.5 w-3.5" aria-hidden />
               {t(sys.tag)}
             </span>
-            <h1 className="mt-6 font-serif text-5xl leading-[1.05] tracking-tight text-charcoal md:text-6xl">
+            <h1 className="mt-4 font-serif text-4xl leading-[1.05] tracking-tight text-charcoal md:mt-6 md:text-6xl">
               {t(sys.title)} {t({
                 en: "living wall",
                 fr: "mur végétal",
@@ -79,16 +79,16 @@ export function SystemPage({ systemKey, compact }: { systemKey: "hydroponic" | "
             </h1>
             {!compact && (
               <>
-                <p className="mt-6 max-w-xl text-lg leading-relaxed text-charcoal/70 md:text-xl">
+                <p className="mt-4 max-w-xl font-serif text-xl leading-snug tracking-wide text-forest-deep md:mt-6 md:text-2xl">
                   {t(sys.tagline)}
                 </p>
-                <p className="mt-4 max-w-xl text-base leading-relaxed text-charcoal/60">
+                <p className="mt-3 max-w-xl text-sm leading-relaxed text-charcoal/60 md:mt-4 md:text-base">
                   {t(sys.description)}
                 </p>
               </>
             )}
 
-            <div className="mt-8 flex flex-wrap items-center gap-3">
+            <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center md:mt-8">
               <a
                 href="/#quote"
                 className="inline-flex items-center justify-center gap-2 rounded-full bg-forest-deep px-6 py-3 text-sm font-semibold text-cream transition hover:bg-forest-deep/90"
@@ -166,15 +166,15 @@ export function SystemPage({ systemKey, compact }: { systemKey: "hydroponic" | "
       </section>
 
       {/* Philosophy */}
-      <section className={compact ? "mx-auto max-w-6xl px-6 pb-6 pt-6" : "mx-auto max-w-6xl px-6 pb-8 pt-10"}>
-        <div className="rounded-3xl bg-forest-deep/5 px-6 py-8 ring-1 ring-forest-deep/10 md:px-10 md:py-10">
+      <section className={compact ? "mx-auto max-w-6xl px-6 pb-6 pt-6" : "mx-auto max-w-6xl px-6 pb-8 pt-8 md:pt-10"}>
+        <div className="rounded-3xl bg-forest-deep/5 px-5 py-6 ring-1 ring-forest-deep/10 md:px-10 md:py-10">
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-forest-deep/80">
             {t({ en: "Our Philosophy", fr: "Notre philosophie", zh: "我们的理念", es: "Nuestra filosofía", pa: "ਸਾਡਾ ਦਰਸ਼ਨ", ar: "فلسفتنا", hi: "हमारा दर्शन" })}
           </p>
-          <h2 className="mt-3 font-serif text-2xl tracking-tight text-charcoal md:text-3xl">
+          <h2 className="mt-2 font-serif text-xl tracking-tight text-charcoal md:mt-3 md:text-3xl">
             {t({ en: "Beauty with simplicity.", fr: "La beauté dans la simplicité.", zh: "以简约成就美感。", es: "Belleza con simplicidad.", pa: "ਸਾਦਗੀ ਵਿੱਚ ਸੁੰਦਰਤਾ।", ar: "الجمال في البساطة.", hi: "सादगी में सुंदरता।" })}
           </h2>
-          <p className="mt-4 max-w-3xl text-base leading-relaxed text-charcoal/70">
+          <p className="mt-3 max-w-3xl text-sm leading-relaxed text-charcoal/70 md:mt-4 md:text-base">
             {t({
               en: "Living walls couple beauty with simplicity to create healthy, living works of art. Each wall is custom made to satisfy our clients' dreams.",
               fr: "Les murs végétaux allient beauté et simplicité pour créer des œuvres d'art vivantes et saines. Chaque mur est réalisé sur mesure pour concrétiser les rêves de nos clients.",
@@ -189,28 +189,33 @@ export function SystemPage({ systemKey, compact }: { systemKey: "hydroponic" | "
       </section>
 
       {/* Stats */}
-      <section className="border-y border-charcoal/10 bg-white/50 py-12">
-        <div className="mx-auto grid max-w-6xl gap-6 px-6 sm:grid-cols-2 lg:grid-cols-4">
-          {sys.stats.map((stat) => (
-            <div
-              key={t(stat.label)}
-              className="rounded-2xl border border-charcoal/10 bg-cream p-6 text-center"
-            >
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-charcoal/50">
-                {t(stat.label)}
-              </p>
-              <p className="mt-2 font-serif text-2xl text-forest-deep md:text-3xl">
-                {t(stat.value)}
-              </p>
-            </div>
-          ))}
+      <section className="border-y border-charcoal/10 bg-white/50 py-8 md:py-12">
+        <div className="mx-auto max-w-6xl px-6">
+          <p className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-charcoal/50 md:hidden">
+            {t({ en: "At a glance", fr: "En bref", zh: "一览", es: "De un vistazo", pa: "ਇੱਕ ਨਜ਼ਰ ਵਿੱਚ", ar: "لمحة سريعة", hi: "एक नज़र में" })}
+          </p>
+          <div className="grid grid-cols-2 gap-3 md:gap-6 lg:grid-cols-4">
+            {sys.stats.map((stat) => (
+              <div
+                key={t(stat.label)}
+                className="rounded-2xl border border-charcoal/10 bg-cream p-4 text-center md:p-6"
+              >
+                <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-charcoal/50 md:text-xs md:tracking-[0.18em]">
+                  {t(stat.label)}
+                </p>
+                <p className="mt-1.5 font-serif text-lg leading-tight text-forest-deep md:mt-2 md:text-3xl">
+                  {t(stat.value)}
+                </p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
       {/* Highlights */}
       {!compact && (
-        <section className="mx-auto max-w-6xl px-6 py-16 md:py-24">
-          <h2 className="font-serif text-3xl tracking-tight text-charcoal md:text-4xl">
+        <section className="mx-auto max-w-6xl px-6 py-10 md:py-24">
+          <h2 className="font-serif text-2xl tracking-tight text-charcoal md:text-4xl">
             {t({
               en: "Why choose",
               fr: "Pourquoi choisir",
@@ -221,22 +226,42 @@ export function SystemPage({ systemKey, compact }: { systemKey: "hydroponic" | "
               hi: "क्यों चुनें",
             })} {t(sys.title).toLowerCase()}?
           </h2>
-          <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-5 grid grid-cols-2 gap-3 md:mt-8 md:gap-4 lg:grid-cols-3">
             {sys.highlights.map((h) => (
               <div
                 key={t(h.text)}
-                className="flex items-start gap-4 rounded-2xl border border-charcoal/10 bg-white p-6"
+                className="flex items-start gap-2.5 rounded-2xl border border-charcoal/10 bg-white p-4 md:gap-4 md:p-6"
               >
                 <span
                   className={`mt-1 h-2.5 w-2.5 shrink-0 rounded-full ${h.color ?? "bg-forest-deep"}`}
                   aria-hidden
                 />
-                <p className="text-base leading-relaxed text-charcoal/80">
+                <p className="text-sm leading-snug text-charcoal/80 md:text-base md:leading-relaxed">
                   {t(h.text)}
                 </p>
               </div>
             ))}
           </div>
+        </section>
+      )}
+
+      {/* Mobile-only: quick compare with the other system */}
+      {!compact && (
+        <section className="mx-auto max-w-6xl px-6 pb-10 md:hidden">
+          <a
+            href={`/${other.key}`}
+            className="flex items-center justify-between gap-4 rounded-2xl bg-forest-deep p-5 text-cream transition hover:bg-forest-deep/90"
+          >
+            <div className="min-w-0">
+              <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-cream/70">
+                {t({ en: "Compare", fr: "Comparer", zh: "对比", es: "Comparar", pa: "ਤੁਲਨਾ ਕਰੋ", ar: "قارن", hi: "तुलना करें" })}
+              </p>
+              <p className="mt-1 font-serif text-xl tracking-wide">
+                {t(other.title)} — {t(other.tag)}
+              </p>
+            </div>
+            <ArrowRight className="h-5 w-5 shrink-0" aria-hidden />
+          </a>
         </section>
       )}
 
